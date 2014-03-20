@@ -1,0 +1,51 @@
+"Window": {backgroundColor:"#eee"}
+
+"#main": {
+	layout:"vertical",
+	height:Ti.UI.SIZE,width:Ti.UI.SIZE
+}
+
+"#logo_container" : {
+	top:10,width:50,height:50,backgroundColor:"#333",
+	borderRadius:25,borderColor:"#ccc",borderWidth:3
+}
+
+"#logo":{
+	width:30,height:30
+}
+
+"#model" : {
+	top:5,height:Ti.UI.SIZE,
+	font:{
+		fontSize: 36
+	},
+	color:"#2179ca"
+}
+
+"#btn_container": {
+	top:20,
+	height:Ti.UI.SIZE,
+	width:Ti.UI.SIZE,
+	backgroundColor:"#2179ca",
+	borderRadius:4,
+	borderWidth:0.5,
+	borderColor:"#fff"
+}
+
+"#btn" : {
+	left:20,right:20,top:10,bottom:10,height:Ti.UI.SIZE,width:Ti.UI.SIZE,
+	font:{
+		fontSize: 16
+	},
+	color:"#eee"
+}
+
+"#cancel": {
+	top:20,
+	color:"#777",
+	width:Ti.UI.SIZE,
+	height:Ti.UI.SIZE,
+	font:{
+		fontSize:12
+	}
+}

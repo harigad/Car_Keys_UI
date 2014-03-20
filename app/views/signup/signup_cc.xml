@@ -1,0 +1,19 @@
+<Alloy>
+	<Window>
+		<View id="main" >
+				<View id="logo" backgroundImage="logos/48/Tata.png"></View>
+			<Label id="model">G35</Label>
+			<Label id="explain">
+				Please enter a small amount to be charged onto a card with the same name and address as your car	
+			</Label>
+			<TextField id="amount" hintText="$0.00" ></TextField>
+			<View class="hr"></View>
+			<TextField id="credit" hintText="credit/debit card number" ></TextField>
+			<View class="hr"></View>
+			<TextField id="mmyy" hintText="MMYY" ></TextField>
+			<View id="btn">
+				<Label id="btn_label">Veriify My Ownership</Label>
+			</View>
+		</View>
+	</Window>	
+</Alloy>

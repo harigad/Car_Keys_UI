@@ -1,0 +1,7 @@
+<Alloy>
+	<View id="main">
+		<View id="left_btn" onClick="goBack" />
+		<Label id="title"/>
+		<View id="right_btn" onClick="goHome" />
+	</View>
+</Alloy>

@@ -1,0 +1,1 @@
+module.exports = [{"isId":true,"priority":100000.0016,"key":"main","style":{width:Ti.UI.FILL,layout:"vertical",height:Ti.UI.SIZE,top:5,bottom:5,}}];

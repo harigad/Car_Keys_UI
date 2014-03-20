@@ -1,0 +1,22 @@
+"#main":{
+	height:Ti.UI.SIZE,layout:"horizontal"
+}
+
+"#photo":{
+	width:25,height:25,backgroundColor:"#ccc",borderRadius:2,right:10
+}
+
+"Label":{
+	width:Ti.UI.SIZE,right:5,
+	color:"#2179ca",height:Ti.UI.SIZE,
+	font:{
+		fontSize:11
+	}
+}
+
+"#edit_icon":{
+	width:22,height:22,
+	backgroundImage:"common/edit_icon.png",
+	visible:false,
+	bubbleParent:false
+}

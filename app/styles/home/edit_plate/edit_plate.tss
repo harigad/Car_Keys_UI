@@ -1,0 +1,10 @@
+"Window":{backgroundColor:"#eee"}
+
+"#plate":{
+	height:100,left:10,right:10,top:10,
+	color:"#333",
+	font:{
+		fontSize:60,fontWeight:"bold"
+	}
+}
+

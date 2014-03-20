@@ -1,0 +1,6 @@
+<Alloy>
+	<View id="main" onClick="goToModel" >
+			<Label id="name"></Label>
+			<Label id="friends"></Label><Label id="count">300 cars</Label>	
+	</View>
+</Alloy>

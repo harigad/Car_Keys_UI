@@ -1,0 +1,46 @@
+<Alloy>
+	<View id="main" >
+		<View id="model_container" onClick="goToModel">
+		<View id="bar"></View>
+			<View top="0" height=Ti.UI.SIZE>
+				<View id="logo_container" onClick="goToMake">
+					<View id="logo" ></View>
+				</View>	
+				<View id="topLine">
+					<Label id="model"></Label>
+				</View>
+			</View>
+			<Label id="year"></Label>
+		</View>
+		<View id="data_container" layout="vertical" height="Ti.UI.SIZE" >
+		<View class="data_container">
+			<View class="left_box" >
+				<Label class="left_label">
+					owned:</Label>
+			</View>	
+			<View class="right_box" >
+				<Label class="right_label" id="owned" ></Label>
+			</View>	
+		</View>
+		<View class="data_container">
+			<View class="left_box" >
+				<Label class="left_label">
+					shares with:</Label>
+			</View>	
+			<View class="right_box" id="shares" >
+				
+			</View>	
+		</View>
+		<View class="data_container">
+			<View class="left_box" >
+				<Label class="left_label">
+					radio stations:
+				</Label>
+			</View>	
+			<View class="right_box" id="radios" >
+				
+			</View>	
+		</View>
+		</View>
+	</View>
+</Alloy>

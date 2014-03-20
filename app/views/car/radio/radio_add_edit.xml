@@ -1,0 +1,7 @@
+<Alloy>
+	<Window onFocus="onFocus" backgroundColor="#eee" >
+		<View height="Ti.UI.SIZE" width="320" top="0" >
+			<TextField id="plate" onReturn="onEdit" ></TextField>
+		</View>
+	</Window>
+</Alloy>

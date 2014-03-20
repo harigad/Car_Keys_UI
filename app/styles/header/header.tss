@@ -1,0 +1,25 @@
+"#main":{
+	height:50,top:0,
+	backgroundColor:"#eee"
+}
+
+"#title":{
+	width:Ti.UI.SIZE,
+	color:"#aaa",
+	font:{
+		fontSize:14,fontWeight:"bold"
+	}
+}
+
+"#left_btn":{
+	left:10,height:30,width:22,
+	backgroundImage:"common/left_btn.png",
+	borderRadius:2
+}
+
+"#right_btn":{
+	right:10,height:30,width:36,
+	backgroundImage:"common/home_icon.png",
+	borderRadius:2
+}
+

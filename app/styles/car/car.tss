@@ -1,0 +1,94 @@
+"#main":{
+	top:0,bottom:10,borderRadius:4,backgroundColor:"#eee",
+	height:Ti.UI.SIZE,
+	layout:"vertical"
+}
+
+"#model_container":{
+	top:0,bottom:10,
+	height:Ti.UI.SIZE
+}
+
+"#bar" : {
+	backgroundColor:"#fff",height:30,left:0,top:0,opacity:0.5
+}
+
+"#container":{
+	layout:"horizontal",height:Ti.UI.SIZE
+}
+
+"#logo_container" : {
+	left:25,width:50,height:50,backgroundColor:"#333",
+	borderRadius:25,borderColor:"#ccc",borderWidth:3,
+	bubbleParent:false
+}
+
+"#logo":{
+	width:30,height:30,
+	backgroundImage:"logos/48/Acura.png"
+}
+
+
+"#txtContainer" : {
+	left:10,width:Ti.UI.SIZE,height:Ti.UI.SIZE,layout:"vertical"
+}
+
+"#topLine": {
+	left:85,
+	width:Ti.UI.SIZE,height:Ti.UI.SIZE,layout:"horizontal"
+}
+
+"#model":{
+	width:Ti.UI.SIZE,height:Ti.UI.SIZE,color:"#2179ca",
+	font:{
+		fontSize:20,fontWeight:"bold"
+	}
+}
+
+"#year":{
+	left:85,bottom:10,width:Ti.UI.SIZE,height:Ti.UI.SIZE,color:"#999",
+	font:{
+		fontSize:11
+	}
+}
+
+"#bottomLine": {
+	top:5,left:0,width:Ti.UI.SIZE,height:Ti.UI.SIZE,layout:"horizontal"
+}
+
+"#owned":{
+	width:Ti.UI.SIZE,height:Ti.UI.SIZE,color:"#999",
+	font:{
+		fontSize:11
+	}
+}
+
+".data_container":{
+	height:Ti.UI.SIZE,layout:"horizontal",bottom:10
+}
+
+".left_box":{
+	 width:75,height:Ti.UI.SIZE,left:0,top:0
+}
+
+".left_label":{
+	width:75,
+	color:"#999",height:Ti.UI.SIZE,
+	font:{
+		fontSize:11
+	},
+	textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT
+}
+
+".right_box":{
+	 width:190,height:Ti.UI.SIZE,left:5,top:0,layout:"vertical"
+}
+
+".right_label":{
+	left:0,
+	color:"#333",height:Ti.UI.SIZE,
+	font:{
+		fontSize:11
+	}
+}
+

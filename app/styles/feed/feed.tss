@@ -1,0 +1,13 @@
+"#container":{
+	height:Ti.UI.SIZE,top:0,
+	backgroundColor:"#eee",borderRadius:4
+}
+
+"#main":{
+	height:Ti.UI.SIZE,
+	layout:"vertical"
+}
+
+"#bar":{
+	top:0,backgroundColor:"#fff",height:30,borderRadius:4,opacity:0.5
+}

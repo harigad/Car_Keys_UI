@@ -1,0 +1,6 @@
+<Alloy>
+	<View id="main" onClick="onClick" >
+		<View id="photo" ></View>
+		<Label id="name" ></Label>
+	</View>
+</Alloy>

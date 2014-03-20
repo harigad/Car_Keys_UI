@@ -1,0 +1,20 @@
+<Alloy>
+	<Window>
+		<ScrollView id="scroll" top="50" >
+		<View id="profile_container" >
+			<View height="Ti.UI.SIZE" top="-10" >
+			<View id="photo" ></View>
+			<View id="plate_container" >
+				<Label id="name" ></Label>
+				<View height="1" backgroundColor="#fff" right="20" top="5" bottom="5" ></View>
+				<Label id="plate" ></Label>
+			</View>
+			</View>
+		</View>
+		<View id="cars_container">
+			<View id="cars_container_inner"></View>
+		</View>
+		</ScrollView>
+		<Require type="view" src="header/header" id="header"/>
+	</Window>
+</Alloy>

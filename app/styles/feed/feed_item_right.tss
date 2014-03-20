@@ -1,0 +1,46 @@
+"#main":{
+	top:5,bottom:5,
+	height:Ti.UI.SIZE
+}
+
+"#bar" : {
+	backgroundColor:"#5689d5",height:1,left:0,top:"50%",right:30,opacity:0.5
+}
+
+"#container":{
+	layout:"horizontal",height:Ti.UI.SIZE,width:Ti.UI.SIZE,right:20
+}
+
+"#photo" : {
+	width:50,height:50,backgroundColor:"#ccc",
+	borderRadius:25,borderColor:"#ccc",borderWidth:3
+}
+
+"#txtContainer" : {
+	right:10,width:Ti.UI.SIZE,height:Ti.UI.SIZE,layout:"vertical"
+}
+
+"#topLine": {
+	bottom:5,left:0,
+	width:Ti.UI.SIZE,height:Ti.UI.SIZE,layout:"horizontal"
+}
+
+
+
+"#name":{
+	width:Ti.UI.SIZE,height:Ti.UI.SIZE,color:"#5689d5",
+	font:{
+		fontSize:14
+	}
+}
+
+"#bottomLine": {
+	top:5,left:0,width:Ti.UI.SIZE,height:Ti.UI.SIZE,layout:"horizontal"
+}
+
+"#plate":{
+	width:Ti.UI.SIZE,height:Ti.UI.SIZE,color:"#333",
+	font:{
+		fontSize:14,fontWeight:"bold"
+	}
+}

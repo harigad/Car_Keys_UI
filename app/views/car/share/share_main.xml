@@ -1,0 +1,7 @@
+<Alloy>
+		<View id="main" onClick="goToUser" >
+			<View id="photo"></View>
+			<Label  id="text" ></Label>
+			<View id="edit_icon" onClick="onEdit"></View>
+		</View>
+</Alloy>

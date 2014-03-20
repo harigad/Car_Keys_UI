@@ -1,0 +1,9 @@
+<Alloy>
+	<Window backgroundColor="#fff">
+		<ScrollView height="Ti.UI.FILL">
+			<View layout="vertical" id="friends" height="Ti.UI.SIZE">
+			
+			</View>
+		</ScrollView>
+	</Window>
+</Alloy>

@@ -1,0 +1,44 @@
+"Window":{
+	backgroundColor:"#ccc"
+}
+
+"#title":{
+	top:20,height:Ti.UI.SIZE,
+	left:10,right:10,
+	bottom:10,
+	font:{
+		color:"#fff",fontSize:18
+	},
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+	shadowColor: '#999',
+    shadowOffset: {x:2, y:2},
+    shadowRadius: 3,
+}
+
+".point":{
+	left:10,right:10,height:Ti.UI.SIZE,
+	bottom:10,top:10,
+	font:{
+		color:"#333",fontSize:14
+	},
+	shadowColor: '#fff',
+    shadowOffset: {x:2, y:2},
+    shadowRadius: 3,
+}
+
+"#continue_btn":{
+	backgroundColor:"#999",
+	borderRadius:4,
+	left:10,right:10,top:10,bottom:10,height:Ti.UI.SIZE
+}
+
+"#continue_btn_label":{
+	top:20,bottom:20,height:Ti.UI.SIZE,
+	color:"#eee",
+	font:{
+		fontSize:18,fontWeight:"bold"
+	},
+	shadowColor: '#666',
+    shadowOffset: {x:2, y:2},
+    shadowRadius: 3,
+}

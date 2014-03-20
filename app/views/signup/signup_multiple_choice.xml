@@ -1,0 +1,46 @@
+<Alloy>
+	<Window>
+		<ImageView id="bgImage"></ImageView>
+		<View id="main" >
+			<View id="logo_container">
+					<View id="logo" ></View>
+			</View>	
+			<View id="progress_bar">
+				<View class="ball" id="ball1" />
+				<View class="bar"  />
+				
+				<View class="ball" id="ball2" />
+				<View class="bar"  />
+				
+				<View class="ball" id="ball3" />
+			</View>
+			<Label id="question">
+				When did you buy your G35?
+			</Label>
+			<View class="answer_container" onClick="onClick">
+				<Label id="answer1" class="answer" text="Red" ></Label>
+			</View>
+			<View class="hr"></View>
+			
+			<View class="answer_container" onClick="onClick">
+				<Label id="answer2" class="answer" text="Green" ></Label>
+			</View>
+			<View class="hr"></View>
+			
+			<View class="answer_container" onClick="onClick">
+				<Label id="answer3" class="answer" text="Gray" ></Label>
+			</View>
+			<View class="hr"></View>
+			
+			<View class="answer_container" onClick="onClick">
+				<Label id="answer4" class="answer" text="White" ></Label>
+			</View>
+			<View class="hr"></View>
+			
+			<View class="answer_container" onClick="onClick">
+				<Label id="answer5" class="answer" text="Black" ></Label>
+			</View>
+			<Label id="cancel" onClick="onCancel">cancel</Label>
+		</View>
+	</Window>	
+</Alloy>

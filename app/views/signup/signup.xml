@@ -1,0 +1,10 @@
+<Alloy>
+	<Window>
+		<ImageView id="bgImage"></ImageView>
+		<View id="main" >
+			<TextField id="plate" hintText="Plate #" ></TextField>
+			 <View id="hr"></View>
+			<TextField id="zipcode" hintText="Zipcode" onReturn="process" ></TextField>
+		</View>
+	</Window>	
+</Alloy>

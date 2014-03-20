@@ -1,0 +1,19 @@
+<Alloy>
+	<Window>
+	<ScrollView id="scroll" top="50" >
+		<View id="profile_container" >
+			<View id="plate_container" onClick="editPlate">
+				<Label id="plate">create your own plate</Label>
+				<View id="edit_icon"></View>
+			</View>
+		</View>
+		<View id="main">
+			 <Label class="separator" >rides</Label>
+			 <Require type="view" src="mycars/mycars" id="mycars"/>
+			 <Label class="separator">friends</Label>
+			 <Require type="view" src="feed/feed" id="feed"/>
+		</View>
+	</ScrollView>
+	<Require type="view" src="header/header" id="header" />
+	</Window>
+</Alloy>

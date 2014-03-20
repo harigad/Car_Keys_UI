@@ -1,0 +1,16 @@
+<Alloy>
+	<View id="main" onClick="goToProfile">
+		<View id="bar"></View>
+		<View id="container">
+			<View id="photo" ></View>
+			<View id="txtContainer">
+				<View id="topLine">
+					<Label id="name">Katherine</Label>
+				</View>	
+				<View id="bottomLine">
+					<Label id="plate">UTDROCKS</Label>
+				</View>
+			</View>	
+		</View>
+	</View>
+</Alloy>

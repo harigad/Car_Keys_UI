@@ -1,0 +1,16 @@
+"#main":{
+	layout:"horizontal",
+	height:Ti.UI.SIZE
+}
+
+"#photo":{
+	width:50,
+	height:50,
+	backgroundColor:"#eee"
+}
+
+"#name":{
+	 left:10,
+	 height:Ti.UI.SIZE,
+	 color:"#2179ca" 
+}

@@ -1,0 +1,6 @@
+<Alloy>
+	<View id="main">
+		<View id="bar"></View>
+		<View id="logo_container" onClick="goToMake" ><ImageView id="logo" /></View>
+	</View>
+</Alloy>

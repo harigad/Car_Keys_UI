@@ -1,0 +1,44 @@
+"Window": {backgroundColor:"#333"}
+"#main": {
+	layout:"vertical",
+	left:10,right:10,top:10,bottom:10
+}
+
+".hr": {
+	height:1,left:20,right:20,
+	backgroundColor:"#555"
+}
+
+"#logo" :{backgroundImage:"",width:48,height:48}
+
+
+
+"#model" : {
+	font:{
+		fontSize: 24
+	},color:"#999"
+}
+
+"#explain" :{
+	left:10,right:10,height:Ti.UI.SIZE,
+	font:{
+		fontSize: 11
+	},
+	color:"#999"
+}
+
+"TextField":{
+	backgroundColor:"#333",color:"#777",
+	left:20,
+	right:20,font:{fontSize:18},height:40,
+	borderStyle:Ti.UI.INPUT_BORDERSTYLE_NONE
+}
+
+"#btn":{
+	height:Ti.UI.SIZE
+}
+
+"#btn_label" : {
+	height:Ti.UI.SIZE,top:10,bottom:10,
+	color:"#fff"
+}

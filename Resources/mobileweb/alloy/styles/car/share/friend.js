@@ -1,0 +1,1 @@
+module.exports = [{"isId":true,"priority":100000.0031,"key":"main","style":{layout:"horizontal",height:Ti.UI.SIZE,}},{"isId":true,"priority":100000.0032,"key":"photo","style":{width:50,height:50,backgroundColor:"#eee",}},{"isId":true,"priority":100000.0033,"key":"name","style":{left:10,height:Ti.UI.SIZE,color:"#2179ca",}}];

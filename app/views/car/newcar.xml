@@ -1,0 +1,15 @@
+<Alloy>
+	<View id="main" >
+		<View id="model_container" onClick="addCar">
+		<View id="bar"></View>
+			<View top="0" height=Ti.UI.SIZE>
+				<View id="logo_container" >
+					<View id="logo" ></View>
+				</View>	
+				<View id="topLine">
+					<Label id="model">ADD NEW</Label>
+				</View>
+			</View>
+			</View>
+	</View>
+</Alloy>

@@ -1,0 +1,62 @@
+"Window":{backgroundColor:"#ccc",navBarHidden:true} 
+
+"#profile_container":{
+	backgroundColor:"#eee",
+	top:0,
+	height:150
+}
+
+"#profile_container_container":{
+	height:Ti.UI.SIZE,top:10,
+	layout:"vertical"
+}
+
+"#photo":{
+	backgroundColor:"#333",
+	width:50,height:50,
+	borderRadius:25,
+	borderWidth:3,
+	borderColor:"#cecece"
+}
+
+"#logo":{
+	width:30,height:30
+}
+
+"#plate":{
+	color:"#333",
+	font:{
+		fontSize:36,fontWeight:"bold"
+	}
+}
+
+"#cars_container":{
+	top:120,
+	height:Ti.UI.SIZE
+}
+
+"#content":{
+	top:0,left:20,right:20,
+	height:Ti.UI.SIZE,layout:"vertical"
+}
+
+"#post_container":{
+	height:Ti.UI.SIZE,bottom:10,
+	layout:"horizontal"
+}
+
+"#post_icon":{
+	left:10,top:10,width:40,height:40,backgroundColor:"#fff",borderRadius:4,opacity:0.6
+}
+
+"#post_btn":{
+	top:0,borderRadius:4,
+	backgroundColor:"#5689d5",height:60	
+}
+
+"#post_label":{
+	color:"#fff",
+	font:{
+		fontSize:24
+	}
+}

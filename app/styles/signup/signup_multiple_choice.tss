@@ -1,0 +1,66 @@
+"Window": {backgroundColor:"#eee"}
+
+"#main": {
+	layout:"vertical",
+	left:10,right:10,top:10,bottom:10
+}
+
+".hr": {
+	height:1,left:20,right:20,
+	backgroundColor:"#eee"
+}
+
+"#logo_container" : {
+	width:50,height:50,backgroundColor:"#333",
+	borderRadius:25,borderColor:"#ccc",borderWidth:3
+}
+
+"#logo":{
+	width:30,height:30
+}
+
+
+"#question" :{
+	left:30,top:10,right:10,height:Ti.UI.SIZE,
+	font:{
+		fontSize: 16
+	},
+	color:"#777"
+}
+
+"#progress_bar":{
+	layout:"horizontal",
+	width:Ti.UI.SIZE,
+	height:Ti.UI.SIZE,top:10,bottom:10
+}
+
+".ball":{
+	width:20,height:20,borderRadius:20,
+	backgroundColor:"#555"
+}
+
+".bar" : {
+	width:85,height:2,
+	backgroundColor:"#555"
+}
+
+
+".answer_container":{
+	height:Ti.UI.SIZE,left:30,right:30,
+	backgroundColor:"#aaa",borderRadius:2
+}
+
+".answer":{
+	color:"#333",
+	left:30,top:10,bottom:10,
+	right:30,font:{fontSize:16},height:40
+}
+
+"#cancel": {
+	color:"#777",
+	width:Ti.UI.SIZE,
+	height:Ti.UI.SIZE,
+	font:{
+		fontSize:12
+	}
+}

@@ -1,0 +1,17 @@
+<Alloy>
+	<Window>
+	<ScrollView id="scroll" top=50>
+		<View id="profile_container" >
+			<View id="photo" >
+				<View id="logo" ></View>
+				<Label id="make_name"></Label>
+			</View>
+		</View>
+		<View id="main_container">
+			<View id="main">
+		    </View>
+		</View>
+	</ScrollView>
+	<Require type="view" src="header/header" id="header"/>
+	</Window>
+</Alloy>

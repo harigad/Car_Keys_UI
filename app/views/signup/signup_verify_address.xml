@@ -1,0 +1,32 @@
+<Alloy>
+	<Window>
+		<ImageView id="bgImage"></ImageView>
+		<View id="main" >
+			<View id="logo_container">
+					<View id="logo" ></View>
+			</View>	
+			<View id="progress_bar">
+				<View class="ball" id="ball1" />
+				<View class="bar"  />
+				
+				<View class="ball" id="ball2" />
+				<View class="bar"  />
+				
+				<View class="ball" id="ball3" />
+			</View>
+			<Label id="question">
+				Verify your registration address!
+			</Label>
+			<View class="answer_container" >
+				<TextField id="address" hintText="Enter your address line#" onReturn="onReturn" ></TextField>
+			</View>
+			<View class="answer_container" onClick="onClick" layout="horizontal" >
+				<Label id="city" class="answer"  >irving,</Label>
+				<Label id="state" class="answer"  >texas</Label>
+				<Label id="zipcode" class="answer"  >75039</Label>
+			</View>
+		
+			<Label id="cancel" onClick="onCancel">cancel</Label>
+		</View>
+	</Window>	
+</Alloy>

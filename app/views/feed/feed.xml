@@ -1,0 +1,6 @@
+<Alloy>
+		<View id="container" >
+			<View id="bar"></View>
+			<View id="main" ></View>
+		</View>
+</Alloy>

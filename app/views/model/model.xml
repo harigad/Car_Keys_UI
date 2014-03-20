@@ -1,0 +1,25 @@
+<Alloy>
+	<Window>	
+		<ScrollView id="scroll"  top="50" >
+			<View id="profile_container" >
+				<View id="profile_container_container">
+				<View id="photo" onClick="goToMake" >
+					<View id="logo" ></View>
+				</View>
+				<Label id="plate" ></Label>
+				</View>
+			</View>
+			<View id="cars_container">
+				<View id="content">
+					<View id="post_container" >
+						<View id="post_btn" >
+							<View id="post_icon"></View>
+							<Label id="post_label">post</Label>
+						</View>
+					</View>
+				</View>
+			</View>
+		</ScrollView>
+		<Require type="view" src="header/header" id="header"/>
+	</Window>
+</Alloy>

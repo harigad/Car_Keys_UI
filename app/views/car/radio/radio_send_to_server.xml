@@ -1,0 +1,7 @@
+<Alloy>
+	<Window backgroundColor="#eee" >
+		<View height="Ti.UI.SIZE" >
+			<Label height="Ti.UI.SIZE" >Updating..</Label>
+		</View>
+	</Window>
+</Alloy>

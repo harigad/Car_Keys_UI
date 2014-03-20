@@ -1,0 +1,16 @@
+<Alloy>
+	<Window>
+		<ImageView id="bgImage"></ImageView>
+		<View id="main" >
+			<View id="logo_container">
+					<View id="logo" ></View>
+			</View>	
+			<Label id="model">Murano</Label>
+			<View id="btn_container" onClick="onVerify">
+				<Label id="btn">Verify My Ownership</Label>
+			</View>	
+		<Label id="cancel" onClick="onCancel" >This is not my car</Label>
+		</View>	
+		
+	</Window>
+</Alloy>
