@@ -33,17 +33,6 @@ function Controller() {
         id: "name"
     });
     $.__views.main.add($.__views.name);
-    $.__views.friends = Ti.UI.createLabel({
-        color: "#5689d5",
-        height: Ti.UI.SIZE,
-        width: Ti.UI.SIZE,
-        right: 10,
-        font: {
-            fontSize: 12
-        },
-        id: "friends"
-    });
-    $.__views.main.add($.__views.friends);
     $.__views.count = Ti.UI.createLabel({
         color: "#666",
         height: Ti.UI.SIZE,
@@ -52,7 +41,6 @@ function Controller() {
         font: {
             fontSize: 12
         },
-        text: "300 cars",
         id: "count"
     });
     $.__views.main.add($.__views.count);
@@ -61,13 +49,8 @@ function Controller() {
     require("Login");
     var args = arguments[0] || {};
     var _data = args._data || {};
-    $.name.setText(_data.name);
-    $.friends.setText("friends (" + _data.count + ")");
-    $.count.setText("cars (" + _data.count + ")");
-    if (!_data.friends) {
-        $.name.setColor("#33");
-        $.friends.setColor("#666");
-    }
+    $.name.setText(_data.model);
+    $.count.setText(_data.count + " cars registered");
     __defers["$.__views.main!click!goToModel"] && $.__views.main.addEventListener("click", goToModel);
     _.extend($, exports);
 }

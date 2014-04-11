@@ -9,8 +9,7 @@ if(_data){
 	$.photo.setBackgroundImage(_data.photo);
 	$.text.setText(_data.name);
 }else{
-	$.text.setColor("#2179ca");
-	$.text.setText("add new");
+	$.text.setText("none");
 }
 
 if(_editable && _data){

@@ -1,5 +1,15 @@
 <Alloy>
 	<Window onFocus="onFocus">
+		<View layout="vertical" >
 		<TextField id="plate" onReturn="onEdit" ></TextField>
+		<View height="Ti.UI.SIZE" layout="vertical" left="20" right="20" top="30" >
+				<View borderRadius="4" backgroundColor="#2179ca" height="Ti.UI.SIZE" bottom="5" onClick="onEdit" >
+					<Label color="#fff" height="Ti.UI.SIZE" top="20" bottom="20"  >SAVE CARKEY#</Label>
+				</View>
+				<View borderRadius="4" backgroundColor="#999" height="Ti.UI.SIZE" top="5" onClick="onCancel" >
+					<Label color="#fff" height="Ti.UI.SIZE" top="20" bottom="20" >CANCEL</Label>
+				</View>
+		</View>
+		</View>
 	</Window>
 </Alloy>

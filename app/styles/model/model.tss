@@ -1,7 +1,9 @@
-"Window":{backgroundColor:"#ccc",navBarHidden:true} 
+"Window":{
+	backgroundColor:"#ccc",navBarHidden:true,width:320,height:500
+} 
 
 "#profile_container":{
-	backgroundColor:"#eee",
+	backgroundColor:"#666",
 	top:0,
 	height:150
 }
@@ -24,7 +26,7 @@
 }
 
 "#plate":{
-	color:"#333",
+	color:"#eee",
 	font:{
 		fontSize:36,fontWeight:"bold"
 	}
@@ -46,12 +48,12 @@
 }
 
 "#post_icon":{
-	left:10,top:10,width:40,height:40,backgroundColor:"#fff",borderRadius:4,opacity:0.6
+	left:10,top:10,bottom:10,width:40,height:40,backgroundColor:"#fff",borderRadius:4,opacity:0.6
 }
 
 "#post_btn":{
 	top:0,borderRadius:4,
-	backgroundColor:"#5689d5",height:60	
+	backgroundColor:"#5689d5",height:Ti.UI.SIZE
 }
 
 "#post_label":{

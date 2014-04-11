@@ -31,6 +31,9 @@ function Controller() {
         });
         $.signup.close();
     }
+    function onCancel() {
+        $.signup.close();
+    }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "signup/signup";
     arguments[0] ? arguments[0]["__parentSymbol"] : null;
@@ -40,7 +43,10 @@ function Controller() {
     var exports = {};
     var __defers = {};
     $.__views.signup = Ti.UI.createWindow({
-        backgroundColor: "#eee",
+        backgroundColor: "#333",
+        navBarHidden: true,
+        width: 320,
+        height: 500,
         id: "signup"
     });
     $.__views.signup && $.addTopLevelView($.__views.signup);
@@ -55,7 +61,6 @@ function Controller() {
         right: 10,
         top: 40,
         borderRadius: 4,
-        backgroundColor: "#cecece",
         id: "main"
     });
     $.__views.signup.add($.__views.main);
@@ -95,6 +100,50 @@ function Controller() {
     });
     $.__views.main.add($.__views.zipcode);
     process ? $.__views.zipcode.addEventListener("return", process) : __defers["$.__views.zipcode!return!process"] = true;
+    $.__views.__alloyId79 = Ti.UI.createView({
+        left: 20,
+        right: 20,
+        borderRadius: 4,
+        height: Ti.UI.SIZE,
+        backgroundColor: "#2179ca",
+        top: "10",
+        bottom: 5,
+        id: "__alloyId79"
+    });
+    $.__views.main.add($.__views.__alloyId79);
+    process ? $.__views.__alloyId79.addEventListener("click", process) : __defers["$.__views.__alloyId79!click!process"] = true;
+    $.__views.__alloyId80 = Ti.UI.createLabel({
+        top: 20,
+        bottom: 20,
+        width: Ti.UI.SIZE,
+        height: Ti.UI.SIZE,
+        color: "#fff",
+        text: "find my car",
+        id: "__alloyId80"
+    });
+    $.__views.__alloyId79.add($.__views.__alloyId80);
+    $.__views.__alloyId81 = Ti.UI.createView({
+        left: 20,
+        right: 20,
+        borderRadius: 4,
+        height: Ti.UI.SIZE,
+        backgroundColor: "#999",
+        top: 5,
+        bottom: 5,
+        id: "__alloyId81"
+    });
+    $.__views.main.add($.__views.__alloyId81);
+    onCancel ? $.__views.__alloyId81.addEventListener("click", onCancel) : __defers["$.__views.__alloyId81!click!onCancel"] = true;
+    $.__views.__alloyId82 = Ti.UI.createLabel({
+        top: 20,
+        bottom: 20,
+        width: Ti.UI.SIZE,
+        height: Ti.UI.SIZE,
+        color: "#fff",
+        text: "cancel",
+        id: "__alloyId82"
+    });
+    $.__views.__alloyId81.add($.__views.__alloyId82);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");
@@ -103,8 +152,9 @@ function Controller() {
     var _callBack = args._callBack;
     var login = require("Login");
     $.signup.open();
-    $.plate.focus();
     __defers["$.__views.zipcode!return!process"] && $.__views.zipcode.addEventListener("return", process);
+    __defers["$.__views.__alloyId79!click!process"] && $.__views.__alloyId79.addEventListener("click", process);
+    __defers["$.__views.__alloyId81!click!onCancel"] && $.__views.__alloyId81.addEventListener("click", onCancel);
     _.extend($, exports);
 }
 

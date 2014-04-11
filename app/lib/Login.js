@@ -1,13 +1,18 @@
 var user;
 var main;
 var fb = Ti.Facebook;
+var login_screen;
 
-	fb.appid = '201613399910723';
-	fb.permissions = ['publish_stream'];
+	fb.appid = '374335169286433';
+	//fb.permissions = ['publish_stream'];
 
 exports.init = function(_callBack){
 	if(loggedIn()){
 		_callBack();
+		if(login_screen){
+      			login_screen.getView().close();
+      			login_screen = null;
+      	}
 	}else{
 		show(_callBack);
 	}
@@ -101,7 +106,11 @@ function loadUser(_callBack){
  	 	 var response = JSON.parse(this.responseText);
       	 user = response;
       	// if(hasCars()){
-      	 	_callBack();
+      		_callBack();
+      		if(login_screen){
+      			login_screen.getView().close();
+      			login_screen = null;
+      		}
       	 //}else{
       	 //	launchSignup(_callBack);
       	// }
@@ -116,6 +125,16 @@ function loadUser(_callBack){
  	// Send the request.
  		client.send(_data);
 }
+
+exports.ownsModel = function(moid){
+	var cars = _getCars();
+	for(var i=0;i<cars.length;i++){
+		if(cars[i].moid == moid){
+			return true;
+		}
+	}
+	return false;
+};
 
 function hasCars(){
 	if(_getCars().length >0){
@@ -135,23 +154,28 @@ function _getCars(){
 
 function onLogin(_callBack){
 	if(fb.getAccessToken()){
+		if(login_screen){
+			login_screen.loading();
+		}
 		loadUser(_callBack);
 	}else{
 		fb.logout();
 	}
 }	
 
-function show(_callBack){
-   fb.addEventListener("login",function(){
-   			onLogin(_callBack);
-   });
-   fb.authorize();
+function show(callBack){
+	login_screen =  Alloy.createController("login/login_screen",{_callBack:function(){
+			fb.authorize();
+	}});
+	fb.addEventListener("login",function(){
+   			onLogin(callBack);
+    });
+
  }
 
 exports.setUser = function(_user){
 	user = _user;
 };
-
 
 exports.getUser = function(){
 	return user;
@@ -193,5 +217,14 @@ exports.getFriends = function(callBack,errBack){
         errBack('Unknown response');
     }
 });
-	
+
 };
+
+exports.getRequests = function(){
+	return user.requests || [];
+};
+
+exports.setRequests = function(requests){
+	user.requests = requests;
+};
+

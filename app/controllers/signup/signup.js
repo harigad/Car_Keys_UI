@@ -5,7 +5,7 @@
 
 var login = require('Login');
 $.signup.open();
-$.plate.focus();
+//$.plate.focus();
 
 function process(){
 	var url = "http://flair.me/carkey/secure.php?page=signup2";	
@@ -18,7 +18,7 @@ function process(){
          if(!response.status){
 				    showError(response.error);     	
          }else{
-         		var signup =  Alloy.createController("signup/found_car",{_data:response,_callBack:function(){
+         		var found_car =  Alloy.createController("signup/found_car",{_data:response,_callBack:function(){
          			_callBack();
          			$.signup.close();
          		}});
@@ -43,5 +43,5 @@ function showError(e){
 }
 
 function onCancel(){
-	$.found_car.close();
+	$.signup.close();
 }

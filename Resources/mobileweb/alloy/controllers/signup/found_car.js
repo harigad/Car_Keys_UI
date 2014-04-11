@@ -99,12 +99,12 @@ function Controller() {
     }
     function step_4(answerObj) {
         Alloy.createController("signup/signup_verify_address", {
-            _data: {
-                logo: _data.logo
-            },
+            _data: _data,
             _callBack: function(answer) {
-                answerObj.address = answer;
-                send_to_server(answerObj);
+                if (answer) {
+                    answerObj.address = answer;
+                    send_to_server(answerObj);
+                } else onCancel();
             }
         });
     }
@@ -119,6 +119,7 @@ function Controller() {
         });
     }
     function onCancel() {
+        _callBack();
         $.found_car.close();
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
@@ -130,7 +131,10 @@ function Controller() {
     var exports = {};
     var __defers = {};
     $.__views.found_car = Ti.UI.createWindow({
-        backgroundColor: "#eee",
+        backgroundColor: "#333",
+        navBarHidden: true,
+        width: 320,
+        height: 500,
         id: "found_car"
     });
     $.__views.found_car && $.addTopLevelView($.__views.found_car);
@@ -185,7 +189,7 @@ function Controller() {
     });
     $.__views.main.add($.__views.btn_container);
     onVerify ? $.__views.btn_container.addEventListener("click", onVerify) : __defers["$.__views.btn_container!click!onVerify"] = true;
-    $.__views.btn = Ti.UI.createLabel({
+    $.__views.__alloyId73 = Ti.UI.createLabel({
         left: 20,
         right: 20,
         top: 10,
@@ -197,22 +201,36 @@ function Controller() {
         },
         color: "#eee",
         text: "Verify My Ownership",
-        id: "btn"
+        id: "__alloyId73"
     });
-    $.__views.btn_container.add($.__views.btn);
-    $.__views.cancel = Ti.UI.createLabel({
+    $.__views.btn_container.add($.__views.__alloyId73);
+    $.__views.cancel_container = Ti.UI.createView({
         top: 20,
-        color: "#777",
-        width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
-        font: {
-            fontSize: 12
-        },
-        text: "This is not my car",
-        id: "cancel"
+        width: Ti.UI.SIZE,
+        backgroundColor: "#aaa",
+        borderRadius: 4,
+        borderWidth: .5,
+        borderColor: "#fff",
+        id: "cancel_container"
     });
-    $.__views.main.add($.__views.cancel);
-    onCancel ? $.__views.cancel.addEventListener("click", onCancel) : __defers["$.__views.cancel!click!onCancel"] = true;
+    $.__views.main.add($.__views.cancel_container);
+    onCancel ? $.__views.cancel_container.addEventListener("click", onCancel) : __defers["$.__views.cancel_container!click!onCancel"] = true;
+    $.__views.cancel_btn = Ti.UI.createLabel({
+        left: 20,
+        right: 20,
+        top: 10,
+        bottom: 10,
+        height: Ti.UI.SIZE,
+        width: Ti.UI.SIZE,
+        font: {
+            fontSize: 11
+        },
+        color: "#eee",
+        text: "This is not my car!",
+        id: "cancel_btn"
+    });
+    $.__views.cancel_container.add($.__views.cancel_btn);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");
@@ -223,7 +241,7 @@ function Controller() {
     $.logo.setBackgroundImage("logos/48/" + _data.logo);
     $.model.setText(_data.model);
     __defers["$.__views.btn_container!click!onVerify"] && $.__views.btn_container.addEventListener("click", onVerify);
-    __defers["$.__views.cancel!click!onCancel"] && $.__views.cancel.addEventListener("click", onCancel);
+    __defers["$.__views.cancel_container!click!onCancel"] && $.__views.cancel_container.addEventListener("click", onCancel);
     _.extend($, exports);
 }
 

@@ -15,18 +15,23 @@
 				<View class="ball" id="ball3" />
 			</View>
 			<Label id="question">
-				Verify your registration address!
+				Complete your registration address!
 			</Label>
 			<View class="answer_container" >
 				<TextField id="address" hintText="Enter your address line#" onReturn="onReturn" ></TextField>
 			</View>
-			<View class="answer_container" onClick="onClick" layout="horizontal" >
-				<Label id="city" class="answer"  >irving,</Label>
-				<Label id="state" class="answer"  >texas</Label>
-				<Label id="zipcode" class="answer"  >75039</Label>
+			<View class="answer_container" layout="horizontal" >
+				<View class="answer_background" ><Label id="city" class="answer"  ></Label></View>
+				<View class="answer_background" ><Label id="state" class="answer" left="25" right="25" ></Label></View>
 			</View>
-		
-			<Label id="cancel" onClick="onCancel">cancel</Label>
+			<View width="Ti.UI.FILL" layout="vertical" >
+				<View class="btn_container" id="btn_container" onClick="onReturn" >
+					<Label class="btn">Verify</Label>
+				</View>	
+				<View class="btn_container" id="cancel_container" onClick="onCancel" top="5" >
+					<Label class="btn" id="cancel_btn" >cancel</Label>
+				</View>	
+			</View>
 		</View>
 	</Window>	
 </Alloy>

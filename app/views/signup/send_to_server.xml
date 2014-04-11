@@ -1,7 +1,7 @@
 <Alloy>
-	<Window backgroundColor="#eee" >
+	<Window backgroundColor="#333" >
 		<View height="Ti.UI.SIZE" >
-			<Label height="Ti.UI.SIZE" >Saving..</Label>
+			<Label height="Ti.UI.SIZE" color="#eee" >Saving..</Label>
 		</View>
 	</Window>
 </Alloy>

@@ -17,26 +17,27 @@ function Controller() {
     var exports = {};
     var __defers = {};
     $.__views.main = Ti.UI.createView({
-        layout: "horizontal",
+        layout: "vertical",
         height: Ti.UI.SIZE,
         id: "main"
     });
     $.__views.main && $.addTopLevelView($.__views.main);
     onClick ? $.__views.main.addEventListener("click", onClick) : __defers["$.__views.main!click!onClick"] = true;
-    $.__views.photo = Ti.UI.createView({
-        width: 50,
-        height: 50,
-        backgroundColor: "#eee",
-        id: "photo"
-    });
-    $.__views.main.add($.__views.photo);
     $.__views.name = Ti.UI.createLabel({
         left: 10,
+        top: 15,
+        bottom: 15,
         height: Ti.UI.SIZE,
         color: "#2179ca",
         id: "name"
     });
     $.__views.main.add($.__views.name);
+    $.__views.hr = Ti.UI.createView({
+        height: 1,
+        backgroundColor: "#cecece",
+        id: "hr"
+    });
+    $.__views.main.add($.__views.hr);
     exports.destroy = function() {};
     _.extend($, $.__views);
     require("Login");

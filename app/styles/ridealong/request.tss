@@ -1,0 +1,17 @@
+"#name":{
+	left:"0",
+	height:"Ti.UI.SIZE",
+	color:"#fff",
+	font:{
+		fontSize:14
+	}
+}
+
+"#desc":{
+	height:"Ti.UI.SIZE",
+	color:"#fff",
+	opacity:"0.6",
+	font:{
+		fontSize:11
+	}
+}

@@ -66,7 +66,7 @@ function Controller() {
     $.__views.logo = Ti.UI.createView({
         width: 30,
         height: 30,
-        backgroundImage: "logos/48/Acura.png",
+        backgroundImage: "logos/48/logo.png",
         id: "logo"
     });
     $.__views.logo_container.add($.__views.logo);
@@ -213,7 +213,7 @@ function Controller() {
             fontSize: 11
         },
         textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
-        text: "radio stations:",
+        text: "ride along:",
         id: "__alloyId10"
     });
     $.__views.__alloyId9.add($.__views.__alloyId10);
@@ -263,28 +263,15 @@ function Controller() {
         });
         $.shares.add(new_share.getView());
     }
-    var radios = _data.radios || [];
-    for (var i = 0; radios.length > i; i++) {
-        var radio = Alloy.createController("car/radio/radio_main", {
-            _editable: _editable,
-            _cid: _data.cid,
-            _data: radios[i],
-            _callBack: function() {
-                _callBack();
-            }
-        });
-        $.radios.add(radio.getView());
-    }
-    if (_editable) {
-        var new_radio = Alloy.createController("car/radio/radio_main", {
-            _editable: true,
-            _cid: _data.cid,
-            _callBack: function() {
-                _callBack();
-            }
-        });
-        $.radios.add(new_radio.getView());
-    }
+    _data.radios || [];
+    var new_radio = Alloy.createController("car/radio/radio_main", {
+        _editable: true,
+        _cid: _data.cid,
+        _callBack: function() {
+            _callBack();
+        }
+    });
+    $.radios.add(new_radio.getView());
     __defers["$.__views.model_container!click!goToModel"] && $.__views.model_container.addEventListener("click", goToModel);
     __defers["$.__views.logo_container!click!goToMake"] && $.__views.logo_container.addEventListener("click", goToMake);
     _.extend($, exports);

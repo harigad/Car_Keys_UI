@@ -5,6 +5,12 @@
 			<TextField id="plate" hintText="Plate #" ></TextField>
 			 <View id="hr"></View>
 			<TextField id="zipcode" hintText="Zipcode" onReturn="process" ></TextField>
+			<View class="btn" onClick="process" top="10" >
+				<Label class="btn_label" >find my car</Label>
+			</View>
+			<View class="btn" onClick="onCancel" backgroundColor="#999"  >
+				<Label class="btn_label">cancel</Label>
+			</View>
 		</View>
 	</Window>	
 </Alloy>

@@ -18,6 +18,11 @@ function onEdit(){
 	process();
 }
 
+function onCancel(){
+	_callBack();
+	$.edit_plate.close();
+}
+
 function process(){
 	if($.plate.getValue() !=="" ){
 		login.setPlate($.plate.getValue().toUpperCase());

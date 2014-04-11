@@ -7,9 +7,9 @@ function init(){
 	if(cars.length > 0 ){
 		build(cars);	
 	}else{
-		var _new = {logo:"common/blue_car.png",model:"ADD NEW RIDE",new:true};
+		var _new = {logo:"logo.png",model:"ADD NEW CAR",new:true};
 		var car =  Alloy.createController("car/newcar",{_editable:true,_data:_new,_callBack:function(){
-			refresh();
+			_refresh();
 		}});
 		$.main.add(car.getView());
 	}
@@ -19,15 +19,27 @@ function init(){
 function build(cars){
 	for(var i=0;i<cars.length;i++){
 		var car =  Alloy.createController("car/car",{_editable:true,_data:cars[i],_callBack:function(){
-			refresh();
+			_refresh();
 		}});
 		$.main.add(car.getView());
 	}
 }
 
-function refresh(){
+exports.refresh = function(){
+	_refresh();
+};
+
+function _refresh(){
 	try{
-	$.main.removeAllChildren();
+		//$.main.removeAllChildren();
+		clear();
 	}catch(e){}
 	init();
+}
+
+function clear(){
+	var len = $.main.children.length;
+	for(var i=0;i<len;i++){
+			$.main.remove($.main.children[0]);
+	}
 }

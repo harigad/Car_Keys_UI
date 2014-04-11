@@ -3,7 +3,8 @@ var args = arguments[0] || {};
 var _data = args._data || {};
 
 $.make_name.setText(_data.make);
-$.header.openWindow($.make);
+$.header.getView("main").setBackgroundColor("#666");
+$.header.openWindow($.make);		
 		
 $.logo.setBackgroundImage("logos/48/" + _data.logo);		
 load(_data);

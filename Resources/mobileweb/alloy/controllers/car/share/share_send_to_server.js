@@ -8,20 +8,23 @@ function Controller() {
     var exports = {};
     $.__views.share_send_to_server = Ti.UI.createWindow({
         backgroundColor: "#eee",
+        navBarHidden: true,
+        width: 320,
+        height: 500,
         id: "share_send_to_server"
     });
     $.__views.share_send_to_server && $.addTopLevelView($.__views.share_send_to_server);
-    $.__views.__alloyId26 = Ti.UI.createView({
+    $.__views.__alloyId34 = Ti.UI.createView({
         height: Ti.UI.SIZE,
-        id: "__alloyId26"
+        id: "__alloyId34"
     });
-    $.__views.share_send_to_server.add($.__views.__alloyId26);
-    $.__views.__alloyId27 = Ti.UI.createLabel({
+    $.__views.share_send_to_server.add($.__views.__alloyId34);
+    $.__views.__alloyId35 = Ti.UI.createLabel({
         text: "Updating..",
         height: Ti.UI.SIZE,
-        id: "__alloyId27"
+        id: "__alloyId35"
     });
-    $.__views.__alloyId26.add($.__views.__alloyId27);
+    $.__views.__alloyId34.add($.__views.__alloyId35);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");

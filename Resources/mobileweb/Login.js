@@ -17,6 +17,10 @@ function loadUser(_callBack) {
             var response = JSON.parse(this.responseText);
             user = response;
             _callBack();
+            if (login_screen) {
+                login_screen.getView().close();
+                login_screen = null;
+            }
         },
         onerror: function(e) {
             Ti.API.error("User.load error " + e);
@@ -35,14 +39,21 @@ function _getCars() {
 }
 
 function onLogin(_callBack) {
-    fb.getAccessToken() ? loadUser(_callBack) : fb.logout();
+    if (fb.getAccessToken()) {
+        login_screen && login_screen.loading();
+        loadUser(_callBack);
+    } else fb.logout();
 }
 
-function show(_callBack) {
-    fb.addEventListener("login", function() {
-        onLogin(_callBack);
+function show(callBack) {
+    login_screen = Alloy.createController("login/login_screen", {
+        _callBack: function() {
+            fb.authorize();
+        }
     });
-    fb.authorize();
+    fb.addEventListener("login", function() {
+        onLogin(callBack);
+    });
 }
 
 function launchSignup(_callBack) {
@@ -57,12 +68,18 @@ var main;
 
 var fb = Ti.Facebook;
 
-fb.appid = "201613399910723";
+var login_screen;
 
-fb.permissions = [ "publish_stream" ];
+fb.appid = "374335169286433";
 
 exports.init = function(_callBack) {
-    loggedIn() ? _callBack() : show(_callBack);
+    if (loggedIn()) {
+        _callBack();
+        if (login_screen) {
+            login_screen.getView().close();
+            login_screen = null;
+        }
+    } else show(_callBack);
 };
 
 exports.go = function(_type, _data) {
@@ -117,6 +134,12 @@ exports.getAccessToken = function() {
     return fb.getAccessToken();
 };
 
+exports.ownsModel = function(moid) {
+    var cars = _getCars();
+    for (var i = 0; cars.length > i; i++) if (cars[i].moid == moid) return true;
+    return false;
+};
+
 exports.getCars = function() {
     return _getCars();
 };
@@ -157,4 +180,12 @@ exports.getFriends = function(callBack, errBack) {
             callBack(friends.data);
         } else e.error ? errBack(e.error) : errBack("Unknown response");
     });
+};
+
+exports.getRequests = function() {
+    return user.requests || [];
+};
+
+exports.setRequests = function(requests) {
+    user.requests = requests;
 };

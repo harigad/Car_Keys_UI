@@ -8,6 +8,9 @@ function Controller() {
     var exports = {};
     $.__views.signup_cc = Ti.UI.createWindow({
         backgroundColor: "#333",
+        navBarHidden: true,
+        width: 320,
+        height: 500,
         id: "signup_cc"
     });
     $.__views.signup_cc && $.addTopLevelView($.__views.signup_cc);
@@ -62,14 +65,14 @@ function Controller() {
         hintText: "$0.00"
     });
     $.__views.main.add($.__views.amount);
-    $.__views.__alloyId47 = Ti.UI.createView({
+    $.__views.__alloyId83 = Ti.UI.createView({
         height: 1,
         left: 20,
         right: 20,
         backgroundColor: "#555",
-        id: "__alloyId47"
+        id: "__alloyId83"
     });
-    $.__views.main.add($.__views.__alloyId47);
+    $.__views.main.add($.__views.__alloyId83);
     $.__views.credit = Ti.UI.createTextField({
         backgroundColor: "#333",
         color: "#777",
@@ -84,14 +87,14 @@ function Controller() {
         hintText: "credit/debit card number"
     });
     $.__views.main.add($.__views.credit);
-    $.__views.__alloyId48 = Ti.UI.createView({
+    $.__views.__alloyId84 = Ti.UI.createView({
         height: 1,
         left: 20,
         right: 20,
         backgroundColor: "#555",
-        id: "__alloyId48"
+        id: "__alloyId84"
     });
-    $.__views.main.add($.__views.__alloyId48);
+    $.__views.main.add($.__views.__alloyId84);
     $.__views.mmyy = Ti.UI.createTextField({
         backgroundColor: "#333",
         color: "#777",

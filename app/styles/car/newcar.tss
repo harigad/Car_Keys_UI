@@ -25,7 +25,7 @@
 
 "#logo":{
 	width:30,height:30,
-	backgroundImage:"logos/48/Acura.png"
+	backgroundImage:"logos/48/logo.png"
 }
 
 

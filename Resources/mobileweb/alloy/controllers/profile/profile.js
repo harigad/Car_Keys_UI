@@ -11,6 +11,7 @@ function Controller() {
             onload: function() {
                 Ti.API.debug("User.load recieved data " + this.responseText);
                 var response = JSON.parse(this.responseText);
+                _data = response;
                 build(response);
             },
             onerror: function(e) {
@@ -29,6 +30,11 @@ function Controller() {
             $.cars_container_inner.add(car.getView());
         }
     }
+    function goToPhoto() {
+        Alloy.createController("photo/photo", {
+            _data: _data.photo_big
+        });
+    }
     function showPleaseWait() {}
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "profile/profile";
@@ -37,9 +43,12 @@ function Controller() {
     arguments[0] ? arguments[0]["__itemTemplate"] : null;
     var $ = this;
     var exports = {};
+    var __defers = {};
     $.__views.profile = Ti.UI.createWindow({
         backgroundColor: "#ccc",
         navBarHidden: true,
+        width: 320,
+        height: 500,
         id: "profile"
     });
     $.__views.profile && $.addTopLevelView($.__views.profile);
@@ -49,18 +58,18 @@ function Controller() {
     });
     $.__views.profile.add($.__views.scroll);
     $.__views.profile_container = Ti.UI.createView({
-        backgroundColor: "#eee",
+        backgroundColor: "#666",
         top: 0,
         height: 150,
         id: "profile_container"
     });
     $.__views.scroll.add($.__views.profile_container);
-    $.__views.__alloyId36 = Ti.UI.createView({
+    $.__views.__alloyId54 = Ti.UI.createView({
         height: Ti.UI.SIZE,
         top: "-10",
-        id: "__alloyId36"
+        id: "__alloyId54"
     });
-    $.__views.profile_container.add($.__views.__alloyId36);
+    $.__views.profile_container.add($.__views.__alloyId54);
     $.__views.photo = Ti.UI.createView({
         backgroundColor: "#fff",
         left: 20,
@@ -71,35 +80,36 @@ function Controller() {
         borderColor: "#cecece",
         id: "photo"
     });
-    $.__views.__alloyId36.add($.__views.photo);
+    $.__views.__alloyId54.add($.__views.photo);
+    goToPhoto ? $.__views.photo.addEventListener("click", goToPhoto) : __defers["$.__views.photo!click!goToPhoto"] = true;
     $.__views.plate_container = Ti.UI.createView({
         left: 120,
         height: Ti.UI.SIZE,
         layout: "vertical",
         id: "plate_container"
     });
-    $.__views.__alloyId36.add($.__views.plate_container);
+    $.__views.__alloyId54.add($.__views.plate_container);
     $.__views.name = Ti.UI.createLabel({
-        color: "#666",
-        left: 20,
+        color: "#eee",
+        left: 10,
         font: {
             fontSize: 20
         },
         id: "name"
     });
     $.__views.plate_container.add($.__views.name);
-    $.__views.__alloyId37 = Ti.UI.createView({
+    $.__views.__alloyId55 = Ti.UI.createView({
         height: "1",
         backgroundColor: "#fff",
-        right: "20",
+        right: "30",
         top: "5",
         bottom: "5",
-        id: "__alloyId37"
+        id: "__alloyId55"
     });
-    $.__views.plate_container.add($.__views.__alloyId37);
+    $.__views.plate_container.add($.__views.__alloyId55);
     $.__views.plate = Ti.UI.createLabel({
-        color: "#333",
-        left: 20,
+        color: "#fff",
+        left: 10,
         font: {
             fontSize: 20,
             fontWeight: "bold"
@@ -137,6 +147,7 @@ function Controller() {
     $.photo.setBackgroundImage(_data.photo);
     $.plate.setText(_data.plate);
     load(_data);
+    __defers["$.__views.photo!click!goToPhoto"] && $.__views.photo.addEventListener("click", goToPhoto);
     _.extend($, exports);
 }
 

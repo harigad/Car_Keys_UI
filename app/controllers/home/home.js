@@ -2,8 +2,6 @@ var login = require('Login');
 
 onPlateChanged();
 
-$.header.setHome();
-
 function editPlate(){
 	var edit_plate_notes =  Alloy.createController("home/edit_plate/notes",{_callBack:function(){
 		onPlateChanged();
@@ -15,6 +13,29 @@ function onPlateChanged(){
 	if(plate && plate !==""){
 		$.plate.setText(login.getPlate());	
 	}else{
-		$.plate.setText("create your own plate");
+		$.plate.setText("create your CARKEY");
 	}
 }
+
+function onAddNew(){
+	var signup =  Alloy.createController("signup/signup",{_callBack:function(){
+		$.mycars.refresh();
+	}});
+}
+
+
+function onRideAlong(){
+	var ridealong =  Alloy.createController("ridealong/ridealong",{_callBack:function(){
+		//$.mycars.refresh();
+	}});
+}
+
+function onInvite(){
+	
+}
+
+function onPost(){
+	
+}
+
+

@@ -1,0 +1,9 @@
+"Window":{
+	backgroundColor:"#2179ca",navBarHidden:true,width:320,height:500
+}
+
+"#login":{
+	width:280,
+	height:280,
+	backgroundImage:"common/login/bg1.png" 
+}

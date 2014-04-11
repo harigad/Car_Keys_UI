@@ -1,19 +1,26 @@
 <Alloy>
 	<Window>
-	<ScrollView id="scroll" top="50" >
+	<ScrollView id="scroll"  >
 		<View id="profile_container" >
 			<View id="plate_container" onClick="editPlate">
-				<Label id="plate">create your own plate</Label>
+				<Label id="plate">create your CARKEY#</Label>
 				<View id="edit_icon"></View>
 			</View>
 		</View>
 		<View id="main">
-			 <Label class="separator" >rides</Label>
-			 <Require type="view" src="mycars/mycars" id="mycars"/>
-			 <Label class="separator">friends</Label>
-			 <Require type="view" src="feed/feed" id="feed"/>
+			 <Require src="ridealong/requests" id="requests"/>
+			 <View class="my_rides"> 
+			 	<Label class="separator" width="Ti.UI.SIZE" >my cars</Label>
+			 	<Label class="separator" width="Ti.UI.SIZE" left="60" color="#2179ca" onClick="onAddNew" >(add new)</Label>
+			 </View>
+			 <Require src="mycars/mycars" id="mycars"/>
+			 <View class="my_rides"> 
+			 	<Label class="separator" width="Ti.UI.SIZE" >my friends</Label>
+			 	<Label class="separator" width="Ti.UI.SIZE" left="75" color="#2179ca" onClick="onInvite" ></Label>
+			 </View>
+			 <Require src="feed/feed" id="feed"/>
 		</View>
 	</ScrollView>
-	<Require type="view" src="header/header" id="header" />
+		<View onClick="onRideAlong" id="ride_along" width="111" height="66" borderRadius="4" backgroundImage="common/ridealong_blue_text.png" top="0" ></View>
 	</Window>
 </Alloy>

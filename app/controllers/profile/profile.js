@@ -1,6 +1,7 @@
 		var login = require('Login');
 		var args = arguments[0] || {};
 		var _data = args._data || {};
+		
 
 $.name.setText(_data.name);
 $.header.openWindow($.profile);
@@ -19,6 +20,7 @@ function load(data){
  	 onload : function(e) {
  	 	Ti.API.debug("User.load recieved data " + this.responseText);
  	 	 var response = JSON.parse(this.responseText);
+ 	 	 _data = response;
       	 build(response);
  	 },
  	 onerror: function(e){
@@ -39,6 +41,10 @@ function build(data){
 		$.cars_container_inner.add(car.getView());
 	}
 	
+}
+
+function goToPhoto(){
+	var photo =  Alloy.createController("photo/photo",{_data:_data.photo_big});
 }
 
 function showPleaseWait(){

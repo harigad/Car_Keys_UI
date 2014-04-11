@@ -1,9 +1,19 @@
 "Window":{
-	backgroundColor:"#ccc",navBarHidden:true
+	backgroundColor:"#ccc",navBarHidden:true,width:320,height:500
 }
 
 "#scroll":{
 	height:Ti.UI.FILL,width:Ti.UI.FILL
+}
+
+"#main":{
+	layout:"vertical",
+	height:Ti.UI.SIZE,
+	left:10,right:10,top:140
+}
+
+".my_rides":{
+	height:Ti.UI.SIZE
 }
 
 ".separator":{
@@ -20,19 +30,19 @@
 "#profile_container":{
 	top:0,left:0,
 	width:Ti.UI.FILL,
-	height:150,
-	backgroundColor:"#eee"
+	height:200,
+	backgroundColor:"#666"
 }
 
 "#plate_container":{
-	top:40,
+	top:90,
 	width:Ti.UI.SIZE,height:Ti.UI.SIZE,layout:"horizontal"
 }
 
 "#plate":{
 	width:Ti.UI.SIZE,
 	left:22,
-	color:"#333",
+	color:"#eee",
 	font:{
 		fontSize:20,fontWeight:"bold"
 	}
@@ -41,10 +51,4 @@
 "#edit_icon":{
 	width:22,height:22,
 	backgroundImage:"common/edit_icon.png"
-}
-
-"#main":{
-	layout:"vertical",
-	height:Ti.UI.SIZE,
-	left:10,right:10,top:90
 }

@@ -52,8 +52,8 @@ function Controller() {
     });
     $.__views.main.add($.__views.text);
     $.__views.edit_icon = Ti.UI.createView({
-        width: 22,
-        height: 22,
+        width: 16,
+        height: 16,
         backgroundImage: "common/edit_icon.png",
         visible: false,
         bubbleParent: false,
@@ -72,10 +72,7 @@ function Controller() {
     if (_data) {
         $.photo.setBackgroundImage(_data.photo);
         $.text.setText(_data.name);
-    } else {
-        $.text.setColor("#2179ca");
-        $.text.setText("add new");
-    }
+    } else $.text.setText("none");
     _editable && _data && $.edit_icon.setVisible(true);
     __defers["$.__views.main!click!goToUser"] && $.__views.main.addEventListener("click", goToUser);
     __defers["$.__views.edit_icon!click!onEdit"] && $.__views.edit_icon.addEventListener("click", onEdit);

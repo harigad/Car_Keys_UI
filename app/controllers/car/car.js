@@ -38,19 +38,19 @@ if(_data.titledate){
 	}
 	
 	var radios = _data.radios || [];
-	for(var i=0;i<radios.length;i++){
+	/*for(var i=0;i<radios.length;i++){
 		var radio =  Alloy.createController("car/radio/radio_main",{_editable:_editable,_cid:_data.cid,_data:radios[i],_callBack:function(){
 			_callBack();
 		}});
 		$.radios.add(radio.getView());
-	}
+	}*/
 	
-	if(_editable){
+	//if(_editable){
 		var new_radio =  Alloy.createController("car/radio/radio_main",{_editable:true,_cid:_data.cid,_callBack:function(){
 			_callBack();
 		}});
 		$.radios.add(new_radio.getView());
-	}
+	//}
 function goToModel(){
 	var model =  Alloy.createController("model/model",{_data:_data});
 }

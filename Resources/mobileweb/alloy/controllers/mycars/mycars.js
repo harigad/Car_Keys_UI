@@ -3,15 +3,15 @@ function Controller() {
         var cars = login.getCars();
         if (cars.length > 0) build(cars); else {
             var _new = {
-                logo: "common/blue_car.png",
-                model: "ADD NEW RIDE",
+                logo: "logo.png",
+                model: "ADD NEW CAR",
                 "new": true
             };
             var car = Alloy.createController("car/newcar", {
                 _editable: true,
                 _data: _new,
                 _callBack: function() {
-                    refresh();
+                    _refresh();
                 }
             });
             $.main.add(car.getView());
@@ -23,17 +23,21 @@ function Controller() {
                 _editable: true,
                 _data: cars[i],
                 _callBack: function() {
-                    refresh();
+                    _refresh();
                 }
             });
             $.main.add(car.getView());
         }
     }
-    function refresh() {
+    function _refresh() {
         try {
-            $.main.removeAllChildren();
+            clear();
         } catch (e) {}
         init();
+    }
+    function clear() {
+        var len = $.main.children.length;
+        for (var i = 0; len > i; i++) $.main.remove($.main.children[0]);
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "mycars/mycars";
@@ -55,6 +59,9 @@ function Controller() {
     _.extend($, $.__views);
     var login = require("Login");
     init();
+    exports.refresh = function() {
+        _refresh();
+    };
     _.extend($, exports);
 }
 

@@ -15,6 +15,8 @@ function Controller() {
     $.__views.model = Ti.UI.createWindow({
         backgroundColor: "#ccc",
         navBarHidden: true,
+        width: 320,
+        height: 500,
         id: "model"
     });
     $.__views.model && $.addTopLevelView($.__views.model);
@@ -24,7 +26,7 @@ function Controller() {
     });
     $.__views.model.add($.__views.scroll);
     $.__views.profile_container = Ti.UI.createView({
-        backgroundColor: "#eee",
+        backgroundColor: "#666",
         top: 0,
         height: 150,
         id: "profile_container"
@@ -55,7 +57,7 @@ function Controller() {
     });
     $.__views.photo.add($.__views.logo);
     $.__views.plate = Ti.UI.createLabel({
-        color: "#333",
+        color: "#eee",
         font: {
             fontSize: 36,
             fontWeight: "bold"
@@ -89,13 +91,14 @@ function Controller() {
         top: 0,
         borderRadius: 4,
         backgroundColor: "#5689d5",
-        height: 60,
+        height: Ti.UI.SIZE,
         id: "post_btn"
     });
     $.__views.post_container.add($.__views.post_btn);
     $.__views.post_icon = Ti.UI.createView({
         left: 10,
         top: 10,
+        bottom: 10,
         width: 40,
         height: 40,
         backgroundColor: "#fff",
@@ -120,12 +123,17 @@ function Controller() {
     $.__views.header.setParent($.__views.model);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    require("Login");
+    var login = require("Login");
     var args = arguments[0] || {};
     var _data = args._data || {};
     $.header.openWindow($.model);
     $.logo.setBackgroundImage("logos/48/" + _data.logo);
     $.plate.setText(_data.model);
+    if (!login.ownsModel(_data.moid)) {
+        $.post_btn.setBackgroundColor("#aaa");
+        $.post_label.setColor("#ccc");
+        $.post_label.setText("restricted");
+    }
     $.model.open();
     __defers["$.__views.photo!click!goToMake"] && $.__views.photo.addEventListener("click", goToMake);
     _.extend($, exports);

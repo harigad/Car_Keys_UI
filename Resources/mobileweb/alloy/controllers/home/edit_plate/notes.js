@@ -17,14 +17,17 @@ function Controller() {
     var __defers = {};
     $.__views.notes = Ti.UI.createWindow({
         backgroundColor: "#ccc",
+        navBarHidden: true,
+        width: 320,
+        height: 500,
         id: "notes"
     });
     $.__views.notes && $.addTopLevelView($.__views.notes);
-    $.__views.__alloyId30 = Ti.UI.createView({
+    $.__views.__alloyId48 = Ti.UI.createView({
         layout: "vertical",
-        id: "__alloyId30"
+        id: "__alloyId48"
     });
-    $.__views.notes.add($.__views.__alloyId30);
+    $.__views.notes.add($.__views.__alloyId48);
     $.__views.title = Ti.UI.createLabel({
         top: 20,
         height: Ti.UI.SIZE,
@@ -42,20 +45,20 @@ function Controller() {
             y: 2
         },
         shadowRadius: 3,
-        text: "Few things about your Plate",
+        text: "Few things about your CARKEY",
         id: "title"
     });
-    $.__views.__alloyId30.add($.__views.title);
-    $.__views.__alloyId31 = Ti.UI.createView({
+    $.__views.__alloyId48.add($.__views.title);
+    $.__views.__alloyId49 = Ti.UI.createView({
         left: "10",
         right: "10",
         bottom: "10",
         height: Ti.UI.SIZE,
         layout: "vertical",
-        id: "__alloyId31"
+        id: "__alloyId49"
     });
-    $.__views.__alloyId30.add($.__views.__alloyId31);
-    $.__views.__alloyId32 = Ti.UI.createLabel({
+    $.__views.__alloyId48.add($.__views.__alloyId49);
+    $.__views.__alloyId50 = Ti.UI.createLabel({
         left: 10,
         right: 10,
         height: Ti.UI.SIZE,
@@ -71,11 +74,11 @@ function Controller() {
             y: 2
         },
         shadowRadius: 3,
-        text: "* Your Plate is unique..ie no one else can have the same plate while you still have it",
-        id: "__alloyId32"
+        text: "* Your CARKEY is unique..ie no one else can have the same plate while you still have it",
+        id: "__alloyId50"
     });
-    $.__views.__alloyId31.add($.__views.__alloyId32);
-    $.__views.__alloyId33 = Ti.UI.createLabel({
+    $.__views.__alloyId49.add($.__views.__alloyId50);
+    $.__views.__alloyId51 = Ti.UI.createLabel({
         left: 10,
         right: 10,
         height: Ti.UI.SIZE,
@@ -91,11 +94,11 @@ function Controller() {
             y: 2
         },
         shadowRadius: 3,
-        text: "* You can change your Plate at any time",
-        id: "__alloyId33"
+        text: "* You can change your CARKEY at any time",
+        id: "__alloyId51"
     });
-    $.__views.__alloyId31.add($.__views.__alloyId33);
-    $.__views.__alloyId34 = Ti.UI.createLabel({
+    $.__views.__alloyId49.add($.__views.__alloyId51);
+    $.__views.__alloyId52 = Ti.UI.createLabel({
         left: 10,
         right: 10,
         height: Ti.UI.SIZE,
@@ -111,11 +114,11 @@ function Controller() {
             y: 2
         },
         shadowRadius: 3,
-        text: "* Plates can be upto 10 digits long..not including the spaces",
-        id: "__alloyId34"
+        text: "* Plates can be upto 7 digits long..not including the spaces",
+        id: "__alloyId52"
     });
-    $.__views.__alloyId31.add($.__views.__alloyId34);
-    $.__views.__alloyId35 = Ti.UI.createLabel({
+    $.__views.__alloyId49.add($.__views.__alloyId52);
+    $.__views.__alloyId53 = Ti.UI.createLabel({
         left: 10,
         right: 10,
         height: Ti.UI.SIZE,
@@ -131,10 +134,10 @@ function Controller() {
             y: 2
         },
         shadowRadius: 3,
-        text: "* You must have at least one vehichle before you can add a Plate",
-        id: "__alloyId35"
+        text: "* You must have at least one vehichle before you can create your CARKEY",
+        id: "__alloyId53"
     });
-    $.__views.__alloyId31.add($.__views.__alloyId35);
+    $.__views.__alloyId49.add($.__views.__alloyId53);
     $.__views.continue_btn = Ti.UI.createView({
         backgroundColor: "#999",
         borderRadius: 4,
@@ -145,7 +148,7 @@ function Controller() {
         height: Ti.UI.SIZE,
         id: "continue_btn"
     });
-    $.__views.__alloyId30.add($.__views.continue_btn);
+    $.__views.__alloyId48.add($.__views.continue_btn);
     onOk ? $.__views.continue_btn.addEventListener("click", onOk) : __defers["$.__views.continue_btn!click!onOk"] = true;
     $.__views.continue_btn_label = Ti.UI.createLabel({
         top: 20,

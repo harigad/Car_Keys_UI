@@ -62,7 +62,7 @@ function Controller() {
     $.__views.logo = Ti.UI.createView({
         width: 30,
         height: 30,
-        backgroundImage: "logos/48/Acura.png",
+        backgroundImage: "logos/48/logo.png",
         id: "logo"
     });
     $.__views.logo_container.add($.__views.logo);

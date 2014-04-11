@@ -1,0 +1,5 @@
+<Alloy>
+	<Window modal="true" onClick="onClick"  >
+		<ImageView id="img" borderRadius="4" bubbleParent=false />
+	</Window>
+</Alloy>

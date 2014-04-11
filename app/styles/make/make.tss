@@ -1,5 +1,5 @@
 "Window":{
-	backgroundColor:"#ccc",navBarHidden:true
+	backgroundColor:"#666",navBarHidden:true,width:320,height:500
 }
 
 "#scroll":{
@@ -9,8 +9,7 @@
 "#profile_container":{
 	top:0,left:0,
 	width:Ti.UI.FILL,
-	height:150,
-	backgroundColor:"#eee"
+	height:150
 }
 
 "#photo":{
@@ -22,7 +21,7 @@
 }
 
 "#make_name":{
-	color:"#333",height:"Ti.UI.SIZE",
+	color:"#999",height:"Ti.UI.SIZE",
 	font:{
 		fontSize:36,fontWeight:"bold"
 	}

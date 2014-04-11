@@ -14,6 +14,9 @@ function onEdit(){
 	}});
 }
 
+function onCancel(){
+	$.radio_add_edit.close();
+}
 
 function onFocus(){
 	$.plate.focus();

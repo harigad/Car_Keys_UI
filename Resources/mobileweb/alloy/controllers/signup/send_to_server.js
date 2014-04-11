@@ -7,21 +7,25 @@ function Controller() {
     var $ = this;
     var exports = {};
     $.__views.send_to_server = Ti.UI.createWindow({
-        backgroundColor: "#eee",
+        backgroundColor: "#333",
+        navBarHidden: true,
+        width: 320,
+        height: 500,
         id: "send_to_server"
     });
     $.__views.send_to_server && $.addTopLevelView($.__views.send_to_server);
-    $.__views.__alloyId45 = Ti.UI.createView({
+    $.__views.__alloyId77 = Ti.UI.createView({
         height: Ti.UI.SIZE,
-        id: "__alloyId45"
+        id: "__alloyId77"
     });
-    $.__views.send_to_server.add($.__views.__alloyId45);
-    $.__views.__alloyId46 = Ti.UI.createLabel({
+    $.__views.send_to_server.add($.__views.__alloyId77);
+    $.__views.__alloyId78 = Ti.UI.createLabel({
         text: "Saving..",
         height: Ti.UI.SIZE,
-        id: "__alloyId46"
+        color: "#eee",
+        id: "__alloyId78"
     });
-    $.__views.__alloyId45.add($.__views.__alloyId46);
+    $.__views.__alloyId77.add($.__views.__alloyId78);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");

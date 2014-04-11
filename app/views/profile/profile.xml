@@ -3,10 +3,10 @@
 		<ScrollView id="scroll" top="50" >
 		<View id="profile_container" >
 			<View height="Ti.UI.SIZE" top="-10" >
-			<View id="photo" ></View>
+			<View id="photo" onClick="goToPhoto" ></View>
 			<View id="plate_container" >
 				<Label id="name" ></Label>
-				<View height="1" backgroundColor="#fff" right="20" top="5" bottom="5" ></View>
+				<View height="1" backgroundColor="#fff" right="30" top="5" bottom="5" ></View>
 				<Label id="plate" ></Label>
 			</View>
 			</View>

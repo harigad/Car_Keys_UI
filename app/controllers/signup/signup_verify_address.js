@@ -10,6 +10,10 @@ eval("$.ball" + step).setBorderWidth(1);
 eval("$.ball" + step).setBorderColor("#eee");
 
 $.logo.setBackgroundImage("logos/48/" + _data.logo);
+
+$.city.setText(_data.city);
+$.state.setText(_data.state);
+
 $.signup_verify_address.open();
 
 function onReturn(e){
@@ -23,5 +27,6 @@ function onClick(e){
 }
 
 function onCancel(){
-	
+	_callBack();
+	$.signup_verify_address.close();
 }

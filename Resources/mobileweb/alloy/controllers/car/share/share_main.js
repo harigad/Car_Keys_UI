@@ -37,7 +37,7 @@ function Controller() {
         width: 25,
         height: 25,
         backgroundColor: "#ccc",
-        borderRadius: 2,
+        borderRadius: 0,
         right: 10,
         id: "photo"
     });
@@ -54,8 +54,8 @@ function Controller() {
     });
     $.__views.main.add($.__views.text);
     $.__views.edit_icon = Ti.UI.createView({
-        width: 22,
-        height: 22,
+        width: 16,
+        height: 16,
         backgroundImage: "common/edit_icon.png",
         visible: false,
         bubbleParent: false,

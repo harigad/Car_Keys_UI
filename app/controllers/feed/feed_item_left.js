@@ -4,7 +4,7 @@
 $.photo.setBackgroundImage(_data.photo);
 //$.logo.setBackgroundImage(_data.logo);
 $.name.setText(_data.name);
-$.plate.setText(_data.plate);
+$.plate.setText(_data.model);
 
 
 function goToProfile(){

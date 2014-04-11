@@ -15,7 +15,7 @@
 }
 
 "#edit_icon":{
-	width:22,height:22,
+	width:16,height:16,
 	backgroundImage:"common/edit_icon.png",
 	visible:false,
 	bubbleParent:false

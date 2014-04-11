@@ -5,7 +5,10 @@ function Controller() {
         $.signup_verify_address.close();
     }
     function onClick() {}
-    function onCancel() {}
+    function onCancel() {
+        _callBack();
+        $.signup_verify_address.close();
+    }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "signup/signup_verify_address";
     var __parentSymbol = arguments[0] ? arguments[0]["__parentSymbol"] : null;
@@ -15,7 +18,10 @@ function Controller() {
     var exports = {};
     var __defers = {};
     $.__views.signup_verify_address = Ti.UI.createWindow({
-        backgroundColor: "#eee",
+        backgroundColor: "#333",
+        navBarHidden: true,
+        width: 320,
+        height: 500,
         id: "signup_verify_address"
     });
     $.__views.signup_verify_address && $.addTopLevelView($.__views.signup_verify_address);
@@ -51,9 +57,10 @@ function Controller() {
     $.__views.progress_bar = Ti.UI.createView({
         layout: "horizontal",
         width: Ti.UI.SIZE,
-        height: Ti.UI.SIZE,
+        height: 0,
         top: 10,
         bottom: 10,
+        visible: false,
         id: "progress_bar"
     });
     $.__views.main.add($.__views.progress_bar);
@@ -65,13 +72,13 @@ function Controller() {
         id: "ball1"
     });
     $.__views.progress_bar.add($.__views.ball1);
-    $.__views.__alloyId60 = Ti.UI.createView({
+    $.__views.__alloyId96 = Ti.UI.createView({
         width: 85,
         height: 2,
         backgroundColor: "#555",
-        id: "__alloyId60"
+        id: "__alloyId96"
     });
-    $.__views.progress_bar.add($.__views.__alloyId60);
+    $.__views.progress_bar.add($.__views.__alloyId96);
     $.__views.ball2 = Ti.UI.createView({
         width: 20,
         height: 20,
@@ -80,13 +87,13 @@ function Controller() {
         id: "ball2"
     });
     $.__views.progress_bar.add($.__views.ball2);
-    $.__views.__alloyId61 = Ti.UI.createView({
+    $.__views.__alloyId97 = Ti.UI.createView({
         width: 85,
         height: 2,
         backgroundColor: "#555",
-        id: "__alloyId61"
+        id: "__alloyId97"
     });
-    $.__views.progress_bar.add($.__views.__alloyId61);
+    $.__views.progress_bar.add($.__views.__alloyId97);
     $.__views.ball3 = Ti.UI.createView({
         width: 20,
         height: 20,
@@ -97,30 +104,30 @@ function Controller() {
     $.__views.progress_bar.add($.__views.ball3);
     $.__views.question = Ti.UI.createLabel({
         left: 30,
-        top: 10,
+        top: 0,
         right: 10,
         height: Ti.UI.SIZE,
         font: {
             fontSize: 16
         },
         color: "#777",
-        text: "Verify your registration address!",
+        text: "Complete your registration address!",
         id: "question"
     });
     $.__views.main.add($.__views.question);
-    $.__views.__alloyId62 = Ti.UI.createView({
+    $.__views.__alloyId98 = Ti.UI.createView({
         height: Ti.UI.SIZE,
         left: 30,
         right: 30,
         top: 10,
-        id: "__alloyId62"
+        id: "__alloyId98"
     });
-    $.__views.main.add($.__views.__alloyId62);
+    $.__views.main.add($.__views.__alloyId98);
     $.__views.address = Ti.UI.createTextField({
         color: "#fff",
         top: 10,
-        backgroundColor: "#999",
         borderRadius: 4,
+        backgroundColor: "#555",
         left: 0,
         right: 0,
         font: {
@@ -131,64 +138,121 @@ function Controller() {
         id: "address",
         hintText: "Enter your address line#"
     });
-    $.__views.__alloyId62.add($.__views.address);
+    $.__views.__alloyId98.add($.__views.address);
     onReturn ? $.__views.address.addEventListener("return", onReturn) : __defers["$.__views.address!return!onReturn"] = true;
-    $.__views.__alloyId63 = Ti.UI.createView({
+    $.__views.__alloyId99 = Ti.UI.createView({
         height: Ti.UI.SIZE,
         left: 30,
         right: 30,
         top: 10,
         layout: "horizontal",
-        id: "__alloyId63"
+        id: "__alloyId99"
     });
-    $.__views.main.add($.__views.__alloyId63);
-    onClick ? $.__views.__alloyId63.addEventListener("click", onClick) : __defers["$.__views.__alloyId63!click!onClick"] = true;
+    $.__views.main.add($.__views.__alloyId99);
+    $.__views.__alloyId100 = Ti.UI.createView({
+        backgroundColor: "#555",
+        borderRadius: 4,
+        width: Ti.UI.SIZE,
+        height: Ti.UI.SIZE,
+        right: 10,
+        id: "__alloyId100"
+    });
+    $.__views.__alloyId99.add($.__views.__alloyId100);
     $.__views.city = Ti.UI.createLabel({
-        color: "#999",
-        width: Ti.UI.SIZE,
-        right: 5,
-        font: {
-            fontSize: 18
-        },
-        text: "irving,",
-        id: "city"
-    });
-    $.__views.__alloyId63.add($.__views.city);
-    $.__views.state = Ti.UI.createLabel({
-        color: "#999",
-        width: Ti.UI.SIZE,
-        right: 5,
-        font: {
-            fontSize: 18
-        },
-        text: "texas",
-        id: "state"
-    });
-    $.__views.__alloyId63.add($.__views.state);
-    $.__views.zipcode = Ti.UI.createLabel({
-        color: "#999",
-        width: Ti.UI.SIZE,
-        right: 5,
-        font: {
-            fontSize: 18
-        },
-        text: "75039",
-        id: "zipcode"
-    });
-    $.__views.__alloyId63.add($.__views.zipcode);
-    $.__views.cancel = Ti.UI.createLabel({
-        top: 20,
         color: "#777",
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
+        left: 10,
+        right: 10,
+        top: 20,
+        bottom: 20,
         font: {
-            fontSize: 12
+            fontSize: 14
         },
-        text: "cancel",
-        id: "cancel"
+        id: "city"
     });
-    $.__views.main.add($.__views.cancel);
-    onCancel ? $.__views.cancel.addEventListener("click", onCancel) : __defers["$.__views.cancel!click!onCancel"] = true;
+    $.__views.__alloyId100.add($.__views.city);
+    $.__views.__alloyId101 = Ti.UI.createView({
+        backgroundColor: "#555",
+        borderRadius: 4,
+        width: Ti.UI.SIZE,
+        height: Ti.UI.SIZE,
+        right: 10,
+        id: "__alloyId101"
+    });
+    $.__views.__alloyId99.add($.__views.__alloyId101);
+    $.__views.state = Ti.UI.createLabel({
+        color: "#777",
+        width: Ti.UI.SIZE,
+        height: Ti.UI.SIZE,
+        left: "25",
+        right: "25",
+        top: 20,
+        bottom: 20,
+        font: {
+            fontSize: 14
+        },
+        id: "state"
+    });
+    $.__views.__alloyId101.add($.__views.state);
+    $.__views.__alloyId102 = Ti.UI.createView({
+        width: Ti.UI.FILL,
+        layout: "vertical",
+        id: "__alloyId102"
+    });
+    $.__views.main.add($.__views.__alloyId102);
+    $.__views.btn_container = Ti.UI.createView({
+        top: 20,
+        height: Ti.UI.SIZE,
+        left: 30,
+        right: 30,
+        backgroundColor: "#2179ca",
+        borderRadius: 4,
+        borderWidth: .5,
+        borderColor: "#fff",
+        id: "btn_container"
+    });
+    $.__views.__alloyId102.add($.__views.btn_container);
+    onReturn ? $.__views.btn_container.addEventListener("click", onReturn) : __defers["$.__views.btn_container!click!onReturn"] = true;
+    $.__views.__alloyId103 = Ti.UI.createLabel({
+        top: 20,
+        bottom: 20,
+        height: Ti.UI.SIZE,
+        width: Ti.UI.SIZE,
+        font: {
+            fontSize: 16
+        },
+        color: "#eee",
+        text: "Verify",
+        id: "__alloyId103"
+    });
+    $.__views.btn_container.add($.__views.__alloyId103);
+    $.__views.cancel_container = Ti.UI.createView({
+        top: "5",
+        height: Ti.UI.SIZE,
+        left: 30,
+        right: 30,
+        backgroundColor: "#aaa",
+        borderRadius: 4,
+        borderWidth: .5,
+        borderColor: "#fff",
+        id: "cancel_container"
+    });
+    $.__views.__alloyId102.add($.__views.cancel_container);
+    onCancel ? $.__views.cancel_container.addEventListener("click", onCancel) : __defers["$.__views.cancel_container!click!onCancel"] = true;
+    $.__views.cancel_btn = Ti.UI.createLabel({
+        top: 20,
+        bottom: 20,
+        height: Ti.UI.SIZE,
+        width: Ti.UI.SIZE,
+        font: {
+            fontSize: 11
+        },
+        color: "#eee",
+        text: "cancel",
+        id: "cancel_btn"
+    });
+    $.__views.cancel_container.add($.__views.cancel_btn);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");
@@ -200,10 +264,12 @@ function Controller() {
     eval("$.ball" + step).setBorderWidth(1);
     eval("$.ball" + step).setBorderColor("#eee");
     $.logo.setBackgroundImage("logos/48/" + _data.logo);
+    $.city.setText(_data.city);
+    $.state.setText(_data.state);
     $.signup_verify_address.open();
     __defers["$.__views.address!return!onReturn"] && $.__views.address.addEventListener("return", onReturn);
-    __defers["$.__views.__alloyId63!click!onClick"] && $.__views.__alloyId63.addEventListener("click", onClick);
-    __defers["$.__views.cancel!click!onCancel"] && $.__views.cancel.addEventListener("click", onCancel);
+    __defers["$.__views.btn_container!click!onReturn"] && $.__views.btn_container.addEventListener("click", onReturn);
+    __defers["$.__views.cancel_container!click!onCancel"] && $.__views.cancel_container.addEventListener("click", onCancel);
     _.extend($, exports);
 }
 

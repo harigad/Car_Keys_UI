@@ -1,0 +1,4 @@
+<Alloy>
+	<View id="main" height="Ti.UI.SIZE" backgroundColor="#2179ca" borderRadius="4" top="30" layout="vertical" >
+	</View>
+</Alloy>

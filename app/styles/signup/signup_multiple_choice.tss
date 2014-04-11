@@ -1,4 +1,7 @@
-"Window": {backgroundColor:"#eee"}
+"Window": {
+	backgroundColor:"#333",navBarHidden:true,width:320,height:500
+}
+	
 
 "#main": {
 	layout:"vertical",

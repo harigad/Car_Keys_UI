@@ -1,0 +1,7 @@
+"Window":{
+	backgroundColor:"#ccc",navBarHidden:true,width:320,height:500
+}
+
+"TextField":{
+	borderStyle:Ti.UI.INPUT_BORDERSTYLE_NONE
+}

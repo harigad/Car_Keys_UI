@@ -100,7 +100,7 @@ function Controller() {
     var _data = args._data || {};
     $.photo.setBackgroundImage(_data.photo);
     $.name.setText(_data.name);
-    $.plate.setText(_data.plate);
+    $.plate.setText(_data.model);
     __defers["$.__views.main!click!goToProfile"] && $.__views.main.addEventListener("click", goToProfile);
     _.extend($, exports);
 }

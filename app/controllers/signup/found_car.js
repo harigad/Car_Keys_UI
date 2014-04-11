@@ -153,9 +153,13 @@ function step_3(answerObj){
 }
 
 function step_4(answerObj){
-	var signup =  Alloy.createController("signup/signup_verify_address",{_data:{logo:_data.logo},_callBack:function(answer){
-		answerObj.address = answer;
-		send_to_server(answerObj);
+	var signup =  Alloy.createController("signup/signup_verify_address",{_data:_data,_callBack:function(answer){
+		if(answer){
+			answerObj.address = answer;
+			send_to_server(answerObj);
+		}else{
+			onCancel();
+		}
 	}
 	});
 }
@@ -169,5 +173,6 @@ function send_to_server(answerObj){
 }
 
 function onCancel(){
+	_callBack();
 	$.found_car.close();
 }

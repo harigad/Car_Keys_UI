@@ -1,0 +1,9 @@
+<Alloy>
+	<View bottom="5" top="5" layout="horizontal" left="10" right="10" height="Ti.UI.SIZE" onClick="onClick" >
+		<View id="photo" width="50" height="50" borderRadius="25" backgroundColor="#ccc" borderWidth="3" borderColor="#a6c9ea" ></View>
+		<View left=10 layout="vertical" height="Ti.UI.SIZE" >
+			<Label id="name"></Label>
+			<Label left="0" id="desc" >sent you a ride along request</Label>
+		</View>
+	</View>
+</Alloy>

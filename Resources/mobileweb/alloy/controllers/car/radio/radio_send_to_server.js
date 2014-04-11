@@ -8,20 +8,23 @@ function Controller() {
     var exports = {};
     $.__views.radio_send_to_server = Ti.UI.createWindow({
         backgroundColor: "#eee",
+        navBarHidden: true,
+        width: 320,
+        height: 500,
         id: "radio_send_to_server"
     });
     $.__views.radio_send_to_server && $.addTopLevelView($.__views.radio_send_to_server);
-    $.__views.__alloyId18 = Ti.UI.createView({
+    $.__views.__alloyId23 = Ti.UI.createView({
         height: Ti.UI.SIZE,
-        id: "__alloyId18"
+        id: "__alloyId23"
     });
-    $.__views.radio_send_to_server.add($.__views.__alloyId18);
-    $.__views.__alloyId19 = Ti.UI.createLabel({
+    $.__views.radio_send_to_server.add($.__views.__alloyId23);
+    $.__views.__alloyId24 = Ti.UI.createLabel({
         text: "Updating..",
         height: Ti.UI.SIZE,
-        id: "__alloyId19"
+        id: "__alloyId24"
     });
-    $.__views.__alloyId18.add($.__views.__alloyId19);
+    $.__views.__alloyId23.add($.__views.__alloyId24);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");
