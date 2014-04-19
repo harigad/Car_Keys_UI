@@ -21,10 +21,7 @@
 	left:10,bottom:10,color:"#999",
 	font:{
 		fontSize:12
-	},
-	shadowColor: '#fff',
-    shadowOffset: {x:2, y:2},
-    shadowRadius: 3,
+	}
 }
 
 "#profile_container":{

@@ -3,7 +3,15 @@ function Controller() {
         _callBack && Alloy.createController("ridealong/accept", {
             _data: _data,
             _callBack: function() {
-                _callBack();
+                var animation = Titanium.UI.createAnimation();
+                animation.opacity = 0;
+                animation.duration = 1500;
+                var animationHandler = function() {
+                    animation.removeEventListener("complete", animationHandler);
+                    _callBack();
+                };
+                animation.addEventListener("complete", animationHandler);
+                $.main.animate(animation);
             }
         });
     }
@@ -15,19 +23,19 @@ function Controller() {
     var $ = this;
     var exports = {};
     var __defers = {};
-    $.__views.request = Ti.UI.createView({
-        bottom: "5",
-        top: "5",
+    $.__views.main = Ti.UI.createView({
+        id: "main",
+        backgroundColor: "#2179ca",
         layout: "horizontal",
-        left: "10",
-        right: "10",
-        height: Ti.UI.SIZE,
-        id: "request"
+        height: Ti.UI.SIZE
     });
-    $.__views.request && $.addTopLevelView($.__views.request);
-    onClick ? $.__views.request.addEventListener("click", onClick) : __defers["$.__views.request!click!onClick"] = true;
+    $.__views.main && $.addTopLevelView($.__views.main);
+    onClick ? $.__views.main.addEventListener("click", onClick) : __defers["$.__views.main!click!onClick"] = true;
     $.__views.photo = Ti.UI.createView({
         id: "photo",
+        left: "10",
+        top: "5",
+        bottom: "5",
         width: "50",
         height: "50",
         borderRadius: "25",
@@ -35,14 +43,16 @@ function Controller() {
         borderWidth: "3",
         borderColor: "#a6c9ea"
     });
-    $.__views.request.add($.__views.photo);
+    $.__views.main.add($.__views.photo);
     $.__views.__alloyId62 = Ti.UI.createView({
         left: "10",
+        right: "10",
+        width: Ti.UI.SIZE,
         layout: "vertical",
         height: Ti.UI.SIZE,
         id: "__alloyId62"
     });
-    $.__views.request.add($.__views.__alloyId62);
+    $.__views.main.add($.__views.__alloyId62);
     $.__views.name = Ti.UI.createLabel({
         left: "0",
         height: "Ti.UI.SIZE",
@@ -50,7 +60,8 @@ function Controller() {
         font: {
             fontSize: 14
         },
-        id: "name"
+        id: "name",
+        width: Ti.UI.SIZE
     });
     $.__views.__alloyId62.add($.__views.name);
     $.__views.desc = Ti.UI.createLabel({
@@ -62,7 +73,8 @@ function Controller() {
         },
         text: "sent you a ride along request",
         left: "0",
-        id: "desc"
+        id: "desc",
+        width: Ti.UI.SIZE
     });
     $.__views.__alloyId62.add($.__views.desc);
     exports.destroy = function() {};
@@ -73,7 +85,7 @@ function Controller() {
     var _callBack = args._callBack;
     $.photo.setBackgroundImage(_data.photo);
     $.name.setText(_data.name);
-    __defers["$.__views.request!click!onClick"] && $.__views.request.addEventListener("click", onClick);
+    __defers["$.__views.main!click!onClick"] && $.__views.main.addEventListener("click", onClick);
     _.extend($, exports);
 }
 

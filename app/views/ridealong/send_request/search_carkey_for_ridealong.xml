@@ -1,0 +1,7 @@
+<Alloy>
+	<Window backgroundColor="#666" width="320" height="480" >
+		<View id="main" height="Ti.UI.SIZE" left="20" right="20" layout="vertical" >
+			<Label color="#aaa" >please wait..</Label>
+		</View>
+	</Window>
+</Alloy>

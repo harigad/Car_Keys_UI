@@ -19,7 +19,9 @@ function Controller() {
     }
     function onRideAlong() {
         Alloy.createController("ridealong/ridealong", {
-            _callBack: function() {}
+            _callBack: function(success) {
+                success;
+            }
         });
     }
     function onInvite() {}
@@ -109,12 +111,6 @@ function Controller() {
         font: {
             fontSize: 12
         },
-        shadowColor: "#fff",
-        shadowOffset: {
-            x: 2,
-            y: 2
-        },
-        shadowRadius: 3,
         text: "my cars",
         width: Ti.UI.SIZE,
         id: "__alloyId37"
@@ -128,12 +124,6 @@ function Controller() {
         font: {
             fontSize: 12
         },
-        shadowColor: "#fff",
-        shadowOffset: {
-            x: 2,
-            y: 2
-        },
-        shadowRadius: 3,
         text: "(add new)",
         width: Ti.UI.SIZE,
         id: "__alloyId38"
@@ -158,12 +148,6 @@ function Controller() {
         font: {
             fontSize: 12
         },
-        shadowColor: "#fff",
-        shadowOffset: {
-            x: 2,
-            y: 2
-        },
-        shadowRadius: 3,
         text: "my friends",
         width: Ti.UI.SIZE,
         id: "__alloyId40"
@@ -177,12 +161,6 @@ function Controller() {
         font: {
             fontSize: 12
         },
-        shadowColor: "#fff",
-        shadowOffset: {
-            x: 2,
-            y: 2
-        },
-        shadowRadius: 3,
         width: Ti.UI.SIZE,
         id: "__alloyId41"
     });

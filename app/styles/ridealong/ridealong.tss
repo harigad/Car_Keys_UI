@@ -1,10 +1,10 @@
 "Window":{
-	backgroundColor:"#ccc",navBarHidden:true,width:320,height:500
+	backgroundColor:"#666",navBarHidden:true,width:320,height:500
 }
 
 "#plate":{
 	height:100,left:10,right:10,top:10,
-	color:"#333",
+	color:"#fff",
 	font:{
 		fontSize:60,fontWeight:"bold"
 	}

@@ -1,0 +1,20 @@
+<Alloy>
+	<Window backgroundColor="#666" width="320" height="480"  >
+			<View id="main" height="Ti.UI.SIZE" left="20" right="20" layout="vertical" >
+				<View height="Ti.UI.SIZE" bottom="10">
+				<View id="photo" ></View>
+					<View id="plate_container" >
+						<Label id="name" ></Label>
+						<View height="1" backgroundColor="#fff" right="30" top="5" bottom="5" ></View>
+						<Label id="plate" ></Label>
+					</View>
+				</View>
+				<View id="cars" left="10" right="10" height="Ti.UI.SIZE" layout="vertical" borderRadius="4" >
+					
+				</View>
+				<View id="cancel_btn" left="10" right="10" backgroundColor="#999" height="Ti.UI.SIZE" borderRadius="4" onClick="onCancel" >
+					<Label top="20" bottom="20" color="#eee" height="Ti.UI.SIZE" >CANCEL</Label>
+				</View>
+			</View>
+	</Window>
+</Alloy>

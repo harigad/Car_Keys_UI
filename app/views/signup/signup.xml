@@ -6,7 +6,7 @@
 			 <View id="hr"></View>
 			<TextField id="zipcode" hintText="Zipcode" onReturn="process" ></TextField>
 			<View class="btn" onClick="process" top="10" >
-				<Label class="btn_label" >find my car</Label>
+				<Label class="btn_label" >add my car</Label>
 			</View>
 			<View class="btn" onClick="onCancel" backgroundColor="#999"  >
 				<Label class="btn_label">cancel</Label>

@@ -29,6 +29,8 @@ function Controller() {
     $.__views.main = Ti.UI.createView({
         height: Ti.UI.SIZE,
         layout: "horizontal",
+        bottom: 1,
+        borderRadius: 2,
         id: "main"
     });
     $.__views.main && $.addTopLevelView($.__views.main);

@@ -14,18 +14,18 @@ function Controller() {
         id: "send_to_server"
     });
     $.__views.send_to_server && $.addTopLevelView($.__views.send_to_server);
-    $.__views.__alloyId77 = Ti.UI.createView({
+    $.__views.__alloyId84 = Ti.UI.createView({
         height: Ti.UI.SIZE,
-        id: "__alloyId77"
+        id: "__alloyId84"
     });
-    $.__views.send_to_server.add($.__views.__alloyId77);
-    $.__views.__alloyId78 = Ti.UI.createLabel({
+    $.__views.send_to_server.add($.__views.__alloyId84);
+    $.__views.__alloyId85 = Ti.UI.createLabel({
         text: "Saving..",
         height: Ti.UI.SIZE,
         color: "#eee",
-        id: "__alloyId78"
+        id: "__alloyId85"
     });
-    $.__views.__alloyId77.add($.__views.__alloyId78);
+    $.__views.__alloyId84.add($.__views.__alloyId85);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");

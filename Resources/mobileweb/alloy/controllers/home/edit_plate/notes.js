@@ -114,7 +114,7 @@ function Controller() {
             y: 2
         },
         shadowRadius: 3,
-        text: "* Plates can be upto 7 digits long..not including the spaces",
+        text: "* Plates can be upto 10 digits long..not including the spaces",
         id: "__alloyId52"
     });
     $.__views.__alloyId49.add($.__views.__alloyId52);

@@ -65,7 +65,7 @@ function Controller() {
     });
     $.__views.signup.add($.__views.main);
     $.__views.plate = Ti.UI.createTextField({
-        color: "#666",
+        color: "#999",
         left: 20,
         right: 20,
         font: {
@@ -87,7 +87,7 @@ function Controller() {
     });
     $.__views.main.add($.__views.hr);
     $.__views.zipcode = Ti.UI.createTextField({
-        color: "#666",
+        color: "#999",
         left: 20,
         right: 20,
         font: {
@@ -100,7 +100,7 @@ function Controller() {
     });
     $.__views.main.add($.__views.zipcode);
     process ? $.__views.zipcode.addEventListener("return", process) : __defers["$.__views.zipcode!return!process"] = true;
-    $.__views.__alloyId79 = Ti.UI.createView({
+    $.__views.__alloyId86 = Ti.UI.createView({
         left: 20,
         right: 20,
         borderRadius: 4,
@@ -108,21 +108,21 @@ function Controller() {
         backgroundColor: "#2179ca",
         top: "10",
         bottom: 5,
-        id: "__alloyId79"
+        id: "__alloyId86"
     });
-    $.__views.main.add($.__views.__alloyId79);
-    process ? $.__views.__alloyId79.addEventListener("click", process) : __defers["$.__views.__alloyId79!click!process"] = true;
-    $.__views.__alloyId80 = Ti.UI.createLabel({
+    $.__views.main.add($.__views.__alloyId86);
+    process ? $.__views.__alloyId86.addEventListener("click", process) : __defers["$.__views.__alloyId86!click!process"] = true;
+    $.__views.__alloyId87 = Ti.UI.createLabel({
         top: 20,
         bottom: 20,
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "#fff",
-        text: "find my car",
-        id: "__alloyId80"
+        text: "add my car",
+        id: "__alloyId87"
     });
-    $.__views.__alloyId79.add($.__views.__alloyId80);
-    $.__views.__alloyId81 = Ti.UI.createView({
+    $.__views.__alloyId86.add($.__views.__alloyId87);
+    $.__views.__alloyId88 = Ti.UI.createView({
         left: 20,
         right: 20,
         borderRadius: 4,
@@ -130,20 +130,20 @@ function Controller() {
         backgroundColor: "#999",
         top: 5,
         bottom: 5,
-        id: "__alloyId81"
+        id: "__alloyId88"
     });
-    $.__views.main.add($.__views.__alloyId81);
-    onCancel ? $.__views.__alloyId81.addEventListener("click", onCancel) : __defers["$.__views.__alloyId81!click!onCancel"] = true;
-    $.__views.__alloyId82 = Ti.UI.createLabel({
+    $.__views.main.add($.__views.__alloyId88);
+    onCancel ? $.__views.__alloyId88.addEventListener("click", onCancel) : __defers["$.__views.__alloyId88!click!onCancel"] = true;
+    $.__views.__alloyId89 = Ti.UI.createLabel({
         top: 20,
         bottom: 20,
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "#fff",
         text: "cancel",
-        id: "__alloyId82"
+        id: "__alloyId89"
     });
-    $.__views.__alloyId81.add($.__views.__alloyId82);
+    $.__views.__alloyId88.add($.__views.__alloyId89);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");
@@ -153,8 +153,8 @@ function Controller() {
     var login = require("Login");
     $.signup.open();
     __defers["$.__views.zipcode!return!process"] && $.__views.zipcode.addEventListener("return", process);
-    __defers["$.__views.__alloyId79!click!process"] && $.__views.__alloyId79.addEventListener("click", process);
-    __defers["$.__views.__alloyId81!click!onCancel"] && $.__views.__alloyId81.addEventListener("click", onCancel);
+    __defers["$.__views.__alloyId86!click!process"] && $.__views.__alloyId86.addEventListener("click", process);
+    __defers["$.__views.__alloyId88!click!onCancel"] && $.__views.__alloyId88.addEventListener("click", onCancel);
     _.extend($, exports);
 }
 

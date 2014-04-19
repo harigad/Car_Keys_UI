@@ -37,7 +37,7 @@
 					ride along:
 				</Label>
 			</View>	
-			<View class="right_box" id="radios" >
+			<View class="right_box" id="radios" layout="horizontal" >
 				
 			</View>	
 		</View>

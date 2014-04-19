@@ -5,6 +5,7 @@
 		
 var request =  Alloy.createController("ridealong/request",{_data:_data});
 $.request.add(request.getView());
+request.getView("main").setBackgroundColor("#666");
 
 $.accept.open();
 
@@ -33,7 +34,7 @@ function process(action){
 
 function send_to_server(action){
 	var url = "http://flair.me/carkey/search.php";	
-	var _postData = {type:"checkin",action:action,checkin_request_id:_data.checkin_request_id,accessToken:login.getAccessToken()};
+	var _postData = {type:"checkin",action:action,checkin_id:_data.checkin_id,accessToken:login.getAccessToken()};
 	
  	var client = Ti.Network.createHTTPClient({ 		
  	 onload : function(e) {

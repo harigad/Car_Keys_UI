@@ -1,0 +1,28 @@
+"#photo":{
+	backgroundColor:"#fff",
+	left:10,
+	width:100,height:100,
+	borderRadius:50,
+	borderWidth:3,
+	borderColor:"#cecece"
+}
+
+"#plate_container":{
+	left:100,
+	height:Ti.UI.SIZE,
+	layout:"vertical"
+}
+
+"#name":{
+	color:"#eee",left:10,
+	font:{
+		fontSize:20
+	}
+}
+
+"#plate":{
+	color:"#fff",left:10,
+	font:{
+		fontSize:20,fontWeight:"bold"
+	}
+}

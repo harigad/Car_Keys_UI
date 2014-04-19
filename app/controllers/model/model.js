@@ -10,7 +10,7 @@ $.plate.setText(_data.model);
 if(!login.ownsModel(_data.moid)){
 	$.post_btn.setBackgroundColor("#aaa");
 	$.post_label.setColor("#ccc");
-	$.post_label.setText("restricted");
+	$.post_label.setText("READ ONLY");
 }
 
 $.model.open();

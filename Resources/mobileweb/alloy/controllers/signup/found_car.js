@@ -189,7 +189,7 @@ function Controller() {
     });
     $.__views.main.add($.__views.btn_container);
     onVerify ? $.__views.btn_container.addEventListener("click", onVerify) : __defers["$.__views.btn_container!click!onVerify"] = true;
-    $.__views.__alloyId73 = Ti.UI.createLabel({
+    $.__views.__alloyId80 = Ti.UI.createLabel({
         left: 20,
         right: 20,
         top: 10,
@@ -201,9 +201,9 @@ function Controller() {
         },
         color: "#eee",
         text: "Verify My Ownership",
-        id: "__alloyId73"
+        id: "__alloyId80"
     });
-    $.__views.btn_container.add($.__views.__alloyId73);
+    $.__views.btn_container.add($.__views.__alloyId80);
     $.__views.cancel_container = Ti.UI.createView({
         top: 20,
         height: Ti.UI.SIZE,

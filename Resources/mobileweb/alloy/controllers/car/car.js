@@ -222,7 +222,7 @@ function Controller() {
         height: Ti.UI.SIZE,
         left: 5,
         top: 0,
-        layout: "vertical",
+        layout: "horizontal",
         id: "radios"
     });
     $.__views.__alloyId8.add($.__views.radios);
@@ -263,15 +263,13 @@ function Controller() {
         });
         $.shares.add(new_share.getView());
     }
-    _data.radios || [];
-    var new_radio = Alloy.createController("car/radio/radio_main", {
-        _editable: true,
-        _cid: _data.cid,
-        _callBack: function() {
-            _callBack();
-        }
-    });
-    $.radios.add(new_radio.getView());
+    var rides = _data.rides || [];
+    for (var i = 0; rides.length > i; i++) {
+        var ride = Alloy.createController("car/radio/radio_main", {
+            _data: rides[i]
+        });
+        $.radios.add(ride.getView());
+    }
     __defers["$.__views.model_container!click!goToModel"] && $.__views.model_container.addEventListener("click", goToModel);
     __defers["$.__views.logo_container!click!goToMake"] && $.__views.logo_container.addEventListener("click", goToMake);
     _.extend($, exports);

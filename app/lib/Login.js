@@ -4,7 +4,7 @@ var fb = Ti.Facebook;
 var login_screen;
 
 	fb.appid = '374335169286433';
-	//fb.permissions = ['publish_stream'];
+	fb.permissions = ['email'];
 
 exports.init = function(_callBack){
 	if(loggedIn()){
@@ -165,7 +165,7 @@ function onLogin(_callBack){
 
 function show(callBack){
 	login_screen =  Alloy.createController("login/login_screen",{_callBack:function(){
-			fb.authorize();
+		fb.authorize();
 	}});
 	fb.addEventListener("login",function(){
    			onLogin(callBack);
@@ -228,3 +228,10 @@ exports.setRequests = function(requests){
 	user.requests = requests;
 };
 
+exports.getNotices = function(){
+	return user.notices || [];
+};
+
+exports.setNotices = function(notices){
+	user.notices = notices;
+};

@@ -48,9 +48,6 @@ function Controller() {
     var exports = {};
     $.__views.main = Ti.UI.createView({
         height: Ti.UI.SIZE,
-        backgroundColor: "#eee",
-        borderRadius: 4,
-        bottom: 10,
         layout: "vertical",
         id: "main"
     });

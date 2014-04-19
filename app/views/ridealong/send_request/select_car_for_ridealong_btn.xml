@@ -1,0 +1,10 @@
+<Alloy>
+	<View height="Ti.UI.SIZE" onClick="onSelect" backgroundColor="#2179ca" borderRadius="4" bottom="10" >
+		<View height="Ti.UI.SIZE" left="10" right="10" layout="horizontal" >
+			<View borderWidth="3" borderColor="#fff" width="50" height="50" borderRadius="25" right="10" backgroundColor="#333" top="10" bottom="10" >
+				<View id="logo" width="30" height="30"></View>
+			</View>
+			<Label id="model" color="#fff"></Label>
+		</View>
+	</View>
+</Alloy>

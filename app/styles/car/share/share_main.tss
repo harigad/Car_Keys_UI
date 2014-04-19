@@ -1,5 +1,5 @@
 "#main":{
-	height:Ti.UI.SIZE,layout:"horizontal"
+	height:Ti.UI.SIZE,layout:"horizontal",bottom:1,borderRadius:2
 }
 
 "#photo":{

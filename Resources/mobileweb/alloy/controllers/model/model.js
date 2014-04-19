@@ -57,7 +57,7 @@ function Controller() {
     });
     $.__views.photo.add($.__views.logo);
     $.__views.plate = Ti.UI.createLabel({
-        color: "#eee",
+        color: "#999",
         font: {
             fontSize: 36,
             fontWeight: "bold"
@@ -132,7 +132,7 @@ function Controller() {
     if (!login.ownsModel(_data.moid)) {
         $.post_btn.setBackgroundColor("#aaa");
         $.post_label.setColor("#ccc");
-        $.post_label.setText("restricted");
+        $.post_label.setText("READ ONLY");
     }
     $.model.open();
     __defers["$.__views.photo!click!goToMake"] && $.__views.photo.addEventListener("click", goToMake);

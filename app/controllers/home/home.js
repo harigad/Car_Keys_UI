@@ -25,8 +25,10 @@ function onAddNew(){
 
 
 function onRideAlong(){
-	var ridealong =  Alloy.createController("ridealong/ridealong",{_callBack:function(){
-		//$.mycars.refresh();
+	var ridealong =  Alloy.createController("ridealong/ridealong",{_callBack:function(success){
+		if(success){
+			
+		}
 	}});
 }
 

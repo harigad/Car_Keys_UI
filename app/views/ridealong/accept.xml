@@ -1,7 +1,7 @@
 <Alloy>
 	<Window backgroundColor="#666" >
 		<View height="Ti.UI.SIZE" layout="vertical" left="40" right="40" >
-				<View id="request" height="Ti.UI.SIZE" width="Ti.UI.SIZE" ></View>
+				<View id="request" height="Ti.UI.SIZE" width="Ti.UI.SIZE" borderRadius="4" ></View>
 				<View borderRadius="4" backgroundColor="#2179ca" height="Ti.UI.SIZE" bottom="5" onClick="onAccept" top="20" >
 					<Label color="#fff" height="Ti.UI.SIZE" top="20" bottom="20"  >ACCEPT</Label>
 				</View>

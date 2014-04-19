@@ -1,6 +1,15 @@
 function Controller() {
     function onFocus() {}
-    function onEdit() {}
+    function onEdit() {
+        var carkey = $.plate.getValue();
+        Alloy.createController("ridealong/send_request/search_carkey_for_ridealong", {
+            _data: carkey,
+            _callBack: function(success) {
+                _callBack(success);
+                $.ridealong.close();
+            }
+        });
+    }
     function onCancel() {
         $.ridealong.close();
     }
@@ -13,7 +22,7 @@ function Controller() {
     var exports = {};
     var __defers = {};
     $.__views.ridealong = Ti.UI.createWindow({
-        backgroundColor: "#ccc",
+        backgroundColor: "#666",
         navBarHidden: true,
         width: 320,
         height: 500,
@@ -31,7 +40,7 @@ function Controller() {
         left: 10,
         right: 10,
         top: 10,
-        color: "#333",
+        color: "#fff",
         font: {
             fontSize: 60,
             fontWeight: "bold"
@@ -90,7 +99,7 @@ function Controller() {
     _.extend($, $.__views);
     require("Login");
     var args = arguments[0] || {};
-    args._data || {};
+    var _callBack = args._callBack;
     $.ridealong.open();
     __defers["$.__views.ridealong!focus!onFocus"] && $.__views.ridealong.addEventListener("focus", onFocus);
     __defers["$.__views.plate!return!onEdit"] && $.__views.plate.addEventListener("return", onEdit);

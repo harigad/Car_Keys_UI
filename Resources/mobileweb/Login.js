@@ -72,6 +72,8 @@ var login_screen;
 
 fb.appid = "374335169286433";
 
+fb.permissions = [ "email" ];
+
 exports.init = function(_callBack) {
     if (loggedIn()) {
         _callBack();
@@ -188,4 +190,12 @@ exports.getRequests = function() {
 
 exports.setRequests = function(requests) {
     user.requests = requests;
+};
+
+exports.getNotices = function() {
+    return user.notices || [];
+};
+
+exports.setNotices = function(notices) {
+    user.notices = notices;
 };
