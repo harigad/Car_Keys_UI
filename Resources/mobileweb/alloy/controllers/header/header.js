@@ -16,7 +16,7 @@ function Controller() {
     $.__views.main = Ti.UI.createView({
         height: 50,
         top: 0,
-        backgroundColor: "#666",
+        backgroundColor: "#ffa633",
         id: "main"
     });
     $.__views.main && $.addTopLevelView($.__views.main);

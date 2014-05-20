@@ -3,12 +3,11 @@ function Controller() {
         showPleaseWait();
         var url = "http://flair.me/carkey/search.php";
         var _data = {
-            type: "friends",
+            type: "feed",
             accessToken: login.getAccessToken()
         };
         var client = Ti.Network.createHTTPClient({
             onload: function() {
-                Ti.API.debug("User.load recieved data " + this.responseText);
                 var response = JSON.parse(this.responseText);
                 build(response);
             },
@@ -20,36 +19,45 @@ function Controller() {
         client.send(_data);
     }
     function build(data) {
-        var currentMake;
-        var currentItem;
         for (var i = 0; data.length > i; i++) {
-            if (currentMake !== data[i].make) {
-                var separator = Alloy.createController("feed/separator", {
+            var feed_item;
+            switch (data[i].typeid) {
+              case "0":
+                feed_item = Alloy.createController("feed/feed_car_new", {
                     _data: data[i]
                 });
-                $.main.add(separator.getView());
-                var feed_item_left = Alloy.createController("feed/feed_item_left", {
+                break;
+
+              case "1":
+                feed_item = Alloy.createController("feed/feed_car_added", {
                     _data: data[i]
                 });
-                $.main.add(feed_item_left.getView());
-                currentItem = "left";
-            } else if ("left" === currentItem) {
-                var feed_item_right = Alloy.createController("feed/feed_item_left", {
+                break;
+
+              case "2":
+                feed_item = Alloy.createController("feed/feed_plate", {
                     _data: data[i]
                 });
-                $.main.add(feed_item_right.getView());
-                currentItem = "right";
-            } else {
-                var feed_item_left = Alloy.createController("feed/feed_item_left", {
+                break;
+
+              case "3":
+                feed_item = Alloy.createController("feed/feed_share", {
                     _data: data[i]
                 });
-                $.main.add(feed_item_left.getView());
-                currentItem = "left";
+                break;
+
+              case "4":
+                feed_item = Alloy.createController("feed/feed_ridealong", {
+                    _data: data[i]
+                });
             }
-            currentMake = data[i].make;
+            $.main.add(feed_item.getView());
         }
     }
-    function showPleaseWait() {}
+    function showPleaseWait() {
+        var len = $.main.children.length;
+        for (var i = 0; len > i; i++) $.main.remove($.main.children[0]);
+    }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "feed/feed";
     arguments[0] ? arguments[0]["__parentSymbol"] : null;
@@ -58,32 +66,30 @@ function Controller() {
     var $ = this;
     var exports = {};
     $.__views.container = Ti.UI.createView({
+        top: 5,
+        bottom: 5,
         height: Ti.UI.SIZE,
-        top: 0,
-        backgroundColor: "#eee",
+        left: 10,
+        right: 10,
         borderRadius: 4,
+        backgroundColor: "#fff",
         id: "container"
     });
     $.__views.container && $.addTopLevelView($.__views.container);
-    $.__views.bar = Ti.UI.createView({
-        top: 0,
-        backgroundColor: "#fff",
-        height: 30,
-        borderRadius: 4,
-        opacity: .5,
-        id: "bar"
-    });
-    $.__views.container.add($.__views.bar);
     $.__views.main = Ti.UI.createView({
-        height: Ti.UI.SIZE,
+        id: "main",
         layout: "vertical",
-        id: "main"
+        height: Ti.UI.SIZE,
+        top: "0"
     });
     $.__views.container.add($.__views.main);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");
     load();
+    exports.refresh = function() {
+        load();
+    };
     _.extend($, exports);
 }
 

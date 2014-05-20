@@ -2,6 +2,7 @@ var user;
 var main;
 var fb = Ti.Facebook;
 var login_screen;
+var friendsCars;
 
 	fb.appid = '374335169286433';
 	fb.permissions = ['email'];
@@ -127,6 +128,10 @@ function loadUser(_callBack){
 }
 
 exports.ownsModel = function(moid){
+	return _ownsModel(moid);
+};
+
+function _ownsModel(moid){
 	var cars = _getCars();
 	for(var i=0;i<cars.length;i++){
 		if(cars[i].moid == moid){
@@ -234,4 +239,22 @@ exports.getNotices = function(){
 
 exports.setNotices = function(notices){
 	user.notices = notices;
+};
+
+exports.setFriendsCars = function(cars){
+	friendsCars = cars || [];
+};
+
+exports.canSeeModel = function(moid){
+	if(_ownsModel(moid)){
+		return true;
+	}
+
+	for(var i=0;i<friendsCars.length;i++){
+		if(moid == friendsCars[i].moid){
+			return true;
+		}
+	}
+	
+	return false;
 };

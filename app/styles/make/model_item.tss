@@ -8,14 +8,14 @@
 "#name":{
 	height:Ti.UI.SIZE,
 	width:Ti.UI.FILL,
-	color:"#5689d5",
+	color:"#ffa633",
 	font:{
 		fontSize:24
 	}
 }
 
 "#friends":{
-	color:"#5689d5",
+	color:"#ffa633",
 	height:Ti.UI.SIZE,
 	width:Ti.UI.SIZE,
 	right:10,

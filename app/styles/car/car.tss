@@ -1,5 +1,5 @@
 "#main":{
-	top:0,bottom:10,borderRadius:4,backgroundColor:"#eee",
+	top:0,bottom:10,borderRadius:4,backgroundColor:"#fff",
 	height:Ti.UI.SIZE,
 	layout:"vertical"
 }
@@ -10,7 +10,7 @@
 }
 
 "#bar" : {
-	backgroundColor:"#fff",height:30,left:0,top:0,opacity:0.5
+	backgroundColor:"#ffa633",height:30,left:0,top:0,opacity:0.5
 }
 
 "#container":{
@@ -39,7 +39,7 @@
 }
 
 "#model":{
-	width:Ti.UI.SIZE,height:Ti.UI.SIZE,color:"#2179ca",
+	width:Ti.UI.SIZE,height:Ti.UI.SIZE,color:"#ffa633",
 	font:{
 		fontSize:20,fontWeight:"bold"
 	}

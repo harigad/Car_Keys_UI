@@ -5,6 +5,7 @@
 		
 $.photo.setBackgroundImage(_data.photo);
 $.name.setText(_data.name);
+$.desc.setText(_data.desc);
 
 
 function onClose(){
@@ -33,7 +34,7 @@ function onClose(){
 
 function send_to_server(){
 	var url = "http://flair.me/carkey/search.php";	
-	var _postData = {type:"checkin",action:"seen",checkin_request_id:_data.checkin_request_id,accessToken:login.getAccessToken()};
+	var _postData = {type:"checkin",action:"seen",checkin_id:_data.checkin_id,accessToken:login.getAccessToken()};
 	
  	var client = Ti.Network.createHTTPClient({ 		
  	 onload : function(e) {

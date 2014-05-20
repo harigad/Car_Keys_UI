@@ -1,6 +1,6 @@
 <Alloy>
-	<View id="main"  backgroundColor="#2179ca" layout="horizontal" height="Ti.UI.SIZE" onClick="onClick" >
-		<View id="photo" left="10" top="5" bottom="5" width="50" height="50" borderRadius="25" backgroundColor="#ccc" borderWidth="3" borderColor="#a6c9ea" ></View>
+	<View id="main"  backgroundColor="#f49033" layout="horizontal" height="Ti.UI.SIZE" onClick="onClick" >
+		<View id="photo" left="10" top="5" bottom="5" width="50" height="50" borderRadius="25" backgroundColor="#ccc" borderWidth="3" borderColor="#fff" ></View>
 		<View left="10" right="10" width="Ti.UI.SIZE" layout="vertical" height="Ti.UI.SIZE" >
 			<Label id="name" width="Ti.UI.SIZE" ></Label>
 			<Label left="0" id="desc" width="Ti.UI.SIZE" >sent you a ride along request</Label>

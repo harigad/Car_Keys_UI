@@ -4,7 +4,7 @@
 }
 
 "#bar" : {
-	backgroundColor:"#5689d5",height:1,left:45,top:"50%"
+	backgroundColor:"#ffa633",height:1,left:45,top:"50%"
 }
 
 "#container":{
@@ -28,7 +28,7 @@
 
 
 "#name":{
-	width:Ti.UI.SIZE,height:Ti.UI.SIZE,color:"#5689d5",
+	width:Ti.UI.SIZE,height:Ti.UI.SIZE,color:"#ffa633",
 	font:{
 		fontSize:14
 	}

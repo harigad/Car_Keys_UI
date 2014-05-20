@@ -36,7 +36,7 @@ function Controller() {
     var $ = this;
     var exports = {};
     $.__views.make = Ti.UI.createWindow({
-        backgroundColor: "#666",
+        backgroundColor: "#eee",
         navBarHidden: true,
         width: 320,
         height: 500,
@@ -55,6 +55,7 @@ function Controller() {
         left: 0,
         width: Ti.UI.FILL,
         height: 150,
+        backgroundColor: "#ffa633",
         id: "profile_container"
     });
     $.__views.scroll.add($.__views.profile_container);
@@ -74,7 +75,7 @@ function Controller() {
     });
     $.__views.photo.add($.__views.logo);
     $.__views.make_name = Ti.UI.createLabel({
-        color: "#999",
+        color: "#fff",
         height: "Ti.UI.SIZE",
         font: {
             fontSize: 36,
@@ -91,7 +92,7 @@ function Controller() {
     $.__views.scroll.add($.__views.main_container);
     $.__views.main = Ti.UI.createView({
         borderRadius: 4,
-        backgroundColor: "#eee",
+        backgroundColor: "#fff",
         layout: "vertical",
         height: Ti.UI.SIZE,
         left: 10,
@@ -110,7 +111,6 @@ function Controller() {
     var args = arguments[0] || {};
     var _data = args._data || {};
     $.make_name.setText(_data.make);
-    $.header.getView("main").setBackgroundColor("#666");
     $.header.openWindow($.make);
     $.logo.setBackgroundImage("logos/48/" + _data.logo);
     load(_data);

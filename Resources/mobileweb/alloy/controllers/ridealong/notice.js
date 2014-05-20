@@ -22,7 +22,7 @@ function Controller() {
         var _postData = {
             type: "checkin",
             action: "seen",
-            checkin_request_id: _data.checkin_request_id,
+            checkin_id: _data.checkin_id,
             accessToken: login.getAccessToken()
         };
         var client = Ti.Network.createHTTPClient({
@@ -42,7 +42,7 @@ function Controller() {
     var __defers = {};
     $.__views.main = Ti.UI.createView({
         id: "main",
-        backgroundColor: "#999",
+        backgroundColor: "#f49033",
         layout: "horizontal",
         height: Ti.UI.SIZE
     });
@@ -102,6 +102,7 @@ function Controller() {
     var _callBack = args._callBack;
     $.photo.setBackgroundImage(_data.photo);
     $.name.setText(_data.name);
+    $.desc.setText(_data.desc);
     __defers["$.__views.main!click!onClose"] && $.__views.main.addEventListener("click", onClose);
     _.extend($, exports);
 }

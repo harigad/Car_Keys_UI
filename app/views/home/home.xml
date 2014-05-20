@@ -1,7 +1,7 @@
 <Alloy>
 	<Window>
-	<ScrollView id="scroll"  >
-		<View id="profile_container" >
+	<ScrollView id="scroll"  top="-120" >
+		<View id="profile_container" top="120" >
 			<View id="plate_container" onClick="editPlate">
 				<Label id="plate">create your CARKEY#</Label>
 				<View id="edit_icon"></View>
@@ -9,17 +9,9 @@
 		</View>
 		<View id="main">
 			 <Require src="ridealong/requests" id="requests"/>
-			 <View class="my_rides"> 
-			 	<Label class="separator" width="Ti.UI.SIZE" >my cars</Label>
-			 	<Label class="separator" width="Ti.UI.SIZE" left="60" color="#2179ca" onClick="onAddNew" >(add new)</Label>
-			 </View>
-			 <Require src="mycars/mycars" id="mycars"/>
-			 <View class="my_rides"> 
-			 	<Label class="separator" width="Ti.UI.SIZE" >my friends</Label>
-			 	<Label class="separator" width="Ti.UI.SIZE" left="75" color="#2179ca" onClick="onInvite" ></Label>
-			 </View>
 			 <Require src="feed/feed" id="feed"/>
 		</View>
+		<Require src="components/pull_to_refresh/pull_to_refresh" id="pull_to_refresh"/>
 	</ScrollView>
 		<View onClick="onRideAlong" id="ride_along" width="111" height="66" borderRadius="4" backgroundImage="common/ridealong_blue_text.png" top="0" ></View>
 	</Window>

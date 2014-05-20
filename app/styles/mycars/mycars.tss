@@ -1,3 +1,9 @@
-"#main":{
-	height:Ti.UI.SIZE,layout:"vertical"
+"Window":{
+	backgroundColor:"#666",navBarHidden:true,width:320,height:500
 }
+
+"#main":{
+	height:Ti.UI.SIZE,layout:"vertical",left:10,right:10,top:10
+} 
+
+

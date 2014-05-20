@@ -1,6 +1,6 @@
 "#main":{
 	height:50,top:0,
-	backgroundColor:"#666"
+	backgroundColor:"#ffa633"
 }
 
 "#title":{

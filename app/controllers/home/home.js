@@ -2,6 +2,10 @@ var login = require('Login');
 
 onPlateChanged();
 
+$.pull_to_refresh.init($.scroll,function(){
+	$.feed.refresh();
+},$.ride_along);
+
 function editPlate(){
 	var edit_plate_notes =  Alloy.createController("home/edit_plate/notes",{_callBack:function(){
 		onPlateChanged();

@@ -1,17 +1,21 @@
 var login = require('Login');
+
 load();
+
+exports.refresh = function(){
+	load();
+};
 
 function load(){
 	showPleaseWait();	
 	
 	var url = "http://flair.me/carkey/search.php";	
-	var _data = {type:"friends",accessToken:login.getAccessToken()};
+	var _data = {type:"feed",accessToken:login.getAccessToken()};
 		
  	var client = Ti.Network.createHTTPClient({ 		
  	 onload : function(e) {
- 	 	Ti.API.debug("User.load recieved data " + this.responseText);
  	 	 var response = JSON.parse(this.responseText);
-      	 build(response);
+ 	 	 build(response);
  	 },
  	 onerror: function(e){
  		 	Ti.API.error("User.load error " + e);
@@ -26,37 +30,29 @@ function load(){
 
 
 function build(data){
-	var currentMake;
-	var currentItem;	
-		
+
 	for(var i=0;i<data.length;i++){
-		
-		if(currentMake!==data[i].make){
-			var separator =  Alloy.createController("feed/separator",{_data:data[i]});
-			$.main.add(separator.getView());
-			
-			var feed_item_left =  Alloy.createController("feed/feed_item_left",{_data:data[i]});
-			$.main.add(feed_item_left.getView());
-			currentItem="left";
-		}else{
-			if(currentItem==="left"){
-				var feed_item_right =  Alloy.createController("feed/feed_item_left",{_data:data[i]});
-				$.main.add(feed_item_right.getView());
-				currentItem="right";
-			}else{
-				var feed_item_left =  Alloy.createController("feed/feed_item_left",{_data:data[i]});
-				$.main.add(feed_item_left.getView());
-				currentItem="left";	
-			}
+		var feed_item;
+		switch(data[i].typeid) {
+		case "0":
+			feed_item =  Alloy.createController("feed/feed_car_new",{_data:data[i]});break;
+		case "1":
+			feed_item =  Alloy.createController("feed/feed_car_added",{_data:data[i]});break;
+		case "2":
+			feed_item =  Alloy.createController("feed/feed_plate",{_data:data[i]});break;
+		case "3":
+			feed_item =  Alloy.createController("feed/feed_share",{_data:data[i]});break;
+		case "4":
+			feed_item =  Alloy.createController("feed/feed_ridealong",{_data:data[i]});break;
 		}
-		currentMake = data[i].make;
-		
+		$.main.add(feed_item.getView());
 	}
 }
 
-
 function showPleaseWait(){
 	//$.main.removeAllChildren();
-	
-	
+	var len = $.main.children.length;
+	for(var i=0;i<len;i++){
+			$.main.remove($.main.children[0]);
+	}
 }

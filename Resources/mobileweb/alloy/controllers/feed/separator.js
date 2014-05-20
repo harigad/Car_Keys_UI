@@ -21,7 +21,7 @@ function Controller() {
     $.__views.main && $.addTopLevelView($.__views.main);
     $.__views.bar = Ti.UI.createView({
         height: 5,
-        backgroundColor: "#5689d5",
+        backgroundColor: "#cecece",
         top: 23,
         opacity: .5,
         id: "bar"

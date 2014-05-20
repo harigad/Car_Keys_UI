@@ -1,6 +1,5 @@
 <Alloy>
-		<View id="container" >
-			<View id="bar"></View>
-			<View id="main" ></View>
-		</View>
+	<View id="container" >
+		<View id="main" layout="vertical" height="Ti.UI.SIZE" top="0" ></View>
+	</View>
 </Alloy>

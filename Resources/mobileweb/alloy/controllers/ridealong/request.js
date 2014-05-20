@@ -25,7 +25,7 @@ function Controller() {
     var __defers = {};
     $.__views.main = Ti.UI.createView({
         id: "main",
-        backgroundColor: "#2179ca",
+        backgroundColor: "#f49033",
         layout: "horizontal",
         height: Ti.UI.SIZE
     });
@@ -41,7 +41,7 @@ function Controller() {
         borderRadius: "25",
         backgroundColor: "#ccc",
         borderWidth: "3",
-        borderColor: "#a6c9ea"
+        borderColor: "#fff"
     });
     $.__views.main.add($.__views.photo);
     $.__views.__alloyId62 = Ti.UI.createView({

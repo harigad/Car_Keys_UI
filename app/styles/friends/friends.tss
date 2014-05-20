@@ -1,0 +1,17 @@
+"Window":{
+	backgroundColor:"#cecece",navBarHidden:true,width:320,height:500
+}
+
+"#container":{
+	height:Ti.UI.SIZE,top:10,left:10,right:10,
+	backgroundColor:"#fff",borderRadius:4
+}
+
+"#main":{
+	height:Ti.UI.SIZE,
+	layout:"vertical"
+}
+
+"#bar":{
+	top:0,backgroundColor:"#fff",height:30,borderRadius:4,opacity:0.5
+}

@@ -1,6 +1,6 @@
 function Controller() {
     function goToModel() {
-        Alloy.createController("model/model", {
+        login.canSeeModel(_data.moid) && Alloy.createController("model/model", {
             _data: _data
         });
     }
@@ -26,7 +26,7 @@ function Controller() {
     $.__views.name = Ti.UI.createLabel({
         height: Ti.UI.SIZE,
         width: Ti.UI.FILL,
-        color: "#5689d5",
+        color: "#ffa633",
         font: {
             fontSize: 24
         },
@@ -46,9 +46,10 @@ function Controller() {
     $.__views.main.add($.__views.count);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    require("Login");
+    var login = require("Login");
     var args = arguments[0] || {};
     var _data = args._data || {};
+    login.canSeeModel(_data.moid) || $.name.setColor("#333");
     $.name.setText(_data.model);
     $.count.setText(_data.count + " cars registered");
     __defers["$.__views.main!click!goToModel"] && $.__views.main.addEventListener("click", goToModel);

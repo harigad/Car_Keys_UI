@@ -1,9 +1,9 @@
 <Alloy>
-	<Window backgroundColor="#666" >
+	<Window>
 		<View height="Ti.UI.SIZE" layout="vertical" left="40" right="40" >
 				<View id="request" height="Ti.UI.SIZE" width="Ti.UI.SIZE" borderRadius="4" ></View>
-				<View borderRadius="4" backgroundColor="#2179ca" height="Ti.UI.SIZE" bottom="5" onClick="onAccept" top="20" >
-					<Label color="#fff" height="Ti.UI.SIZE" top="20" bottom="20"  >ACCEPT</Label>
+				<View borderRadius="4" backgroundColor="#fff" height="Ti.UI.SIZE" bottom="5" onClick="onAccept" top="20" >
+					<Label color="#f49033" height="Ti.UI.SIZE" top="20" bottom="20"  >ACCEPT</Label>
 				</View>
 				<View borderRadius="4" backgroundColor="#990000" height="Ti.UI.SIZE" top="5" onClick="onDelete" >
 					<Label color="#fff" height="Ti.UI.SIZE" top="20" bottom="20" >REJECT</Label>

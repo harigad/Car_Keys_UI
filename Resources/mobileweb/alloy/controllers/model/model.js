@@ -26,7 +26,7 @@ function Controller() {
     });
     $.__views.model.add($.__views.scroll);
     $.__views.profile_container = Ti.UI.createView({
-        backgroundColor: "#666",
+        backgroundColor: "#ffa633",
         top: 0,
         height: 150,
         id: "profile_container"
@@ -57,7 +57,7 @@ function Controller() {
     });
     $.__views.photo.add($.__views.logo);
     $.__views.plate = Ti.UI.createLabel({
-        color: "#999",
+        color: "#fff",
         font: {
             fontSize: 36,
             fontWeight: "bold"
@@ -90,7 +90,7 @@ function Controller() {
     $.__views.post_btn = Ti.UI.createView({
         top: 0,
         borderRadius: 4,
-        backgroundColor: "#5689d5",
+        backgroundColor: "#fff",
         height: Ti.UI.SIZE,
         id: "post_btn"
     });
@@ -108,7 +108,7 @@ function Controller() {
     });
     $.__views.post_btn.add($.__views.post_icon);
     $.__views.post_label = Ti.UI.createLabel({
-        color: "#fff",
+        color: "#ffa633",
         font: {
             fontSize: 24
         },

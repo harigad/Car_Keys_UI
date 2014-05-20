@@ -4,10 +4,15 @@ var login = require('Login');
 		var _editable = args._editable;
 		var _callBack = args._callBack;
 		
-var monthNames = [ "January", "February", "March", "April", "May", "June",
+var monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December" ];
 
 $.logo.setBackgroundImage("logos/48/" + _data.logo);
+
+if(!login.canSeeModel(_data.moid)){
+	$.model.setColor("#333");
+}
+
 $.model.setText(_data.model);
 
 if(_data.year){
@@ -17,10 +22,9 @@ if(_data.year){
 if(_data.titledate){
 	var d = new Date(_data.titledate);
 	if(d){
-		$.owned.setText("since " + monthNames[d.getMonth()+1] + " " + d.getFullYear());
+		$.owned.setText("since " + monthNames[d.getMonth()] + " " + d.getFullYear());
 	}
 }
-
 
 	var shares = _data.shares || [];
 	for(var i=0;i<shares.length;i++){
@@ -45,7 +49,9 @@ if(_data.titledate){
 	
 	
 function goToModel(){
-	var model =  Alloy.createController("model/model",{_data:_data});
+	if(login.canSeeModel(_data.moid)){
+		var model =  Alloy.createController("model/model",{_data:_data});
+	}
 }
 
 function goToMake(){

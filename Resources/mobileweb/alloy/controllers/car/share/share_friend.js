@@ -28,7 +28,7 @@ function Controller() {
         top: 15,
         bottom: 15,
         height: Ti.UI.SIZE,
-        color: "#2179ca",
+        color: "#ffa633",
         id: "name"
     });
     $.__views.main.add($.__views.name);

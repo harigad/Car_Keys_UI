@@ -1,6 +1,6 @@
 function Controller() {
     function goToModel() {
-        Alloy.createController("model/model", {
+        login.canSeeModel(_data.moid) && Alloy.createController("model/model", {
             _data: _data
         });
     }
@@ -21,7 +21,7 @@ function Controller() {
         top: 0,
         bottom: 10,
         borderRadius: 4,
-        backgroundColor: "#eee",
+        backgroundColor: "#fff",
         height: Ti.UI.SIZE,
         layout: "vertical",
         id: "main"
@@ -36,7 +36,7 @@ function Controller() {
     $.__views.main.add($.__views.model_container);
     goToModel ? $.__views.model_container.addEventListener("click", goToModel) : __defers["$.__views.model_container!click!goToModel"] = true;
     $.__views.bar = Ti.UI.createView({
-        backgroundColor: "#fff",
+        backgroundColor: "#ffa633",
         height: 30,
         left: 0,
         top: 0,
@@ -81,7 +81,7 @@ function Controller() {
     $.__views.model = Ti.UI.createLabel({
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
-        color: "#2179ca",
+        color: "#ffa633",
         font: {
             fontSize: 20,
             fontWeight: "bold"
@@ -228,18 +228,19 @@ function Controller() {
     $.__views.__alloyId8.add($.__views.radios);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    require("Login");
+    var login = require("Login");
     var args = arguments[0] || {};
     var _data = args._data || {};
     var _editable = args._editable;
     var _callBack = args._callBack;
     var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
     $.logo.setBackgroundImage("logos/48/" + _data.logo);
+    login.canSeeModel(_data.moid) || $.model.setColor("#333");
     $.model.setText(_data.model);
     _data.year && $.year.setText("'" + _data.year);
     if (_data.titledate) {
         var d = new Date(_data.titledate);
-        d && $.owned.setText("since " + monthNames[d.getMonth() + 1] + " " + d.getFullYear());
+        d && $.owned.setText("since " + monthNames[d.getMonth()] + " " + d.getFullYear());
     }
     var shares = _data.shares || [];
     for (var i = 0; shares.length > i; i++) {

@@ -1,4 +1,10 @@
+var args = arguments[0] || {};
+var _callBack = args._callBack;
 var login = require('Login');
+
+exports.open = function(){
+	$.header.openWindow($.mycars);	
+};
 
 init();
 function init(){

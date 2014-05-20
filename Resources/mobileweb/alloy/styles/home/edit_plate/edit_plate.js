@@ -1,1 +1,1 @@
-module.exports = [{"isApi":true,"priority":1000.0089,"key":"Window","style":{backgroundColor:"#ccc",navBarHidden:true,width:320,height:500,}},{"isId":true,"priority":100000.009,"key":"plate","style":{height:100,left:10,right:10,top:10,color:"#333",font:{fontSize:60,fontWeight:"bold",},}}];
+module.exports = [{"isApi":true,"priority":1000.013,"key":"Window","style":{backgroundColor:"#ccc",navBarHidden:true,width:320,height:500,}},{"isId":true,"priority":100000.0131,"key":"plate","style":{height:100,left:10,right:10,top:10,color:"#333",font:{fontSize:60,fontWeight:"bold",},}}];

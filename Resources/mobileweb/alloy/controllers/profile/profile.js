@@ -45,7 +45,7 @@ function Controller() {
     var exports = {};
     var __defers = {};
     $.__views.profile = Ti.UI.createWindow({
-        backgroundColor: "#ccc",
+        backgroundColor: "#eee",
         navBarHidden: true,
         width: 320,
         height: 500,
@@ -58,18 +58,18 @@ function Controller() {
     });
     $.__views.profile.add($.__views.scroll);
     $.__views.profile_container = Ti.UI.createView({
-        backgroundColor: "#666",
+        backgroundColor: "#ffa633",
         top: 0,
         height: 150,
         id: "profile_container"
     });
     $.__views.scroll.add($.__views.profile_container);
-    $.__views.__alloyId54 = Ti.UI.createView({
+    $.__views.__alloyId53 = Ti.UI.createView({
         height: Ti.UI.SIZE,
         top: "-10",
-        id: "__alloyId54"
+        id: "__alloyId53"
     });
-    $.__views.profile_container.add($.__views.__alloyId54);
+    $.__views.profile_container.add($.__views.__alloyId53);
     $.__views.photo = Ti.UI.createView({
         backgroundColor: "#fff",
         left: 20,
@@ -80,7 +80,7 @@ function Controller() {
         borderColor: "#cecece",
         id: "photo"
     });
-    $.__views.__alloyId54.add($.__views.photo);
+    $.__views.__alloyId53.add($.__views.photo);
     goToPhoto ? $.__views.photo.addEventListener("click", goToPhoto) : __defers["$.__views.photo!click!goToPhoto"] = true;
     $.__views.plate_container = Ti.UI.createView({
         left: 120,
@@ -88,25 +88,26 @@ function Controller() {
         layout: "vertical",
         id: "plate_container"
     });
-    $.__views.__alloyId54.add($.__views.plate_container);
+    $.__views.__alloyId53.add($.__views.plate_container);
     $.__views.name = Ti.UI.createLabel({
-        color: "#eee",
+        color: "#fff",
         left: 10,
         font: {
             fontSize: 20
         },
+        opacity: .8,
         id: "name"
     });
     $.__views.plate_container.add($.__views.name);
-    $.__views.__alloyId55 = Ti.UI.createView({
+    $.__views.__alloyId54 = Ti.UI.createView({
         height: "1",
         backgroundColor: "#fff",
         right: "30",
         top: "5",
         bottom: "5",
-        id: "__alloyId55"
+        id: "__alloyId54"
     });
-    $.__views.plate_container.add($.__views.__alloyId55);
+    $.__views.plate_container.add($.__views.__alloyId54);
     $.__views.plate = Ti.UI.createLabel({
         color: "#fff",
         left: 10,

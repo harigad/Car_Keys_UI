@@ -1,5 +1,5 @@
 "Window":{
-	backgroundColor:"#ccc",navBarHidden:true,width:320,height:500
+	backgroundColor:"#eee",navBarHidden:true,width:320,height:500
 }
 
 "#scroll":{
@@ -9,7 +9,7 @@
 "#main":{
 	layout:"vertical",
 	height:Ti.UI.SIZE,
-	left:10,right:10,top:140
+	top:260
 }
 
 ".my_rides":{
@@ -28,7 +28,7 @@
 	top:0,left:0,
 	width:Ti.UI.FILL,
 	height:200,
-	backgroundColor:"#666"
+	backgroundColor:"#ffa633"
 }
 
 "#plate_container":{
@@ -39,7 +39,7 @@
 "#plate":{
 	width:Ti.UI.SIZE,
 	left:22,
-	color:"#eee",
+	color:"#fff",
 	font:{
 		fontSize:20,fontWeight:"bold"
 	}

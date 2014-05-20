@@ -47,7 +47,7 @@ function Controller() {
     $.__views.text = Ti.UI.createLabel({
         width: Ti.UI.SIZE,
         right: 5,
-        color: "#2179ca",
+        color: "#ffa633",
         height: Ti.UI.SIZE,
         font: {
             fontSize: 11

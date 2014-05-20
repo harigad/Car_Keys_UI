@@ -1,7 +1,12 @@
+		var login = require('Login');
 		var args = arguments[0] || {};
 		var _data = args._data || {};
-
+		var _callBack = args._callBack;
+		
 $.photo.setBackgroundImage(_data.photo);
-//$.logo.setBackgroundImage(_data.logo);
 $.name.setText(_data.name);
-$.plate.setText(_data.plate);
+
+
+function onClick(e){
+	_callBack();
+}

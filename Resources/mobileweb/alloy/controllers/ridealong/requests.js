@@ -30,14 +30,20 @@ function Controller() {
                     }
                 });
                 $.main.add(request.getView());
-                requests.length - 1 > i && $.main.add(Ti.UI.createView({
+                $.main.add(Ti.UI.createView({
                     height: 1,
                     backgroundColor: "#fff",
                     opacity: .2
                 }));
             }
         }
-        hasItems ? $.main.setTop(30) : $.main.setTop(0);
+        if (hasItems) {
+            $.main.setTop(0);
+            $.main.setBottom(0);
+        } else {
+            $.main.setTop(-5);
+            $.main.setBottom(0);
+        }
     }
     function refresh() {
         clear();
@@ -65,6 +71,8 @@ function Controller() {
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");
+    Alloy.createController("mycars/mycars");
+    Alloy.createController("friends/friends");
     draw();
     _.extend($, exports);
 }

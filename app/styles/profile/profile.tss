@@ -1,9 +1,9 @@
 "Window":{
-	backgroundColor:"#ccc",navBarHidden:true,width:320,height:500
+	backgroundColor:"#eee",navBarHidden:true,width:320,height:500
 } 
 
 "#profile_container":{
-	backgroundColor:"#666",
+	backgroundColor:"#ffa633",
 	top:0,
 	height:150
 }
@@ -24,10 +24,10 @@
 }
 
 "#name":{
-	color:"#eee",left:10,
+	color:"#fff",left:10,
 	font:{
 		fontSize:20
-	}
+	},opacity:0.8
 }
 
 "#plate":{

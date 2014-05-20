@@ -1,0 +1,11 @@
+<Alloy>
+	<Window>
+		<ScrollView id="scroll" top="50" >
+			<View id="container" >
+				<View id="bar"></View>
+				<View id="main" ></View>
+			</View>
+		</ScrollView>
+		<Require type="view" src="header/header" id="header"/>
+	</Window>
+</Alloy>

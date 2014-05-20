@@ -30,6 +30,12 @@ function loadUser(_callBack) {
     client.send(_data);
 }
 
+function _ownsModel(moid) {
+    var cars = _getCars();
+    for (var i = 0; cars.length > i; i++) if (cars[i].moid == moid) return true;
+    return false;
+}
+
 function hasCars() {
     return _getCars().length > 0 ? true : false;
 }
@@ -69,6 +75,8 @@ var main;
 var fb = Ti.Facebook;
 
 var login_screen;
+
+var friendsCars;
 
 fb.appid = "374335169286433";
 
@@ -137,9 +145,7 @@ exports.getAccessToken = function() {
 };
 
 exports.ownsModel = function(moid) {
-    var cars = _getCars();
-    for (var i = 0; cars.length > i; i++) if (cars[i].moid == moid) return true;
-    return false;
+    return _ownsModel(moid);
 };
 
 exports.getCars = function() {
@@ -198,4 +204,14 @@ exports.getNotices = function() {
 
 exports.setNotices = function(notices) {
     user.notices = notices;
+};
+
+exports.setFriendsCars = function(cars) {
+    friendsCars = cars || [];
+};
+
+exports.canSeeModel = function(moid) {
+    if (_ownsModel(moid)) return true;
+    for (var i = 0; friendsCars.length > i; i++) if (moid == friendsCars[i].moid) return true;
+    return false;
 };

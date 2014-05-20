@@ -1,5 +1,5 @@
 "Window":{
-	backgroundColor:"#666",navBarHidden:true,width:320,height:500
+	backgroundColor:"#eee",navBarHidden:true,width:320,height:500
 }
 
 "#scroll":{
@@ -9,7 +9,7 @@
 "#profile_container":{
 	top:0,left:0,
 	width:Ti.UI.FILL,
-	height:150
+	height:150,backgroundColor:"#ffa633"
 }
 
 "#photo":{
@@ -21,7 +21,7 @@
 }
 
 "#make_name":{
-	color:"#999",height:"Ti.UI.SIZE",
+	color:"#fff",height:"Ti.UI.SIZE",
 	font:{
 		fontSize:36,fontWeight:"bold"
 	}
@@ -33,7 +33,7 @@
 }
 
 "#main":{
-	borderRadius:4,backgroundColor:"#eee",
+	borderRadius:4,backgroundColor:"#fff",
 	layout:"vertical",
 	height:Ti.UI.SIZE,
 	left:10,right:10
