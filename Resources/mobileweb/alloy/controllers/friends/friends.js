@@ -63,7 +63,7 @@ function Controller() {
     var $ = this;
     var exports = {};
     $.__views.friends = Ti.UI.createWindow({
-        backgroundColor: "#cecece",
+        backgroundColor: "#ffa633",
         navBarHidden: true,
         width: 320,
         height: 500,
@@ -110,6 +110,7 @@ function Controller() {
     var login = require("Login");
     var loaded = false;
     load();
+    $.header.setTitle("my friends");
     exports.open = function() {
         loaded || load();
         $.header.openWindow($.friends);

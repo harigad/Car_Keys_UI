@@ -13,7 +13,7 @@ function Controller() {
     var exports = {};
     var __defers = {};
     $.__views.model = Ti.UI.createWindow({
-        backgroundColor: "#ccc",
+        backgroundColor: "#eee",
         navBarHidden: true,
         width: 320,
         height: 500,
@@ -73,8 +73,8 @@ function Controller() {
     $.__views.scroll.add($.__views.cars_container);
     $.__views.content = Ti.UI.createView({
         top: 0,
-        left: 20,
-        right: 20,
+        left: 10,
+        right: 10,
         height: Ti.UI.SIZE,
         layout: "vertical",
         id: "content"
@@ -90,25 +90,13 @@ function Controller() {
     $.__views.post_btn = Ti.UI.createView({
         top: 0,
         borderRadius: 4,
-        backgroundColor: "#fff",
-        height: Ti.UI.SIZE,
+        backgroundColor: "#f49033",
+        height: 60,
         id: "post_btn"
     });
     $.__views.post_container.add($.__views.post_btn);
-    $.__views.post_icon = Ti.UI.createView({
-        left: 10,
-        top: 10,
-        bottom: 10,
-        width: 40,
-        height: 40,
-        backgroundColor: "#fff",
-        borderRadius: 4,
-        opacity: .6,
-        id: "post_icon"
-    });
-    $.__views.post_btn.add($.__views.post_icon);
     $.__views.post_label = Ti.UI.createLabel({
-        color: "#ffa633",
+        color: "#fff",
         font: {
             fontSize: 24
         },
@@ -116,6 +104,11 @@ function Controller() {
         id: "post_label"
     });
     $.__views.post_btn.add($.__views.post_label);
+    $.__views.friends = Alloy.createController("model/model_friends", {
+        id: "friends",
+        __parentSymbol: $.__views.content
+    });
+    $.__views.friends.setParent($.__views.content);
     $.__views.header = Alloy.createController("header/header", {
         id: "header",
         __parentSymbol: $.__views.model
@@ -127,11 +120,12 @@ function Controller() {
     var args = arguments[0] || {};
     var _data = args._data || {};
     $.header.openWindow($.model);
+    $.friends.init(_data.moid);
     $.logo.setBackgroundImage("logos/48/" + _data.logo);
     $.plate.setText(_data.model);
     if (!login.ownsModel(_data.moid)) {
-        $.post_btn.setBackgroundColor("#aaa");
-        $.post_label.setColor("#ccc");
+        $.post_btn.setBackgroundColor("#ddd");
+        $.post_label.setColor("#eee");
         $.post_label.setText("READ ONLY");
     }
     $.model.open();

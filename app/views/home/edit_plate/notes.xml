@@ -1,14 +1,13 @@
 <Alloy>
 	<Window>
 		<View layout="vertical" >
-			<Label id="title">Few things about your CARKEY</Label>
+			<Label id="title">Few things about your Bumper Sticker</Label>
 			<View left=10 right=10 bottom=10 height=Ti.UI.SIZE layout="vertical" >
-			<Label class="point" top=10 >* Your CARKEY is unique..ie no one else can have the same plate while you still have it</Label>
-			<Label class="point">* You can change your CARKEY at any time</Label>
-			<Label class="point">* Plates can be upto 10 digits long..not including the spaces</Label>
-			<Label class="point">* You must have at least one vehichle before you can create your CARKEY</Label>
+			<Label class="point" top=10 >* Your Bumper Sticker is unique..ie no one else can have the same plate while you still have it</Label>
+			<Label class="point">* You can change your Bumper Sticker at any time</Label>
+			<Label class="point">* Stickers can be upto 10 digits long..not including the spaces</Label>
+			<Label class="point">* You must have at least one vehichle before you can create your Bumper Sticker</Label>
 			</View>
-			
 			<View id="continue_btn" onClick="onOk" >
 				<Label id="continue_btn_label" >I knew that!</Label>
 			</View>

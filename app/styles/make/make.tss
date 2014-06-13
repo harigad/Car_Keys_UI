@@ -33,7 +33,7 @@
 }
 
 "#main":{
-	borderRadius:4,backgroundColor:"#fff",
+	borderRadius:4,backgroundColor:"#f49033",
 	layout:"vertical",
 	height:Ti.UI.SIZE,
 	left:10,right:10

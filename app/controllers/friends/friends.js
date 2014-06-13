@@ -3,6 +3,8 @@ var loaded = false;
 
 load();
 
+$.header.setTitle("my friends");
+
 exports.open = function(){
 	if(!loaded){
 		load();	

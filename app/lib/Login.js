@@ -3,6 +3,7 @@ var main;
 var fb = Ti.Facebook;
 var login_screen;
 var friendsCars;
+var pleaseWait = Alloy.createController("components/pleasewait");
 
 	fb.appid = '374335169286433';
 	fb.permissions = ['email'];
@@ -193,6 +194,7 @@ exports.setFeed = function(_flairs){
 
 exports.setCars = function(cars){
 	user.cars = cars || [];
+	Ti.App.fireEvent('cars_updated',cars);
 };
 
 exports.getPlate = function(){
@@ -243,6 +245,21 @@ exports.setNotices = function(notices){
 
 exports.setFriendsCars = function(cars){
 	friendsCars = cars || [];
+	Ti.App.fireEvent('friends_cars_updated',friendsCars);
+};
+
+exports.getFriendsCars = function() {
+	return friendsCars || [];
+};
+
+exports.getFriendsWithModel = function(moid){
+	var counts = [];
+	for(var i=0;i<friendsCars.length;i++){
+		if(moid == friendsCars[i].moid){
+			counts.push(friendsCars[i]);
+		}
+	}
+	return counts;
 };
 
 exports.canSeeModel = function(moid){
@@ -257,4 +274,12 @@ exports.canSeeModel = function(moid){
 	}
 	
 	return false;
+};
+
+exports.openPleaseWait = function(){
+	pleaseWait.open();
+};	
+
+exports.closePleaseWait = function(){
+	pleaseWait.close();
 };

@@ -1,5 +1,5 @@
 "Window": {
-	backgroundColor:"#333",navBarHidden:true,width:320,height:500
+	backgroundColor:"#ffa633",navBarHidden:true,width:320,height:500
 }
 
 "#main": {
@@ -9,7 +9,7 @@
 
 ".hr": {
 	height:1,left:20,right:20,
-	backgroundColor:"#555"
+	backgroundColor:"#fff"
 }
 
 "#logo" :{backgroundImage:"",width:48,height:48}
@@ -19,7 +19,7 @@
 "#model" : {
 	font:{
 		fontSize: 24
-	},color:"#999"
+	},color:"#fff"
 }
 
 "#explain" :{
@@ -27,11 +27,11 @@
 	font:{
 		fontSize: 11
 	},
-	color:"#999"
+	color:"#fff", opacity:0.7
 }
 
 "TextField":{
-	backgroundColor:"#333",color:"#777",
+	backgroundColor:"#fff",color:"#ffa633",
 	left:20,
 	right:20,font:{fontSize:18},height:40,
 	borderStyle:Ti.UI.INPUT_BORDERSTYLE_NONE

@@ -1,5 +1,5 @@
 "Window":{
-	backgroundColor:"#ccc",navBarHidden:true,width:320,height:500
+	backgroundColor:"#ffa633",navBarHidden:true,width:320,height:500
 }
 
 "#title":{
@@ -19,26 +19,20 @@
 	left:10,right:10,height:Ti.UI.SIZE,
 	bottom:10,top:10,
 	font:{
-		color:"#333",fontSize:14
-	},
-	shadowColor: '#fff',
-    shadowOffset: {x:2, y:2},
-    shadowRadius: 3,
+		color:"#fff",fontSize:14
+	}
 }
 
 "#continue_btn":{
-	backgroundColor:"#999",
+	backgroundColor:"#f49033",
 	borderRadius:4,
 	left:10,right:10,top:10,bottom:10,height:Ti.UI.SIZE
 }
 
 "#continue_btn_label":{
 	top:20,bottom:20,height:Ti.UI.SIZE,
-	color:"#eee",
+	color:"#fff",
 	font:{
 		fontSize:18,fontWeight:"bold"
-	},
-	shadowColor: '#666',
-    shadowOffset: {x:2, y:2},
-    shadowRadius: 3,
+	}
 }

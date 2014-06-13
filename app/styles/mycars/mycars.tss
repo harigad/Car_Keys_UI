@@ -1,9 +1,9 @@
 "Window":{
-	backgroundColor:"#666",navBarHidden:true,width:320,height:500
+	backgroundColor:"#ffa633",navBarHidden:true,width:320,height:500
 }
 
 "#main":{
-	height:Ti.UI.SIZE,layout:"vertical",left:10,right:10,top:10
+	height:Ti.UI.SIZE,layout:"vertical",left:10,right:10
 } 
 
 

@@ -9,6 +9,7 @@ if(_data){
 	$.photo.setBackgroundImage(_data.photo);
 	$.text.setText(_data.name);
 }else{
+	$.photo.setBackgroundImage("common/plus_with_10_margin.png");
 	$.text.setText("add new");
 }
 

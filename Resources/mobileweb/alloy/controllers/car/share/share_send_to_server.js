@@ -7,7 +7,7 @@ function Controller() {
     var $ = this;
     var exports = {};
     $.__views.share_send_to_server = Ti.UI.createWindow({
-        backgroundColor: "#eee",
+        backgroundColor: "#ffa633",
         navBarHidden: true,
         width: 320,
         height: 500,
@@ -22,6 +22,7 @@ function Controller() {
     $.__views.__alloyId35 = Ti.UI.createLabel({
         text: "Updating..",
         height: Ti.UI.SIZE,
+        color: "#fff",
         id: "__alloyId35"
     });
     $.__views.__alloyId34.add($.__views.__alloyId35);

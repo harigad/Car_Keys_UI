@@ -11,7 +11,7 @@ function Controller() {
     var exports = {};
     var __defers = {};
     $.__views.login_screen = Ti.UI.createWindow({
-        backgroundColor: "#2179ca",
+        backgroundColor: "#f49033",
         navBarHidden: true,
         width: 320,
         height: 500,

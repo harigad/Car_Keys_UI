@@ -2,8 +2,12 @@ var login = require('Login');
 		var args = arguments[0] || {};
 		var _data = args._data || {};
 
-var gender = "his";
-_data.year = "2004";
+var gender;
+if(_data.gender === "1"){
+	gender = "her";
+}else{
+	gender = "his";
+}
 
 var date = new Date(_data.created);
 
@@ -18,7 +22,7 @@ function goToUser(){
 }
 
 function goToModel(){
-	if(!login.canSeeModel(_data.moid)){
+	if(login.canSeeModel(_data.moid)){
 		var model =  Alloy.createController("model/model",{_data:_data});
 	}else{
 		var make =  Alloy.createController("make/make",{_data:_data});

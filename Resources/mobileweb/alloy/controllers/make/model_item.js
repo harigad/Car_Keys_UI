@@ -18,7 +18,7 @@ function Controller() {
         bottom: 10,
         left: 10,
         right: 10,
-        layout: "horizontal",
+        layout: "vertical",
         id: "main"
     });
     $.__views.main && $.addTopLevelView($.__views.main);
@@ -26,15 +26,34 @@ function Controller() {
     $.__views.name = Ti.UI.createLabel({
         height: Ti.UI.SIZE,
         width: Ti.UI.FILL,
-        color: "#ffa633",
+        color: "#fff",
         font: {
             fontSize: 24
         },
         id: "name"
     });
     $.__views.main.add($.__views.name);
+    $.__views.__alloyId56 = Ti.UI.createView({
+        height: Ti.UI.SIZE,
+        layout: "horizontal",
+        id: "__alloyId56"
+    });
+    $.__views.main.add($.__views.__alloyId56);
+    $.__views.friends = Ti.UI.createLabel({
+        color: "#fff",
+        opacity: .5,
+        height: Ti.UI.SIZE,
+        width: Ti.UI.SIZE,
+        right: 10,
+        font: {
+            fontSize: 12
+        },
+        id: "friends"
+    });
+    $.__views.__alloyId56.add($.__views.friends);
     $.__views.count = Ti.UI.createLabel({
-        color: "#666",
+        color: "#fff",
+        opacity: .5,
         height: Ti.UI.SIZE,
         width: Ti.UI.SIZE,
         right: 10,
@@ -43,15 +62,17 @@ function Controller() {
         },
         id: "count"
     });
-    $.__views.main.add($.__views.count);
+    $.__views.__alloyId56.add($.__views.count);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");
     var args = arguments[0] || {};
     var _data = args._data || {};
-    login.canSeeModel(_data.moid) || $.name.setColor("#333");
+    var friends = login.getFriendsWithModel(_data.moid);
+    login.canSeeModel(_data.moid) || $.name.setOpacity(.4);
+    $.friends.setText("friends (" + friends.length + ")");
+    $.count.setText("users (" + _data.count + ")");
     $.name.setText(_data.model);
-    $.count.setText(_data.count + " cars registered");
     __defers["$.__views.main!click!goToModel"] && $.__views.main.addEventListener("click", goToModel);
     _.extend($, exports);
 }

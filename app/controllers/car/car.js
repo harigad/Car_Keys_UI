@@ -4,6 +4,25 @@ var login = require('Login');
 		var _editable = args._editable;
 		var _callBack = args._callBack;
 		
+if(_editable){
+//	$.edit_icon.setVisible(true);	
+var now = new Date();
+var expires = new Date(_data.regexpdate);
+var days_remaining = Math.round((expires-now)/(1000 * 60 * 60 * 24));
+
+	//if(days_remaining > 90){
+	//	$.expires_lbl.setText("Registration Renewal BEGINS in " + (days_remaining - 90) + " days");
+	if(days_remaining > 0){
+		$.expires_lbl.setText("Registration Exipres in " + days_remaining + " days");
+	}else{
+		$.expires.setBackgroundColor("#990000");
+		$.expires_lbl.setText("Registration Expired  " + Math.abs(days_remaining) + " days ago");
+	}
+	
+	$.expires.setBottom(10);
+	$.expires.setHeight("Ti.UI.SIZE");
+}		
+		
 var monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December" ];
 
@@ -46,14 +65,28 @@ if(_data.titledate){
 		var ride =  Alloy.createController("car/radio/radio_main",{_data:rides[i]});
 		$.radios.add(ride.getView());
 	}
-	
+
+	if(rides.length === 6){
+		var ride =  Alloy.createController("car/radio/radio_main",{_data:_data,_showall:true});
+		$.radios.add(ride.getView());
+	}
 	
 function goToModel(){
 	if(login.canSeeModel(_data.moid)){
 		var model =  Alloy.createController("model/model",{_data:_data});
+	}else{
+		goToMake();
 	}
 }
 
 function goToMake(){
 	var make =  Alloy.createController("make/make",{_data:_data});
+}
+
+function onEdit(){
+	
+}
+
+function explain_expires(){
+	
 }

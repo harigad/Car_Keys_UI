@@ -17,7 +17,7 @@ function onPlateChanged(){
 	if(plate && plate !==""){
 		$.plate.setText(login.getPlate());	
 	}else{
-		$.plate.setText("create your CARKEY");
+		$.plate.setText("Create your Bumper Sticker");
 	}
 }
 

@@ -12,7 +12,7 @@ function Controller() {
     var exports = {};
     var __defers = {};
     $.__views.select_car_for_ridealong = Ti.UI.createWindow({
-        backgroundColor: "#666",
+        backgroundColor: "#ffa633",
         width: "320",
         height: "480",
         id: "select_car_for_ridealong"
@@ -26,12 +26,12 @@ function Controller() {
         layout: "vertical"
     });
     $.__views.select_car_for_ridealong.add($.__views.main);
-    $.__views.__alloyId71 = Ti.UI.createView({
+    $.__views.__alloyId81 = Ti.UI.createView({
         height: Ti.UI.SIZE,
         bottom: "10",
-        id: "__alloyId71"
+        id: "__alloyId81"
     });
-    $.__views.main.add($.__views.__alloyId71);
+    $.__views.main.add($.__views.__alloyId81);
     $.__views.photo = Ti.UI.createView({
         backgroundColor: "#fff",
         left: 10,
@@ -42,14 +42,14 @@ function Controller() {
         borderColor: "#cecece",
         id: "photo"
     });
-    $.__views.__alloyId71.add($.__views.photo);
+    $.__views.__alloyId81.add($.__views.photo);
     $.__views.plate_container = Ti.UI.createView({
         left: 100,
         height: Ti.UI.SIZE,
         layout: "vertical",
         id: "plate_container"
     });
-    $.__views.__alloyId71.add($.__views.plate_container);
+    $.__views.__alloyId81.add($.__views.plate_container);
     $.__views.name = Ti.UI.createLabel({
         color: "#eee",
         left: 10,
@@ -59,15 +59,15 @@ function Controller() {
         id: "name"
     });
     $.__views.plate_container.add($.__views.name);
-    $.__views.__alloyId72 = Ti.UI.createView({
+    $.__views.__alloyId82 = Ti.UI.createView({
         height: "1",
         backgroundColor: "#fff",
         right: "30",
         top: "5",
         bottom: "5",
-        id: "__alloyId72"
+        id: "__alloyId82"
     });
-    $.__views.plate_container.add($.__views.__alloyId72);
+    $.__views.plate_container.add($.__views.__alloyId82);
     $.__views.plate = Ti.UI.createLabel({
         color: "#fff",
         left: 10,
@@ -97,15 +97,15 @@ function Controller() {
     });
     $.__views.main.add($.__views.cancel_btn);
     onCancel ? $.__views.cancel_btn.addEventListener("click", onCancel) : __defers["$.__views.cancel_btn!click!onCancel"] = true;
-    $.__views.__alloyId73 = Ti.UI.createLabel({
+    $.__views.__alloyId83 = Ti.UI.createLabel({
         text: "CANCEL",
         top: "20",
         bottom: "20",
         color: "#eee",
         height: Ti.UI.SIZE,
-        id: "__alloyId73"
+        id: "__alloyId83"
     });
-    $.__views.cancel_btn.add($.__views.__alloyId73);
+    $.__views.cancel_btn.add($.__views.__alloyId83);
     exports.destroy = function() {};
     _.extend($, $.__views);
     require("Login");

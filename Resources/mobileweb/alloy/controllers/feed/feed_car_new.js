@@ -10,9 +10,9 @@ function Controller() {
         });
     }
     function goToModel() {
-        login.canSeeModel(_data.moid) ? Alloy.createController("make/make", {
+        login.canSeeModel(_data.moid) ? Alloy.createController("model/model", {
             _data: _data
-        }) : Alloy.createController("model/model", {
+        }) : Alloy.createController("make/make", {
             _data: _data
         });
     }
@@ -84,13 +84,23 @@ function Controller() {
         left: 55,
         layout: "horizontal",
         height: Ti.UI.SIZE,
+        top: -10,
         id: "bottomView",
         bottom: "10"
     });
     $.__views.main.add($.__views.bottomView);
     goToModel ? $.__views.bottomView.addEventListener("click", goToModel) : __defers["$.__views.bottomView!click!goToModel"] = true;
+    $.__views.desc = Ti.UI.createLabel({
+        height: Ti.UI.SIZE,
+        left: "0",
+        color: "#333",
+        id: "desc",
+        width: "150",
+        right: "10"
+    });
+    $.__views.bottomView.add($.__views.desc);
     $.__views.logo_container = Ti.UI.createView({
-        left: 0,
+        left: "0",
         width: 50,
         height: 50,
         backgroundColor: "#333",
@@ -106,28 +116,19 @@ function Controller() {
         id: "logo"
     });
     $.__views.logo_container.add($.__views.logo);
-    $.__views.desc = Ti.UI.createLabel({
-        height: Ti.UI.SIZE,
-        left: 10,
-        color: "#333",
-        id: "desc",
-        width: "150",
-        right: "10"
-    });
-    $.__views.bottomView.add($.__views.desc);
-    $.__views.__alloyId37 = Ti.UI.createView({
+    $.__views.__alloyId40 = Ti.UI.createView({
         height: "1",
         backgroundColor: "#cecece",
-        id: "__alloyId37"
+        id: "__alloyId40"
     });
-    $.__views.main.add($.__views.__alloyId37);
+    $.__views.main.add($.__views.__alloyId40);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");
     var args = arguments[0] || {};
     var _data = args._data || {};
-    var gender = "his";
-    _data.year = "2004";
+    var gender;
+    gender = "1" === _data.gender ? "her" : "his";
     var date = new Date(_data.created);
     $.date.setText(date.toDateString());
     $.photo.setBackgroundImage(_data.photo);

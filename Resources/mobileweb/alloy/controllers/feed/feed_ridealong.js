@@ -1,12 +1,23 @@
 function Controller() {
-    function goToUser() {}
-    function goToModel() {
+    function goToUser() {
         Alloy.createController("profile/profile", {
             _data: {
                 id: _data.ouid,
                 photo: _data.ophoto,
+                photo_big: _data.ophoto_big,
                 name: _data.oname,
                 plate: _data.oplate
+            }
+        });
+    }
+    function goToModel() {
+        Alloy.createController("profile/profile", {
+            _data: {
+                id: _data.uid,
+                photo: _data.photo,
+                photo_big: _data.photo_big,
+                name: _data.name,
+                plate: _data.plate
             }
         });
     }
@@ -42,6 +53,7 @@ function Controller() {
         borderRadius: 17.5,
         borderColor: "#cecece",
         borderWidth: 2,
+        backgroundColor: "#cececce",
         id: "photo"
     });
     $.__views.topView.add($.__views.photo);
@@ -78,26 +90,16 @@ function Controller() {
         left: 55,
         layout: "horizontal",
         height: Ti.UI.SIZE,
-        top: -10,
         id: "bottomView",
         bottom: "10"
     });
     $.__views.main.add($.__views.bottomView);
     goToModel ? $.__views.bottomView.addEventListener("click", goToModel) : __defers["$.__views.bottomView!click!goToModel"] = true;
-    $.__views.desc = Ti.UI.createLabel({
-        height: Ti.UI.SIZE,
-        left: "0",
-        color: "#333",
-        id: "desc",
-        width: "150",
-        right: "10"
-    });
-    $.__views.bottomView.add($.__views.desc);
     $.__views.logo_container = Ti.UI.createView({
-        left: "0",
+        left: 0,
         width: 50,
         height: 50,
-        backgroundColor: "#333",
+        backgroundColor: "#cecece",
         borderRadius: 25,
         borderColor: "#eee",
         borderWidth: 3,
@@ -105,29 +107,39 @@ function Controller() {
     });
     $.__views.bottomView.add($.__views.logo_container);
     $.__views.logo = Ti.UI.createView({
-        width: 35,
-        height: 35,
+        width: 50,
+        height: 50,
         id: "logo"
     });
     $.__views.logo_container.add($.__views.logo);
-    $.__views.__alloyId39 = Ti.UI.createView({
+    $.__views.desc = Ti.UI.createLabel({
+        height: Ti.UI.SIZE,
+        left: 10,
+        color: "#333",
+        id: "desc",
+        width: "150",
+        right: "10"
+    });
+    $.__views.bottomView.add($.__views.desc);
+    $.__views.__alloyId42 = Ti.UI.createView({
         height: "1",
         backgroundColor: "#cecece",
-        id: "__alloyId39"
+        id: "__alloyId42"
     });
-    $.__views.main.add($.__views.__alloyId39);
+    $.__views.main.add($.__views.__alloyId42);
     exports.destroy = function() {};
     _.extend($, $.__views);
     require("Login");
     var args = arguments[0] || {};
     var _data = args._data || {};
-    _data.year = "2004";
+    var gender;
+    gender = "1" === _data.gender ? "her" : "his";
     var date = new Date(_data.created);
     $.date.setText(date.toDateString());
-    $.photo.setBackgroundImage(_data.photo);
-    $.logo.setBackgroundImage(_data.ophoto);
-    $.name.setText(_data.name);
-    $.desc.setText("was riding along with " + _data.oname);
+    $.photo.setBackgroundImage(_data.ophoto);
+    $.logo.setBackgroundImage(_data.photo);
+    $.name.setText(_data.oname);
+    $.desc.setText("was riding along in a " + _data.model + " with " + _data.name);
     __defers["$.__views.topView!click!goToUser"] && $.__views.topView.addEventListener("click", goToUser);
     __defers["$.__views.bottomView!click!goToModel"] && $.__views.bottomView.addEventListener("click", goToModel);
     _.extend($, exports);

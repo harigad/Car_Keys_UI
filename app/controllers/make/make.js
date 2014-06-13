@@ -38,5 +38,10 @@ function build(data){
 	for(var i=0;i<data.length;i++){
 		var model_item =  Alloy.createController("make/model_item",{_data:data[i]});
 		$.main.add(model_item.getView());
+		
+		if(i<data.length-1){
+				$.main.add(Ti.UI.createView({height:1,backgroundColor:"#eee"}));
+		}
+		
 	}
 }

@@ -1,29 +1,55 @@
 "Window": {
-	backgroundColor:"#333",navBarHidden:true,width:320,height:500
+	backgroundColor:"#ffa633",navBarHidden:true,width:320,height:500
 }
 
 "#main": {
+	top:60,
 	layout:"vertical",height:Ti.UI.SIZE,
-	left:10,right:10,top:40,borderRadius:4
+	left:10,right:10
 }
 
-"#hr": {
-	height:1,left:20,right:20,
-	backgroundColor:"#aaa",opacity:0.3
+"#question" :{
+	height:Ti.UI.SIZE,
+	font:{
+		fontSize: 12
+	},
+	color:"#fff",opacity:0.5
+}
+
+".hr": {
+	height:1,left:0,right:0,
+	backgroundColor:"#333",opacity:0.3
+}
+
+".TextFieldContainer":{
+	left:20,
+	right:20,height:60
+}
+
+".TextFieldLabel":{
+	left:0,right:0,
+	color:"#fff",
+	font:{fontSize:18},height:100
 }
 
 "TextField":{
-	color:"#999",
-	left:20,
-	right:20,font:{fontSize:18},height:60,
+	left:0,right:0,
+	color:"#fff",
+	font:{fontSize:50},height:100,
 	borderStyle:Ti.UI.INPUT_BORDERSTYLE_NONE
 }
 
-".btn":{
-	left:20,right:20,borderRadius:4,height:Ti.UI.SIZE,
-	backgroundColor:"#2179ca",top:5,bottom:5
+".btn_container": {
+	top:10,
+	height:30,width:50,
+	backgroundColor:"#ffa633",
+	borderRadius:4
 }
 
-".btn_label":{
-	top:20,bottom:20,width:Ti.UI.SIZE,height:Ti.UI.SIZE,color:"#fff"
+".btn" : {
+	height:Ti.UI.SIZE,width:Ti.UI.SIZE,
+	font:{
+		fontSize: 11
+	},
+	color:"#fff"
 }

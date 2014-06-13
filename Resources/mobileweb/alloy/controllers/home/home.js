@@ -8,7 +8,7 @@ function Controller() {
     }
     function onPlateChanged() {
         var plate = login.getPlate();
-        plate && "" !== plate ? $.plate.setText(login.getPlate()) : $.plate.setText("create your CARKEY");
+        plate && "" !== plate ? $.plate.setText(login.getPlate()) : $.plate.setText("Create your Bumper Sticker");
     }
     function onRideAlong() {
         Alloy.createController("ridealong/ridealong", {
@@ -66,7 +66,7 @@ function Controller() {
             fontSize: 20,
             fontWeight: "bold"
         },
-        text: "create your CARKEY#",
+        text: "Create your Bumer Sticker",
         id: "plate"
     });
     $.__views.plate_container.add($.__views.plate);
@@ -89,6 +89,11 @@ function Controller() {
         __parentSymbol: $.__views.main
     });
     $.__views.requests.setParent($.__views.main);
+    $.__views.home_menu = Alloy.createController("ridealong/home_menu", {
+        id: "home_menu",
+        __parentSymbol: $.__views.main
+    });
+    $.__views.home_menu.setParent($.__views.main);
     $.__views.feed = Alloy.createController("feed/feed", {
         id: "feed",
         __parentSymbol: $.__views.main

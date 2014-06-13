@@ -30,21 +30,21 @@
 }
 
 "#bottomView":{
-	left:55,layout:"horizontal",height:Ti.UI.SIZE,top:-10
+	left:55,layout:"horizontal",height:Ti.UI.SIZE
 }
 
 "#photo": {
 	top:10,bottom:10,left:10,width:35,height:35,
-	borderRadius:17.5,borderColor:"#cecece",borderWidth:2
+	borderRadius:17.5,borderColor:"#cecece",borderWidth:2,backgroundColor:"#cececce"
 }
 
 "#logo_container":{
-	left:0,width:50,height:50,backgroundColor:"#333",
+	left:0,width:50,height:50,backgroundColor:"#cecece",
 	borderRadius:25,borderColor:"#eee",borderWidth:3
 }
 
 "#logo":{
-	width:35,height:35
+	width:50,height:50
 }
 
 "#desc":{

@@ -1,5 +1,5 @@
 "Window":{
-	backgroundColor:"#2179ca",navBarHidden:true,width:320,height:500
+	backgroundColor:"#f49033",navBarHidden:true,width:320,height:500
 }
 
 "#login":{

@@ -17,6 +17,13 @@ function Controller() {
             $.main.add(car.getView());
         }
     }
+    function addNew() {
+        Alloy.createController("signup/signup", {
+            _callBack: function() {
+                _refresh();
+            }
+        });
+    }
     function build(cars) {
         for (var i = 0; cars.length > i; i++) {
             var car = Alloy.createController("car/car", {
@@ -47,7 +54,7 @@ function Controller() {
     var $ = this;
     var exports = {};
     $.__views.mycars = Ti.UI.createWindow({
-        backgroundColor: "#666",
+        backgroundColor: "#ffa633",
         navBarHidden: true,
         width: 320,
         height: 500,
@@ -64,7 +71,6 @@ function Controller() {
         layout: "vertical",
         left: 10,
         right: 10,
-        top: 10,
         id: "main"
     });
     $.__views.scroll.add($.__views.main);
@@ -78,8 +84,10 @@ function Controller() {
     var args = arguments[0] || {};
     args._callBack;
     var login = require("Login");
-    exports.open = function() {
-        $.header.openWindow($.mycars);
+    $.header.setTitle("my vehichles");
+    exports.open = function(refresh) {
+        refresh && _refresh();
+        $.header.openWindow($.mycars, "common/plus.png", addNew);
     };
     init();
     exports.refresh = function() {

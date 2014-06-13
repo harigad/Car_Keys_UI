@@ -1,14 +1,27 @@
 		var login = require('Login');
 		var args = arguments[0] || {};
 		var _data = args._data || {};
-		
+
+
+$.pull_to_refresh.init($.scroll,function(){
+	load(_data);
+},$.ride_along);
 
 $.name.setText(_data.name);
 $.header.openWindow($.profile);
 
-$.photo.setBackgroundImage(_data.photo);
+$.photoImg.setImage(_data.photo_big);
+//$.photo.setBackgroundImage(_data.photo_big);
 $.plate.setText(_data.plate);
 load(_data);
+
+$.photoImg.addEventListener("load",function() {
+    if($.photoImg.size.width > $.photoImg.size.height){
+		$.photoImg.setHeight(100);
+	}else{
+		$.photoImg.setWidth(100);
+	}
+});
 
 function load(data){
 	showPleaseWait();	
@@ -40,6 +53,9 @@ function build(data){
 		var car =  Alloy.createController("car/car",{_data:cars[i]});
 		$.cars_container_inner.add(car.getView());
 	}
+	
+	var feed =  Alloy.createController("feed/feed",{_id:_data.id});
+	$.feed.add(feed.getView());
 	
 }
 

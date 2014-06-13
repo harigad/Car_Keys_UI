@@ -28,22 +28,22 @@ function Controller() {
     var __defers = {};
     $.__views.select_car_for_ridealong_btn = Ti.UI.createView({
         height: Ti.UI.SIZE,
-        backgroundColor: "#2179ca",
+        backgroundColor: "#f49033",
         borderRadius: "4",
         bottom: "10",
         id: "select_car_for_ridealong_btn"
     });
     $.__views.select_car_for_ridealong_btn && $.addTopLevelView($.__views.select_car_for_ridealong_btn);
     onSelect ? $.__views.select_car_for_ridealong_btn.addEventListener("click", onSelect) : __defers["$.__views.select_car_for_ridealong_btn!click!onSelect"] = true;
-    $.__views.__alloyId74 = Ti.UI.createView({
+    $.__views.__alloyId84 = Ti.UI.createView({
         height: Ti.UI.SIZE,
         left: "10",
         right: "10",
         layout: "horizontal",
-        id: "__alloyId74"
+        id: "__alloyId84"
     });
-    $.__views.select_car_for_ridealong_btn.add($.__views.__alloyId74);
-    $.__views.__alloyId75 = Ti.UI.createView({
+    $.__views.select_car_for_ridealong_btn.add($.__views.__alloyId84);
+    $.__views.__alloyId85 = Ti.UI.createView({
         borderWidth: "3",
         borderColor: "#fff",
         width: "50",
@@ -53,20 +53,20 @@ function Controller() {
         backgroundColor: "#333",
         top: "10",
         bottom: "10",
-        id: "__alloyId75"
+        id: "__alloyId85"
     });
-    $.__views.__alloyId74.add($.__views.__alloyId75);
+    $.__views.__alloyId84.add($.__views.__alloyId85);
     $.__views.logo = Ti.UI.createView({
         id: "logo",
         width: "30",
         height: "30"
     });
-    $.__views.__alloyId75.add($.__views.logo);
+    $.__views.__alloyId85.add($.__views.logo);
     $.__views.model = Ti.UI.createLabel({
         id: "model",
         color: "#fff"
     });
-    $.__views.__alloyId74.add($.__views.model);
+    $.__views.__alloyId84.add($.__views.model);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");

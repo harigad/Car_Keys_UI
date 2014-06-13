@@ -12,10 +12,15 @@ function send_to_server(){
  	var client = Ti.Network.createHTTPClient({ 		
  	 onload : function(e) {
  	 	 var response = JSON.parse(this.responseText);
- 	 	 var select_car =  Alloy.createController("ridealong/send_request/select_car_for_ridealong",{_data:response,_callBack:function(success){
- 	 	 	_callBack(success);
- 	 	 	$.search_carkey_for_ridealong.close();
- 	 	 }});
+ 	 	 if(response && response.length > 0){
+ 	 	 	var select_car =  Alloy.createController("ridealong/send_request/select_car_for_ridealong",{_data:response,_callBack:function(success){
+ 	 	 		_callBack(success);
+ 	 	 		$.search_carkey_for_ridealong.close();
+ 	 	 	}});
+ 	 	 }else{
+ 	 		$.pleasewait.setText("Sorry! We could not find a user with the CarKey " + _data);
+ 	 		$.close_btn_label.setText("OK");
+ 	 	 }
  	 },
  	 onerror: function(e){
  		 	//do nothing
@@ -28,3 +33,8 @@ function send_to_server(){
  		client.send(_postData);
 }
 
+
+function onCancel(){
+	_callBack(false);
+ 	$.search_carkey_for_ridealong.close();
+}

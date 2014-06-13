@@ -3,12 +3,13 @@
 	<ScrollView id="scroll"  top="-120" >
 		<View id="profile_container" top="120" >
 			<View id="plate_container" onClick="editPlate">
-				<Label id="plate">create your CARKEY#</Label>
+				<Label id="plate">Create your Bumer Sticker</Label>
 				<View id="edit_icon"></View>
 			</View>
 		</View>
 		<View id="main">
 			 <Require src="ridealong/requests" id="requests"/>
+			  <Require src="ridealong/home_menu" id="home_menu"/>
 			 <Require src="feed/feed" id="feed"/>
 		</View>
 		<Require src="components/pull_to_refresh/pull_to_refresh" id="pull_to_refresh"/>

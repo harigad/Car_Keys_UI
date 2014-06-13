@@ -12,10 +12,9 @@ function Controller() {
                     }
                 });
                 $.main.add(notice.getView());
-                notices.length - 1 > i && $.main.add(Ti.UI.createView({
+                $.main.add(Ti.UI.createView({
                     height: 1,
-                    backgroundColor: "#fff",
-                    opacity: .2
+                    backgroundColor: "#ffa633"
                 }));
             }
         }
@@ -32,17 +31,9 @@ function Controller() {
                 $.main.add(request.getView());
                 $.main.add(Ti.UI.createView({
                     height: 1,
-                    backgroundColor: "#fff",
-                    opacity: .2
+                    backgroundColor: "#ffa633"
                 }));
             }
-        }
-        if (hasItems) {
-            $.main.setTop(0);
-            $.main.setBottom(0);
-        } else {
-            $.main.setTop(-5);
-            $.main.setBottom(0);
         }
     }
     function refresh() {
@@ -63,7 +54,6 @@ function Controller() {
     $.__views.main = Ti.UI.createView({
         id: "main",
         height: Ti.UI.SIZE,
-        borderRadius: "4",
         top: "30",
         layout: "vertical"
     });
@@ -71,8 +61,6 @@ function Controller() {
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");
-    Alloy.createController("mycars/mycars");
-    Alloy.createController("friends/friends");
     draw();
     _.extend($, exports);
 }

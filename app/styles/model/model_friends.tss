@@ -1,0 +1,13 @@
+"#show_all":{
+	height:0,
+	top:0,
+	visible:false,
+	
+}
+
+"#show_all_label":{
+	left:10,top:0,bottom:5,height:Ti.UI.SIZE,
+	color:"#ffa633",font:{
+		fontSize:12
+	}
+}

@@ -2,6 +2,7 @@
 		var args = arguments[0] || {};
 		var _data = args._data || {};
 		var _callBack = args._callBack;
+		var _zipcode = args._zipcode;
 		
 $.found_car.open();
 $.logo.setBackgroundImage("logos/48/" + _data.logo);
@@ -153,7 +154,7 @@ function step_3(answerObj){
 }
 
 function step_4(answerObj){
-	var signup =  Alloy.createController("signup/signup_verify_address",{_data:_data,_callBack:function(answer){
+	var signup =  Alloy.createController("signup/signup_verify_address",{_data:_data,_zipcode:_zipcode,_callBack:function(answer){
 		if(answer){
 			answerObj.address = answer;
 			send_to_server(answerObj);

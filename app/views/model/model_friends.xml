@@ -1,0 +1,10 @@
+<Alloy>
+	<View height="Ti.UI.SIZE" layout="vertical" id="main" backgroundColor="#fff" borderRadius="4">
+		<View height="Ti.UI.SIZE" id="list" layout="vertical" left="10" right="10" top="5" bottom="5">
+			
+		</View>
+		<View id="show_all" >
+			<Label id="show_all_label" onClick="show_all" >show all friends</Label>
+		</View>
+	</View>
+</Alloy>

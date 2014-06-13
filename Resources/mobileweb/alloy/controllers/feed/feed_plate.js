@@ -4,6 +4,7 @@ function Controller() {
             _data: {
                 id: _data.uid,
                 photo: _data.photo,
+                photo_big: _data.photo_big,
                 name: _data.name,
                 plate: _data.plate
             }
@@ -13,7 +14,7 @@ function Controller() {
         Alloy.createController("profile/profile", {
             _data: {
                 id: _data.uid,
-                photo: _data.photo,
+                photo_big: _data.photo_big,
                 name: _data.name,
                 plate: _data.plate
             }
@@ -87,7 +88,7 @@ function Controller() {
         left: 55,
         layout: "horizontal",
         height: Ti.UI.SIZE,
-        top: 0,
+        top: -5,
         id: "bottomView",
         bottom: "10"
     });
@@ -102,23 +103,24 @@ function Controller() {
         right: "10"
     });
     $.__views.bottomView.add($.__views.desc);
-    $.__views.__alloyId38 = Ti.UI.createView({
+    $.__views.__alloyId41 = Ti.UI.createView({
         height: "1",
         backgroundColor: "#cecece",
-        id: "__alloyId38"
+        id: "__alloyId41"
     });
-    $.__views.main.add($.__views.__alloyId38);
+    $.__views.main.add($.__views.__alloyId41);
     exports.destroy = function() {};
     _.extend($, $.__views);
     require("Login");
     var args = arguments[0] || {};
     var _data = args._data || {};
-    var gender = "his";
+    var gender;
+    gender = "1" === _data.gender ? "her" : "his";
     var date = new Date(_data.created);
     $.date.setText(date.toDateString());
     $.photo.setBackgroundImage(_data.photo);
     $.name.setText(_data.name);
-    $.desc.setText("changed " + gender + " plate number to " + _data.platechanged);
+    $.desc.setText("changed " + gender + ' CarKey to "' + _data.data + '"');
     __defers["$.__views.topView!click!goToUser"] && $.__views.topView.addEventListener("click", goToUser);
     __defers["$.__views.bottomView!click!goToModel"] && $.__views.bottomView.addEventListener("click", goToModel);
     _.extend($, exports);

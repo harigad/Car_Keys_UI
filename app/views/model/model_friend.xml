@@ -1,0 +1,8 @@
+<Alloy>
+	<View layout="horizontal" height="Ti.UI.SIZE" top="5" bottom="5" onClick="goToUser" >
+		<View id="photo" ></View>
+		<View width="Ti.UI.SIZE"  height="Ti.UI.SIZE">
+			<Label id="name">NAME</Label>
+		</View>
+	</View>
+</Alloy>

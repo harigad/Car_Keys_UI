@@ -100,6 +100,7 @@ function Controller() {
     function step_4(answerObj) {
         Alloy.createController("signup/signup_verify_address", {
             _data: _data,
+            _zipcode: _zipcode,
             _callBack: function(answer) {
                 if (answer) {
                     answerObj.address = answer;
@@ -131,7 +132,7 @@ function Controller() {
     var exports = {};
     var __defers = {};
     $.__views.found_car = Ti.UI.createWindow({
-        backgroundColor: "#333",
+        backgroundColor: "#ffa633",
         navBarHidden: true,
         width: 320,
         height: 500,
@@ -172,7 +173,7 @@ function Controller() {
         font: {
             fontSize: 36
         },
-        color: "#2179ca",
+        color: "#fff",
         text: "Murano",
         id: "model"
     });
@@ -181,7 +182,7 @@ function Controller() {
         top: 20,
         height: Ti.UI.SIZE,
         width: Ti.UI.SIZE,
-        backgroundColor: "#2179ca",
+        backgroundColor: "#fff",
         borderRadius: 4,
         borderWidth: .5,
         borderColor: "#fff",
@@ -189,7 +190,7 @@ function Controller() {
     });
     $.__views.main.add($.__views.btn_container);
     onVerify ? $.__views.btn_container.addEventListener("click", onVerify) : __defers["$.__views.btn_container!click!onVerify"] = true;
-    $.__views.__alloyId80 = Ti.UI.createLabel({
+    $.__views.__alloyId90 = Ti.UI.createLabel({
         left: 20,
         right: 20,
         top: 10,
@@ -199,11 +200,11 @@ function Controller() {
         font: {
             fontSize: 16
         },
-        color: "#eee",
+        color: "#ffa633",
         text: "Verify My Ownership",
-        id: "__alloyId80"
+        id: "__alloyId90"
     });
-    $.__views.btn_container.add($.__views.__alloyId80);
+    $.__views.btn_container.add($.__views.__alloyId90);
     $.__views.cancel_container = Ti.UI.createView({
         top: 20,
         height: Ti.UI.SIZE,
@@ -226,7 +227,7 @@ function Controller() {
         font: {
             fontSize: 11
         },
-        color: "#eee",
+        color: "#fff",
         text: "This is not my car!",
         id: "cancel_btn"
     });
@@ -237,6 +238,7 @@ function Controller() {
     var args = arguments[0] || {};
     var _data = args._data || {};
     var _callBack = args._callBack;
+    var _zipcode = args._zipcode;
     $.found_car.open();
     $.logo.setBackgroundImage("logos/48/" + _data.logo);
     $.model.setText(_data.model);

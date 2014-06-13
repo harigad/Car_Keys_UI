@@ -1,0 +1,7 @@
+<Alloy>
+	<View id="main" onClick="goToUser">
+			<ImageView id="photo" >
+				
+			</ImageView>
+	</View>
+</Alloy>

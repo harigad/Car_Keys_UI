@@ -30,7 +30,7 @@
 }
 
 "#bottomView":{
-	left:55,layout:"horizontal",height:Ti.UI.SIZE,top:0
+	left:55,layout:"horizontal",height:Ti.UI.SIZE,top:-5
 }
 
 "#photo": {

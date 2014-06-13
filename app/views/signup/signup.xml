@@ -1,15 +1,21 @@
 <Alloy>
 	<Window>
 		<ImageView id="bgImage"></ImageView>
-		<View id="main" >
-			<TextField id="plate" hintText="Plate #" ></TextField>
-			 <View id="hr"></View>
-			<TextField id="zipcode" hintText="Zipcode" onReturn="process" ></TextField>
-			<View class="btn" onClick="process" top="10" >
-				<Label class="btn_label" >add my car</Label>
-			</View>
-			<View class="btn" onClick="onCancel" backgroundColor="#999"  >
-				<Label class="btn_label">cancel</Label>
+		<View height="50" backgroundColor="#f49033" top="0" >
+				<View class="btn_container" onClick="onCancel" left="10" >
+					<Label class="btn" >cancel</Label>
+				</View>
+				<Label id="question">
+					Add my Vehichle
+				</Label>
+				<View class="btn_container" onClick="process" right="10" >
+					<Label class="btn">next</Label>
+				</View>
+		</View>
+		<View id="main"  >
+			<View class="TextFieldContainer">
+				<Label class="TextFieldLabel" id="plate_label" ></Label>
+				<TextField id="plate" hintText="vehichle licene plate number" onFocus="onFocus" onChange="onChange" onBlur="onBlur" ></TextField>
 			</View>
 		</View>
 	</Window>	

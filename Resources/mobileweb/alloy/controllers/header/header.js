@@ -3,7 +3,7 @@ function Controller() {
         Ti.App.fireEvent("closeWindow", parentWindow);
     }
     function goHome() {
-        Ti.App.fireEvent("goHome");
+        _callBack ? _callBack() : Ti.App.fireEvent("goHome");
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "header/header";
@@ -35,7 +35,8 @@ function Controller() {
         color: "#fff",
         font: {
             fontSize: 14,
-            fontWeight: "bold"
+            fontWeight: "bold",
+            opacity: .6
         },
         id: "title"
     });
@@ -53,21 +54,20 @@ function Controller() {
     exports.destroy = function() {};
     _.extend($, $.__views);
     var parentWindow;
-    var isHome = false;
     Ti.App.addEventListener("goHome", function() {
         isHome || parentWindow.close();
     });
     exports.setTitle = function(name) {
         $.title.setText(name);
     };
-    exports.setHome = function() {
-        isHome = true;
-        $.left_btn.setVisible(false);
-        $.right_btn.setVisible(false);
-    };
-    exports.openWindow = function(win) {
+    exports.openWindow = function(win, rightImage, callBack) {
         parentWindow = win;
+        rightImage && $.right_btn.setBackgroundImage(rightImage);
+        callBack && (_callBack = callBack);
         Ti.App.fireEvent("openWindow", win);
+    };
+    exports.back = function() {
+        goBack();
     };
     __defers["$.__views.left_btn!click!goBack"] && $.__views.left_btn.addEventListener("click", goBack);
     __defers["$.__views.right_btn!click!goHome"] && $.__views.right_btn.addEventListener("click", goHome);

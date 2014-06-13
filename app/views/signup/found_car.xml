@@ -10,7 +10,7 @@
 				<Label class="btn">Verify My Ownership</Label>
 			</View>	
 			<View class="btn_container" id="cancel_container" onClick="onCancel" >
-				<Label class="btn" id="cancel_btn" >This is not my car!</Label>
+				<Label class="btn" id="cancel_btn">This is not my car!</Label>
 			</View>		
 		</View>
 	</Window>

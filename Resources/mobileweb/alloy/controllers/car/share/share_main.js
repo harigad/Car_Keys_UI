@@ -30,7 +30,6 @@ function Controller() {
         height: Ti.UI.SIZE,
         layout: "horizontal",
         bottom: 1,
-        borderRadius: 2,
         id: "main"
     });
     $.__views.main && $.addTopLevelView($.__views.main);
@@ -39,7 +38,7 @@ function Controller() {
         width: 25,
         height: 25,
         backgroundColor: "#ccc",
-        borderRadius: 0,
+        borderRadius: 2,
         right: 10,
         id: "photo"
     });
@@ -76,7 +75,10 @@ function Controller() {
     if (_data) {
         $.photo.setBackgroundImage(_data.photo);
         $.text.setText(_data.name);
-    } else $.text.setText("add new");
+    } else {
+        $.photo.setBackgroundImage("common/plus_with_10_margin.png");
+        $.text.setText("add new");
+    }
     _editable && $.edit_icon.setVisible(true);
     __defers["$.__views.main!click!goToUser"] && $.__views.main.addEventListener("click", goToUser);
     __defers["$.__views.edit_icon!click!onEdit"] && $.__views.edit_icon.addEventListener("click", onEdit);

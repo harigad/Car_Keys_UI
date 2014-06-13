@@ -1,9 +1,9 @@
 <Alloy>
-	<Window backgroundColor="#333">
+	<Window backgroundColor="#ffa633">
 		<View height="Ti.UI.SIZE" layout="vertical" >
 			<Label id="error_label" left="20" right="20" height="Ti.UI.SIZE" color="#fff">Sorry!We are unable to locate your ride at this time.</Label>
-			<View left="20" right="20" height="Ti.UI.SIZE" top="20" borderRadius="4" backgroundColor="#eee" onClick="onOk" >
-				<Label color="#666" top="20" bottom="20" width="Ti.UI.SIZE"  height="Ti.UI.SIZE" >
+			<View left="20" right="20" height="Ti.UI.SIZE" top="20" borderRadius="4" backgroundColor="#fff" onClick="onOk" >
+				<Label color="#ffa633" top="20" bottom="20" width="Ti.UI.SIZE"  height="Ti.UI.SIZE" >
 					OK!
 				</Label>
 			</View>

@@ -4,16 +4,21 @@ function Controller() {
             _data: {
                 id: _data.uid,
                 photo: _data.photo,
+                photo_big: _data.photo_big,
                 name: _data.name,
                 plate: _data.plate
             }
         });
     }
     function goToModel() {
-        login.canSeeModel(_data.moid) ? Alloy.createController("make/make", {
-            _data: _data
-        }) : Alloy.createController("model/model", {
-            _data: _data
+        Alloy.createController("profile/profile", {
+            _data: {
+                id: _data.ouid,
+                photo: _data.ophoto,
+                photo_big: _data.ophoto_big,
+                name: _data.oname,
+                plate: _data.oplate
+            }
         });
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
@@ -48,6 +53,7 @@ function Controller() {
         borderRadius: 17.5,
         borderColor: "#cecece",
         borderWidth: 2,
+        backgroundColor: "#cecece",
         id: "photo"
     });
     $.__views.topView.add($.__views.photo);
@@ -93,7 +99,7 @@ function Controller() {
         left: 0,
         width: 50,
         height: 50,
-        backgroundColor: "#333",
+        backgroundColor: "#cecece",
         borderRadius: 25,
         borderColor: "#eee",
         borderWidth: 3,
@@ -101,8 +107,8 @@ function Controller() {
     });
     $.__views.bottomView.add($.__views.logo_container);
     $.__views.logo = Ti.UI.createView({
-        width: 35,
-        height: 35,
+        width: 50,
+        height: 50,
         id: "logo"
     });
     $.__views.logo_container.add($.__views.logo);
@@ -115,25 +121,25 @@ function Controller() {
         right: "10"
     });
     $.__views.bottomView.add($.__views.desc);
-    $.__views.__alloyId40 = Ti.UI.createView({
+    $.__views.__alloyId43 = Ti.UI.createView({
         height: "1",
         backgroundColor: "#cecece",
-        id: "__alloyId40"
+        id: "__alloyId43"
     });
-    $.__views.main.add($.__views.__alloyId40);
+    $.__views.main.add($.__views.__alloyId43);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    var login = require("Login");
+    require("Login");
     var args = arguments[0] || {};
     var _data = args._data || {};
-    var gender = "his";
-    _data.year = "2004";
+    var gender;
+    gender = "1" === _data.gender ? "her" : "his";
     var date = new Date(_data.created);
     $.date.setText(date.toDateString());
     $.photo.setBackgroundImage(_data.photo);
-    $.logo.setBackgroundImage("logos/48/" + _data.logo);
+    $.logo.setBackgroundImage(_data.ophoto);
     $.name.setText(_data.name);
-    $.desc.setText("is sharing " + gender + " " + _data.year + " " + _data.make + " " + _data.model + " with " + _data.oname);
+    $.desc.setText("is sharing " + gender + " " + _data.make + " " + _data.model + " with " + _data.oname);
     __defers["$.__views.topView!click!goToUser"] && $.__views.topView.addEventListener("click", goToUser);
     __defers["$.__views.bottomView!click!goToModel"] && $.__views.bottomView.addEventListener("click", goToModel);
     _.extend($, exports);

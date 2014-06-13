@@ -1,9 +1,9 @@
 <Alloy>
-	<Window backgroundColor="#eee">
+	<Window backgroundColor="#fff">
 		<View id="search_bar" >
 			<TextField id="search" onChange="onSearch" hintText="search friends" ></TextField>
 			<View onClick="onCancel" id="cancel_btn" >
-				<Label color="#fff">cancel</Label>
+				<Label color="#999">cancel</Label>
 			</View>
 		</View>
 		<ScrollView height="Ti.UI.FILL" top="50" >

@@ -1,6 +1,9 @@
 <Alloy>
 	<View id="main" onClick="goToModel" >
 			<Label id="name"></Label>
-			<Label id="count"></Label>	
+			<View height="Ti.UI.SIZE" layout="horizontal">
+				<Label id="friends"></Label>
+				<Label id="count"></Label>	
+			</View>
 	</View>
 </Alloy>

@@ -7,7 +7,7 @@
 	width:Ti.UI.SIZE,
 	color:"#fff",
 	font:{
-		fontSize:14,fontWeight:"bold"
+		fontSize:14,fontWeight:"bold", opacity:0.6
 	}
 }
 

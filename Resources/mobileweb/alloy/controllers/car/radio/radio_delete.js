@@ -29,50 +29,50 @@ function Controller() {
         id: "radio_delete"
     });
     $.__views.radio_delete && $.addTopLevelView($.__views.radio_delete);
-    $.__views.__alloyId18 = Ti.UI.createView({
+    $.__views.__alloyId17 = Ti.UI.createView({
         height: Ti.UI.SIZE,
         layout: "vertical",
         left: "40",
         right: "40",
-        id: "__alloyId18"
+        id: "__alloyId17"
     });
-    $.__views.radio_delete.add($.__views.__alloyId18);
-    $.__views.__alloyId19 = Ti.UI.createView({
+    $.__views.radio_delete.add($.__views.__alloyId17);
+    $.__views.__alloyId18 = Ti.UI.createView({
         borderRadius: "4",
         backgroundColor: "#990000",
         height: Ti.UI.SIZE,
         bottom: "5",
-        id: "__alloyId19"
+        id: "__alloyId18"
     });
-    $.__views.__alloyId18.add($.__views.__alloyId19);
-    onDelete ? $.__views.__alloyId19.addEventListener("click", onDelete) : __defers["$.__views.__alloyId19!click!onDelete"] = true;
-    $.__views.__alloyId20 = Ti.UI.createLabel({
+    $.__views.__alloyId17.add($.__views.__alloyId18);
+    onDelete ? $.__views.__alloyId18.addEventListener("click", onDelete) : __defers["$.__views.__alloyId18!click!onDelete"] = true;
+    $.__views.__alloyId19 = Ti.UI.createLabel({
         text: "REMOVE RADIO",
         color: "#fff",
         height: Ti.UI.SIZE,
         top: "20",
         bottom: "20",
-        id: "__alloyId20"
+        id: "__alloyId19"
     });
-    $.__views.__alloyId19.add($.__views.__alloyId20);
-    $.__views.__alloyId21 = Ti.UI.createView({
+    $.__views.__alloyId18.add($.__views.__alloyId19);
+    $.__views.__alloyId20 = Ti.UI.createView({
         borderRadius: "4",
         backgroundColor: "#999",
         height: Ti.UI.SIZE,
         top: "5",
-        id: "__alloyId21"
+        id: "__alloyId20"
     });
-    $.__views.__alloyId18.add($.__views.__alloyId21);
-    onCancel ? $.__views.__alloyId21.addEventListener("click", onCancel) : __defers["$.__views.__alloyId21!click!onCancel"] = true;
-    $.__views.__alloyId22 = Ti.UI.createLabel({
+    $.__views.__alloyId17.add($.__views.__alloyId20);
+    onCancel ? $.__views.__alloyId20.addEventListener("click", onCancel) : __defers["$.__views.__alloyId20!click!onCancel"] = true;
+    $.__views.__alloyId21 = Ti.UI.createLabel({
         text: "CANCEL",
         color: "#fff",
         height: Ti.UI.SIZE,
         top: "20",
         bottom: "20",
-        id: "__alloyId22"
+        id: "__alloyId21"
     });
-    $.__views.__alloyId21.add($.__views.__alloyId22);
+    $.__views.__alloyId20.add($.__views.__alloyId21);
     exports.destroy = function() {};
     _.extend($, $.__views);
     require("Login");
@@ -81,8 +81,8 @@ function Controller() {
     var _cid = args._cid;
     var _callBack = args._callBack;
     $.radio_delete.open();
-    __defers["$.__views.__alloyId19!click!onDelete"] && $.__views.__alloyId19.addEventListener("click", onDelete);
-    __defers["$.__views.__alloyId21!click!onCancel"] && $.__views.__alloyId21.addEventListener("click", onCancel);
+    __defers["$.__views.__alloyId18!click!onDelete"] && $.__views.__alloyId18.addEventListener("click", onDelete);
+    __defers["$.__views.__alloyId20!click!onCancel"] && $.__views.__alloyId20.addEventListener("click", onCancel);
     _.extend($, exports);
 }
 

@@ -1,0 +1,20 @@
+<Alloy>
+	<View  backgroundColor="#f49033" height="Ti.UI.SIZE" bottom="5" >
+	<View height="50" backgroundColor="#fff" width="1" opacity="0.3" ></View>
+		
+	<View width="150" height="Ti.UI.SIZE" left="0" >
+	<View class="main" onClick="goToMyCars" >
+		<View class="photo" backgroundImage="common/car.png" width="23"  ></View>
+			<Label class="name" width="Ti.UI.SIZE" id="cars" ></Label>
+	</View>
+	</View>
+	
+	<View width="150" height="Ti.UI.SIZE" right="0">
+	<View class="main"  onClick="goToFriends" >
+		<View class="photo" backgroundImage="common/friends.png" width="29" ></View>
+		<Label class="name" width="Ti.UI.SIZE" id="friends" ></Label>
+	</View>
+	</View>
+	
+	</View>
+</Alloy>

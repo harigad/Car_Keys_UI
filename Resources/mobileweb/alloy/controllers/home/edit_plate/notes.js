@@ -16,18 +16,18 @@ function Controller() {
     var exports = {};
     var __defers = {};
     $.__views.notes = Ti.UI.createWindow({
-        backgroundColor: "#ccc",
+        backgroundColor: "#ffa633",
         navBarHidden: true,
         width: 320,
         height: 500,
         id: "notes"
     });
     $.__views.notes && $.addTopLevelView($.__views.notes);
-    $.__views.__alloyId47 = Ti.UI.createView({
+    $.__views.__alloyId50 = Ti.UI.createView({
         layout: "vertical",
-        id: "__alloyId47"
+        id: "__alloyId50"
     });
-    $.__views.notes.add($.__views.__alloyId47);
+    $.__views.notes.add($.__views.__alloyId50);
     $.__views.title = Ti.UI.createLabel({
         top: 20,
         height: Ti.UI.SIZE,
@@ -45,101 +45,77 @@ function Controller() {
             y: 2
         },
         shadowRadius: 3,
-        text: "Few things about your CARKEY",
+        text: "Few things about your Bumper Sticker",
         id: "title"
     });
-    $.__views.__alloyId47.add($.__views.title);
-    $.__views.__alloyId48 = Ti.UI.createView({
+    $.__views.__alloyId50.add($.__views.title);
+    $.__views.__alloyId51 = Ti.UI.createView({
         left: "10",
         right: "10",
         bottom: "10",
         height: Ti.UI.SIZE,
         layout: "vertical",
-        id: "__alloyId48"
+        id: "__alloyId51"
     });
-    $.__views.__alloyId47.add($.__views.__alloyId48);
-    $.__views.__alloyId49 = Ti.UI.createLabel({
+    $.__views.__alloyId50.add($.__views.__alloyId51);
+    $.__views.__alloyId52 = Ti.UI.createLabel({
         left: 10,
         right: 10,
         height: Ti.UI.SIZE,
         bottom: 10,
         top: "10",
         font: {
-            color: "#333",
+            color: "#fff",
             fontSize: 14
         },
-        shadowColor: "#fff",
-        shadowOffset: {
-            x: 2,
-            y: 2
-        },
-        shadowRadius: 3,
-        text: "* Your CARKEY is unique..ie no one else can have the same plate while you still have it",
-        id: "__alloyId49"
-    });
-    $.__views.__alloyId48.add($.__views.__alloyId49);
-    $.__views.__alloyId50 = Ti.UI.createLabel({
-        left: 10,
-        right: 10,
-        height: Ti.UI.SIZE,
-        bottom: 10,
-        top: 10,
-        font: {
-            color: "#333",
-            fontSize: 14
-        },
-        shadowColor: "#fff",
-        shadowOffset: {
-            x: 2,
-            y: 2
-        },
-        shadowRadius: 3,
-        text: "* You can change your CARKEY at any time",
-        id: "__alloyId50"
-    });
-    $.__views.__alloyId48.add($.__views.__alloyId50);
-    $.__views.__alloyId51 = Ti.UI.createLabel({
-        left: 10,
-        right: 10,
-        height: Ti.UI.SIZE,
-        bottom: 10,
-        top: 10,
-        font: {
-            color: "#333",
-            fontSize: 14
-        },
-        shadowColor: "#fff",
-        shadowOffset: {
-            x: 2,
-            y: 2
-        },
-        shadowRadius: 3,
-        text: "* Plates can be upto 10 digits long..not including the spaces",
-        id: "__alloyId51"
-    });
-    $.__views.__alloyId48.add($.__views.__alloyId51);
-    $.__views.__alloyId52 = Ti.UI.createLabel({
-        left: 10,
-        right: 10,
-        height: Ti.UI.SIZE,
-        bottom: 10,
-        top: 10,
-        font: {
-            color: "#333",
-            fontSize: 14
-        },
-        shadowColor: "#fff",
-        shadowOffset: {
-            x: 2,
-            y: 2
-        },
-        shadowRadius: 3,
-        text: "* You must have at least one vehichle before you can create your CARKEY",
+        text: "* Your Bumper Sticker is unique..ie no one else can have the same plate while you still have it",
         id: "__alloyId52"
     });
-    $.__views.__alloyId48.add($.__views.__alloyId52);
+    $.__views.__alloyId51.add($.__views.__alloyId52);
+    $.__views.__alloyId53 = Ti.UI.createLabel({
+        left: 10,
+        right: 10,
+        height: Ti.UI.SIZE,
+        bottom: 10,
+        top: 10,
+        font: {
+            color: "#fff",
+            fontSize: 14
+        },
+        text: "* You can change your Bumper Sticker at any time",
+        id: "__alloyId53"
+    });
+    $.__views.__alloyId51.add($.__views.__alloyId53);
+    $.__views.__alloyId54 = Ti.UI.createLabel({
+        left: 10,
+        right: 10,
+        height: Ti.UI.SIZE,
+        bottom: 10,
+        top: 10,
+        font: {
+            color: "#fff",
+            fontSize: 14
+        },
+        text: "* Stickers can be upto 10 digits long..not including the spaces",
+        id: "__alloyId54"
+    });
+    $.__views.__alloyId51.add($.__views.__alloyId54);
+    $.__views.__alloyId55 = Ti.UI.createLabel({
+        left: 10,
+        right: 10,
+        height: Ti.UI.SIZE,
+        bottom: 10,
+        top: 10,
+        font: {
+            color: "#fff",
+            fontSize: 14
+        },
+        text: "* You must have at least one vehichle before you can create your Bumper Sticker",
+        id: "__alloyId55"
+    });
+    $.__views.__alloyId51.add($.__views.__alloyId55);
     $.__views.continue_btn = Ti.UI.createView({
-        backgroundColor: "#999",
+        backgroundColor: "#f49033",
         borderRadius: 4,
         left: 10,
         right: 10,
@@ -148,23 +124,17 @@ function Controller() {
         height: Ti.UI.SIZE,
         id: "continue_btn"
     });
-    $.__views.__alloyId47.add($.__views.continue_btn);
+    $.__views.__alloyId50.add($.__views.continue_btn);
     onOk ? $.__views.continue_btn.addEventListener("click", onOk) : __defers["$.__views.continue_btn!click!onOk"] = true;
     $.__views.continue_btn_label = Ti.UI.createLabel({
         top: 20,
         bottom: 20,
         height: Ti.UI.SIZE,
-        color: "#eee",
+        color: "#fff",
         font: {
             fontSize: 18,
             fontWeight: "bold"
         },
-        shadowColor: "#666",
-        shadowOffset: {
-            x: 2,
-            y: 2
-        },
-        shadowRadius: 3,
         text: "I knew that!",
         id: "continue_btn_label"
     });

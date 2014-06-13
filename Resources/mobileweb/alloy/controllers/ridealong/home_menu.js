@@ -1,0 +1,134 @@
+function Controller() {
+    function goToMyCars() {
+        0 === login.getCars().length ? Alloy.createController("signup/signup", {
+            _callBack: function() {
+                login.getCars().length > 0 && mycarsObj.open(true);
+            }
+        }) : mycarsObj.open();
+    }
+    function goToFriends() {
+        friendsObj.open();
+    }
+    require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
+    this.__controllerPath = "ridealong/home_menu";
+    arguments[0] ? arguments[0]["__parentSymbol"] : null;
+    arguments[0] ? arguments[0]["$model"] : null;
+    arguments[0] ? arguments[0]["__itemTemplate"] : null;
+    var $ = this;
+    var exports = {};
+    var __defers = {};
+    $.__views.home_menu = Ti.UI.createView({
+        backgroundColor: "#f49033",
+        height: Ti.UI.SIZE,
+        bottom: "5",
+        id: "home_menu"
+    });
+    $.__views.home_menu && $.addTopLevelView($.__views.home_menu);
+    $.__views.__alloyId65 = Ti.UI.createView({
+        height: "50",
+        backgroundColor: "#fff",
+        width: "1",
+        opacity: "0.3",
+        id: "__alloyId65"
+    });
+    $.__views.home_menu.add($.__views.__alloyId65);
+    $.__views.__alloyId66 = Ti.UI.createView({
+        width: "150",
+        height: Ti.UI.SIZE,
+        left: "0",
+        id: "__alloyId66"
+    });
+    $.__views.home_menu.add($.__views.__alloyId66);
+    $.__views.__alloyId67 = Ti.UI.createView({
+        layout: "horizontal",
+        height: "Ti.UI.SIZE",
+        width: "Ti.UI.SIZE",
+        top: 5,
+        bottom: 5,
+        id: "__alloyId67"
+    });
+    $.__views.__alloyId66.add($.__views.__alloyId67);
+    goToMyCars ? $.__views.__alloyId67.addEventListener("click", goToMyCars) : __defers["$.__views.__alloyId67!click!goToMyCars"] = true;
+    $.__views.__alloyId68 = Ti.UI.createView({
+        height: 20,
+        opacity: .8,
+        backgroundImage: "common/car.png",
+        width: "23",
+        id: "__alloyId68"
+    });
+    $.__views.__alloyId67.add($.__views.__alloyId68);
+    $.__views.cars = Ti.UI.createLabel({
+        left: 5,
+        top: 0,
+        opacity: .5,
+        height: 20,
+        color: "#fff",
+        width: Ti.UI.SIZE,
+        font: {
+            fontSize: 12
+        },
+        id: "cars"
+    });
+    $.__views.__alloyId67.add($.__views.cars);
+    $.__views.__alloyId69 = Ti.UI.createView({
+        width: "150",
+        height: Ti.UI.SIZE,
+        right: "0",
+        id: "__alloyId69"
+    });
+    $.__views.home_menu.add($.__views.__alloyId69);
+    $.__views.__alloyId70 = Ti.UI.createView({
+        layout: "horizontal",
+        height: "Ti.UI.SIZE",
+        width: "Ti.UI.SIZE",
+        top: 5,
+        bottom: 5,
+        id: "__alloyId70"
+    });
+    $.__views.__alloyId69.add($.__views.__alloyId70);
+    goToFriends ? $.__views.__alloyId70.addEventListener("click", goToFriends) : __defers["$.__views.__alloyId70!click!goToFriends"] = true;
+    $.__views.__alloyId71 = Ti.UI.createView({
+        height: 20,
+        opacity: .8,
+        backgroundImage: "common/friends.png",
+        width: "29",
+        id: "__alloyId71"
+    });
+    $.__views.__alloyId70.add($.__views.__alloyId71);
+    $.__views.friends = Ti.UI.createLabel({
+        left: 5,
+        top: 0,
+        opacity: .5,
+        height: 20,
+        color: "#fff",
+        width: Ti.UI.SIZE,
+        font: {
+            fontSize: 12
+        },
+        id: "friends"
+    });
+    $.__views.__alloyId70.add($.__views.friends);
+    exports.destroy = function() {};
+    _.extend($, $.__views);
+    var login = require("Login");
+    var args = arguments[0] || {};
+    args._data || {};
+    args._callBack;
+    $.cars.setText("(" + login.getCars().length + ")");
+    $.friends.setText("(" + login.getFriendsCars().length + ")");
+    var mycarsObj = Alloy.createController("mycars/mycars");
+    var friendsObj = Alloy.createController("friends/friends");
+    Ti.App.addEventListener("cars_updated", function(cars) {
+        $.cars.setText("(" + cars.length + ")");
+    });
+    Ti.App.addEventListener("friends_cars_updated", function(friendsCars) {
+        $.friends.setText("(" + friendsCars.length + ")");
+    });
+    __defers["$.__views.__alloyId67!click!goToMyCars"] && $.__views.__alloyId67.addEventListener("click", goToMyCars);
+    __defers["$.__views.__alloyId70!click!goToFriends"] && $.__views.__alloyId70.addEventListener("click", goToFriends);
+    _.extend($, exports);
+}
+
+var Alloy = require("alloy"), Backbone = Alloy.Backbone, _ = Alloy._;
+
+module.exports = Controller;

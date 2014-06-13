@@ -26,6 +26,10 @@ function Controller() {
                 _data: data[i]
             });
             $.main.add(model_item.getView());
+            data.length - 1 > i && $.main.add(Ti.UI.createView({
+                height: 1,
+                backgroundColor: "#eee"
+            }));
         }
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
@@ -92,7 +96,7 @@ function Controller() {
     $.__views.scroll.add($.__views.main_container);
     $.__views.main = Ti.UI.createView({
         borderRadius: 4,
-        backgroundColor: "#fff",
+        backgroundColor: "#f49033",
         layout: "vertical",
         height: Ti.UI.SIZE,
         left: 10,

@@ -1,0 +1,9 @@
+"#main":{
+	width:Ti.UI.FILL,
+	height:Ti.UI.SIZE,
+	backgroundColor:"#fff"
+}
+
+"#photo" : {
+	width:Ti.UI.FILL
+}

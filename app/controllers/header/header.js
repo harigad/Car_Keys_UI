@@ -1,5 +1,4 @@
 var parentWindow;
-var isHome = false;
 
 Ti.App.addEventListener("goHome",function(e){
 	if(!isHome){
@@ -11,15 +10,19 @@ exports.setTitle = function(name){
 	$.title.setText(name);
 };
 
-exports.setHome = function(){
-	isHome = true;
-	$.left_btn.setVisible(false);
-	$.right_btn.setVisible(false);
+exports.openWindow = function(win,rightImage,callBack){
+	parentWindow = win;
+	if(rightImage){
+		$.right_btn.setBackgroundImage(rightImage);
+	}
+	if(callBack){
+		_callBack = callBack;
+	}
+	Ti.App.fireEvent("openWindow",win);
 };
 
-exports.openWindow = function(win){
-	parentWindow = win;
-	Ti.App.fireEvent("openWindow",win);
+exports.back = function(){
+	goBack();
 };
 
 function goBack(){
@@ -27,5 +30,9 @@ function goBack(){
 }
 
 function goHome(){
-	Ti.App.fireEvent("goHome");
+	if(!_callBack){
+		Ti.App.fireEvent("goHome");
+	}else{
+		_callBack();
+	}
 }

@@ -1,14 +1,16 @@
 function Controller() {
     function goToModel() {
-        login.canSeeModel(_data.moid) && Alloy.createController("model/model", {
+        login.canSeeModel(_data.moid) ? Alloy.createController("model/model", {
             _data: _data
-        });
+        }) : goToMake();
     }
     function goToMake() {
         Alloy.createController("make/make", {
             _data: _data
         });
     }
+    function onEdit() {}
+    function explain_expires() {}
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "car/car";
     arguments[0] ? arguments[0]["__parentSymbol"] : null;
@@ -18,8 +20,8 @@ function Controller() {
     var exports = {};
     var __defers = {};
     $.__views.main = Ti.UI.createView({
-        top: 0,
-        bottom: 10,
+        top: 5,
+        bottom: 5,
         borderRadius: 4,
         backgroundColor: "#fff",
         height: Ti.UI.SIZE,
@@ -36,7 +38,7 @@ function Controller() {
     $.__views.main.add($.__views.model_container);
     goToModel ? $.__views.model_container.addEventListener("click", goToModel) : __defers["$.__views.model_container!click!goToModel"] = true;
     $.__views.bar = Ti.UI.createView({
-        backgroundColor: "#ffa633",
+        backgroundColor: "#fff",
         height: 30,
         left: 0,
         top: 0,
@@ -58,11 +60,9 @@ function Controller() {
         borderRadius: 25,
         borderColor: "#ccc",
         borderWidth: 3,
-        bubbleParent: false,
         id: "logo_container"
     });
     $.__views.__alloyId0.add($.__views.logo_container);
-    goToMake ? $.__views.logo_container.addEventListener("click", goToMake) : __defers["$.__views.logo_container!click!goToMake"] = true;
     $.__views.logo = Ti.UI.createView({
         width: 30,
         height: 30,
@@ -89,6 +89,16 @@ function Controller() {
         id: "model"
     });
     $.__views.topLine.add($.__views.model);
+    $.__views.edit_icon = Ti.UI.createView({
+        width: 16,
+        height: 16,
+        backgroundImage: "common/edit_icon.png",
+        visible: false,
+        bubbleParent: false,
+        id: "edit_icon"
+    });
+    $.__views.topLine.add($.__views.edit_icon);
+    onEdit ? $.__views.edit_icon.addEventListener("click", onEdit) : __defers["$.__views.edit_icon!click!onEdit"] = true;
     $.__views.year = Ti.UI.createLabel({
         left: 85,
         bottom: 10,
@@ -101,6 +111,30 @@ function Controller() {
         id: "year"
     });
     $.__views.model_container.add($.__views.year);
+    $.__views.expires = Ti.UI.createView({
+        id: "expires",
+        height: "0",
+        backgroundColor: "#333",
+        bottom: "0",
+        left: "10",
+        right: "10",
+        borderRadius: "2"
+    });
+    $.__views.main.add($.__views.expires);
+    explain_expires ? $.__views.expires.addEventListener("click", explain_expires) : __defers["$.__views.expires!click!explain_expires"] = true;
+    $.__views.expires_lbl = Ti.UI.createLabel({
+        width: Ti.UI.SIZE,
+        color: "#fff",
+        height: Ti.UI.SIZE,
+        font: {
+            fontSize: 11
+        },
+        textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
+        top: "10",
+        bottom: "10",
+        id: "expires_lbl"
+    });
+    $.__views.expires.add($.__views.expires_lbl);
     $.__views.data_container = Ti.UI.createView({
         id: "data_container",
         layout: "vertical",
@@ -233,6 +267,17 @@ function Controller() {
     var _data = args._data || {};
     var _editable = args._editable;
     var _callBack = args._callBack;
+    if (_editable) {
+        var now = new Date();
+        var expires = new Date(_data.regexpdate);
+        var days_remaining = Math.round((expires - now) / 864e5);
+        if (days_remaining > 0) $.expires_lbl.setText("Registration Exipres in " + days_remaining + " days"); else {
+            $.expires.setBackgroundColor("#990000");
+            $.expires_lbl.setText("Registration Expired  " + Math.abs(days_remaining) + " days ago");
+        }
+        $.expires.setBottom(10);
+        $.expires.setHeight("Ti.UI.SIZE");
+    }
     var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
     $.logo.setBackgroundImage("logos/48/" + _data.logo);
     login.canSeeModel(_data.moid) || $.model.setColor("#333");
@@ -271,8 +316,16 @@ function Controller() {
         });
         $.radios.add(ride.getView());
     }
+    if (6 === rides.length) {
+        var ride = Alloy.createController("car/radio/radio_main", {
+            _data: _data,
+            _showall: true
+        });
+        $.radios.add(ride.getView());
+    }
     __defers["$.__views.model_container!click!goToModel"] && $.__views.model_container.addEventListener("click", goToModel);
-    __defers["$.__views.logo_container!click!goToMake"] && $.__views.logo_container.addEventListener("click", goToMake);
+    __defers["$.__views.edit_icon!click!onEdit"] && $.__views.edit_icon.addEventListener("click", onEdit);
+    __defers["$.__views.expires!click!explain_expires"] && $.__views.expires.addEventListener("click", explain_expires);
     _.extend($, exports);
 }
 

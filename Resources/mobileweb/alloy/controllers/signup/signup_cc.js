@@ -7,7 +7,7 @@ function Controller() {
     var $ = this;
     var exports = {};
     $.__views.signup_cc = Ti.UI.createWindow({
-        backgroundColor: "#333",
+        backgroundColor: "#ffa633",
         navBarHidden: true,
         width: 320,
         height: 500,
@@ -34,7 +34,7 @@ function Controller() {
         font: {
             fontSize: 24
         },
-        color: "#999",
+        color: "#fff",
         text: "G35",
         id: "model"
     });
@@ -46,14 +46,15 @@ function Controller() {
         font: {
             fontSize: 11
         },
-        color: "#999",
+        color: "#fff",
+        opacity: .7,
         text: "Please enter a small amount to be charged onto a card with the same name and address as your car",
         id: "explain"
     });
     $.__views.main.add($.__views.explain);
     $.__views.amount = Ti.UI.createTextField({
-        backgroundColor: "#333",
-        color: "#777",
+        backgroundColor: "#fff",
+        color: "#ffa633",
         left: 20,
         right: 20,
         font: {
@@ -65,17 +66,17 @@ function Controller() {
         hintText: "$0.00"
     });
     $.__views.main.add($.__views.amount);
-    $.__views.__alloyId90 = Ti.UI.createView({
+    $.__views.__alloyId102 = Ti.UI.createView({
         height: 1,
         left: 20,
         right: 20,
-        backgroundColor: "#555",
-        id: "__alloyId90"
+        backgroundColor: "#fff",
+        id: "__alloyId102"
     });
-    $.__views.main.add($.__views.__alloyId90);
+    $.__views.main.add($.__views.__alloyId102);
     $.__views.credit = Ti.UI.createTextField({
-        backgroundColor: "#333",
-        color: "#777",
+        backgroundColor: "#fff",
+        color: "#ffa633",
         left: 20,
         right: 20,
         font: {
@@ -87,17 +88,17 @@ function Controller() {
         hintText: "credit/debit card number"
     });
     $.__views.main.add($.__views.credit);
-    $.__views.__alloyId91 = Ti.UI.createView({
+    $.__views.__alloyId103 = Ti.UI.createView({
         height: 1,
         left: 20,
         right: 20,
-        backgroundColor: "#555",
-        id: "__alloyId91"
+        backgroundColor: "#fff",
+        id: "__alloyId103"
     });
-    $.__views.main.add($.__views.__alloyId91);
+    $.__views.main.add($.__views.__alloyId103);
     $.__views.mmyy = Ti.UI.createTextField({
-        backgroundColor: "#333",
-        color: "#777",
+        backgroundColor: "#fff",
+        color: "#ffa633",
         left: 20,
         right: 20,
         font: {

@@ -1,8 +1,10 @@
 function Controller() {
-    function onFocus() {}
+    function onFocus() {
+        $.plate.focus();
+    }
     function onEdit() {
         var carkey = $.plate.getValue();
-        Alloy.createController("ridealong/send_request/search_carkey_for_ridealong", {
+        "" !== carkey && Alloy.createController("ridealong/send_request/search_carkey_for_ridealong", {
             _data: carkey,
             _callBack: function(success) {
                 _callBack(success);
@@ -22,7 +24,7 @@ function Controller() {
     var exports = {};
     var __defers = {};
     $.__views.ridealong = Ti.UI.createWindow({
-        backgroundColor: "#666",
+        backgroundColor: "#ffa633",
         navBarHidden: true,
         width: 320,
         height: 500,
@@ -30,11 +32,73 @@ function Controller() {
     });
     $.__views.ridealong && $.addTopLevelView($.__views.ridealong);
     onFocus ? $.__views.ridealong.addEventListener("focus", onFocus) : __defers["$.__views.ridealong!focus!onFocus"] = true;
-    $.__views.__alloyId63 = Ti.UI.createView({
+    $.__views.__alloyId74 = Ti.UI.createView({
         layout: "vertical",
-        id: "__alloyId63"
+        id: "__alloyId74"
     });
-    $.__views.ridealong.add($.__views.__alloyId63);
+    $.__views.ridealong.add($.__views.__alloyId74);
+    $.__views.__alloyId75 = Ti.UI.createView({
+        height: "50",
+        backgroundColor: "#f49033",
+        top: "0",
+        id: "__alloyId75"
+    });
+    $.__views.__alloyId74.add($.__views.__alloyId75);
+    $.__views.__alloyId76 = Ti.UI.createView({
+        top: 10,
+        height: 30,
+        width: 50,
+        backgroundColor: "#ffa633",
+        borderRadius: 4,
+        left: "10",
+        id: "__alloyId76"
+    });
+    $.__views.__alloyId75.add($.__views.__alloyId76);
+    onCancel ? $.__views.__alloyId76.addEventListener("click", onCancel) : __defers["$.__views.__alloyId76!click!onCancel"] = true;
+    $.__views.__alloyId77 = Ti.UI.createLabel({
+        height: Ti.UI.SIZE,
+        width: Ti.UI.SIZE,
+        font: {
+            fontSize: 11
+        },
+        color: "#fff",
+        text: "cancel",
+        id: "__alloyId77"
+    });
+    $.__views.__alloyId76.add($.__views.__alloyId77);
+    $.__views.question = Ti.UI.createLabel({
+        height: Ti.UI.SIZE,
+        font: {
+            fontSize: 12
+        },
+        color: "#fff",
+        opacity: .5,
+        text: "RideAlong",
+        id: "question"
+    });
+    $.__views.__alloyId75.add($.__views.question);
+    $.__views.__alloyId78 = Ti.UI.createView({
+        top: 10,
+        height: 30,
+        width: 50,
+        backgroundColor: "#ffa633",
+        borderRadius: 4,
+        right: "10",
+        id: "__alloyId78"
+    });
+    $.__views.__alloyId75.add($.__views.__alloyId78);
+    onEdit ? $.__views.__alloyId78.addEventListener("click", onEdit) : __defers["$.__views.__alloyId78!click!onEdit"] = true;
+    $.__views.__alloyId79 = Ti.UI.createLabel({
+        height: Ti.UI.SIZE,
+        width: Ti.UI.SIZE,
+        font: {
+            fontSize: 11
+        },
+        color: "#fff",
+        text: "send",
+        id: "__alloyId79"
+    });
+    $.__views.__alloyId78.add($.__views.__alloyId79);
     $.__views.plate = Ti.UI.createTextField({
         height: 100,
         left: 10,
@@ -45,56 +109,12 @@ function Controller() {
             fontSize: 60,
             fontWeight: "bold"
         },
+        borderStyle: Ti.UI.INPUT_BORDERSTYLE_NONE,
         id: "plate",
-        hintText: "CARKEY#"
+        hintText: "Find by Bumper Sticker"
     });
-    $.__views.__alloyId63.add($.__views.plate);
+    $.__views.__alloyId74.add($.__views.plate);
     onEdit ? $.__views.plate.addEventListener("return", onEdit) : __defers["$.__views.plate!return!onEdit"] = true;
-    $.__views.__alloyId64 = Ti.UI.createView({
-        height: Ti.UI.SIZE,
-        layout: "vertical",
-        left: "20",
-        right: "20",
-        top: "30",
-        id: "__alloyId64"
-    });
-    $.__views.__alloyId63.add($.__views.__alloyId64);
-    $.__views.__alloyId65 = Ti.UI.createView({
-        borderRadius: "4",
-        backgroundColor: "#2179ca",
-        height: Ti.UI.SIZE,
-        bottom: "5",
-        id: "__alloyId65"
-    });
-    $.__views.__alloyId64.add($.__views.__alloyId65);
-    onEdit ? $.__views.__alloyId65.addEventListener("click", onEdit) : __defers["$.__views.__alloyId65!click!onEdit"] = true;
-    $.__views.__alloyId66 = Ti.UI.createLabel({
-        text: "RIDE ALONG",
-        color: "#fff",
-        height: Ti.UI.SIZE,
-        top: "20",
-        bottom: "20",
-        id: "__alloyId66"
-    });
-    $.__views.__alloyId65.add($.__views.__alloyId66);
-    $.__views.__alloyId67 = Ti.UI.createView({
-        borderRadius: "4",
-        backgroundColor: "#999",
-        height: Ti.UI.SIZE,
-        top: "5",
-        id: "__alloyId67"
-    });
-    $.__views.__alloyId64.add($.__views.__alloyId67);
-    onCancel ? $.__views.__alloyId67.addEventListener("click", onCancel) : __defers["$.__views.__alloyId67!click!onCancel"] = true;
-    $.__views.__alloyId68 = Ti.UI.createLabel({
-        text: "CANCEL",
-        color: "#fff",
-        height: Ti.UI.SIZE,
-        top: "20",
-        bottom: "20",
-        id: "__alloyId68"
-    });
-    $.__views.__alloyId67.add($.__views.__alloyId68);
     exports.destroy = function() {};
     _.extend($, $.__views);
     require("Login");
@@ -102,9 +122,9 @@ function Controller() {
     var _callBack = args._callBack;
     $.ridealong.open();
     __defers["$.__views.ridealong!focus!onFocus"] && $.__views.ridealong.addEventListener("focus", onFocus);
+    __defers["$.__views.__alloyId76!click!onCancel"] && $.__views.__alloyId76.addEventListener("click", onCancel);
+    __defers["$.__views.__alloyId78!click!onEdit"] && $.__views.__alloyId78.addEventListener("click", onEdit);
     __defers["$.__views.plate!return!onEdit"] && $.__views.plate.addEventListener("return", onEdit);
-    __defers["$.__views.__alloyId65!click!onEdit"] && $.__views.__alloyId65.addEventListener("click", onEdit);
-    __defers["$.__views.__alloyId67!click!onCancel"] && $.__views.__alloyId67.addEventListener("click", onCancel);
     _.extend($, exports);
 }
 

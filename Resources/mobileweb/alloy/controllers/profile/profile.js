@@ -29,6 +29,10 @@ function Controller() {
             });
             $.cars_container_inner.add(car.getView());
         }
+        var feed = Alloy.createController("feed/feed", {
+            _id: _data.id
+        });
+        $.feed.add(feed.getView());
     }
     function goToPhoto() {
         Alloy.createController("photo/photo", {
@@ -54,24 +58,24 @@ function Controller() {
     $.__views.profile && $.addTopLevelView($.__views.profile);
     $.__views.scroll = Ti.UI.createScrollView({
         id: "scroll",
-        top: "50"
+        top: "-70"
     });
     $.__views.profile.add($.__views.scroll);
     $.__views.profile_container = Ti.UI.createView({
         backgroundColor: "#ffa633",
-        top: 0,
+        top: "120",
         height: 150,
         id: "profile_container"
     });
     $.__views.scroll.add($.__views.profile_container);
-    $.__views.__alloyId53 = Ti.UI.createView({
+    $.__views.__alloyId58 = Ti.UI.createView({
         height: Ti.UI.SIZE,
         top: "-10",
-        id: "__alloyId53"
+        id: "__alloyId58"
     });
-    $.__views.profile_container.add($.__views.__alloyId53);
+    $.__views.profile_container.add($.__views.__alloyId58);
     $.__views.photo = Ti.UI.createView({
-        backgroundColor: "#fff",
+        backgroundColor: "#333",
         left: 20,
         width: 100,
         height: 100,
@@ -80,15 +84,20 @@ function Controller() {
         borderColor: "#cecece",
         id: "photo"
     });
-    $.__views.__alloyId53.add($.__views.photo);
+    $.__views.__alloyId58.add($.__views.photo);
     goToPhoto ? $.__views.photo.addEventListener("click", goToPhoto) : __defers["$.__views.photo!click!goToPhoto"] = true;
+    $.__views.photoImg = Ti.UI.createImageView({
+        width: "100",
+        id: "photoImg"
+    });
+    $.__views.photo.add($.__views.photoImg);
     $.__views.plate_container = Ti.UI.createView({
         left: 120,
         height: Ti.UI.SIZE,
         layout: "vertical",
         id: "plate_container"
     });
-    $.__views.__alloyId53.add($.__views.plate_container);
+    $.__views.__alloyId58.add($.__views.plate_container);
     $.__views.name = Ti.UI.createLabel({
         color: "#fff",
         left: 10,
@@ -99,15 +108,15 @@ function Controller() {
         id: "name"
     });
     $.__views.plate_container.add($.__views.name);
-    $.__views.__alloyId54 = Ti.UI.createView({
+    $.__views.__alloyId59 = Ti.UI.createView({
         height: "1",
         backgroundColor: "#fff",
         right: "30",
         top: "5",
         bottom: "5",
-        id: "__alloyId54"
+        id: "__alloyId59"
     });
-    $.__views.plate_container.add($.__views.__alloyId54);
+    $.__views.plate_container.add($.__views.__alloyId59);
     $.__views.plate = Ti.UI.createLabel({
         color: "#fff",
         left: 10,
@@ -119,7 +128,7 @@ function Controller() {
     });
     $.__views.plate_container.add($.__views.plate);
     $.__views.cars_container = Ti.UI.createView({
-        top: 120,
+        top: 240,
         height: Ti.UI.SIZE,
         layout: "vertical",
         id: "cars_container"
@@ -133,6 +142,16 @@ function Controller() {
         id: "cars_container_inner"
     });
     $.__views.cars_container.add($.__views.cars_container_inner);
+    $.__views.feed = Ti.UI.createView({
+        id: "feed",
+        height: Ti.UI.SIZE
+    });
+    $.__views.cars_container.add($.__views.feed);
+    $.__views.pull_to_refresh = Alloy.createController("components/pull_to_refresh/pull_to_refresh", {
+        id: "pull_to_refresh",
+        __parentSymbol: $.__views.scroll
+    });
+    $.__views.pull_to_refresh.setParent($.__views.scroll);
     $.__views.header = Alloy.createController("header/header", {
         id: "header",
         __parentSymbol: $.__views.profile
@@ -143,11 +162,17 @@ function Controller() {
     var login = require("Login");
     var args = arguments[0] || {};
     var _data = args._data || {};
+    $.pull_to_refresh.init($.scroll, function() {
+        load(_data);
+    }, $.ride_along);
     $.name.setText(_data.name);
     $.header.openWindow($.profile);
-    $.photo.setBackgroundImage(_data.photo);
+    $.photoImg.setImage(_data.photo_big);
     $.plate.setText(_data.plate);
     load(_data);
+    $.photoImg.addEventListener("load", function() {
+        $.photoImg.size.width > $.photoImg.size.height ? $.photoImg.setHeight(100) : $.photoImg.setWidth(100);
+    });
     __defers["$.__views.photo!click!goToPhoto"] && $.__views.photo.addEventListener("click", goToPhoto);
     _.extend($, exports);
 }

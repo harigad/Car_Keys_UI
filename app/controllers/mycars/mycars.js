@@ -2,8 +2,13 @@ var args = arguments[0] || {};
 var _callBack = args._callBack;
 var login = require('Login');
 
-exports.open = function(){
-	$.header.openWindow($.mycars);	
+$.header.setTitle("my vehichles");
+
+exports.open = function(refresh){
+	if(refresh){
+		_refresh();
+	}
+	$.header.openWindow($.mycars,"common/plus.png",addNew);	
 };
 
 init();
@@ -20,6 +25,12 @@ function init(){
 		$.main.add(car.getView());
 	}
 
+}
+
+function addNew(){
+	var signup =  Alloy.createController("signup/signup",{_callBack:function(){
+		_refresh();
+	}});
 }
 
 function build(cars){

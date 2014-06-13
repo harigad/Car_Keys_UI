@@ -3,6 +3,6 @@
 		<ScrollView id="scroll" top="50" >
 			<View id="main" ></View>
 		</ScrollView>
-		<Require type="view" src="header/header" id="header"/>
+		<Require type="view" src="header/header" id="header" />
 	</Window>
 </Alloy>

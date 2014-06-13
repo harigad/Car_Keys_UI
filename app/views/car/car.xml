@@ -3,15 +3,18 @@
 		<View id="model_container" onClick="goToModel">
 		<View id="bar"></View>
 			<View top="0" height=Ti.UI.SIZE>
-				<View id="logo_container" onClick="goToMake">
+				<View id="logo_container" >
 					<View id="logo" ></View>
 				</View>	
 				<View id="topLine">
-					<Label id="model"></Label>
+					<Label id="model"></Label><View id="edit_icon" onClick="onEdit"></View>
 				</View>
 			</View>
 			<Label id="year"></Label>
 		</View>
+		<View id="expires" height="0" backgroundColor="#333" bottom="0" left="10" right="10" borderRadius="2" onClick="explain_expires" >
+			<Label color="#fff" class="left_label" top="10" bottom="10" width="Ti.UI.SIZE" id="expires_lbl" ></Label>
+		</View>	
 		<View id="data_container" layout="vertical" height="Ti.UI.SIZE" >
 		<View class="data_container">
 			<View class="left_box" >

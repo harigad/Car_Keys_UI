@@ -7,7 +7,7 @@ function Controller() {
     var $ = this;
     var exports = {};
     $.__views.cannot_find_carkey_for_ridealong = Ti.UI.createWindow({
-        backgroundColor: "#666",
+        backgroundColor: "#ffa633",
         width: "320",
         height: "480",
         id: "cannot_find_carkey_for_ridealong"
@@ -21,12 +21,12 @@ function Controller() {
         layout: "vertical"
     });
     $.__views.cannot_find_carkey_for_ridealong.add($.__views.main);
-    $.__views.__alloyId69 = Ti.UI.createLabel({
+    $.__views.__alloyId80 = Ti.UI.createLabel({
         text: "searching..please wait..",
-        color: "#aaa",
-        id: "__alloyId69"
+        color: "#fff",
+        id: "__alloyId80"
     });
-    $.__views.main.add($.__views.__alloyId69);
+    $.__views.main.add($.__views.__alloyId80);
     exports.destroy = function() {};
     _.extend($, $.__views);
     _.extend($, exports);

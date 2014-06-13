@@ -57,7 +57,7 @@ function Controller() {
     var exports = {};
     var __defers = {};
     $.__views.share_add_edit = Ti.UI.createWindow({
-        backgroundColor: "#eee",
+        backgroundColor: "#fff",
         navBarHidden: true,
         width: 320,
         height: 500,
@@ -67,7 +67,7 @@ function Controller() {
     $.__views.search_bar = Ti.UI.createView({
         top: 0,
         height: 50,
-        backgroundColor: "#fff",
+        backgroundColor: "#ffa633",
         id: "search_bar"
     });
     $.__views.share_add_edit.add($.__views.search_bar);
@@ -75,7 +75,7 @@ function Controller() {
         left: 10,
         width: 210,
         height: 40,
-        backgroundColor: "#fff",
+        color: "#fff",
         borderStyle: Ti.UI.INPUT_BORDERSTYLE_NONE,
         id: "search",
         hintText: "search friends"
@@ -86,7 +86,7 @@ function Controller() {
         right: 10,
         height: 40,
         width: 80,
-        backgroundColor: "#ccc",
+        backgroundColor: "#fff",
         borderRadius: 2,
         id: "cancel_btn"
     });
@@ -94,7 +94,7 @@ function Controller() {
     onCancel ? $.__views.cancel_btn.addEventListener("click", onCancel) : __defers["$.__views.cancel_btn!click!onCancel"] = true;
     $.__views.__alloyId25 = Ti.UI.createLabel({
         text: "cancel",
-        color: "#fff",
+        color: "#999",
         id: "__alloyId25"
     });
     $.__views.cancel_btn.add($.__views.__alloyId25);

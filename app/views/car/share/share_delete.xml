@@ -1,5 +1,5 @@
 <Alloy>
-	<Window backgroundColor="#eee" >
+	<Window backgroundColor="#ffa633" >
 		<View height="Ti.UI.SIZE" layout="vertical" left="40" right="40" >
 				<View borderRadius="4" backgroundColor="#990000" height="Ti.UI.SIZE" bottom="5" onClick="onDelete" >
 					<Label color="#fff" height="Ti.UI.SIZE" top="20" bottom="20"  >STOP SHARING</Label>

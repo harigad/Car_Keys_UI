@@ -1,36 +1,24 @@
 <Alloy>
 	<Window>
 		<ImageView id="bgImage"></ImageView>
+		<View height="50" backgroundColor="#f49033" top="0" >
+				<View class="btn_container" onClick="onCancel" left="10" >
+					<Label class="btn" >cancel</Label>
+				</View>
+				<Label id="question">
+					Verify your registration address!
+				</Label>
+				<View class="btn_container" onClick="onReturn" right="10" >
+					<Label class="btn">Verify</Label>
+				</View>
+		</View>
 		<View id="main" >
-			<View id="logo_container">
-					<View id="logo" ></View>
-			</View>	
-			<View id="progress_bar">
-				<View class="ball" id="ball1" />
-				<View class="bar"  />
-				
-				<View class="ball" id="ball2" />
-				<View class="bar"  />
-				
-				<View class="ball" id="ball3" />
-			</View>
-			<Label id="question">
-				Complete your registration address!
-			</Label>
 			<View class="answer_container" >
 				<TextField id="address" hintText="Enter your address line#" onReturn="onReturn" ></TextField>
 			</View>
+			<View class="hr"></View>
 			<View class="answer_container" layout="horizontal" >
 				<View class="answer_background" ><Label id="city" class="answer"  ></Label></View>
-				<View class="answer_background" ><Label id="state" class="answer" left="25" right="25" ></Label></View>
-			</View>
-			<View width="Ti.UI.FILL" layout="vertical" >
-				<View class="btn_container" id="btn_container" onClick="onReturn" >
-					<Label class="btn">Verify</Label>
-				</View>	
-				<View class="btn_container" id="cancel_container" onClick="onCancel" top="5" >
-					<Label class="btn" id="cancel_btn" >cancel</Label>
-				</View>	
 			</View>
 		</View>
 	</Window>	

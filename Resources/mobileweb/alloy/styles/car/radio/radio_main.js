@@ -1,1 +1,1 @@
-module.exports = [{"isId":true,"priority":100000.0035,"key":"main","style":{height:Ti.UI.SIZE,width:Ti.UI.SIZE,right:2,borderRadius:2,}},{"isId":true,"priority":100000.0036,"key":"photo","style":{width:25,height:25,backgroundColor:"#ccc",borderRadius:0,}}];
+module.exports = [{"isId":true,"priority":100000.0029,"key":"main","style":{height:Ti.UI.SIZE,width:Ti.UI.SIZE,right:2,borderRadius:2,}},{"isId":true,"priority":100000.003,"key":"photo","style":{width:25,height:25,backgroundColor:"#ccc",borderRadius:0,}}];

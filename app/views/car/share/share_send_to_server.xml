@@ -1,7 +1,7 @@
 <Alloy>
-	<Window backgroundColor="#eee" >
+	<Window backgroundColor="#ffa633" >
 		<View height="Ti.UI.SIZE" >
-			<Label height="Ti.UI.SIZE" >Updating..</Label>
+			<Label height="Ti.UI.SIZE" color="#fff" >Updating..</Label>
 		</View>
 	</Window>
 </Alloy>

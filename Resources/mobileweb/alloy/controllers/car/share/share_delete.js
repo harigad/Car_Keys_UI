@@ -22,7 +22,7 @@ function Controller() {
     var exports = {};
     var __defers = {};
     $.__views.share_delete = Ti.UI.createWindow({
-        backgroundColor: "#eee",
+        backgroundColor: "#ffa633",
         navBarHidden: true,
         width: 320,
         height: 500,

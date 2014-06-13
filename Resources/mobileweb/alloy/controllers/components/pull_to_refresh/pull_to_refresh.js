@@ -32,13 +32,11 @@ function Controller() {
         _callBack = callBack;
         _scroll.addEventListener("scroll", function(e) {
             Ti.API.debug(e.y);
-            optionalOverlay && (-10 > e.y && e.dragging ? optionalOverlay.setOpacity(.1) : optionalOverlay.setOpacity(1));
+            optionalOverlay && (-20 > e.y && e.dragging ? optionalOverlay.setOpacity(.1) : optionalOverlay.setOpacity(1));
             if (e.dragging) if (-80 >= e.y && false === _status) {
-                $.txt.setColor("#fff");
                 $.txt.setText("release to refresh");
                 _status = true;
             } else if (e.y > -80 && true === _status) {
-                $.txt.setColor("#aaa");
                 $.txt.setText("pull to refresh");
                 _status = false;
             }
@@ -46,7 +44,6 @@ function Controller() {
         _scroll.addEventListener("dragend", function() {
             optionalOverlay && optionalOverlay.setOpacity(1);
             true === _status && _callBack();
-            $.txt.setColor("#aaa");
             $.txt.setText("pull to refresh");
             _status = false;
         });

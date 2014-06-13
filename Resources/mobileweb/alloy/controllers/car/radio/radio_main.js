@@ -1,6 +1,11 @@
 function Controller() {
     function goToUser() {
-        _data && Alloy.createController("profile/profile", {
+        if (_showall) {
+            debugger;
+            Alloy.createController("car/radio/radio_show_all", {
+                _data: _data
+            });
+        } else Alloy.createController("profile/profile", {
             _data: _data
         });
     }
@@ -33,7 +38,9 @@ function Controller() {
     _.extend($, $.__views);
     var args = arguments[0] || {};
     var _data = args._data;
-    _data ? $.photo.setBackgroundImage(_data.photo) : $.text.setText("none");
+    args._uid || null;
+    var _showall = args._showall || false;
+    _showall ? $.photo.setBackgroundImage("common/dot_dot_dot.png") : $.photo.setBackgroundImage(_data.photo);
     __defers["$.__views.main!click!goToUser"] && $.__views.main.addEventListener("click", goToUser);
     _.extend($, exports);
 }

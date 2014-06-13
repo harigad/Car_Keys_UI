@@ -1,0 +1,8 @@
+"#photo": {
+	width:35,height:35,
+	borderRadius:17.5,borderColor:"#cecece",borderWidth:2,backgroundColor:"#cecece"
+}
+
+"#name":{
+	left:10,color:"#ffa633"
+}	

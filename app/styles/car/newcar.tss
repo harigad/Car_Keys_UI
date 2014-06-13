@@ -1,26 +1,13 @@
 "#main":{
-	top:0,bottom:10,borderRadius:4,backgroundColor:"#eee",
-	height:Ti.UI.SIZE,
+	top:"30%",borderRadius:4,backgroundColor:"#f49033",
+	height:Ti.UI.SIZE,width:Ti.UI.SIZE,
 	layout:"vertical"
 }
 
-"#model_container":{
-	top:0,bottom:10,
-	height:Ti.UI.SIZE
-}
-
-"#bar" : {
-	backgroundColor:"#fff",height:30,left:0,top:0,opacity:0.5
-}
-
-"#container":{
-	layout:"horizontal",height:Ti.UI.SIZE
-}
-
 "#logo_container" : {
-	left:25,width:50,height:50,backgroundColor:"#333",
-	borderRadius:25,borderColor:"#ccc",borderWidth:3,
-	bubbleParent:false
+	top:20,
+	width:50,height:50,backgroundColor:"#333",
+	borderRadius:25,borderColor:"#ccc",borderWidth:3
 }
 
 "#logo":{
@@ -28,31 +15,10 @@
 	backgroundImage:"logos/48/logo.png"
 }
 
-
-"#txtContainer" : {
-	left:10,width:Ti.UI.SIZE,height:Ti.UI.SIZE,layout:"vertical"
-}
-
-"#topLine": {
-	left:85,
-	width:Ti.UI.SIZE,height:Ti.UI.SIZE,layout:"horizontal"
-}
-
 "#model":{
-	width:Ti.UI.SIZE,height:Ti.UI.SIZE,color:"#2179ca",
+	top:20,left:20,right:20,bottom:20,
+	width:Ti.UI.SIZE,height:Ti.UI.SIZE,color:"#fff",
 	font:{
 		fontSize:20,fontWeight:"bold"
 	}
 }
-
-"#bottomLine": {
-	top:5,left:0,width:Ti.UI.SIZE,height:Ti.UI.SIZE,layout:"horizontal"
-}
-
-"#owned":{
-	width:Ti.UI.SIZE,height:Ti.UI.SIZE,color:"#999",
-	font:{
-		fontSize:11
-	}
-}
-

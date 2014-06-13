@@ -3,10 +3,10 @@
 		var _data = args._data || {};
 		var _callBack = args._callBack;
 		
+		debugger;
 $.photo.setBackgroundImage(_data.photo);
 $.name.setText(_data.name);
-$.desc.setText(_data.desc);
-
+$.desc.setText("has accepted your ridealong request");
 
 function onClose(){
 	send_to_server();

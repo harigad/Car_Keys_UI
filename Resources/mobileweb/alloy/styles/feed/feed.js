@@ -1,1 +1,1 @@
-module.exports = [{"isId":true,"priority":100000.0051,"key":"container","style":{top:5,bottom:5,height:Ti.UI.SIZE,left:10,right:10,borderRadius:4,backgroundColor:"#fff",}}];
+module.exports = [{"isId":true,"priority":100000.0048,"key":"container","style":{top:5,bottom:5,height:Ti.UI.SIZE,left:10,right:10,borderRadius:4,backgroundColor:"#fff",layout:"vertical",}}];

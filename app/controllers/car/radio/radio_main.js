@@ -1,14 +1,19 @@
 		var args = arguments[0] || {};
 		var _data = args._data;
+		var _uid = args._uid || null;
+		var _showall = args._showall || false;
 
-if(_data){
+if(!_showall){
 	$.photo.setBackgroundImage(_data.photo);
 }else{
-	$.text.setText("none");
+	$.photo.setBackgroundImage("common/dot_dot_dot.png");
 }
 
 function goToUser(){
-	if(_data){
-		var profile =  Alloy.createController("profile/profile",{_data:_data});
+	if(!_showall){
+		Alloy.createController("profile/profile",{_data:_data});
+	}else{
+		debugger;
+		Alloy.createController("car/radio/radio_show_all",{_data:_data});
 	}
 }

@@ -13,11 +13,12 @@
 				<View id="content">
 					<View id="post_container" >
 						<View id="post_btn" >
-							<View id="post_icon"></View>
 							<Label id="post_label">post</Label>
 						</View>
 					</View>
+					<Require type="view" src="model/model_friends" id="friends"/>
 				</View>
+				
 			</View>
 		</ScrollView>
 		<Require type="view" src="header/header" id="header"/>

@@ -6,15 +6,17 @@
 $.ridealong.open();
 
 function onFocus(){
-	
+	$.plate.focus();	
 }
 
 function onEdit(){
 	var carkey = $.plate.getValue();
-	var confirm =  Alloy.createController("ridealong/send_request/search_carkey_for_ridealong",{_data:carkey,_callBack:function(success){
-		_callBack(success);
-		$.ridealong.close();
-	}});
+	if(carkey !== "" ){
+		var confirm =  Alloy.createController("ridealong/send_request/search_carkey_for_ridealong",{_data:carkey,_callBack:function(success){
+			_callBack(success);
+			$.ridealong.close();
+		}});
+	}
 }
 
 function onCancel(){

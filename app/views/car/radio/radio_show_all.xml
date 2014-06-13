@@ -1,0 +1,16 @@
+<Alloy>
+	<Window backgroundColor="#ffa633" width="320" height="500" >
+		<ScrollView top="-70" >
+			<View id="main" left="10" right="10" borderRadius="4" layout="horizontal"  height="Ti.UI.SIZE" top="130"  >
+				
+				<View width="50%" layout="vertical" height="Ti.UI.SIZE" id="left" >
+					
+				</View>
+				<View width="50%" layout="vertical" height="Ti.UI.SIZE" id="right" >
+					
+				</View>
+			</View>
+		</ScrollView>
+		<Require type="view" src="header/header" id="header"/>
+	</Window>
+</Alloy>
