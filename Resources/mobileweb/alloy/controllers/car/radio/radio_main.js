@@ -1,11 +1,8 @@
 function Controller() {
     function goToUser() {
-        if (_showall) {
-            debugger;
-            Alloy.createController("car/radio/radio_show_all", {
-                _data: _data
-            });
-        } else Alloy.createController("profile/profile", {
+        _showall ? Alloy.createController("car/radio/radio_show_all", {
+            _data: _data
+        }) : Alloy.createController("profile/profile", {
             _data: _data
         });
     }

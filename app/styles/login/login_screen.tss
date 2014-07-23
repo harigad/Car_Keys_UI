@@ -5,5 +5,5 @@
 "#login":{
 	width:280,
 	height:280,
-	backgroundImage:"common/login/bg1.png" 
+	backgroundImage:"common/login/bg.png" 
 }

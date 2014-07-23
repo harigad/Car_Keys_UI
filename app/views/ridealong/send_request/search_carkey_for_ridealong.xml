@@ -1,10 +1,15 @@
 <Alloy>
-	<Window backgroundColor="#ffa633" width="320" height="480" navBarHidden="true" >
+	<Window backgroundColor="#ffa633" width="320" height="500" navBarHidden="true" >
 		<View id="main" height="Ti.UI.SIZE" width="280" left="20" right="20" layout="vertical" >
-			<Label color="#fff" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER" id="pleasewait" width="Ti.UI.FILL" height="Ti.UI.SIZE" >please wait..</Label>
+			<Label color="#fff" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER" id="pleasewait" width="Ti.UI.FILL" height="Ti.UI.SIZE" >searching ...</Label>
 		</View>
-		<View bottom="100" onClick="onCancel" id="close_btn" backgroundColor="#f49033" width="150" height="Ti.UI.SIZE" borderRadius="4"> 
-			<Label id="close_btn_label" top="10" bottom="10" color="#fff" height="Ti.UI.SIZE"  opacity="0.5" >CANCEL</Label>
+		<View height="50" backgroundColor="#f49033" top="0" >
+					<View class="btn_container" onClick="onCancel" left="10" >
+						<Label class="btn" >cancel</Label>
+					</View>
+					<Label id="question">
+						RideAlong
+					</Label>
 		</View>
 	</Window>
 </Alloy>

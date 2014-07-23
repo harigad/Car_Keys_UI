@@ -66,14 +66,14 @@ function Controller() {
         hintText: "$0.00"
     });
     $.__views.main.add($.__views.amount);
-    $.__views.__alloyId102 = Ti.UI.createView({
+    $.__views.__alloyId136 = Ti.UI.createView({
         height: 1,
         left: 20,
         right: 20,
         backgroundColor: "#fff",
-        id: "__alloyId102"
+        id: "__alloyId136"
     });
-    $.__views.main.add($.__views.__alloyId102);
+    $.__views.main.add($.__views.__alloyId136);
     $.__views.credit = Ti.UI.createTextField({
         backgroundColor: "#fff",
         color: "#ffa633",
@@ -88,14 +88,14 @@ function Controller() {
         hintText: "credit/debit card number"
     });
     $.__views.main.add($.__views.credit);
-    $.__views.__alloyId103 = Ti.UI.createView({
+    $.__views.__alloyId137 = Ti.UI.createView({
         height: 1,
         left: 20,
         right: 20,
         backgroundColor: "#fff",
-        id: "__alloyId103"
+        id: "__alloyId137"
     });
-    $.__views.main.add($.__views.__alloyId103);
+    $.__views.main.add($.__views.__alloyId137);
     $.__views.mmyy = Ti.UI.createTextField({
         backgroundColor: "#fff",
         color: "#ffa633",

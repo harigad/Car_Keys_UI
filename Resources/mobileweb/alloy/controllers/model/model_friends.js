@@ -29,6 +29,8 @@ function Controller() {
         layout: "vertical",
         id: "main",
         backgroundColor: "#fff",
+        left: "10",
+        right: "10",
         borderRadius: "4"
     });
     $.__views.main && $.addTopLevelView($.__views.main);
@@ -68,13 +70,19 @@ function Controller() {
     var login = require("Login");
     var friends;
     var len = 2;
-    exports.init = function(moid) {
+    exports.init = function(moid, model_name) {
         friends = login.getFriendsWithModel(moid);
+        if (0 === friends.length) {
+            var friend = Alloy.createController("model/model_friend", {
+                _data: login.getUser()
+            });
+            $.list.add(friend.getView());
+        }
         if (len >= friends.length) draw(0, friends.length); else {
             draw(0, len);
             $.show_all.setVisible(true);
             $.show_all.setHeight("Ti.UI.SIZE");
-            $.show_all_label.setText("show all " + friends.length + " friends");
+            $.show_all_label.setText("see all " + friends.length + " friends driving " + model_name);
         }
     };
     __defers["$.__views.show_all_label!click!show_all"] && $.__views.show_all_label.addEventListener("click", show_all);

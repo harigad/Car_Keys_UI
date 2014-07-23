@@ -31,8 +31,8 @@ function onChange(e){
 
 function process(){
 	if($.plate.getValue() !== ""){
-		var zipcode = $.zipcode.getValue();
-		/*if(zipcode === "" || zipcode.length < 5){
+		/*var zipcode = $.zipcode.getValue();
+		if(zipcode === "" || zipcode.length < 5){
 			return;
 		}*/
 	}else{

@@ -11,14 +11,9 @@
 			</View>
 			<View id="cars_container">
 				<View id="content">
-					<View id="post_container" >
-						<View id="post_btn" >
-							<Label id="post_label">post</Label>
-						</View>
-					</View>
-					<Require type="view" src="model/model_friends" id="friends"/>
+					<Require type="view" src="model/model_friends" id="friends" />
+					<Require type="view" src="poll/polls" id="polls" />
 				</View>
-				
 			</View>
 		</ScrollView>
 		<Require type="view" src="header/header" id="header"/>

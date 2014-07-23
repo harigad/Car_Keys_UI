@@ -1,0 +1,11 @@
+".address":{
+	 left:0,
+	 color:"#ffa633",
+	 font:{
+	 	fontSize:12
+	 } 
+}
+
+"#main":{
+	visible:false
+}

@@ -3,15 +3,21 @@
 		<View id="topView" onClick="goToUser" >
 			<View id="photo"></View>
 				<View id="topRight"   >
-					<Label id="name" >Hari Krishna</Label>
-					<Label id="date"  >january 2nd, 2003</Label>
+					<Label id="name" ></Label>
+					<View left="0" height="Ti.UI.SIZE" layout="horizontal" width="Ti.UI.SIZE" >
+						<Label class="date" >was</Label>
+						<Label id="date_0" class="date" color="#000" ></Label>
+						<Label id="date_1" class="date" ></Label>
+						<Label id="date_2" class="date" ></Label>
+						<Label id="date_3" class="date" ></Label>
+					</View>
 				</View>
 		</View>
 		<View id="bottomView" onClick="goToModel" bottom="10" >
 			<View id="logo_container">
 				<View id="logo"></View>
 			</View>
-			<Label id="desc" width="150" height="Ti.UI.SIZE" right="10" ></Label>
+			<Label id="desc" width="150" height="Ti.UI.SIZE" left="5" ></Label>
 		</View>
 		<View height="1" backgroundColor="#cecece" ></View>
 	</View>

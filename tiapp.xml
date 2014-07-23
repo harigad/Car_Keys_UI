@@ -46,6 +46,9 @@
             <inline-css-images>true</inline-css-images>
         </splash>
         <theme>default</theme>
+        <map>
+            <apikey>AIzaSyAqYsZa6MJ97_Q-8NlafqfvIAki3W8pRQU</apikey>
+        </map>
     </mobileweb>
     <modules/>
     <deployment-targets>

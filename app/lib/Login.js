@@ -62,6 +62,14 @@ exports.url = function(){
 };
 
 
+exports.isUser = function(obj){
+	if(user.uid === obj.uid){
+		return true;
+	}else{
+		return false;
+	}
+};
+
 exports.isAdmin = function(pid){
 	if(loggedIn() && user){
 		var places = user.places;
@@ -165,6 +173,7 @@ function onLogin(_callBack){
 		}
 		loadUser(_callBack);
 	}else{
+		login_screen.lock();
 		fb.logout();
 	}
 }	
@@ -259,6 +268,7 @@ exports.getFriendsWithModel = function(moid){
 			counts.push(friendsCars[i]);
 		}
 	}
+	
 	return counts;
 };
 

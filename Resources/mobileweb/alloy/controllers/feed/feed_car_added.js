@@ -2,7 +2,7 @@ function Controller() {
     function goToUser() {
         Alloy.createController("profile/profile", {
             _data: {
-                id: _data.uid,
+                uid: _data.uid,
                 photo: _data.photo,
                 name: _data.name,
                 plate: _data.plate
@@ -74,7 +74,7 @@ function Controller() {
         height: Ti.UI.SIZE,
         color: "#aaa",
         font: {
-            fontSize: 11
+            fontSize: 12
         },
         text: "january 2nd, 2003",
         id: "date"
@@ -116,12 +116,12 @@ function Controller() {
         id: "logo"
     });
     $.__views.logo_container.add($.__views.logo);
-    $.__views.__alloyId39 = Ti.UI.createView({
+    $.__views.__alloyId45 = Ti.UI.createView({
         height: "1",
         backgroundColor: "#cecece",
-        id: "__alloyId39"
+        id: "__alloyId45"
     });
-    $.__views.main.add($.__views.__alloyId39);
+    $.__views.main.add($.__views.__alloyId45);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");

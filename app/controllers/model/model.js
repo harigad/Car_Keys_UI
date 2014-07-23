@@ -4,16 +4,11 @@ var _data = args._data || {};
 
 $.header.openWindow($.model);
 
-$.friends.init(_data.moid);	
-		
+$.friends.init(_data.moid,_data.model);	
+$.polls.init(_data);
+
 $.logo.setBackgroundImage("logos/48/" + _data.logo);
 $.plate.setText(_data.model);
-
-if(!login.ownsModel(_data.moid)){
-	$.post_btn.setBackgroundColor("#ddd");
-	$.post_label.setColor("#eee");
-	$.post_label.setText("READ ONLY");
-}
 
 $.model.open();
 

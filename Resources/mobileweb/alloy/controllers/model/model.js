@@ -80,35 +80,16 @@ function Controller() {
         id: "content"
     });
     $.__views.cars_container.add($.__views.content);
-    $.__views.post_container = Ti.UI.createView({
-        height: Ti.UI.SIZE,
-        bottom: 10,
-        layout: "horizontal",
-        id: "post_container"
-    });
-    $.__views.content.add($.__views.post_container);
-    $.__views.post_btn = Ti.UI.createView({
-        top: 0,
-        borderRadius: 4,
-        backgroundColor: "#f49033",
-        height: 60,
-        id: "post_btn"
-    });
-    $.__views.post_container.add($.__views.post_btn);
-    $.__views.post_label = Ti.UI.createLabel({
-        color: "#fff",
-        font: {
-            fontSize: 24
-        },
-        text: "post",
-        id: "post_label"
-    });
-    $.__views.post_btn.add($.__views.post_label);
     $.__views.friends = Alloy.createController("model/model_friends", {
         id: "friends",
         __parentSymbol: $.__views.content
     });
     $.__views.friends.setParent($.__views.content);
+    $.__views.polls = Alloy.createController("poll/polls", {
+        id: "polls",
+        __parentSymbol: $.__views.content
+    });
+    $.__views.polls.setParent($.__views.content);
     $.__views.header = Alloy.createController("header/header", {
         id: "header",
         __parentSymbol: $.__views.model
@@ -116,18 +97,14 @@ function Controller() {
     $.__views.header.setParent($.__views.model);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    var login = require("Login");
+    require("Login");
     var args = arguments[0] || {};
     var _data = args._data || {};
     $.header.openWindow($.model);
-    $.friends.init(_data.moid);
+    $.friends.init(_data.moid, _data.model);
+    $.polls.init(_data);
     $.logo.setBackgroundImage("logos/48/" + _data.logo);
     $.plate.setText(_data.model);
-    if (!login.ownsModel(_data.moid)) {
-        $.post_btn.setBackgroundColor("#ddd");
-        $.post_label.setColor("#eee");
-        $.post_label.setText("READ ONLY");
-    }
     $.model.open();
     __defers["$.__views.photo!click!goToMake"] && $.__views.photo.addEventListener("click", goToMake);
     _.extend($, exports);

@@ -31,19 +31,19 @@ function Controller() {
         id: "photo"
     });
     $.__views.model_friend.add($.__views.photo);
-    $.__views.__alloyId57 = Ti.UI.createView({
+    $.__views.__alloyId69 = Ti.UI.createView({
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
-        id: "__alloyId57"
+        id: "__alloyId69"
     });
-    $.__views.model_friend.add($.__views.__alloyId57);
+    $.__views.model_friend.add($.__views.__alloyId69);
     $.__views.name = Ti.UI.createLabel({
         left: 10,
         color: "#ffa633",
         text: "NAME",
         id: "name"
     });
-    $.__views.__alloyId57.add($.__views.name);
+    $.__views.__alloyId69.add($.__views.name);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var args = arguments[0] || {};

@@ -1,0 +1,12 @@
+<Alloy>
+	<View height="Ti.UI.SIZE" onClick="onSelect" backgroundColor="#f49033" borderRadius="4" bottom="10" >
+		<View height="Ti.UI.SIZE" left="10" right="10" layout="horizontal" >
+			<View id="photo" ></View>
+			<View id="plate_container" >
+						<Label id="name" ></Label>
+						<View height="1" opacity="0.4" backgroundColor="#fff" right="30" top="5" bottom="5" ></View>
+						<Label id="plate" ></Label>
+			</View>
+		</View>
+	</View>
+</Alloy>

@@ -1,4 +1,16 @@
 function Controller() {
+    function isMultipleUsersReturned(data) {
+        var len = 0;
+        var id = "";
+        for (var i = 0; data.length > i; i++) {
+            if (data[i].id != id) {
+                id = data[i].id;
+                len++;
+            }
+            if (len > 1) return true;
+        }
+        return false;
+    }
     function send_to_server() {
         var url = "http://flair.me/carkey/search.php";
         var _postData = {
@@ -10,7 +22,14 @@ function Controller() {
         var client = Ti.Network.createHTTPClient({
             onload: function() {
                 var response = JSON.parse(this.responseText);
-                if (response && response.length > 0) Alloy.createController("ridealong/send_request/select_car_for_ridealong", {
+                var multipleUsersReturned = isMultipleUsersReturned(response);
+                if (response && response.length > 0 && false === multipleUsersReturned) Alloy.createController("ridealong/send_request/select_car_for_ridealong", {
+                    _data: response,
+                    _callBack: function(success) {
+                        _callBack(success);
+                        $.search_carkey_for_ridealong.close();
+                    }
+                }); else if (response && multipleUsersReturned) Alloy.createController("ridealong/send_request/show_search_carkey_results_for_ridealong", {
                     _data: response,
                     _callBack: function(success) {
                         _callBack(success);
@@ -41,7 +60,7 @@ function Controller() {
     $.__views.search_carkey_for_ridealong = Ti.UI.createWindow({
         backgroundColor: "#ffa633",
         width: "320",
-        height: "480",
+        height: "500",
         navBarHidden: "true",
         id: "search_carkey_for_ridealong"
     });
@@ -56,7 +75,7 @@ function Controller() {
     });
     $.__views.search_carkey_for_ridealong.add($.__views.main);
     $.__views.pleasewait = Ti.UI.createLabel({
-        text: "please wait..",
+        text: "searching ...",
         color: "#fff",
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
         id: "pleasewait",
@@ -64,26 +83,46 @@ function Controller() {
         height: Ti.UI.SIZE
     });
     $.__views.main.add($.__views.pleasewait);
-    $.__views.close_btn = Ti.UI.createView({
-        bottom: "100",
-        id: "close_btn",
+    $.__views.__alloyId105 = Ti.UI.createView({
+        height: "50",
         backgroundColor: "#f49033",
-        width: "150",
-        height: Ti.UI.SIZE,
-        borderRadius: "4"
+        top: "0",
+        id: "__alloyId105"
     });
-    $.__views.search_carkey_for_ridealong.add($.__views.close_btn);
-    onCancel ? $.__views.close_btn.addEventListener("click", onCancel) : __defers["$.__views.close_btn!click!onCancel"] = true;
-    $.__views.close_btn_label = Ti.UI.createLabel({
-        text: "CANCEL",
-        id: "close_btn_label",
-        top: "10",
-        bottom: "10",
+    $.__views.search_carkey_for_ridealong.add($.__views.__alloyId105);
+    $.__views.__alloyId106 = Ti.UI.createView({
+        top: 10,
+        height: 30,
+        width: 50,
+        backgroundColor: "#ffa633",
+        borderRadius: 4,
+        left: "10",
+        id: "__alloyId106"
+    });
+    $.__views.__alloyId105.add($.__views.__alloyId106);
+    onCancel ? $.__views.__alloyId106.addEventListener("click", onCancel) : __defers["$.__views.__alloyId106!click!onCancel"] = true;
+    $.__views.__alloyId107 = Ti.UI.createLabel({
+        height: Ti.UI.SIZE,
+        width: Ti.UI.SIZE,
+        font: {
+            fontSize: 11
+        },
         color: "#fff",
-        height: Ti.UI.SIZE,
-        opacity: "0.5"
+        text: "cancel",
+        id: "__alloyId107"
     });
-    $.__views.close_btn.add($.__views.close_btn_label);
+    $.__views.__alloyId106.add($.__views.__alloyId107);
+    $.__views.question = Ti.UI.createLabel({
+        height: Ti.UI.SIZE,
+        font: {
+            fontSize: 12
+        },
+        color: "#fff",
+        opacity: .5,
+        text: "RideAlong",
+        id: "question"
+    });
+    $.__views.__alloyId105.add($.__views.question);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");
@@ -92,7 +131,7 @@ function Controller() {
     var _callBack = args._callBack;
     send_to_server();
     $.search_carkey_for_ridealong.open();
-    __defers["$.__views.close_btn!click!onCancel"] && $.__views.close_btn.addEventListener("click", onCancel);
+    __defers["$.__views.__alloyId106!click!onCancel"] && $.__views.__alloyId106.addEventListener("click", onCancel);
     _.extend($, exports);
 }
 

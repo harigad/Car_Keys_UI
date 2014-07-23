@@ -11,16 +11,16 @@ if(_data.gender === "1"){
 
 var date = new Date(_data.created);
 
-$.date.setText(date.toDateString());
+$.date.setText("is sharing " + gender + " " + _data.model + " with");//date.toDateString());
 $.photo.setBackgroundImage(_data.photo);
 $.logo.setBackgroundImage(_data.ophoto);
 $.name.setText(_data.name);
-$.desc.setText("is sharing " +  gender + " "  + _data.make + " " + _data.model + " with " + _data.oname);
+$.desc.setText(_data.oname);
 
 function goToUser(){
-	var profile =  Alloy.createController("profile/profile",{_data:{id:_data.uid,photo:_data.photo,photo_big:_data.photo_big,name:_data.name,plate:_data.plate}});
+	var profile =  Alloy.createController("profile/profile",{_data:{uid:_data.uid,photo:_data.photo,photo_big:_data.photo_big,name:_data.name,plate:_data.plate}});
 }
 
 function goToModel(){
-	var profile =  Alloy.createController("profile/profile",{_data:{id:_data.ouid,photo:_data.ophoto,photo_big:_data.ophoto_big,name:_data.oname,plate:_data.oplate}});
+	var profile =  Alloy.createController("profile/profile",{_data:{uid:_data.ouid,photo:_data.ophoto,photo_big:_data.ophoto_big,name:_data.oname,plate:_data.oplate}});
 }

@@ -5,7 +5,7 @@
 
 $.ridealong.open();
 
-function onFocus(){
+function onWindowFocus(){
 	$.plate.focus();	
 }
 
@@ -21,4 +21,26 @@ function onEdit(){
 
 function onCancel(){
 	$.ridealong.close();
+}
+
+function onFocus(e){
+	eval("$." + e.source.id + "_label").setOpacity(.6);
+	
+	if(e.source.getValue() === ""){
+		eval("$." + e.source.id + "_label").setText(e.source.getHintText());
+	}else{
+		eval("$." + e.source.id + "_label").setText(""); 
+	}
+}
+
+function onBlur(e){
+	eval("$." + e.source.id + "_label").setOpacity(0);
+}
+
+function onChange(e){
+	if(e.source.getValue() === ""){
+		eval("$." + e.source.id + "_label").setText(e.source.getHintText());
+	}else{
+		eval("$." + e.source.id + "_label").setText(""); 
+	}
 }

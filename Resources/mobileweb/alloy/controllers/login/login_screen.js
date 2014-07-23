@@ -2,6 +2,10 @@ function Controller() {
     function onClick() {
         _callBack();
     }
+    function _lock() {
+        _loading = false;
+        $.login.setBackgroundImage("common/login/bg1.png");
+    }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "login/login_screen";
     arguments[0] ? arguments[0]["__parentSymbol"] : null;
@@ -21,7 +25,7 @@ function Controller() {
     $.__views.login = Ti.UI.createView({
         width: 280,
         height: 280,
-        backgroundImage: "common/login/bg1.png",
+        backgroundImage: "common/login/bg.png",
         id: "login"
     });
     $.__views.login_screen.add($.__views.login);
@@ -30,9 +34,17 @@ function Controller() {
     _.extend($, $.__views);
     var args = arguments[0] || {};
     var _callBack = args._callBack || {};
+    var _loading = false;
     $.login_screen.open();
+    _searchTime = setTimeout(function() {
+        _loading || _lock();
+    }, 1e3);
     exports.loading = function() {
+        _loading = true;
         $.login.setBackgroundImage("common/login/bg1_loading.png");
+    };
+    exports.lock = function() {
+        _lock();
     };
     __defers["$.__views.login!click!onClick"] && $.__views.login.addEventListener("click", onClick);
     _.extend($, exports);

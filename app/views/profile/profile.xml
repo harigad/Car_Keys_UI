@@ -14,6 +14,7 @@
 			</View>
 		</View>
 		<View id="cars_container">
+			<Require src="profile/profile_businness_info" id="profile_businness_info" />
 			<View id="cars_container_inner"></View>
 			<View id="feed" height="Ti.UI.SIZE" ></View>
 		</View>

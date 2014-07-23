@@ -48,7 +48,10 @@ function onLogin(_callBack) {
     if (fb.getAccessToken()) {
         login_screen && login_screen.loading();
         loadUser(_callBack);
-    } else fb.logout();
+    } else {
+        login_screen.lock();
+        fb.logout();
+    }
 }
 
 function show(callBack) {
@@ -128,6 +131,10 @@ exports.url = function() {
         splits.length > 1 && (output[splits[0]] = splits[1]);
     }
     return output;
+};
+
+exports.isUser = function(obj) {
+    return user.uid === obj.uid ? true : false;
 };
 
 exports.isAdmin = function(pid) {

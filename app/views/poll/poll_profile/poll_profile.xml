@@ -1,0 +1,13 @@
+<Alloy>
+	<Window>
+	<ScrollView id="scroll" top="50" >
+	<View layout="vertical" height="Ti.UI.SIZE" top="10" >
+		<Label height="Ti.UI.SIZE" id="question" left="10" right="10" bottom="5" ></Label>
+			<View id="main" borderRadius="4" layout="vertical" height="Ti.UI.SIZE" backgroundColor="#fff" left="10" right="10" top="5">
+			
+			</View>
+	</View>
+	</ScrollView>
+		<Require type="view" src="header/header" id="header"/>
+	</Window>
+</Alloy>

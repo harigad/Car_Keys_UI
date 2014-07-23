@@ -1,5 +1,6 @@
 <Alloy>
-	<Window backgroundColor="#ffa633" width="320" height="480"  >
+	<Window backgroundColor="#ffa633" width="320" height="500"  >
+		<ScrollView id="scroll"  top="50" >
 			<View id="main" height="Ti.UI.SIZE" left="20" right="20" layout="vertical" >
 				<View height="Ti.UI.SIZE" bottom="10">
 				<View id="photo" ></View>
@@ -12,9 +13,15 @@
 				<View id="cars" left="10" right="10" height="Ti.UI.SIZE" layout="vertical" borderRadius="4" >
 					
 				</View>
-				<View id="cancel_btn" left="10" right="10" backgroundColor="#999" height="Ti.UI.SIZE" borderRadius="4" onClick="onCancel" >
-					<Label top="20" bottom="20" color="#eee" height="Ti.UI.SIZE" >CANCEL</Label>
 				</View>
-			</View>
+		</ScrollView>
+				<View height="50" backgroundColor="#f49033" top="0" >
+					<View class="btn_container" onClick="onCancel" left="10" >
+						<Label class="btn" >cancel</Label>
+					</View>
+					<Label id="question">
+						RideAlong
+					</Label>
+				</View>
 	</Window>
 </Alloy>

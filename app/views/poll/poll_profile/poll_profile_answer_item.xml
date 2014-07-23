@@ -1,0 +1,11 @@
+<Alloy>
+	<View id="main">
+		<View id="topView" >
+			<View id="photo" ></View>
+				<View id="topRight" width="200" >
+						<Label id="desc" ></Label>
+						<View height="Ti.UI.SIZE" id="users" layout="horizontal" top="5" ></View>
+				</View>
+		</View>
+	</View>
+</Alloy>

@@ -141,22 +141,22 @@ function Controller() {
         height: Ti.UI.SIZE
     });
     $.__views.main.add($.__views.data_container);
-    $.__views.__alloyId1 = Ti.UI.createView({
+    $.__views.titledate_container = Ti.UI.createView({
         height: Ti.UI.SIZE,
         layout: "horizontal",
         bottom: 10,
-        id: "__alloyId1"
+        id: "titledate_container"
     });
-    $.__views.data_container.add($.__views.__alloyId1);
-    $.__views.__alloyId2 = Ti.UI.createView({
+    $.__views.data_container.add($.__views.titledate_container);
+    $.__views.__alloyId1 = Ti.UI.createView({
         width: 75,
         height: Ti.UI.SIZE,
         left: 0,
         top: 0,
-        id: "__alloyId2"
+        id: "__alloyId1"
     });
-    $.__views.__alloyId1.add($.__views.__alloyId2);
-    $.__views.__alloyId3 = Ti.UI.createLabel({
+    $.__views.titledate_container.add($.__views.__alloyId1);
+    $.__views.__alloyId2 = Ti.UI.createLabel({
         width: 75,
         color: "#999",
         height: Ti.UI.SIZE,
@@ -165,18 +165,18 @@ function Controller() {
         },
         textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
         text: "owned:",
-        id: "__alloyId3"
+        id: "__alloyId2"
     });
-    $.__views.__alloyId2.add($.__views.__alloyId3);
-    $.__views.__alloyId4 = Ti.UI.createView({
+    $.__views.__alloyId1.add($.__views.__alloyId2);
+    $.__views.__alloyId3 = Ti.UI.createView({
         width: 190,
         height: Ti.UI.SIZE,
         left: 5,
         top: 0,
         layout: "vertical",
-        id: "__alloyId4"
+        id: "__alloyId3"
     });
-    $.__views.__alloyId1.add($.__views.__alloyId4);
+    $.__views.titledate_container.add($.__views.__alloyId3);
     $.__views.owned = Ti.UI.createLabel({
         left: 0,
         color: "#999",
@@ -187,23 +187,23 @@ function Controller() {
         width: Ti.UI.SIZE,
         id: "owned"
     });
-    $.__views.__alloyId4.add($.__views.owned);
-    $.__views.__alloyId5 = Ti.UI.createView({
+    $.__views.__alloyId3.add($.__views.owned);
+    $.__views.shares_container = Ti.UI.createView({
         height: Ti.UI.SIZE,
         layout: "horizontal",
         bottom: 10,
-        id: "__alloyId5"
+        id: "shares_container"
     });
-    $.__views.data_container.add($.__views.__alloyId5);
-    $.__views.__alloyId6 = Ti.UI.createView({
+    $.__views.data_container.add($.__views.shares_container);
+    $.__views.__alloyId4 = Ti.UI.createView({
         width: 75,
         height: Ti.UI.SIZE,
         left: 0,
         top: 0,
-        id: "__alloyId6"
+        id: "__alloyId4"
     });
-    $.__views.__alloyId5.add($.__views.__alloyId6);
-    $.__views.__alloyId7 = Ti.UI.createLabel({
+    $.__views.shares_container.add($.__views.__alloyId4);
+    $.__views.__alloyId5 = Ti.UI.createLabel({
         width: 75,
         color: "#999",
         height: Ti.UI.SIZE,
@@ -212,9 +212,9 @@ function Controller() {
         },
         textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
         text: "shares with:",
-        id: "__alloyId7"
+        id: "__alloyId5"
     });
-    $.__views.__alloyId6.add($.__views.__alloyId7);
+    $.__views.__alloyId4.add($.__views.__alloyId5);
     $.__views.shares = Ti.UI.createView({
         width: 190,
         height: Ti.UI.SIZE,
@@ -223,23 +223,23 @@ function Controller() {
         layout: "vertical",
         id: "shares"
     });
-    $.__views.__alloyId5.add($.__views.shares);
-    $.__views.__alloyId8 = Ti.UI.createView({
+    $.__views.shares_container.add($.__views.shares);
+    $.__views.__alloyId6 = Ti.UI.createView({
         height: Ti.UI.SIZE,
         layout: "horizontal",
         bottom: 10,
-        id: "__alloyId8"
+        id: "__alloyId6"
     });
-    $.__views.data_container.add($.__views.__alloyId8);
-    $.__views.__alloyId9 = Ti.UI.createView({
+    $.__views.data_container.add($.__views.__alloyId6);
+    $.__views.__alloyId7 = Ti.UI.createView({
         width: 75,
         height: Ti.UI.SIZE,
         left: 0,
         top: 0,
-        id: "__alloyId9"
+        id: "__alloyId7"
     });
-    $.__views.__alloyId8.add($.__views.__alloyId9);
-    $.__views.__alloyId10 = Ti.UI.createLabel({
+    $.__views.__alloyId6.add($.__views.__alloyId7);
+    $.__views.__alloyId8 = Ti.UI.createLabel({
         width: 75,
         color: "#999",
         height: Ti.UI.SIZE,
@@ -248,9 +248,9 @@ function Controller() {
         },
         textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
         text: "ride along:",
-        id: "__alloyId10"
+        id: "__alloyId8"
     });
-    $.__views.__alloyId9.add($.__views.__alloyId10);
+    $.__views.__alloyId7.add($.__views.__alloyId8);
     $.__views.radios = Ti.UI.createView({
         width: 190,
         height: Ti.UI.SIZE,
@@ -259,7 +259,7 @@ function Controller() {
         layout: "horizontal",
         id: "radios"
     });
-    $.__views.__alloyId8.add($.__views.radios);
+    $.__views.__alloyId6.add($.__views.radios);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");
@@ -282,13 +282,19 @@ function Controller() {
     $.logo.setBackgroundImage("logos/48/" + _data.logo);
     login.canSeeModel(_data.moid) || $.model.setColor("#333");
     $.model.setText(_data.model);
-    _data.year && $.year.setText("'" + _data.year);
+    if (_data.year) $.year.setText("'" + _data.year); else {
+        $.year.setHeight(0);
+        $.year.setBottom(0);
+    }
     if (_data.titledate) {
         var d = new Date(_data.titledate);
         d && $.owned.setText("since " + monthNames[d.getMonth()] + " " + d.getFullYear());
+    } else {
+        $.titledate_container.setHeight(0);
+        $.titledate_container.setBottom(0);
     }
     var shares = _data.shares || [];
-    for (var i = 0; shares.length > i; i++) {
+    if (shares.length > 0) for (var i = 0; shares.length > i; i++) {
         var share = Alloy.createController("car/share/share_main", {
             _editable: _editable,
             _cid: _data.cid,
@@ -298,6 +304,9 @@ function Controller() {
             }
         });
         $.shares.add(share.getView());
+    } else if (!_editable) {
+        $.shares_container.setHeight(0);
+        $.shares_container.setBottom(0);
     }
     if (_editable) {
         var new_share = Alloy.createController("car/share/share_main", {

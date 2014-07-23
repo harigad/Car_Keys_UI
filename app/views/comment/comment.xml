@@ -1,0 +1,21 @@
+<Alloy>
+	<Window backgroundColor="#fff" width="320" height="500" >
+		<View height="50" backgroundColor="#f49033" top="0" >
+				<View class="btn_container" onClick="onCancel" left="10" >
+					<Label class="btn" >cancel</Label>
+				</View>
+				<Label id="question">
+					add comment
+				</Label>
+				<View class="btn_container" onClick="onSave" right="10" >
+					<Label class="btn">save</Label>
+				</View>
+		</View>
+		<View id="main" top="60" >
+			<TextArea id="text"  height="150" top="0" left="10" right="10" >
+				
+				
+			</TextArea>
+		</View>
+	</Window>
+</Alloy>

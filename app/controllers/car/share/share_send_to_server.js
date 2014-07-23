@@ -12,7 +12,7 @@ var login = require('Login');
 	var _postData = {type:"editshare",cid:_cid,accessToken:login.getAccessToken()};
 	
 	if(_delete){
-		_postData.uid = _data.id;//deleting record
+		_postData.uid = _data.uid;//deleting record
 	}else{
 		_postData.fbid = _data.id;//adding new record
 	}	

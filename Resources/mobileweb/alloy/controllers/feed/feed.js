@@ -55,9 +55,17 @@ function Controller() {
                 feed_item = Alloy.createController("feed/feed_ridealong", {
                     _data: data[i]
                 });
+                break;
+
+              case "5":
+                feed_item = Alloy.createController("feed/feed_poll_answer", {
+                    _data: data[i]
+                });
             }
-            $.main.add(feed_item.getView());
-            _created = data[i].created;
+            if (feed_item) {
+                $.main.add(feed_item.getView());
+                _created = data[i].created;
+            }
         }
         $.more.setText("load more");
     }
@@ -88,12 +96,12 @@ function Controller() {
         top: "0"
     });
     $.__views.container.add($.__views.main);
-    $.__views.__alloyId38 = Ti.UI.createView({
+    $.__views.__alloyId44 = Ti.UI.createView({
         height: Ti.UI.SIZE,
-        id: "__alloyId38"
+        id: "__alloyId44"
     });
-    $.__views.container.add($.__views.__alloyId38);
-    more ? $.__views.__alloyId38.addEventListener("click", more) : __defers["$.__views.__alloyId38!click!more"] = true;
+    $.__views.container.add($.__views.__alloyId44);
+    more ? $.__views.__alloyId44.addEventListener("click", more) : __defers["$.__views.__alloyId44!click!more"] = true;
     $.__views.more = Ti.UI.createLabel({
         text: "please wait..",
         id: "more",
@@ -102,7 +110,7 @@ function Controller() {
         color: "#ffa633",
         height: Ti.UI.SIZE
     });
-    $.__views.__alloyId38.add($.__views.more);
+    $.__views.__alloyId44.add($.__views.more);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");
@@ -114,7 +122,7 @@ function Controller() {
     exports.refresh = function() {
         load();
     };
-    __defers["$.__views.__alloyId38!click!more"] && $.__views.__alloyId38.addEventListener("click", more);
+    __defers["$.__views.__alloyId44!click!more"] && $.__views.__alloyId44.addEventListener("click", more);
     _.extend($, exports);
 }
 

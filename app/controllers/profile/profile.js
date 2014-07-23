@@ -2,7 +2,6 @@
 		var args = arguments[0] || {};
 		var _data = args._data || {};
 
-
 $.pull_to_refresh.init($.scroll,function(){
 	load(_data);
 },$.ride_along);
@@ -27,7 +26,7 @@ function load(data){
 	showPleaseWait();	
 	
 	var url = "http://flair.me/carkey/search.php";	
-	var _data = {type:"user",id:data.id,accessToken:login.getAccessToken()};
+	var _data = {type:"user",id:data.uid,accessToken:login.getAccessToken()};
 		
  	var client = Ti.Network.createHTTPClient({ 		
  	 onload : function(e) {
@@ -48,13 +47,14 @@ function load(data){
 }
 
 function build(data){
+	$.profile_businness_info.init(data);
 	var cars = data.cars || [];
 	for(var i=0;i<cars.length;i++){
 		var car =  Alloy.createController("car/car",{_data:cars[i]});
 		$.cars_container_inner.add(car.getView());
 	}
 	
-	var feed =  Alloy.createController("feed/feed",{_id:_data.id});
+	var feed =  Alloy.createController("feed/feed",{_id:_data.uid});
 	$.feed.add(feed.getView());
 	
 }

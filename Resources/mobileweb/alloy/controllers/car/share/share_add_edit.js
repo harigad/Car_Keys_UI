@@ -92,38 +92,38 @@ function Controller() {
     });
     $.__views.search_bar.add($.__views.cancel_btn);
     onCancel ? $.__views.cancel_btn.addEventListener("click", onCancel) : __defers["$.__views.cancel_btn!click!onCancel"] = true;
-    $.__views.__alloyId25 = Ti.UI.createLabel({
+    $.__views.__alloyId23 = Ti.UI.createLabel({
         text: "cancel",
         color: "#999",
-        id: "__alloyId25"
+        id: "__alloyId23"
     });
-    $.__views.cancel_btn.add($.__views.__alloyId25);
-    $.__views.__alloyId26 = Ti.UI.createScrollView({
+    $.__views.cancel_btn.add($.__views.__alloyId23);
+    $.__views.__alloyId24 = Ti.UI.createScrollView({
         height: Ti.UI.FILL,
         top: "50",
-        id: "__alloyId26"
+        id: "__alloyId24"
     });
-    $.__views.share_add_edit.add($.__views.__alloyId26);
+    $.__views.share_add_edit.add($.__views.__alloyId24);
     $.__views.friends = Ti.UI.createView({
         layout: "vertical",
         id: "friends",
         height: Ti.UI.SIZE
     });
-    $.__views.__alloyId26.add($.__views.friends);
-    $.__views.__alloyId27 = Ti.UI.createView({
+    $.__views.__alloyId24.add($.__views.friends);
+    $.__views.__alloyId25 = Ti.UI.createView({
         top: "20",
         left: "10",
         height: Ti.UI.SIZE,
-        id: "__alloyId27"
+        id: "__alloyId25"
     });
-    $.__views.friends.add($.__views.__alloyId27);
-    $.__views.__alloyId28 = Ti.UI.createLabel({
+    $.__views.friends.add($.__views.__alloyId25);
+    $.__views.__alloyId26 = Ti.UI.createLabel({
         text: "loading...",
         height: Ti.UI.SIZE,
         color: "#999",
-        id: "__alloyId28"
+        id: "__alloyId26"
     });
-    $.__views.__alloyId27.add($.__views.__alloyId28);
+    $.__views.__alloyId25.add($.__views.__alloyId26);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");

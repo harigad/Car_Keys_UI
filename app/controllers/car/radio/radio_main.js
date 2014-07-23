@@ -13,7 +13,6 @@ function goToUser(){
 	if(!_showall){
 		Alloy.createController("profile/profile",{_data:_data});
 	}else{
-		debugger;
 		Alloy.createController("car/radio/radio_show_all",{_data:_data});
 	}
 }

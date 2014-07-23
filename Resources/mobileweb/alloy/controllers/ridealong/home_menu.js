@@ -24,39 +24,39 @@ function Controller() {
         id: "home_menu"
     });
     $.__views.home_menu && $.addTopLevelView($.__views.home_menu);
-    $.__views.__alloyId65 = Ti.UI.createView({
+    $.__views.__alloyId88 = Ti.UI.createView({
         height: "50",
         backgroundColor: "#fff",
         width: "1",
         opacity: "0.3",
-        id: "__alloyId65"
+        id: "__alloyId88"
     });
-    $.__views.home_menu.add($.__views.__alloyId65);
-    $.__views.__alloyId66 = Ti.UI.createView({
+    $.__views.home_menu.add($.__views.__alloyId88);
+    $.__views.__alloyId89 = Ti.UI.createView({
         width: "150",
         height: Ti.UI.SIZE,
         left: "0",
-        id: "__alloyId66"
+        id: "__alloyId89"
     });
-    $.__views.home_menu.add($.__views.__alloyId66);
-    $.__views.__alloyId67 = Ti.UI.createView({
+    $.__views.home_menu.add($.__views.__alloyId89);
+    $.__views.__alloyId90 = Ti.UI.createView({
         layout: "horizontal",
         height: "Ti.UI.SIZE",
         width: "Ti.UI.SIZE",
         top: 5,
         bottom: 5,
-        id: "__alloyId67"
+        id: "__alloyId90"
     });
-    $.__views.__alloyId66.add($.__views.__alloyId67);
-    goToMyCars ? $.__views.__alloyId67.addEventListener("click", goToMyCars) : __defers["$.__views.__alloyId67!click!goToMyCars"] = true;
-    $.__views.__alloyId68 = Ti.UI.createView({
+    $.__views.__alloyId89.add($.__views.__alloyId90);
+    goToMyCars ? $.__views.__alloyId90.addEventListener("click", goToMyCars) : __defers["$.__views.__alloyId90!click!goToMyCars"] = true;
+    $.__views.__alloyId91 = Ti.UI.createView({
         height: 20,
         opacity: .8,
         backgroundImage: "common/car.png",
         width: "23",
-        id: "__alloyId68"
+        id: "__alloyId91"
     });
-    $.__views.__alloyId67.add($.__views.__alloyId68);
+    $.__views.__alloyId90.add($.__views.__alloyId91);
     $.__views.cars = Ti.UI.createLabel({
         left: 5,
         top: 0,
@@ -69,32 +69,32 @@ function Controller() {
         },
         id: "cars"
     });
-    $.__views.__alloyId67.add($.__views.cars);
-    $.__views.__alloyId69 = Ti.UI.createView({
+    $.__views.__alloyId90.add($.__views.cars);
+    $.__views.__alloyId92 = Ti.UI.createView({
         width: "150",
         height: Ti.UI.SIZE,
         right: "0",
-        id: "__alloyId69"
+        id: "__alloyId92"
     });
-    $.__views.home_menu.add($.__views.__alloyId69);
-    $.__views.__alloyId70 = Ti.UI.createView({
+    $.__views.home_menu.add($.__views.__alloyId92);
+    $.__views.__alloyId93 = Ti.UI.createView({
         layout: "horizontal",
         height: "Ti.UI.SIZE",
         width: "Ti.UI.SIZE",
         top: 5,
         bottom: 5,
-        id: "__alloyId70"
+        id: "__alloyId93"
     });
-    $.__views.__alloyId69.add($.__views.__alloyId70);
-    goToFriends ? $.__views.__alloyId70.addEventListener("click", goToFriends) : __defers["$.__views.__alloyId70!click!goToFriends"] = true;
-    $.__views.__alloyId71 = Ti.UI.createView({
+    $.__views.__alloyId92.add($.__views.__alloyId93);
+    goToFriends ? $.__views.__alloyId93.addEventListener("click", goToFriends) : __defers["$.__views.__alloyId93!click!goToFriends"] = true;
+    $.__views.__alloyId94 = Ti.UI.createView({
         height: 20,
         opacity: .8,
         backgroundImage: "common/friends.png",
         width: "29",
-        id: "__alloyId71"
+        id: "__alloyId94"
     });
-    $.__views.__alloyId70.add($.__views.__alloyId71);
+    $.__views.__alloyId93.add($.__views.__alloyId94);
     $.__views.friends = Ti.UI.createLabel({
         left: 5,
         top: 0,
@@ -107,7 +107,7 @@ function Controller() {
         },
         id: "friends"
     });
-    $.__views.__alloyId70.add($.__views.friends);
+    $.__views.__alloyId93.add($.__views.friends);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");
@@ -124,8 +124,8 @@ function Controller() {
     Ti.App.addEventListener("friends_cars_updated", function(friendsCars) {
         $.friends.setText("(" + friendsCars.length + ")");
     });
-    __defers["$.__views.__alloyId67!click!goToMyCars"] && $.__views.__alloyId67.addEventListener("click", goToMyCars);
-    __defers["$.__views.__alloyId70!click!goToFriends"] && $.__views.__alloyId70.addEventListener("click", goToFriends);
+    __defers["$.__views.__alloyId90!click!goToMyCars"] && $.__views.__alloyId90.addEventListener("click", goToMyCars);
+    __defers["$.__views.__alloyId93!click!goToFriends"] && $.__views.__alloyId93.addEventListener("click", goToFriends);
     _.extend($, exports);
 }
 

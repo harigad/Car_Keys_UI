@@ -4,7 +4,7 @@ function Controller() {
         var url = "http://flair.me/carkey/search.php";
         var _data = {
             type: "user",
-            id: data.id,
+            id: data.uid,
             accessToken: login.getAccessToken()
         };
         var client = Ti.Network.createHTTPClient({
@@ -22,6 +22,7 @@ function Controller() {
         client.send(_data);
     }
     function build(data) {
+        $.profile_businness_info.init(data);
         var cars = data.cars || [];
         for (var i = 0; cars.length > i; i++) {
             var car = Alloy.createController("car/car", {
@@ -30,7 +31,7 @@ function Controller() {
             $.cars_container_inner.add(car.getView());
         }
         var feed = Alloy.createController("feed/feed", {
-            _id: _data.id
+            _id: _data.uid
         });
         $.feed.add(feed.getView());
     }
@@ -68,12 +69,12 @@ function Controller() {
         id: "profile_container"
     });
     $.__views.scroll.add($.__views.profile_container);
-    $.__views.__alloyId58 = Ti.UI.createView({
+    $.__views.__alloyId79 = Ti.UI.createView({
         height: Ti.UI.SIZE,
         top: "-10",
-        id: "__alloyId58"
+        id: "__alloyId79"
     });
-    $.__views.profile_container.add($.__views.__alloyId58);
+    $.__views.profile_container.add($.__views.__alloyId79);
     $.__views.photo = Ti.UI.createView({
         backgroundColor: "#333",
         left: 20,
@@ -84,7 +85,7 @@ function Controller() {
         borderColor: "#cecece",
         id: "photo"
     });
-    $.__views.__alloyId58.add($.__views.photo);
+    $.__views.__alloyId79.add($.__views.photo);
     goToPhoto ? $.__views.photo.addEventListener("click", goToPhoto) : __defers["$.__views.photo!click!goToPhoto"] = true;
     $.__views.photoImg = Ti.UI.createImageView({
         width: "100",
@@ -97,7 +98,7 @@ function Controller() {
         layout: "vertical",
         id: "plate_container"
     });
-    $.__views.__alloyId58.add($.__views.plate_container);
+    $.__views.__alloyId79.add($.__views.plate_container);
     $.__views.name = Ti.UI.createLabel({
         color: "#fff",
         left: 10,
@@ -108,15 +109,15 @@ function Controller() {
         id: "name"
     });
     $.__views.plate_container.add($.__views.name);
-    $.__views.__alloyId59 = Ti.UI.createView({
+    $.__views.__alloyId80 = Ti.UI.createView({
         height: "1",
         backgroundColor: "#fff",
         right: "30",
         top: "5",
         bottom: "5",
-        id: "__alloyId59"
+        id: "__alloyId80"
     });
-    $.__views.plate_container.add($.__views.__alloyId59);
+    $.__views.plate_container.add($.__views.__alloyId80);
     $.__views.plate = Ti.UI.createLabel({
         color: "#fff",
         left: 10,
@@ -134,6 +135,11 @@ function Controller() {
         id: "cars_container"
     });
     $.__views.scroll.add($.__views.cars_container);
+    $.__views.profile_businness_info = Alloy.createController("profile/profile_businness_info", {
+        id: "profile_businness_info",
+        __parentSymbol: $.__views.cars_container
+    });
+    $.__views.profile_businness_info.setParent($.__views.cars_container);
     $.__views.cars_container_inner = Ti.UI.createView({
         left: 10,
         right: 10,

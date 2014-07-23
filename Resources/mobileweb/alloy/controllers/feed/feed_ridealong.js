@@ -2,7 +2,7 @@ function Controller() {
     function goToUser() {
         Alloy.createController("profile/profile", {
             _data: {
-                id: _data.ouid,
+                uid: _data.ouid,
                 photo: _data.ophoto,
                 photo_big: _data.ophoto_big,
                 name: _data.oname,
@@ -13,7 +13,7 @@ function Controller() {
     function goToModel() {
         Alloy.createController("profile/profile", {
             _data: {
-                id: _data.uid,
+                uid: _data.uid,
                 photo: _data.photo,
                 photo_big: _data.photo_big,
                 name: _data.name,
@@ -71,21 +71,68 @@ function Controller() {
         font: {
             fontSize: 18
         },
-        text: "Hari Krishna",
         id: "name"
     });
     $.__views.topRight.add($.__views.name);
-    $.__views.date = Ti.UI.createLabel({
-        left: 0,
+    $.__views.__alloyId51 = Ti.UI.createView({
+        left: "0",
+        height: Ti.UI.SIZE,
+        layout: "horizontal",
+        width: Ti.UI.SIZE,
+        id: "__alloyId51"
+    });
+    $.__views.topRight.add($.__views.__alloyId51);
+    $.__views.__alloyId52 = Ti.UI.createLabel({
+        right: 3,
         height: Ti.UI.SIZE,
         color: "#aaa",
         font: {
-            fontSize: 11
+            fontSize: 12
         },
-        text: "january 2nd, 2003",
-        id: "date"
+        text: "was",
+        id: "__alloyId52"
     });
-    $.__views.topRight.add($.__views.date);
+    $.__views.__alloyId51.add($.__views.__alloyId52);
+    $.__views.date_0 = Ti.UI.createLabel({
+        right: 3,
+        height: Ti.UI.SIZE,
+        color: "#000",
+        font: {
+            fontSize: 12
+        },
+        id: "date_0"
+    });
+    $.__views.__alloyId51.add($.__views.date_0);
+    $.__views.date_1 = Ti.UI.createLabel({
+        right: 3,
+        height: Ti.UI.SIZE,
+        color: "#aaa",
+        font: {
+            fontSize: 12
+        },
+        id: "date_1"
+    });
+    $.__views.__alloyId51.add($.__views.date_1);
+    $.__views.date_2 = Ti.UI.createLabel({
+        right: 3,
+        height: Ti.UI.SIZE,
+        color: "#aaa",
+        font: {
+            fontSize: 12
+        },
+        id: "date_2"
+    });
+    $.__views.__alloyId51.add($.__views.date_2);
+    $.__views.date_3 = Ti.UI.createLabel({
+        right: 3,
+        height: Ti.UI.SIZE,
+        color: "#aaa",
+        font: {
+            fontSize: 12
+        },
+        id: "date_3"
+    });
+    $.__views.__alloyId51.add($.__views.date_3);
     $.__views.bottomView = Ti.UI.createView({
         left: 55,
         layout: "horizontal",
@@ -113,20 +160,18 @@ function Controller() {
     });
     $.__views.logo_container.add($.__views.logo);
     $.__views.desc = Ti.UI.createLabel({
-        height: Ti.UI.SIZE,
-        left: 10,
-        color: "#333",
         id: "desc",
         width: "150",
-        right: "10"
+        height: Ti.UI.SIZE,
+        left: "5"
     });
     $.__views.bottomView.add($.__views.desc);
-    $.__views.__alloyId42 = Ti.UI.createView({
+    $.__views.__alloyId53 = Ti.UI.createView({
         height: "1",
         backgroundColor: "#cecece",
-        id: "__alloyId42"
+        id: "__alloyId53"
     });
-    $.__views.main.add($.__views.__alloyId42);
+    $.__views.main.add($.__views.__alloyId53);
     exports.destroy = function() {};
     _.extend($, $.__views);
     require("Login");
@@ -134,12 +179,22 @@ function Controller() {
     var _data = args._data || {};
     var gender;
     gender = "1" === _data.gender ? "her" : "his";
-    var date = new Date(_data.created);
-    $.date.setText(date.toDateString());
+    new Date(_data.created);
+    if ("1" == _data.data || 1 == _data.data) {
+        $.date_0.setText("test driving");
+        $.date_1.setText("a");
+        $.date_2.setText(_data.model);
+        $.date_3.setText("at");
+    } else {
+        $.date_0.setText("riding along");
+        $.date_1.setText("in a");
+        $.date_2.setText(_data.model);
+        $.date_3.setText("with");
+    }
     $.photo.setBackgroundImage(_data.ophoto);
     $.logo.setBackgroundImage(_data.photo);
     $.name.setText(_data.oname);
-    $.desc.setText("was riding along in a " + _data.model + " with " + _data.name);
+    $.desc.setText(_data.name);
     __defers["$.__views.topView!click!goToUser"] && $.__views.topView.addEventListener("click", goToUser);
     __defers["$.__views.bottomView!click!goToModel"] && $.__views.bottomView.addEventListener("click", goToModel);
     _.extend($, exports);

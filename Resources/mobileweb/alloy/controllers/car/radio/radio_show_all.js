@@ -49,11 +49,11 @@ function Controller() {
         id: "radio_show_all"
     });
     $.__views.radio_show_all && $.addTopLevelView($.__views.radio_show_all);
-    $.__views.__alloyId24 = Ti.UI.createScrollView({
+    $.__views.__alloyId22 = Ti.UI.createScrollView({
         top: "-70",
-        id: "__alloyId24"
+        id: "__alloyId22"
     });
-    $.__views.radio_show_all.add($.__views.__alloyId24);
+    $.__views.radio_show_all.add($.__views.__alloyId22);
     $.__views.main = Ti.UI.createView({
         id: "main",
         left: "10",
@@ -63,7 +63,7 @@ function Controller() {
         height: Ti.UI.SIZE,
         top: "130"
     });
-    $.__views.__alloyId24.add($.__views.main);
+    $.__views.__alloyId22.add($.__views.main);
     $.__views.left = Ti.UI.createView({
         width: "50%",
         layout: "vertical",

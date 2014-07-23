@@ -3,8 +3,11 @@
 		<View id="topView" onClick="goToUser" >
 			<View id="photo"></View>
 				<View id="topRight"   >
-					<Label id="name" >Hari Krishna</Label>
-					<Label id="date"  >january 2nd, 2003</Label>
+					<View height="Ti.UI.SIZE">
+						<Label id="name" left="0" ></Label>
+						<Label id="date"></Label>
+					</View>
+					<Label id="title"  ></Label>
 				</View>
 		</View>
 		

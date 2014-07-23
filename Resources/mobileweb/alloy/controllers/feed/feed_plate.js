@@ -2,7 +2,7 @@ function Controller() {
     function goToUser() {
         Alloy.createController("profile/profile", {
             _data: {
-                id: _data.uid,
+                uid: _data.uid,
                 photo: _data.photo,
                 photo_big: _data.photo_big,
                 name: _data.name,
@@ -13,7 +13,7 @@ function Controller() {
     function goToModel() {
         Alloy.createController("profile/profile", {
             _data: {
-                id: _data.uid,
+                uid: _data.uid,
                 photo_big: _data.photo_big,
                 name: _data.name,
                 plate: _data.plate
@@ -62,28 +62,41 @@ function Controller() {
         id: "topRight"
     });
     $.__views.topView.add($.__views.topRight);
+    $.__views.__alloyId47 = Ti.UI.createView({
+        height: Ti.UI.SIZE,
+        id: "__alloyId47"
+    });
+    $.__views.topRight.add($.__views.__alloyId47);
     $.__views.name = Ti.UI.createLabel({
-        left: 0,
+        left: "0",
         height: Ti.UI.SIZE,
         color: "#ffa633",
         font: {
             fontSize: 18
         },
-        text: "Hari Krishna",
         id: "name"
     });
-    $.__views.topRight.add($.__views.name);
+    $.__views.__alloyId47.add($.__views.name);
     $.__views.date = Ti.UI.createLabel({
+        right: 10,
+        height: Ti.UI.SIZE,
+        color: "#ccc",
+        font: {
+            fontSize: 10
+        },
+        id: "date"
+    });
+    $.__views.__alloyId47.add($.__views.date);
+    $.__views.title = Ti.UI.createLabel({
         left: 0,
         height: Ti.UI.SIZE,
         color: "#aaa",
         font: {
-            fontSize: 11
+            fontSize: 12
         },
-        text: "january 2nd, 2003",
-        id: "date"
+        id: "title"
     });
-    $.__views.topRight.add($.__views.date);
+    $.__views.topRight.add($.__views.title);
     $.__views.bottomView = Ti.UI.createView({
         left: 55,
         layout: "horizontal",
@@ -103,12 +116,12 @@ function Controller() {
         right: "10"
     });
     $.__views.bottomView.add($.__views.desc);
-    $.__views.__alloyId41 = Ti.UI.createView({
+    $.__views.__alloyId48 = Ti.UI.createView({
         height: "1",
         backgroundColor: "#cecece",
-        id: "__alloyId41"
+        id: "__alloyId48"
     });
-    $.__views.main.add($.__views.__alloyId41);
+    $.__views.main.add($.__views.__alloyId48);
     exports.destroy = function() {};
     _.extend($, $.__views);
     require("Login");
@@ -116,11 +129,11 @@ function Controller() {
     var _data = args._data || {};
     var gender;
     gender = "1" === _data.gender ? "her" : "his";
-    var date = new Date(_data.created);
-    $.date.setText(date.toDateString());
+    new Date(_data.created);
+    $.title.setText("changed " + gender + " bumper sticker to");
     $.photo.setBackgroundImage(_data.photo);
     $.name.setText(_data.name);
-    $.desc.setText("changed " + gender + ' CarKey to "' + _data.data + '"');
+    $.desc.setText('"' + _data.data + '"');
     __defers["$.__views.topView!click!goToUser"] && $.__views.topView.addEventListener("click", goToUser);
     __defers["$.__views.bottomView!click!goToModel"] && $.__views.bottomView.addEventListener("click", goToModel);
     _.extend($, exports);

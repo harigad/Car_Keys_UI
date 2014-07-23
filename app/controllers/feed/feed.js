@@ -58,9 +58,14 @@ function build(data,created){
 			feed_item =  Alloy.createController("feed/feed_share",{_data:data[i]});break;
 		case "4":
 			feed_item =  Alloy.createController("feed/feed_ridealong",{_data:data[i]});break;
+		case "5":
+			feed_item =  Alloy.createController("feed/feed_poll_answer",{_data:data[i]});break;
 		}
-		$.main.add(feed_item.getView());
-		_created = data[i].created;
+		
+		if(feed_item){
+			$.main.add(feed_item.getView());
+			_created = data[i].created;
+		}
 	}
 	
 	$.more.setText("load more");

@@ -6,15 +6,41 @@
 send_to_server();
 $.search_carkey_for_ridealong.open();
 
+function isMultipleUsersReturned(data){
+	var len = 0;
+	var id = "";
+	
+	for(var i=0;i<data.length;i++){
+		if(data[i].id != id)
+		{
+			id = data[i].id;
+			len++;
+		}
+		if(len>1){
+			return true;
+		}
+	}
+	
+	return false;
+}
+
 function send_to_server(){
 	var url = "http://flair.me/carkey/search.php";	
 	var _postData = {type:"checkin",action:"find",carkey:_data,accessToken:login.getAccessToken()};
  	var client = Ti.Network.createHTTPClient({ 		
  	 onload : function(e) {
  	 	 var response = JSON.parse(this.responseText);
- 	 	 if(response && response.length > 0){
+ 	 	 var multipleUsersReturned = isMultipleUsersReturned(response);
+ 	 	 if(response && response.length > 0 && multipleUsersReturned === false){
  	 	 	var select_car =  Alloy.createController("ridealong/send_request/select_car_for_ridealong",{_data:response,_callBack:function(success){
  	 	 		_callBack(success);
+ 	 	 		$.search_carkey_for_ridealong.close();
+ 	 	 	}});
+ 	 	 }else if(response && multipleUsersReturned){
+ 	 	 	var select_car =  Alloy.createController("ridealong/send_request/show_search_carkey_results_for_ridealong",{_data:response,_callBack:function(success){
+ 	 	 		//if(success){
+ 	 	 			_callBack(success);
+ 	 	 		//}
  	 	 		$.search_carkey_for_ridealong.close();
  	 	 	}});
  	 	 }else{

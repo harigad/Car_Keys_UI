@@ -1,0 +1,28 @@
+<Alloy>
+	<View id="main" >
+		<View id="topView" onClick="goToUser" >
+			<View id="photo"></View>
+				<View id="topRight" width="200"  >
+					<Label id="name" >Hari Krishna</Label>
+					<Label id="date"  >january 2nd, 2003</Label>
+				</View>
+				<View width="25" height="25" backgroundImage="common/pie_icon.png" left="10" ></View>
+		</View>
+		<View id="bottomView" >
+			<Label id="desc" left="10" height="Ti.UI.SIZE" ></Label>
+			<View left="2" right="2" borderRadius="2" height="Ti.UI.SIZE" layout="vertical" >
+				<View id="options" layout="vertical" height="Ti.UI.SIZE" >
+				</View>
+				<View height="Ti.UI.SIZE" layout="vertical" backgroundColor="#f1f1f1" borderRadius="2" left="35" right="10" >
+					<View id="comments" height="Ti.UI.SIZE" layout="vertical" left="10" right="10">
+						
+					</View>
+					<View height="Ti.UI.SIZE" onClick="addComment">
+						<Label height="Ti.UI.SIZE" id="add_comment" left="10" color="#ffa633" top="5" bottom="5" >add comment</Label>
+					</View>
+				</View>
+			</View>
+		</View>
+	</View>
+	
+</Alloy>

@@ -11,14 +11,14 @@ if(_data.gender === "1"){
 
 var date = new Date(_data.created);
 
-$.date.setText(date.toDateString());
+$.date.setText("bought a new car");// + gender " sedan");//date.toDateString());
 $.photo.setBackgroundImage(_data.photo);
 $.logo.setBackgroundImage("logos/48/" + _data.logo);
 $.name.setText(_data.name);
-$.desc.setText("bought " + gender + " " + _data.year + " " + _data.make + " " + _data.model);
+$.desc.setText(_data.year + " " + _data.model);
 
 function goToUser(){
-	var profile =  Alloy.createController("profile/profile",{_data:{id:_data.uid,photo:_data.photo,name:_data.name,plate:_data.plate}});
+	var profile =  Alloy.createController("profile/profile",{_data:{uid:_data.uid,photo:_data.photo,name:_data.name,plate:_data.plate}});
 }
 
 function goToModel(){

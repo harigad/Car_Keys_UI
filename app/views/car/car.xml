@@ -16,7 +16,7 @@
 			<Label color="#fff" class="left_label" top="10" bottom="10" width="Ti.UI.SIZE" id="expires_lbl" ></Label>
 		</View>	
 		<View id="data_container" layout="vertical" height="Ti.UI.SIZE" >
-		<View class="data_container">
+		<View class="data_container" id="titledate_container" >
 			<View class="left_box" >
 				<Label class="left_label">
 					owned:</Label>
@@ -25,7 +25,7 @@
 				<Label class="right_label" id="owned" ></Label>
 			</View>	
 		</View>
-		<View class="data_container">
+		<View class="data_container" id="shares_container">
 			<View class="left_box" >
 				<Label class="left_label">
 					shares with:</Label>

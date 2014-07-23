@@ -1,0 +1,13 @@
+"#text":{
+	color:"#666",
+	font:{
+		fontSize:11
+	}
+}
+
+".name":{
+	color:"#ffa633",width:Ti.UI.SIZE,
+	font:{
+		fontSize:11
+	}
+}

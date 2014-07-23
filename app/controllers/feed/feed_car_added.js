@@ -18,7 +18,7 @@ $.name.setText(_data.name);
 $.desc.setText("added " +  _data.year  + " "  + _data.make + " " + _data.model + " to " + gender + " profile");
 
 function goToUser(){
-	var profile =  Alloy.createController("profile/profile",{_data:{id:_data.uid,photo:_data.photo,name:_data.name,plate:_data.plate}});
+	var profile =  Alloy.createController("profile/profile",{_data:{uid:_data.uid,photo:_data.photo,name:_data.name,plate:_data.plate}});
 }
 
 function goToModel(){

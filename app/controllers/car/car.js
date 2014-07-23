@@ -36,6 +36,9 @@ $.model.setText(_data.model);
 
 if(_data.year){
 	$.year.setText("'" + _data.year);
+}else{
+	$.year.setHeight(0);
+	$.year.setBottom(0);
 }
 
 if(_data.titledate){
@@ -43,14 +46,23 @@ if(_data.titledate){
 	if(d){
 		$.owned.setText("since " + monthNames[d.getMonth()] + " " + d.getFullYear());
 	}
+}else{
+	$.titledate_container.setHeight(0);
+	$.titledate_container.setBottom(0);
 }
 
 	var shares = _data.shares || [];
-	for(var i=0;i<shares.length;i++){
-		var share =  Alloy.createController("car/share/share_main",{_editable:_editable,_cid:_data.cid,_data:shares[i],_callBack:function(){
-			_callBack();
-		}});
-		$.shares.add(share.getView());
+	
+	if(shares.length >0){
+		for(var i=0;i<shares.length;i++){
+			var share =  Alloy.createController("car/share/share_main",{_editable:_editable,_cid:_data.cid,_data:shares[i],_callBack:function(){
+				_callBack();
+			}});
+			$.shares.add(share.getView());
+		}
+	}else if(!_editable){
+		$.shares_container.setHeight(0);
+		$.shares_container.setBottom(0);
 	}
 	
 	if(_editable){

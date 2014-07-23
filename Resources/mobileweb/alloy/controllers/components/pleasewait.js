@@ -14,18 +14,18 @@ function Controller() {
         id: "pleasewait"
     });
     $.__views.pleasewait && $.addTopLevelView($.__views.pleasewait);
-    $.__views.__alloyId36 = Ti.UI.createView({
+    $.__views.__alloyId42 = Ti.UI.createView({
         height: Ti.UI.SIZE,
-        id: "__alloyId36"
+        id: "__alloyId42"
     });
-    $.__views.pleasewait.add($.__views.__alloyId36);
-    $.__views.__alloyId37 = Ti.UI.createLabel({
+    $.__views.pleasewait.add($.__views.__alloyId42);
+    $.__views.__alloyId43 = Ti.UI.createLabel({
         text: "please wait..",
         height: Ti.UI.SIZE,
         color: "#fff",
-        id: "__alloyId37"
+        id: "__alloyId43"
     });
-    $.__views.__alloyId36.add($.__views.__alloyId37);
+    $.__views.__alloyId42.add($.__views.__alloyId43);
     exports.destroy = function() {};
     _.extend($, $.__views);
     exports.open = function() {

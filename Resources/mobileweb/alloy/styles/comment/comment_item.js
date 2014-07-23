@@ -1,0 +1,1 @@
+module.exports = [{"isClass":true,"priority":10000.0051,"key":"name","style":{color:"#ffa633",width:Ti.UI.SIZE,font:{fontSize:11,},}},{"isId":true,"priority":100000.005,"key":"text","style":{color:"#666",font:{fontSize:11,},}}];

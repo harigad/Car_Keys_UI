@@ -2,7 +2,7 @@ function Controller() {
     function goToUser() {
         Alloy.createController("profile/profile", {
             _data: {
-                id: _data.uid,
+                uid: _data.uid,
                 photo: _data.photo,
                 name: _data.name,
                 plate: _data.plate
@@ -74,7 +74,7 @@ function Controller() {
         height: Ti.UI.SIZE,
         color: "#aaa",
         font: {
-            fontSize: 11
+            fontSize: 12
         },
         text: "january 2nd, 2003",
         id: "date"
@@ -116,12 +116,12 @@ function Controller() {
         id: "logo"
     });
     $.__views.logo_container.add($.__views.logo);
-    $.__views.__alloyId40 = Ti.UI.createView({
+    $.__views.__alloyId46 = Ti.UI.createView({
         height: "1",
         backgroundColor: "#cecece",
-        id: "__alloyId40"
+        id: "__alloyId46"
     });
-    $.__views.main.add($.__views.__alloyId40);
+    $.__views.main.add($.__views.__alloyId46);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");
@@ -129,12 +129,12 @@ function Controller() {
     var _data = args._data || {};
     var gender;
     gender = "1" === _data.gender ? "her" : "his";
-    var date = new Date(_data.created);
-    $.date.setText(date.toDateString());
+    new Date(_data.created);
+    $.date.setText("bought a new car");
     $.photo.setBackgroundImage(_data.photo);
     $.logo.setBackgroundImage("logos/48/" + _data.logo);
     $.name.setText(_data.name);
-    $.desc.setText("bought " + gender + " " + _data.year + " " + _data.make + " " + _data.model);
+    $.desc.setText(_data.year + " " + _data.model);
     __defers["$.__views.topView!click!goToUser"] && $.__views.topView.addEventListener("click", goToUser);
     __defers["$.__views.bottomView!click!goToModel"] && $.__views.bottomView.addEventListener("click", goToModel);
     _.extend($, exports);

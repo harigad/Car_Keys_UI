@@ -3,7 +3,7 @@
 		var _data = args._data || {};
 		var _callBack = args._callBack;
 		
-		debugger;
+
 $.photo.setBackgroundImage(_data.photo);
 $.name.setText(_data.name);
 $.desc.setText("has accepted your ridealong request");
@@ -18,6 +18,7 @@ function onClose(){
 			break;
 		}
 	}
+	
 	login.setNotices(notices);
 	
 				var animation = Titanium.UI.createAnimation();

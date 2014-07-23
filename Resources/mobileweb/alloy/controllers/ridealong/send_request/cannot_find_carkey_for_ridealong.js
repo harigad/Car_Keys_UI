@@ -21,12 +21,12 @@ function Controller() {
         layout: "vertical"
     });
     $.__views.cannot_find_carkey_for_ridealong.add($.__views.main);
-    $.__views.__alloyId80 = Ti.UI.createLabel({
+    $.__views.__alloyId104 = Ti.UI.createLabel({
         text: "searching..please wait..",
         color: "#fff",
-        id: "__alloyId80"
+        id: "__alloyId104"
     });
-    $.__views.main.add($.__views.__alloyId80);
+    $.__views.main.add($.__views.__alloyId104);
     exports.destroy = function() {};
     _.extend($, $.__views);
     _.extend($, exports);

@@ -2,7 +2,7 @@ function Controller() {
     function goToUser() {
         Alloy.createController("profile/profile", {
             _data: {
-                id: _data.uid,
+                uid: _data.uid,
                 photo: _data.photo,
                 photo_big: _data.photo_big,
                 name: _data.name,
@@ -13,7 +13,7 @@ function Controller() {
     function goToModel() {
         Alloy.createController("profile/profile", {
             _data: {
-                id: _data.ouid,
+                uid: _data.ouid,
                 photo: _data.ophoto,
                 photo_big: _data.ophoto_big,
                 name: _data.oname,
@@ -80,7 +80,7 @@ function Controller() {
         height: Ti.UI.SIZE,
         color: "#aaa",
         font: {
-            fontSize: 11
+            fontSize: 12
         },
         text: "january 2nd, 2003",
         id: "date"
@@ -121,12 +121,12 @@ function Controller() {
         right: "10"
     });
     $.__views.bottomView.add($.__views.desc);
-    $.__views.__alloyId43 = Ti.UI.createView({
+    $.__views.__alloyId54 = Ti.UI.createView({
         height: "1",
         backgroundColor: "#cecece",
-        id: "__alloyId43"
+        id: "__alloyId54"
     });
-    $.__views.main.add($.__views.__alloyId43);
+    $.__views.main.add($.__views.__alloyId54);
     exports.destroy = function() {};
     _.extend($, $.__views);
     require("Login");
@@ -134,12 +134,12 @@ function Controller() {
     var _data = args._data || {};
     var gender;
     gender = "1" === _data.gender ? "her" : "his";
-    var date = new Date(_data.created);
-    $.date.setText(date.toDateString());
+    new Date(_data.created);
+    $.date.setText("is sharing " + gender + " " + _data.model + " with");
     $.photo.setBackgroundImage(_data.photo);
     $.logo.setBackgroundImage(_data.ophoto);
     $.name.setText(_data.name);
-    $.desc.setText("is sharing " + gender + " " + _data.make + " " + _data.model + " with " + _data.oname);
+    $.desc.setText(_data.oname);
     __defers["$.__views.topView!click!goToUser"] && $.__views.topView.addEventListener("click", goToUser);
     __defers["$.__views.bottomView!click!goToModel"] && $.__views.bottomView.addEventListener("click", goToModel);
     _.extend($, exports);

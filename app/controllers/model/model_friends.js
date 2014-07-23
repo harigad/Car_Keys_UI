@@ -2,8 +2,14 @@ var login = require('Login');
 var friends;
 var len = 2;
 
-exports.init = function(moid){
+exports.init = function(moid,model_name){
 	friends = login.getFriendsWithModel(moid);
+	
+	if(friends.length === 0){
+		var friend =  Alloy.createController("model/model_friend",{_data:login.getUser()});
+		$.list.add(friend.getView());	
+	}
+	
 	
 	if(friends.length <= len){
 		draw(0,friends.length);
@@ -11,7 +17,7 @@ exports.init = function(moid){
 		draw(0,len);
 		$.show_all.setVisible(true);
 		$.show_all.setHeight("Ti.UI.SIZE");
-		$.show_all_label.setText("show all " + friends.length + " friends");
+		$.show_all_label.setText("see all " + friends.length + " friends driving " + model_name);
 	}
 	
 };

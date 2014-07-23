@@ -18,12 +18,12 @@ function Controller() {
         id: "not_found_car"
     });
     $.__views.not_found_car && $.addTopLevelView($.__views.not_found_car);
-    $.__views.__alloyId91 = Ti.UI.createView({
+    $.__views.__alloyId125 = Ti.UI.createView({
         height: Ti.UI.SIZE,
         layout: "vertical",
-        id: "__alloyId91"
+        id: "__alloyId125"
     });
-    $.__views.not_found_car.add($.__views.__alloyId91);
+    $.__views.not_found_car.add($.__views.__alloyId125);
     $.__views.error_label = Ti.UI.createLabel({
         text: "Sorry!We are unable to locate your ride at this time.",
         id: "error_label",
@@ -32,35 +32,35 @@ function Controller() {
         height: Ti.UI.SIZE,
         color: "#fff"
     });
-    $.__views.__alloyId91.add($.__views.error_label);
-    $.__views.__alloyId92 = Ti.UI.createView({
+    $.__views.__alloyId125.add($.__views.error_label);
+    $.__views.__alloyId126 = Ti.UI.createView({
         left: "20",
         right: "20",
         height: Ti.UI.SIZE,
         top: "20",
         borderRadius: "4",
         backgroundColor: "#fff",
-        id: "__alloyId92"
+        id: "__alloyId126"
     });
-    $.__views.__alloyId91.add($.__views.__alloyId92);
-    onOk ? $.__views.__alloyId92.addEventListener("click", onOk) : __defers["$.__views.__alloyId92!click!onOk"] = true;
-    $.__views.__alloyId93 = Ti.UI.createLabel({
+    $.__views.__alloyId125.add($.__views.__alloyId126);
+    onOk ? $.__views.__alloyId126.addEventListener("click", onOk) : __defers["$.__views.__alloyId126!click!onOk"] = true;
+    $.__views.__alloyId127 = Ti.UI.createLabel({
         text: "OK!",
         color: "#ffa633",
         top: "20",
         bottom: "20",
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
-        id: "__alloyId93"
+        id: "__alloyId127"
     });
-    $.__views.__alloyId92.add($.__views.__alloyId93);
+    $.__views.__alloyId126.add($.__views.__alloyId127);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var args = arguments[0] || {};
     var _e = args._e || "";
     $.error_label.setText(_e);
     $.not_found_car.open();
-    __defers["$.__views.__alloyId92!click!onOk"] && $.__views.__alloyId92.addEventListener("click", onOk);
+    __defers["$.__views.__alloyId126!click!onOk"] && $.__views.__alloyId126.addEventListener("click", onOk);
     _.extend($, exports);
 }
 

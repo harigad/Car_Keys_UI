@@ -1,0 +1,6 @@
+<Alloy>
+	<View height="Ti.UI.SIZE" bottom="1" left="10" layout="horizontal" onClick="onChange" >
+		<View height="15" width="15" borderRadius="7.5" backgroundColor="#dedede" id="circle" ></View>
+		<Label id="desc" top="5" bottom="5" left="10" height="Ti.UI.SIZE" color="#999" ></Label>
+	</View>
+</Alloy>

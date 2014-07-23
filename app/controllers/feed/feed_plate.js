@@ -11,15 +11,16 @@ if(_data.gender === "1"){
 
 var date = new Date(_data.created);
 
-$.date.setText(date.toDateString());
+//$.date.setText("arlington,tx");
+$.title.setText("changed " +  gender + " bumper sticker to");//date.toDateString());
 $.photo.setBackgroundImage(_data.photo);
 $.name.setText(_data.name);
-$.desc.setText('changed ' +  gender + ' CarKey to "' + _data.data + '"');
+$.desc.setText('"' + _data.data + '"');
 
 function goToUser(){
-	var profile =  Alloy.createController("profile/profile",{_data:{id:_data.uid,photo:_data.photo,photo_big:_data.photo_big,name:_data.name,plate:_data.plate}});
+	var profile =  Alloy.createController("profile/profile",{_data:{uid:_data.uid,photo:_data.photo,photo_big:_data.photo_big,name:_data.name,plate:_data.plate}});
 }
 
 function goToModel(){
-	var profile =  Alloy.createController("profile/profile",{_data:{id:_data.uid,photo_big:_data.photo_big,name:_data.name,plate:_data.plate}});
+	var profile =  Alloy.createController("profile/profile",{_data:{uid:_data.uid,photo_big:_data.photo_big,name:_data.name,plate:_data.plate}});
 }

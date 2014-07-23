@@ -14,18 +14,18 @@ function Controller() {
         id: "share_send_to_server"
     });
     $.__views.share_send_to_server && $.addTopLevelView($.__views.share_send_to_server);
-    $.__views.__alloyId34 = Ti.UI.createView({
+    $.__views.__alloyId32 = Ti.UI.createView({
         height: Ti.UI.SIZE,
-        id: "__alloyId34"
+        id: "__alloyId32"
     });
-    $.__views.share_send_to_server.add($.__views.__alloyId34);
-    $.__views.__alloyId35 = Ti.UI.createLabel({
+    $.__views.share_send_to_server.add($.__views.__alloyId32);
+    $.__views.__alloyId33 = Ti.UI.createLabel({
         text: "Updating..",
         height: Ti.UI.SIZE,
         color: "#fff",
-        id: "__alloyId35"
+        id: "__alloyId33"
     });
-    $.__views.__alloyId34.add($.__views.__alloyId35);
+    $.__views.__alloyId32.add($.__views.__alloyId33);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");
@@ -41,7 +41,7 @@ function Controller() {
         cid: _cid,
         accessToken: login.getAccessToken()
     };
-    _delete ? _postData.uid = _data.id : _postData.fbid = _data.id;
+    _delete ? _postData.uid = _data.uid : _postData.fbid = _data.id;
     Ti.API.debug("adding share " + _data);
     var client = Ti.Network.createHTTPClient({
         onload: function() {

@@ -1,0 +1,14 @@
+<Alloy>
+	<View id="main" height="Ti.UI.SIZE" layout="vertical" onClick="goToUser">
+		<View  height="Ti.UI.SIZE" layout="horizontal" top="5" >
+			<View id="photo" width="25" height="25"  borderRadius="2" top="0" ></View>
+			<View  height="Ti.UI.SIZE" left="5" layout="vertical">
+				<View layout="horizontal" height="Ti.UI.SIZE" >
+					<Label id="name" left="0" class="name" ></Label>
+					<Label bubbleParent="false" id="delete_btn" left="0" class="name" color="#990000" visible="false" left="5" onClick="onDelete" >( delete )</Label>
+				</View>
+				<Label id="text" left="0" right="0" height="Ti.UI.SIZE" ></Label>
+			</View>
+		</View>
+	</View>
+</Alloy>

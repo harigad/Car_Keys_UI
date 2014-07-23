@@ -47,58 +47,58 @@ function Controller() {
         id: "accept"
     });
     $.__views.accept && $.addTopLevelView($.__views.accept);
-    $.__views.__alloyId60 = Ti.UI.createView({
+    $.__views.__alloyId83 = Ti.UI.createView({
         height: Ti.UI.SIZE,
         layout: "vertical",
         left: "40",
         right: "40",
-        id: "__alloyId60"
+        id: "__alloyId83"
     });
-    $.__views.accept.add($.__views.__alloyId60);
+    $.__views.accept.add($.__views.__alloyId83);
     $.__views.request = Ti.UI.createView({
         id: "request",
         height: Ti.UI.SIZE,
         width: Ti.UI.SIZE,
         borderRadius: "4"
     });
-    $.__views.__alloyId60.add($.__views.request);
-    $.__views.__alloyId61 = Ti.UI.createView({
+    $.__views.__alloyId83.add($.__views.request);
+    $.__views.__alloyId84 = Ti.UI.createView({
         borderRadius: "4",
         backgroundColor: "#fff",
         height: Ti.UI.SIZE,
         bottom: "5",
         top: "20",
-        id: "__alloyId61"
+        id: "__alloyId84"
     });
-    $.__views.__alloyId60.add($.__views.__alloyId61);
-    onAccept ? $.__views.__alloyId61.addEventListener("click", onAccept) : __defers["$.__views.__alloyId61!click!onAccept"] = true;
-    $.__views.__alloyId62 = Ti.UI.createLabel({
+    $.__views.__alloyId83.add($.__views.__alloyId84);
+    onAccept ? $.__views.__alloyId84.addEventListener("click", onAccept) : __defers["$.__views.__alloyId84!click!onAccept"] = true;
+    $.__views.__alloyId85 = Ti.UI.createLabel({
         text: "ACCEPT",
         color: "#f49033",
         height: Ti.UI.SIZE,
         top: "20",
         bottom: "20",
-        id: "__alloyId62"
+        id: "__alloyId85"
     });
-    $.__views.__alloyId61.add($.__views.__alloyId62);
-    $.__views.__alloyId63 = Ti.UI.createView({
+    $.__views.__alloyId84.add($.__views.__alloyId85);
+    $.__views.__alloyId86 = Ti.UI.createView({
         borderRadius: "4",
         backgroundColor: "#999",
         height: Ti.UI.SIZE,
         top: "5",
-        id: "__alloyId63"
+        id: "__alloyId86"
     });
-    $.__views.__alloyId60.add($.__views.__alloyId63);
-    onDelete ? $.__views.__alloyId63.addEventListener("click", onDelete) : __defers["$.__views.__alloyId63!click!onDelete"] = true;
-    $.__views.__alloyId64 = Ti.UI.createLabel({
+    $.__views.__alloyId83.add($.__views.__alloyId86);
+    onDelete ? $.__views.__alloyId86.addEventListener("click", onDelete) : __defers["$.__views.__alloyId86!click!onDelete"] = true;
+    $.__views.__alloyId87 = Ti.UI.createLabel({
         text: "REJECT",
         color: "#fff",
         height: Ti.UI.SIZE,
         top: "20",
         bottom: "20",
-        id: "__alloyId64"
+        id: "__alloyId87"
     });
-    $.__views.__alloyId63.add($.__views.__alloyId64);
+    $.__views.__alloyId86.add($.__views.__alloyId87);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");
@@ -110,8 +110,8 @@ function Controller() {
     });
     $.request.add(request.getView());
     $.accept.open();
-    __defers["$.__views.__alloyId61!click!onAccept"] && $.__views.__alloyId61.addEventListener("click", onAccept);
-    __defers["$.__views.__alloyId63!click!onDelete"] && $.__views.__alloyId63.addEventListener("click", onDelete);
+    __defers["$.__views.__alloyId84!click!onAccept"] && $.__views.__alloyId84.addEventListener("click", onAccept);
+    __defers["$.__views.__alloyId86!click!onDelete"] && $.__views.__alloyId86.addEventListener("click", onDelete);
     _.extend($, exports);
 }
 

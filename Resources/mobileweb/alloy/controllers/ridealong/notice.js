@@ -61,15 +61,15 @@ function Controller() {
         borderColor: "#aaa"
     });
     $.__views.main.add($.__views.photo);
-    $.__views.__alloyId72 = Ti.UI.createView({
+    $.__views.__alloyId95 = Ti.UI.createView({
         left: "10",
         width: Ti.UI.SIZE,
         right: "10",
         layout: "vertical",
         height: Ti.UI.SIZE,
-        id: "__alloyId72"
+        id: "__alloyId95"
     });
-    $.__views.main.add($.__views.__alloyId72);
+    $.__views.main.add($.__views.__alloyId95);
     $.__views.name = Ti.UI.createLabel({
         left: "0",
         height: "Ti.UI.SIZE",
@@ -80,7 +80,7 @@ function Controller() {
         id: "name",
         width: Ti.UI.SIZE
     });
-    $.__views.__alloyId72.add($.__views.name);
+    $.__views.__alloyId95.add($.__views.name);
     $.__views.desc = Ti.UI.createLabel({
         height: "Ti.UI.SIZE",
         color: "#fff",
@@ -93,14 +93,13 @@ function Controller() {
         id: "desc",
         width: Ti.UI.SIZE
     });
-    $.__views.__alloyId72.add($.__views.desc);
+    $.__views.__alloyId95.add($.__views.desc);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");
     var args = arguments[0] || {};
     var _data = args._data || {};
     var _callBack = args._callBack;
-    debugger;
     $.photo.setBackgroundImage(_data.photo);
     $.name.setText(_data.name);
     $.desc.setText("has accepted your ridealong request");

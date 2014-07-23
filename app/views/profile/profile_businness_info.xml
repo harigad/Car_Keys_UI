@@ -1,0 +1,12 @@
+<Alloy>
+	<View id="main" height="0" left="10" right="10" height="Ti.UI.SIZE" backgroundColor="#fff" borderRadius="4" >
+		<View onClick="openMap" layout="horizontal" height="Ti.UI.SIZE" width="200" left="10" top="10" >
+				<Label id="address_line" class="address" ></Label>
+				<Label id="city_state"   class="address" ></Label>
+		</View>
+		<View layout="horizontal" width="Ti.UI.SIZE" height="Ti.UI.SIZE" right="10" top="10" bottom="10" >
+				<View onClick="openMap" backgroundImage="common/map_pin_50.png" left="0" id="map" height="30" width="30" backgroundColor="#ffa633" borderRadius="2" ></View>
+				<View onClick="call" backgroundImage="common/phone_50.png" left="10" id="map" height="30" width="30" backgroundColor="#43b51f" borderRadius="2" ></View>
+		</View>
+	</View>
+</Alloy>

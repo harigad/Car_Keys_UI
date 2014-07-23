@@ -1,0 +1,21 @@
+"#container":{
+	top:5,bottom:5,height:Ti.UI.SIZE,borderRadius:4,backgroundColor:"#fff",layout:"vertical"
+}
+
+".title":{
+	color:"#cecece",
+	font:{
+		fontWeight:"bold",
+		fontSize:18
+	},
+	shadowColor: '#fff',
+    shadowOffset: {x:2, y:2},
+    shadowRadius: 2,
+}
+
+".create":{
+	color:"#ffa633",
+	font:{
+		fontSize:14
+	}
+}

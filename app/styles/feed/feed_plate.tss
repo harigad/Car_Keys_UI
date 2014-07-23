@@ -21,11 +21,20 @@
 }
 
 "#date":{
+	right:10,
+	height:Ti.UI.SIZE,
+	color:"#ccc",
+	font:{
+		fontSize:10
+	}
+}
+
+"#title":{
 	left:0,
 	height:Ti.UI.SIZE,
 	color:"#aaa",
 	font:{
-		fontSize:11
+		fontSize:12
 	}
 }
 
