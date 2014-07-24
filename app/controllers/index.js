@@ -11,16 +11,13 @@ login.init(function(){
 	$.index.add(nav);
 	$.index.open();*/
 	home.getView().open();
-});
+},
 
-Ti.App.addEventListener("openWindow",function(window){
-	window.open();
-	//nav.open(window,{animate:true,navBarHidden:true});
-});
-
-Ti.App.addEventListener("closeWindow",function(window){
-	window.close();
-	//nav.close(window);
-});
-
+function(win){
+	win.open();
+},
+function(win){
+	win.close();
+}
+);
 

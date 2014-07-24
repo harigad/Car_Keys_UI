@@ -65,11 +65,22 @@ function Controller() {
     var _countObj = args._countObj || null;
     var _users = _countObj.users || null;
     $.desc.setText(_answer);
-    if (_users) for (var i = 0; 7 > i; i++) {
-        var user = Alloy.createController("car/radio/radio_main", {
-            _data: _users[0]
-        });
-        $.users.add(user.getView());
+    if (_users) {
+        for (var i = 0; 7 > i; i++) {
+            var user = Alloy.createController("car/radio/radio_main", {
+                _data: _users[0]
+            });
+            $.users.add(user.getView());
+        }
+        if (_users.length > 0) {
+            var _showall = Alloy.createController("car/radio/radio_main", {
+                _data: {
+                    _showall: true,
+                    _callBack: function() {}
+                }
+            });
+            $.users.add(_showall.getView());
+        }
     }
     _.extend($, exports);
 }

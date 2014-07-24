@@ -3,12 +3,28 @@ var main;
 var fb = Ti.Facebook;
 var login_screen;
 var friendsCars;
+var _openWin;
+var _closeWin;
 var pleaseWait = Alloy.createController("components/pleasewait");
 
 	fb.appid = '374335169286433';
 	fb.permissions = ['email'];
+	fb.forceDialogAuth = false;
+	
+exports.openWindow = function(win){
+	_openWin(win);
+};
 
-exports.init = function(_callBack){
+exports.closeWindow = function(win){
+	_closeWin(win);
+};
+
+exports.init = function(_callBack,openWin,closeWin){
+	if(openWin){
+		_openWin = openWin;
+		_closeWin = closeWin;
+	}
+	
 	if(loggedIn()){
 		_callBack();
 		if(login_screen){
@@ -30,7 +46,7 @@ exports.go = function(_type,_data){
 	}
 	
 	url = "page=" + _type + "&data=" + _dataStr;
-	window.location.hash = url;
+	//window.location.hash = url;
 };
 
 exports.updateUrl = function(_type,_data){
@@ -48,6 +64,7 @@ exports.updateUrl = function(_type,_data){
 
 
 exports.url = function(){
+	return;
 	var hash = window.location.hash;
 		hash = hash.replace("#","");
 	var vars = hash.split("&");

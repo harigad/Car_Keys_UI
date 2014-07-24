@@ -18,7 +18,7 @@ function init(){
 	if(cars.length > 0 ){
 		build(cars);	
 	}else{
-		var _new = {logo:"logo.png",model:"ADD NEW CAR",new:true};
+		var _new = {logo:"logo.png",model:"ADD NEW CAR",_new:true};
 		var car =  Alloy.createController("car/newcar",{_editable:true,_data:_new,_callBack:function(){
 			_refresh();
 		}});

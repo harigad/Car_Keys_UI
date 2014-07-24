@@ -18,7 +18,8 @@ exports.openWindow = function(win,rightImage,callBack){
 	if(callBack){
 		_callBack = callBack;
 	}
-	Ti.App.fireEvent("openWindow",win);
+	//Ti.App.fireEvent("openWindow",win);
+	login.openWindow(parentWindow);
 };
 
 exports.back = function(){
@@ -26,7 +27,8 @@ exports.back = function(){
 };
 
 function goBack(){
-    Ti.App.fireEvent("closeWindow",parentWindow);
+    //Ti.App.fireEvent("closeWindow",parentWindow);
+    login.closeWindow(parentWindow);
 }
 
 function goHome(){

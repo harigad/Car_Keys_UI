@@ -1,6 +1,6 @@
 function Controller() {
     function goToUser() {
-        _showall ? Alloy.createController("car/radio/radio_show_all", {
+        _showall ? _callBack ? _callBack() : Alloy.createController("car/radio/radio_show_all", {
             _data: _data
         }) : Alloy.createController("profile/profile", {
             _data: _data
@@ -37,6 +37,7 @@ function Controller() {
     var _data = args._data;
     args._uid || null;
     var _showall = args._showall || false;
+    var _callBack = args._callBack || null;
     _showall ? $.photo.setBackgroundImage("common/dot_dot_dot.png") : $.photo.setBackgroundImage(_data.photo);
     __defers["$.__views.main!click!goToUser"] && $.__views.main.addEventListener("click", goToUser);
     _.extend($, exports);

@@ -12,6 +12,14 @@ if(_users){
 		var user = Alloy.createController("car/radio/radio_main",{_data:_users[0]});
 		$.users.add(user.getView());
 	}
+	
+	if(_users.length > 0){
+		var _showall = Alloy.createController("car/radio/radio_main",{_data:{_showall:true,_callBack:function(){
+			
+		}}});
+		$.users.add(_showall.getView());
+	}
+	
 }
 
 function goToUser(){
