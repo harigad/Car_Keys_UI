@@ -1,0 +1,20 @@
+<Alloy>
+	<Window>
+		<ImageView id="bgImage"></ImageView>
+		<View id="main" >
+			<View id="logo_container">
+					<View id="logo" ></View>
+			</View>	
+			<Label id="model"></Label>
+			<Label id="invite_text">
+				One last step..You still have to verify your ownership of this Camaro.To do this you will need atleast atleast 3 friends to send you check-in requests to your Camaro.
+			</Label>
+			<View class="btn_container" id="btn_container" onClick="onVerify">
+				<Label class="btn" id="btn_container_label">Yes! This is my car!</Label>
+			</View>	
+			<View class="btn_container" id="cancel_container" onClick="onCancel" >
+				<Label class="btn" id="cancel_btn_label">This is not my car!</Label>
+			</View>		
+		</View>
+	</Window>
+</Alloy>
