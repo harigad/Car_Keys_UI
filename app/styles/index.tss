@@ -1,6 +1,3 @@
 "Window":{
-	backgroundColor:"#ccc",navBarHidden:true
-},
-"#iphone_bg":{
-	backgroundImage:"iphone_bg.png",width:375, height:600
+	backgroundColor:"#fff",navBarHidden:true
 }

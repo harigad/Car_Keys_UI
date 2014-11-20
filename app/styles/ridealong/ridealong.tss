@@ -1,44 +1,24 @@
 "Window":{
-	backgroundColor:"#ffa633",navBarHidden:true,width:320,height:500
+	backgroundColor:"#ffa633",navBarHidden:true
 }
 
-"#question" :{
-	height:Ti.UI.SIZE,
-	font:{
-		fontSize: 12
-	},
-	color:"#fff",opacity:0.5
+"#search_bar":{
+	top:0,
+	height:60,
+	backgroundColor:"#fff"
 }
 
-"#plate":{
-	left:0,right:0,
+"#search":{
+	left:10, 
+	width:210,height:40,
 	color:"#fff",
-	font:{fontSize:50},height:100,
 	borderStyle:Ti.UI.INPUT_BORDERSTYLE_NONE
 }
 
-".btn_container": {
-	top:10,
-	height:30,width:50,
-	backgroundColor:"#ffa633",
-	borderRadius:4
-}
-
-".btn" : {
-	height:Ti.UI.SIZE,width:Ti.UI.SIZE,
-	font:{
-		fontSize: 11
-	},
-	color:"#fff"
-}
-
-".TextFieldContainer":{
-	left:20,
-	right:20,height:60
-}
-
-".TextFieldLabel":{
-	left:0,right:0,
-	color:"#fff",
-	font:{fontSize:18},height:100
+"#cancel_btn":{
+	right:10,
+	height:40,
+	width:80,
+	backgroundColor:"#fff",
+	borderRadius:2  
 }

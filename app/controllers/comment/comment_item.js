@@ -22,12 +22,12 @@ function goToUser(){
 }
 
 function save(){
-	var url = "http://flair.me/carkey/search.php";	
+	var url = "http://services.ridealong.mobi/search.php";	
 	var data = {type:"comments",fid:_pollid,data:_data.data,action:"add",accessToken:login.getAccessToken()};
 
  	var client = Ti.Network.createHTTPClient({ 		
  	 onload : function(e) {
- 	 	 var response = JSON.parse(this.responseText);
+ 	 	// var response = JSON.parse(this.responseText);
  	 	
  	 },
  	 onerror: function(e){
@@ -43,11 +43,10 @@ function save(){
 }
 
 function onDelete(){
-	debugger;
 	$.main.setHeight(0);
 	$.main.setVisible(false);
 	
-	var url = "http://flair.me/carkey/search.php";	
+	var url = "http://services.ridealong.mobi/search.php";	
 	var data = {type:"comments",fid:_pollid,coid:_data.coid,action:"delete",accessToken:login.getAccessToken()};
 
  	var client = Ti.Network.createHTTPClient({ 		

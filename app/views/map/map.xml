@@ -1,7 +1,6 @@
 <Alloy>
-	<Window>
-		<Map>
-			
-		</Map>
-	</Window>
+    <Window navBarHidden="true" >
+    	<View id="main" layout="vertical" height="Ti.UI.FILL" top="50" ></View>
+    	<Require type="view" src="header/header" id="header"/>
+    </Window>
 </Alloy>

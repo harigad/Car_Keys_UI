@@ -1,5 +1,5 @@
 "Window": {
-	backgroundColor:"#ffa633",navBarHidden:true,width:320,height:500
+	backgroundColor:"#ffa633",navBarHidden:true
 }
 
 "#main": {
@@ -20,6 +20,17 @@
 	top:5,height:Ti.UI.SIZE,
 	font:{
 		fontSize: 36
+	},
+	color:"#fff"
+}
+
+"#invite_text":{
+	height:0, visible:false,
+	left:10,
+	right:10,
+	top:0,
+	font:{
+		fontSize: 12
 	},
 	color:"#fff"
 }
@@ -46,7 +57,7 @@
 	backgroundColor:"#aaa"
 }
 
-"#cancel_btn":{
+"#cancel_btn_label":{
 	color:"#fff",
 	font:{
 		fontSize: 11

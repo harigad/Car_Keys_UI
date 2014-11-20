@@ -1,49 +1,57 @@
 <Alloy>
-	<View id="main" >
-		<View id="model_container" onClick="goToModel">
-		<View id="bar"></View>
-			<View top="0" height=Ti.UI.SIZE>
-				<View id="logo_container" >
-					<View id="logo" ></View>
-				</View>	
-				<View id="topLine">
-					<Label id="model"></Label><View id="edit_icon" onClick="onEdit"></View>
+	<Window navBarHidden="true"  backgroundColor="#fff" >
+		<ScrollView id="scroll" top="0" height="Ti.UI.FILL" >
+			<View layout="vertical" top="60"  height="Ti.UI.SIZE" >
+	  		<View layout="horizontal" id="main" height="Ti.UI.SIZE" >
+			
+			<View id="model" backgroundColor="#444" width="200" height="200"  borderWidth="0.5" borderColor="#fff" >
+				<View height="Ti.UI.SIZE" width="Ti.UI.SIZE" layout="vertical" >
+					<Label color="#999" id="owner_name"  >Hari's</Label>
+					<Label color="#fff" id="model_name"  ></Label>
 				</View>
 			</View>
-			<Label id="year"></Label>
+		    <View layout="vertical" height="Ti.UI.SIZE" width="Ti.UI.SIZE" >
+		    	<View id="year" backgroundColor="#555" width="120" height="100" borderWidth="0.5" borderColor="#fff" >
+						<Label color="#fff" id="year_name" ></Label>
+				</View>
+		    	<View id="logo" backgroundColor="#333" width="120" height="100" borderWidth="0.5" borderColor="#fff"  >
+						<View  width="80" height="80" borderRadius="40" backgroundColor="#222" borderColor="#666" borderWidth="5" >
+							<ImageView id="logo_image" width="48" height="48" borderRadius="4" ></ImageView>
+						</View>
+				</View>
+		    </View>
+		
+		<View id="photo" backgroundColor="#aaa" width="320" height="Ti.UI.SIZE"   >
+				<ImageView with="320" id="photo_image" top="0" left="0" borderWidth="0.5" borderColor="#fff" ></ImageView>
 		</View>
-		<View id="expires" height="0" backgroundColor="#333" bottom="0" left="10" right="10" borderRadius="2" onClick="explain_expires" >
-			<Label color="#fff" class="left_label" top="10" bottom="10" width="Ti.UI.SIZE" id="expires_lbl" ></Label>
-		</View>	
-		<View id="data_container" layout="vertical" height="Ti.UI.SIZE" >
-		<View class="data_container" id="titledate_container" >
-			<View class="left_box" >
-				<Label class="left_label">
-					owned:</Label>
-			</View>	
-			<View class="right_box" >
-				<Label class="right_label" id="owned" ></Label>
-			</View>	
+			
+		    <View layout="vertical" height="Ti.UI.SIZE" width="Ti.UI.SIZE" >
+		    	<View   backgroundColor="#73a4e7" width="160" height="80" borderWidth="0.5" borderColor="#fff" >
+						<Label color="#fff" id="mileage" >17 / 25 mpg</Label>
+				</View>
+		    	<View  backgroundColor="#6590f1" width="160" height="80" borderWidth="0.5" borderColor="#fff"  >
+						<Label color="#fff" id="cylinder" >V.6</Label>
+				</View>
+		    </View>
+		
+		<View  backgroundColor="#5190ca" width="160" height="160"  borderWidth="0.5" borderColor="#fff" >
+				<View  width="120" height="120" borderRadius="60" backgroundColor="#5190ca" borderColor="#fff" borderWidth="5" >
+						<Label id="hp">320 Horses</Label>
+				</View>
 		</View>
-		<View class="data_container" id="shares_container">
-			<View class="left_box" >
-				<Label class="left_label">
-					shares with:</Label>
-			</View>	
-			<View class="right_box" id="shares" >
-				
-			</View>	
+		
+		
+		<View id="cylinder" backgroundColor="#7dc891" width="160" height="160"  borderWidth="0.5" borderColor="#fff" >
+				<Label id="recalls">recalls</Label>
 		</View>
-		<View class="data_container">
-			<View class="left_box" >
-				<Label class="left_label">
-					ride along:
-				</Label>
-			</View>	
-			<View class="right_box" id="radios" layout="horizontal" >
-				
-			</View>	
+		
+		<View id="hp" backgroundColor="#8ae671" width="160" height="160"  borderWidth="0.5" borderColor="#fff" >
+				<Label id="schedules">schedules</Label>
 		</View>
+		
 		</View>
-	</View>
+	  	</View>
+	  </ScrollView>
+		<Require type="view" src="header/header" id="header"/>
+	</Window>
 </Alloy>

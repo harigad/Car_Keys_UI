@@ -1,8 +1,8 @@
 <Alloy>
-	<View id="main" onClick="addCar" >
+	<TableViewRow id="main" onClick="addCar" >
 				<View id="logo_container" >
 					<View id="logo" ></View>
 				</View>	
 				<Label id="model">ADD NEW</Label>
-	</View>
+	</TableViewRow>
 </Alloy>

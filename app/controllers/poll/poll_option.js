@@ -39,7 +39,7 @@ exports.unSelect = function(){
 
 
 function save(){
-	var url = "http://flair.me/carkey/search.php";	
+	var url = "http://services.ridealong.mobi/search.php";	
 	var data = {type:"poll",pollid:_pollid,answer:_data,action:"save",accessToken:login.getAccessToken()};
 	
 	

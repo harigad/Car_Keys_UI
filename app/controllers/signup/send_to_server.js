@@ -2,12 +2,12 @@ var login = require('Login');
 		
 		var args = arguments[0] || {};
 		var _data = args._data || {};
-		var _answerObj = args._answerObj;
+		var _answerObj = args._answerObj || {};
 		var _callBack = args._callBack;
 
 	$.send_to_server.open();
 
-	var url = "http://flair.me/carkey/search.php";	
+	var url = "http://services.ridealong.mobi/search.php";	
 	var _postData = {type:"addcar",cid:_data.cid,address:_answerObj.address,accessToken:login.getAccessToken()};
 		
 	Ti.API.debug("car.add sending data " + _data);

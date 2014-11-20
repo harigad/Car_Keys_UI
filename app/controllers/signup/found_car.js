@@ -10,8 +10,32 @@ $.model.setText(_data.model);
 
 function onVerify(){
 	//step_1();
-	step_4({});	
+	step_invite();	
 }
+
+var showing_invite = false;
+function step_invite(){
+	var animation = Titanium.UI.createAnimation();
+	animation.height = '400';
+	animation.duration = 1000;
+	var animationHandler = function() {
+		showing_invite = true;
+  		animation.removeEventListener('complete',animationHandler);
+  		$.invite_text.setHeight(100);
+  		$.invite_text.setTop(10);
+  		$.invite_text.setVisible(true);
+  		$.btn_container_label.setText("INVITE NOW");
+  		$.cancel_btn_label.setText("I WILL INVITE LATER!");
+  		$.btn_container.setVisible(true);
+		$.cancel_container.setVisible(true);
+    };
+	animation.addEventListener('complete',animationHandler);
+	
+	$.btn_container.setVisible(false);
+	$.cancel_container.setVisible(false);
+	$.main.animate(animation);
+}
+
 
 function step_1(){
 	var _answer = parseInt(_data.year);
@@ -174,6 +198,10 @@ function send_to_server(answerObj){
 }
 
 function onCancel(){
-	_callBack();
-	$.found_car.close();
+	if(showing_invite){
+		send_to_server();
+	}else{
+		_callBack();
+		$.found_car.close();
+	}
 }

@@ -12,8 +12,8 @@ if(_data.gender === "1"){
 var date = new Date(_data.created);
 
 $.date.setText("is sharing " + gender + " " + _data.model + " with");//date.toDateString());
-$.photo.setBackgroundImage(_data.photo);
-$.logo.setBackgroundImage(_data.ophoto);
+//$.photo.setBackgroundImage(_data.photo);
+//$.logo.setBackgroundImage(_data.ophoto);
 $.name.setText(_data.name);
 $.desc.setText(_data.oname);
 

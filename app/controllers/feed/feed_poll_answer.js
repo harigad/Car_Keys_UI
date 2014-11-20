@@ -13,7 +13,7 @@ if(_data.gender === "1"){
 
 var date = new Date(_data.created);
 
-$.photo.setBackgroundImage(_data.photo);
+//$.photo.setBackgroundImage(_data.photo);
 $.name.setText(_data.name);
 $.title.setText("answered a survey about " +  gender + " " + poll_data.model);
 $.question.setText(poll_data.question);

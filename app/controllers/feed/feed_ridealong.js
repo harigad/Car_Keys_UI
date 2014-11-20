@@ -21,8 +21,8 @@ if(_data.data == "1" || _data.data == 1){
 	$.date_2.setText(_data.model);
 	$.date_3.setText("with");
 }
-$.photo.setBackgroundImage(_data.ophoto);
-$.logo.setBackgroundImage(_data.photo);
+//$.photo.setBackgroundImage(_data.ophoto);
+//$.logo.setBackgroundImage(_data.photo);
 $.name.setText(_data.oname);
 $.desc.setText(_data.name);
 

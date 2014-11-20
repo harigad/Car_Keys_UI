@@ -1,21 +1,17 @@
 <Alloy>
 	<Window onFocus="onWindowFocus">
-		<View layout="vertical" >
-		<View height="50" backgroundColor="#f49033" top="0" >
-				<View class="btn_container" onClick="onCancel" left="10" >
-					<Label class="btn" >cancel</Label>
-				</View>
-				<Label id="question">
-					RideAlong
-				</Label>
-				<View class="btn_container" onClick="onEdit" right="10" >
-					<Label class="btn">search</Label>
-				</View>
+		<View id="search_bar" >
+			<View top="10" height="Ti.UI.SIZE">
+			<TextField id="search" onChange="onSearch" hintText="search friends" ></TextField>
+			<View onClick="onCancel" id="cancel_btn" >
+				<Label color="#999">cancel</Label>
+			</View>
+			</View>
 		</View>
-		<View class="TextFieldContainer" top="10" >
-				<Label class="TextFieldLabel" id="plate_label" ></Label>
-				<TextField id="plate" hintText="search by Bumper Sticker" onFocus="onFocus" onChange="onChange" onBlur="onBlur" onReturn="onEdit" ></TextField>
-		</View>
-		</View>
+		<ScrollView height="Ti.UI.FILL" top="50" >
+			<TableView id="friends" >
+				
+			</TableView>
+		</ScrollView>
 	</Window>
 </Alloy>

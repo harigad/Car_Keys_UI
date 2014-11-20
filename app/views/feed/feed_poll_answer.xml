@@ -1,4 +1,5 @@
 <Alloy>
+	<TableViewRow className="row" selectionStyle="Titanium.UI.iPhone.TableViewCellSelectionStyle" >
 	<View id="main" >
 		<View id="topView" onClick="goToUser" >
 			<View id="photo"></View>
@@ -17,4 +18,5 @@
 		</View>
 		<View height="1" backgroundColor="#cecece" ></View>
 	</View>
+	</TableViewRow>
 </Alloy>

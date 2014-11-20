@@ -1,16 +1,18 @@
 <Alloy>
 	<Window onFocus="onFocus">
 		<View layout="vertical" >
-		<View height="50" backgroundColor="#f49033" top="0" >
+		<View height="Ti.UI.SIZE" backgroundColor="#f49033" layout="vertical" >
+		<View height="50"  top="10" >
 				<View class="btn_container" onClick="onCancel" left="10" >
 					<Label class="btn" >cancel</Label>
 				</View>
 				<Label id="question">
 					Create Bumper Sticker
 				</Label>
-				<View class="btn_container" onClick="onEdit" right="10" >
-					<Label class="btn">send</Label>
+				<View class="btn_container" onClick="onEdit" right="10"  >
+					<Label class="btn">save</Label>
 				</View>
+		</View>
 		</View>
 		<TextField id="plate" onReturn="onEdit" hintText="" ></TextField>
 		</View>

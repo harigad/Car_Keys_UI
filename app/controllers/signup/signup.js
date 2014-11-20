@@ -11,7 +11,7 @@ function onFocus(e){
 	eval("$." + e.source.id + "_label").setOpacity(.6);
 	
 	if(e.source.getValue() === ""){
-		eval("$." + e.source.id + "_label").setText(e.source.getHintText());
+		eval("$." + e.source.id + "_label").setText(e.source.hint);
 	}else{
 		eval("$." + e.source.id + "_label").setText(""); 
 	}
@@ -23,7 +23,7 @@ function onBlur(e){
 
 function onChange(e){
 	if(e.source.getValue() === ""){
-		eval("$." + e.source.id + "_label").setText(e.source.getHintText());
+		eval("$." + e.source.id + "_label").setText(e.source.hint);
 	}else{
 		eval("$." + e.source.id + "_label").setText(""); 
 	}
@@ -40,8 +40,8 @@ function process(){
 	}
 	
 	login.openPleaseWait();
-	var url = "http://flair.me/carkey/secure.php?page=signup2";	
-	var _data = {plate:$.plate.getValue(),zipcode:"$.zipcode.getValue()",state:"TX",accessToken:login.getAccessToken()};
+	var url = "http://services.ridealong.mobi/secure.php?page=signup2";	
+	var _data = {vin:$.plate.getValue(),accessToken:login.getAccessToken()};
 
  	var client = Ti.Network.createHTTPClient({
      // function called when the response data is available

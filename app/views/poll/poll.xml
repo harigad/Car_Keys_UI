@@ -3,8 +3,8 @@
 		<View id="topView" onClick="goToUser" >
 			<View id="photo"></View>
 				<View id="topRight" width="200"  >
-					<Label id="name" >Hari Krishna</Label>
-					<Label id="date"  >january 2nd, 2003</Label>
+					<Label id="name" ></Label>
+					<Label id="date"  ></Label>
 				</View>
 				<View width="25" height="25" backgroundImage="common/pie_icon.png" left="10" ></View>
 		</View>

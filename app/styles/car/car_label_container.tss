@@ -1,0 +1,25 @@
+".data_container":{
+	height:Ti.UI.SIZE,layout:"horizontal",bottom:5
+}
+
+".left_box":{
+	 width:75,height:Ti.UI.SIZE,left:0,top:0
+}
+
+".label":{
+	width:75,
+	color:"#999",height:Ti.UI.SIZE,
+	font:{
+		fontSize:11
+	},
+	textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT
+}
+
+".right_box":{
+	 width:150,height:Ti.UI.SIZE,left:10,top:0
+}
+
+"#content":{
+	color:"#666",left:0,width:Ti.UI.SIZE,
+	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT
+}

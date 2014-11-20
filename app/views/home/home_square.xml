@@ -1,0 +1,8 @@
+<Alloy>
+	<View id="home_square" backgroundColor="#ffce87" width="160" height="160" onClick="onClick" borderWidth="0.5" borderColor="#fff" >
+		<View height="Ti.UI.SIZE" height="Ti.UI.SIZE" layout="vertical" id="main" >
+				<ImageView id="icon" width="40" height="40" borderRadius="4" ></ImageView>
+				<Label color="#fff" height="Ti.UI.SIZE" width="Ti.UI.SIZE" id="title" ></Label>
+		</View>
+	</View>
+</Alloy>

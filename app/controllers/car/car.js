@@ -1,87 +1,33 @@
-var login = require('Login');
+		var login = require('Login');
 		var args = arguments[0] || {};
 		var _data = args._data || {};
 		var _editable = args._editable;
 		var _callBack = args._callBack;
-		
-if(_editable){
-//	$.edit_icon.setVisible(true);	
-var now = new Date();
-var expires = new Date(_data.regexpdate);
-var days_remaining = Math.round((expires-now)/(1000 * 60 * 60 * 24));
+		var _colors = ["ffce87","ff8d87","87a0ff","dda9ee","a6d690","e2b26b"];
 
-	//if(days_remaining > 90){
-	//	$.expires_lbl.setText("Registration Renewal BEGINS in " + (days_remaining - 90) + " days");
-	if(days_remaining > 0){
-		$.expires_lbl.setText("Registration Exipres in " + days_remaining + " days");
-	}else{
-		$.expires.setBackgroundColor("#990000");
-		$.expires_lbl.setText("Registration Expired  " + Math.abs(days_remaining) + " days ago");
-	}
-	
-	$.expires.setBottom(10);
-	$.expires.setHeight("Ti.UI.SIZE");
-}		
-		
-var monthNames = ["January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December" ];
+$.header.openWindow($.car);
+//$.header.setTitle("Hari's" + _data.model);
+draw();
 
-$.logo.setBackgroundImage("logos/48/" + _data.logo);
-
-if(!login.canSeeModel(_data.moid)){
-	$.model.setColor("#333");
+function draw(){
+ $.logo_image.setImage("logos/48/" + _data.logo);
+ $.year_name.setText(_data.year);
+ $.model_name.setText(_data.model);
+ $.photo_image.setImage("http://www.autoguide.com/auto-news/wp-content/uploads//2013/03/2014-infiniti-q50.jpg");
 }
 
-$.model.setText(_data.model);
 
-if(_data.year){
-	$.year.setText("'" + _data.year);
-}else{
-	$.year.setHeight(0);
-	$.year.setBottom(0);
-}
-
-if(_data.titledate){
-	var d = new Date(_data.titledate);
-	if(d){
-		$.owned.setText("since " + monthNames[d.getMonth()] + " " + d.getFullYear());
-	}
-}else{
-	$.titledate_container.setHeight(0);
-	$.titledate_container.setBottom(0);
-}
-
-	var shares = _data.shares || [];
+function printContainer(title,content){
+	var c = Alloy.createController("car/car_label_container");
+	c.setTitle(title);
+	c.add(content);
+	$.data_container.add(c.getView());
+}	
 	
-	if(shares.length >0){
-		for(var i=0;i<shares.length;i++){
-			var share =  Alloy.createController("car/share/share_main",{_editable:_editable,_cid:_data.cid,_data:shares[i],_callBack:function(){
-				_callBack();
-			}});
-			$.shares.add(share.getView());
-		}
-	}else if(!_editable){
-		$.shares_container.setHeight(0);
-		$.shares_container.setBottom(0);
-	}
-	
-	if(_editable){
-		var new_share =  Alloy.createController("car/share/share_main",{_editable:_editable,_cid:_data.cid,_callBack:function(){
-			_callBack();
-		}});
-		$.shares.add(new_share.getView());
-	}
-	
-	var rides = _data.rides || [];
-	for(var i=0;i<rides.length;i++){
-		var ride =  Alloy.createController("car/radio/radio_main",{_data:rides[i]});
-		$.radios.add(ride.getView());
-	}
-
-	if(rides.length === 6){
-		var ride =  Alloy.createController("car/radio/radio_main",{_data:_data,_showall:true});
-		$.radios.add(ride.getView());
-	}
+function getContainer(){
+	var c = Alloy.createController("car/car_data_container");
+	return c;
+}	
 	
 function goToModel(){
 	if(login.canSeeModel(_data.moid)){

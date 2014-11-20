@@ -8,7 +8,6 @@ exports.init = function(scroll,callBack,optionalOverlay){
 	_callBack = callBack;	
 	
 	_scroll.addEventListener("scroll",function(e){
-		Ti.API.debug(e.y);
 	if(optionalOverlay){
 			if(e.y < -20 && e.dragging){
 				optionalOverlay.setOpacity(0.1);

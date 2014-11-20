@@ -10,19 +10,24 @@ var mycarsObj =  Alloy.createController("mycars/mycars");
 var friendsObj =  Alloy.createController("friends/friends");
 
 function goToMyCars(e){
+	Ti.API.debug("goToMyCars 1");
 	if(login.getCars().length===0){
+		Ti.API.debug("goToMyCars 2");
 		var signup =  Alloy.createController("signup/signup",{_callBack:function(){
 			if(login.getCars().length > 0){
 				mycarsObj.open(true);
 			}
 		}});
 	}else{
+		Ti.API.debug("goToMyCars 3");
 		mycarsObj.open();	
 	}
 }
 
 function goToFriends(e){
+	Ti.API.debug("goToFriends 1");
 	friendsObj.open();
+	Ti.API.debug("goToFriends 2");
 }
 
 Ti.App.addEventListener('cars_updated',function(cars){

@@ -1,20 +1,25 @@
+"#container":{
+	height:Ti.UI.SIZE,top:0,
+	backgroundColor:"#fff",
+}
+
+
 "#main":{
-	height:50,top:0,
-	backgroundColor:"#ffa633"
+	height:50,top:10
 }
 
 "#title":{
 	width:Ti.UI.SIZE,
-	color:"#fff",
+	color:"#333",
 	font:{
-		fontSize:14,fontWeight:"bold", opacity:0.6
+		fontSize:14
 	}
 }
 
 "#left_btn":{
-	left:10,height:30,width:22,
+	left:10,height:30,width:22,borderRadius:4,
 	backgroundImage:"common/left_btn.png",
-	borderRadius:2
+	borderRadius:2,
 }
 
 "#right_btn":{

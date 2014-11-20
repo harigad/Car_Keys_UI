@@ -1,14 +1,9 @@
 "#main":{
-	layout:"vertical",
-	height:Ti.UI.SIZE
+	className: 'row'
 }
 
 "#name":{
 	 left:10,top:15,bottom:15,
 	 height:Ti.UI.SIZE,
 	 color:"#ffa633" 
-}
-
-"#hr":{
-	height:1,backgroundColor:"#cecece"
 }

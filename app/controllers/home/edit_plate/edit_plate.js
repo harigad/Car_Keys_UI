@@ -34,7 +34,7 @@ function process(){
 
 
 function send_to_server(){
-	var url = "http://flair.me/carkey/search.php";	
+	var url = "http://services.ridealong.mobi/search.php";	
 	var _postData = {type:"editplate",plate:$.plate.getValue().toUpperCase(),accessToken:login.getAccessToken()};
 		
 	Ti.API.debug("editing plate " + $.plate.getValue());

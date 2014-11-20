@@ -1,0 +1,6 @@
+<Alloy>
+			<View height="350" layout="vertical" id="main">
+				<Label height="Ti.UI.SIZE" id="question" left="10" right="10" bottom="5" >Select the body color of your Camaro</Label>
+				<WebView id="chart" url="chartjs/pie.html" height="200" width="200" top="5" bottom="5" onLoad="onLoad" ></WebView>		
+			</View>
+</Alloy>

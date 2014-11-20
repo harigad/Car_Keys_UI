@@ -25,7 +25,7 @@ function isMultipleUsersReturned(data){
 }
 
 function send_to_server(){
-	var url = "http://flair.me/carkey/search.php";	
+	var url = "http://services.ridealong.mobi/search.php";	
 	var _postData = {type:"checkin",action:"find",carkey:_data,accessToken:login.getAccessToken()};
  	var client = Ti.Network.createHTTPClient({ 		
  	 onload : function(e) {

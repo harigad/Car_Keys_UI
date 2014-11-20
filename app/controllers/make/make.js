@@ -5,13 +5,13 @@ var _data = args._data || {};
 $.make_name.setText(_data.make);
 $.header.openWindow($.make);		
 		
-$.logo.setBackgroundImage("logos/48/" + _data.logo);		
+//$.logo.setBackgroundImage("logos/48/" + _data.logo);		
 load(_data);
 
 function load(data){
 	showPleaseWait();	
 	
-	var url = "http://flair.me/carkey/search.php";	
+	var url = "http://services.ridealong.mobi/search.php";	
 	var _data = {type:"make",mid:data.mid,accessToken:login.getAccessToken()};
 		
  	var client = Ti.Network.createHTTPClient({ 		

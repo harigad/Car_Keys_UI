@@ -1,16 +1,17 @@
 var user;
 var main;
-var fb = Ti.Facebook;
+var fb = require('facebook');
+fb.appid = '374335169286433';
+fb.permissions = ['email'];
+fb.forceDialogAuth = false;
+fb.logout();
+	
 var login_screen;
 var friendsCars;
 var _openWin;
 var _closeWin;
 var pleaseWait = Alloy.createController("components/pleasewait");
 
-	fb.appid = '374335169286433';
-	fb.permissions = ['email'];
-	fb.forceDialogAuth = false;
-	
 exports.openWindow = function(win){
 	_openWin(win);
 };
@@ -117,18 +118,22 @@ function loggedIn(){
 };
 
 exports.getAccessToken = function(){
+	//return "CAAFUdLLK0SEBAKK3zXZB9fi9K2l8Sti3o2rbpA27oZAZBLRTI1lZAhzWzrBl2xIChZB8ZAJvGbcnBXNM1gaXfWOHOAAMizMQfkYaSieKyeh1O86rpc7Kd3j40i2RwUGxZBCBkVdN0aKEpkLbwZCDUmqJ7EHcDHJbyw0hdJytG3jaSIZBSAWZCJp95efQL14ezvF95q1Lms0f0woBAZC2cTYXkD2";
 	return fb.getAccessToken();
 };
 
 function loadUser(_callBack){
 	Ti.API.debug("login.loadUser");
 
-	var url = "http://flair.me/carkey/search.php";	
+	var url = "http://services.ridealong.mobi/search.php";	
 	var _data = {type:"user",id:"me",accessToken:fb.getAccessToken()};
+	debugger;	
 		
-	Ti.API.debug("User.load sending data " + _data);
+	Ti.API.debug("User.load sending data : " + JSON.stringify(_data));
+	debugger;
  	var client = Ti.Network.createHTTPClient({ 		
  	 onload : function(e) {
+ 	 	debugger;
  	 	Ti.API.debug("User.load recieved data " + this.responseText);
  	 	 var response = JSON.parse(this.responseText);
       	 user = response;
@@ -199,9 +204,24 @@ function show(callBack){
 	login_screen =  Alloy.createController("login/login_screen",{_callBack:function(){
 		fb.authorize();
 	}});
-	fb.addEventListener("login",function(){
-   			onLogin(callBack);
-    });
+	fb.addEventListener('login', function(e) {
+		debugger;
+    Ti.API.debug('Returned from Facebook.');
+
+    if (e.success) {
+        Ti.API.debug('Authorized with Facebook, yeeey!');
+        // Query Graph now that we're authorized...
+    }
+    else if (e.error) {
+        Ti.API.debug('Error logging in with Facebook: ' + e.error);
+    }
+    else if (e.cancelled) {
+        Ti.API.debug('Cancelled logging in with Facebook.');
+    }
+    else {
+        Ti.API.debug('Something else. May actually be logged out.');
+    }
+});
 
  }
 
@@ -241,6 +261,7 @@ function launchSignup(_callBack){
 
 exports.getFriends = function(callBack,errBack){
 	fb.requestWithGraphPath('me/friends', {}, 'GET', function(e) {
+		debugger;
     if (e.success) {
     	var friends = JSON.parse(e.result);
         callBack(friends.data);
@@ -290,6 +311,7 @@ exports.getFriendsWithModel = function(moid){
 };
 
 exports.canSeeModel = function(moid){
+	return true;
 	if(_ownsModel(moid)){
 		return true;
 	}

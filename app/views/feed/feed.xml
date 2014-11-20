@@ -1,6 +1,7 @@
 <Alloy>
 	<View id="container" >
-		<View id="main" layout="vertical" height="Ti.UI.SIZE" top="0" ></View>
+		<Label id="header">Feed Activity</Label>
+		<TableView id="main" ></TableView>
 			<View onClick="more" height="Ti.UI.SIZE" >
 				<Label id="more" top="10" bottom="10" color="#ffa633" height="Ti.UI.SIZE" >please wait..</Label>
 			</View>

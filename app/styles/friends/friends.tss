@@ -1,5 +1,5 @@
 "Window":{
-	backgroundColor:"#ffa633",navBarHidden:true,width:320,height:500
+	backgroundColor:"#ffa633",navBarHidden:true
 }
 
 "#container":{
@@ -8,8 +8,8 @@
 }
 
 "#main":{
-	height:Ti.UI.SIZE,
-	layout:"vertical"
+	top:10,
+	separatorStyle: Titanium.UI.iPhone.TableViewSeparatorStyle.NONE
 }
 
 "#bar":{

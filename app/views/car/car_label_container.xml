@@ -1,0 +1,10 @@
+<Alloy>
+	<View class="data_container" id="titledate_container" >
+		<View class="left_box" >
+			<Label class="label" id="title" ></Label>
+		</View>	
+		<View class="right_box" >
+			<Label class="label" id="content" ></Label>
+		</View>	
+	</View>
+</Alloy>

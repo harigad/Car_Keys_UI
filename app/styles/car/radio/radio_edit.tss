@@ -1,5 +1,5 @@
 "Window":{
-	backgroundColor:"#ccc",navBarHidden:true,width:320,height:500
+	backgroundColor:"#ccc",navBarHidden:true
 }
 
 

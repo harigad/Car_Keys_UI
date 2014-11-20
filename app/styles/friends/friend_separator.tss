@@ -1,5 +1,5 @@
 "#main":{
-	height:Ti.UI.SIZE,top:5,bottom:5
+	className: 'row'
 }
 
 "#bar":{

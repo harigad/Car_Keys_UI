@@ -1,10 +1,10 @@
 "Window":{
-	backgroundColor:"#ffa633",navBarHidden:true,width:320,height:500
+	backgroundColor:"#ffa633",navBarHidden:true
 }
 
 "#search_bar":{
 	top:0,
-	height:50,
+	height:60,
 	backgroundColor:"#ffa633"
 }
 

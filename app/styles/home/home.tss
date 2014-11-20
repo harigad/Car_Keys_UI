@@ -1,5 +1,5 @@
 "Window":{
-	backgroundColor:"#eee",navBarHidden:true,width:320,height:500
+	backgroundColor:"#eee",navBarHidden:true
 }
 
 "#scroll":{
@@ -9,7 +9,7 @@
 "#main":{
 	layout:"vertical",
 	height:Ti.UI.SIZE,
-	top:260
+	top:95
 }
 
 ".my_rides":{

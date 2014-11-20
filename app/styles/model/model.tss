@@ -1,5 +1,5 @@
 "Window":{
-	backgroundColor:"#eee",navBarHidden:true,width:320,height:500
+	backgroundColor:"#eee",navBarHidden:true
 } 
 
 "#profile_container":{

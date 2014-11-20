@@ -1,5 +1,6 @@
 <Alloy>
-	<View height="Ti.UI.SIZE" layout="vertical" id="main" backgroundColor="#fff" left="10" right="10" borderRadius="4">
+	<View height="Ti.UI.SIZE" layout="vertical" id="main" backgroundColor="#fff" borderRadius="4">
+		<Label id="header" >Common Friends</Label>
 		<View height="Ti.UI.SIZE" id="list" layout="vertical" left="10" right="10" top="5" bottom="5">
 			
 		</View>

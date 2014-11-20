@@ -13,7 +13,7 @@ var date = new Date(_data.created);
 
 //$.date.setText("arlington,tx");
 $.title.setText("changed " +  gender + " bumper sticker to");//date.toDateString());
-$.photo.setBackgroundImage(_data.photo);
+//$.photo.setBackgroundImage(_data.photo);
 $.name.setText(_data.name);
 $.desc.setText('"' + _data.data + '"');
 

@@ -12,8 +12,8 @@ if(_data.gender === "1"){
 var date = new Date(_data.created);
 
 $.date.setText(date.toDateString());
-$.photo.setBackgroundImage(_data.photo);
-$.logo.setBackgroundImage("logos/48/" + _data.logo);
+//$.photo.setBackgroundImage(_data.photo);
+//$.logo.setBackgroundImage("logos/48/" + _data.logo);
 $.name.setText(_data.name);
 $.desc.setText("added " +  _data.year  + " "  + _data.make + " " + _data.model + " to " + gender + " profile");
 

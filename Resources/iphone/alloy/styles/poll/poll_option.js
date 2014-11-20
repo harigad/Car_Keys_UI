@@ -1,0 +1,1 @@
+module.exports = [{"isId":true,"priority":100000.0198,"key":"desc","style":{font:{fontSize:"12",},}}];

@@ -1,12 +1,14 @@
 <Alloy>
-	<Window backgroundColor="#ffa633" width="320" height="500"  >
-				<View height="50" backgroundColor="#f49033" top="0" >
+	<Window backgroundColor="#ffa633" >
+					<View top="0" height="60" backgroundColor="#f49033" >
+			<View top="10" height="50" >
 					<View class="btn_container" onClick="onCancel" left="10" >
 						<Label class="btn" >cancel</Label>
 					</View>
 					<Label id="question">
 						RideAlong
 					</Label>
+					</View>
 				</View>
 				
 				<View id="main" height="Ti.UI.SIZE" left="20" right="20" layout="vertical" >

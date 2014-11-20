@@ -19,3 +19,15 @@
 		fontSize:14
 	}
 }
+
+
+"#header":{
+	font:{
+		fontSize:12
+	},
+	left:10,
+	top:5,bottom:10,
+	color:"#ccc",
+	height:"Ti.UI.SIZE"
+}
+

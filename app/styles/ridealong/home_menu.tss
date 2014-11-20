@@ -2,7 +2,7 @@
 	layout:"horizontal",
 	height:"Ti.UI.SIZE",
 	width:"Ti.UI.SIZE",
-	top:5,bottom:5
+	top:20,bottom:20
 }
 
 ".photo":{

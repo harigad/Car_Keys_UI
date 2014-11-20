@@ -1,7 +1,8 @@
 <Alloy>
 	<Window>
 		<ImageView id="bgImage"></ImageView>
-		<View height="50" backgroundColor="#f49033" top="0" >
+		<View top="0" height="60" backgroundColor="#f49033" >
+			<View top="10" height="50" >
 				<View class="btn_container" onClick="onCancel" left="10" >
 					<Label class="btn" >cancel</Label>
 				</View>
@@ -11,11 +12,12 @@
 				<View class="btn_container" onClick="process" right="10" >
 					<Label class="btn">next</Label>
 				</View>
+			</View>	
 		</View>
 		<View id="main"  >
 			<View class="TextFieldContainer">
 				<Label class="TextFieldLabel" id="plate_label" ></Label>
-				<TextField id="plate" hintText="vehichle licene plate number" onFocus="onFocus" onChange="onChange" onBlur="onBlur" ></TextField>
+				<TextField id="plate" hint="VIN number" onFocus="onFocus" onChange="onChange" onBlur="onBlur" ></TextField>
 			</View>
 		</View>
 	</Window>	

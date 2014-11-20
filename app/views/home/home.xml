@@ -1,7 +1,7 @@
 <Alloy>
-	<Window>
-	<ScrollView id="scroll"  top="-120" >
-		<View id="profile_container" top="120" >
+	<View height="Ti.UI.FILL">
+	<ScrollView id="scroll"  top="-40" >
+		<View id="profile_container" top="0" visible="false" height="0" >
 			<View id="plate_container" onClick="editPlate">
 				<Label id="plate">Create your Bumer Sticker</Label>
 				<View id="edit_icon"></View>
@@ -9,11 +9,12 @@
 		</View>
 		<View id="main">
 			 <Require src="ridealong/requests" id="requests"/>
-			  <Require src="ridealong/home_menu" id="home_menu"/>
-			 <Require src="feed/feed" id="feed"/>
+			 <Require src="feed/feed" id="feed" top="100" />
 		</View>
 		<Require src="components/pull_to_refresh/pull_to_refresh" id="pull_to_refresh"/>
 	</ScrollView>
-		<View onClick="onRideAlong" id="ride_along" width="111" height="66" borderRadius="4" backgroundImage="common/ridealong_blue_text.png" top="0" ></View>
-	</Window>
+	<View height="20" backgroundColor="#ffa633" top="0"></View>
+	<Require src="ridealong/home_menu" id="home_menu" top="0" />
+	<View onClick="onRideAlong" id="ride_along" width="111" height="66" borderRadius="4" backgroundImage="common/ridealong_blue_text.png" top="20" ></View>
+	</View>
 </Alloy>

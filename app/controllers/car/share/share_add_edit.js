@@ -10,14 +10,25 @@ $.share_add_edit.open();
 function onSuccess(friends){
 	clear();
 	_friends = friends;
-	for(var i=0;i<friends.length;i++){
+	var len = friends.length;
+	if(friends.length > 20){
+		//len = 20;
+	}
+	
+	var friendsRows = [];
+	for(var i=0;i<len;i++){
 		var friend =  Alloy.createController("car/share/share_friend",{_cid:_cid,_data:friends[i],_callBack:function(){
 			_callBack();
 			$.share_add_edit.close();
 		}});
-		$.friends.add(friend.getView());
+		var x = friend.getView();
+		friendsRows.push(x);
+		//$.friends.add(friend.getView());
 	}
+	
+	$.friends.setData(friendsRows);
 }
+
 
 function onSearch(){
 	if(_searchTime){
@@ -58,8 +69,5 @@ function onError(){
 login.getFriends(onSuccess,onError);
 
 function clear(){
-	var len = $.friends.children.length;
-	for(var i=0;i<len;i++){
-			$.friends.remove($.friends.children[0]);
-	}
+	$.friends.removeAllChildren();
 }

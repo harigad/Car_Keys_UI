@@ -1,10 +1,10 @@
 "Window":{
-	backgroundColor:"#eee",navBarHidden:true,width:320,height:500
+	backgroundColor:"#eee",navBarHidden:true
 } 
 
 "#profile_container":{
 	backgroundColor:"#ffa633",
-	top:0,
+	top:0,width:Ti.UI.FILL,left:0,
 	height:150
 }
 
@@ -19,8 +19,7 @@
 
 "#plate_container":{
 	left:120,
-	height:Ti.UI.SIZE,
-	layout:"vertical"
+	height:Ti.UI.SIZE
 }
 
 "#name":{
@@ -30,17 +29,32 @@
 	},opacity:0.8
 }
 
-"#plate":{
-	color:"#fff",left:10,
-	font:{
-		fontSize:20,fontWeight:"bold"
-	}
-}
 
 "#cars_container":{
-	top:240,height:Ti.UI.SIZE,layout:"vertical"
+	top:240,height:Ti.UI.SIZE,layout:"vertical",bottom:10
 }
 
 "#cars_container_inner":{
-	left:10,right:10,height:Ti.UI.SIZE,layout:"vertical"
+	left:10,right:10,height:Ti.UI.SIZE,
+	borderRadius:4,scrollable:false
+}
+
+"#rides":{
+	backgroundColor:"#fff",
+	height:Ti.UI.SIZE,
+	layout:"vertical",
+	borderRadius:4,
+	left:10,right:10,
+	bottom:10,top:10
+}
+
+
+"#header":{
+	font:{
+		fontSize:12
+	},
+	left:10,
+	top:5,bottom:10,
+	color:"#ccc",
+	height:"Ti.UI.SIZE"
 }

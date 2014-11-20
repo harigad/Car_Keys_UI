@@ -19,7 +19,7 @@ exports.refresh = function(){
 function load(){
 	showPleaseWait();	
 	
-	var url = "http://flair.me/carkey/search.php";	
+	var url = "http://services.ridealong.mobi/search.php";	
 	var _data = {type:"friends",accessToken:login.getAccessToken()};
 		
  	var client = Ti.Network.createHTTPClient({ 		
@@ -46,38 +46,23 @@ function load(){
 function build(data){
 	loaded = true;
 	var currentMake;
-	var currentItem;	
+	var currentItem;
+	
 		
+	var rows = [];	
 	for(var i=0;i<data.length;i++){
-		
 		if(currentMake!==data[i].make){
 			var separator =  Alloy.createController("friends/friend_separator",{_data:data[i]});
-			$.main.add(separator.getView());
-			
+			rows.push(separator.getView());
+			currentMake = data[i].make;
+		}	
 			var feed_item_left =  Alloy.createController("friends/friend",{_data:data[i]});
-			$.main.add(feed_item_left.getView());
-			currentItem="left";
-		}else{
-			if(currentItem==="left"){
-				var feed_item_right =  Alloy.createController("friends/friend",{_data:data[i]});
-				$.main.add(feed_item_right.getView());
-				currentItem="right";
-			}else{
-				var feed_item_left =  Alloy.createController("friends/friend",{_data:data[i]});
-				$.main.add(feed_item_left.getView());
-				currentItem="left";	
-			}
-		}
-		currentMake = data[i].make;
-		
+			rows.push(feed_item_left.getView());
 	}
+	$.main.setData(rows);	
 }
 
 
 function showPleaseWait(){
-	//$.main.removeAllChildren();
-	var len = $.main.children.length;
-	for(var i=0;i<len;i++){
-			$.main.remove($.main.children[0]);
-	}
+	$.main.setData([]);
 }

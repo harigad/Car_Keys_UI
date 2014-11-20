@@ -1,16 +1,19 @@
 <Alloy>
-	<View id="main" onClick="goToProfile">
+	<TableViewRow id="main" onClick="goToProfile">
+	<View height="Ti.UI.SIZE" top="5" bottom="5" >
 		<View id="bar"></View>
 		<View id="container">
 			<View id="photo" ></View>
 			<View id="txtContainer">
 				<View id="topLine">
-					<Label id="name">Katherine</Label>
+					<Label id="name"></Label>
 				</View>	
 				<View id="bottomLine">
-					<Label id="plate">UTDROCKS</Label>
+					<Label id="plate"></Label>
+					<Label id="ridealong">(check-in)</Label>
 				</View>
 			</View>	
 		</View>
 	</View>
+	</TableViewRow>
 </Alloy>

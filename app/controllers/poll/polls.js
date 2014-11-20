@@ -19,7 +19,7 @@ function more(){
 }
 
 function load(created){
-	var url = "http://flair.me/carkey/search.php";	
+	var url = "http://services.ridealong.mobi/search.php";	
 	var data = {type:"poll",moid:_data.moid,action:"get",accessToken:login.getAccessToken()};
 	
 	if(created){

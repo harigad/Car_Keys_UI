@@ -1,3 +1,4 @@
+var login = require('Login');
 var parentWindow;
 
 Ti.App.addEventListener("goHome",function(e){

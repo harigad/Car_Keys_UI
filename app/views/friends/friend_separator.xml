@@ -1,6 +1,8 @@
 <Alloy>
-	<View id="main">
+	<TableViewRow id="main">
+	<View height="Ti.UI.SIZE" top="5" bottom="5" >
 		<View id="bar"></View>
 		<View id="logo_container" onClick="goToMake" ><ImageView id="logo" /></View>
 	</View>
+	</TableViewRow>
 </Alloy>

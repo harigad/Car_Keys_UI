@@ -1,23 +1,20 @@
 var login = require('Login');
-var _url = login.url();
+//var _url = login.url();
 var nav;
-$.index.open();
 
 login.init(function(){
-  	var home = Alloy.createController('home/home');
-  	/*nav = Titanium.UI.MobileWeb.createNavigationGroup({
-   		window:home.getView()
-	});
-	$.index.add(nav);
-	$.index.open();*/
-	home.getView().open();
+  	var home = Alloy.createController('home/home_squares');
+  	
+  	$.home.add(home.getView());
+  	$.nav.open();
+  	
 },
 
 function(win){
-	win.open();
+	$.nav.openWindow(win);
 },
 function(win){
-	win.close();
+	$.nav.closeWindow(win);
 }
 );
 

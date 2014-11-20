@@ -3,7 +3,7 @@ var login = require('Login');
 onPlateChanged();
 
 $.pull_to_refresh.init($.scroll,function(){
-	$.feed.refresh();
+	//$.feed.refresh();
 },$.ride_along);
 
 function editPlate(){

@@ -13,7 +13,7 @@ $.date.setText(date.toDateString());
 
 var options = JSON.parse(_data.options);
 var _selectedItem = null;
-
+/*
 for(var i=0;i<options.length;i++){
 		var poll_option = Alloy.createController("poll/poll_option",{_pollid:_data.pollid,_id:i,_data:options[i],_onUpdate:function(id,selected){
 		
@@ -43,7 +43,7 @@ for(var i=0;i<comments.length;i++){
 		var comment_item = Alloy.createController("comment/comment_item",{_pollid:_data.pollid,_data:comments[i]});
 		$.comments.add(comment_item.getView());
 }
-
+*/
 function goToUser(){
 	var profile =  Alloy.createController("profile/profile",{_data:_data});
 }

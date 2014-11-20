@@ -1,21 +1,20 @@
 <Alloy>
 	<Window>
-		<ScrollView id="scroll" top="-70" >
+		<ScrollView id="scroll" top="-50" >
 		<View id="profile_container" top="120" >
-			<View height="Ti.UI.SIZE" top="-10" >
-			<View id="photo" onClick="goToPhoto" backgroundColor="#333" >
+			<View id="photo" backgroundColor="#333" >
 				<ImageView  width="100" id="photoImg"  ></ImageView>
 			</View>
 			<View id="plate_container" >
 				<Label id="name" ></Label>
-				<View height="1" backgroundColor="#fff" right="30" top="5" bottom="5" ></View>
-				<Label id="plate" ></Label>
-			</View>
 			</View>
 		</View>
 		<View id="cars_container">
 			<Require src="profile/profile_businness_info" id="profile_businness_info" />
-			<View id="cars_container_inner"></View>
+			<TableView id="cars_container_inner"></TableView>
+			<View id="rides" >
+				<Label id="header">Ride Alongs</Label>
+			</View>
 			<View id="feed" height="Ti.UI.SIZE" ></View>
 		</View>
 		<Require src="components/pull_to_refresh/pull_to_refresh" id="pull_to_refresh"/>

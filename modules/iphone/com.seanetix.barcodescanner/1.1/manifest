@@ -1,0 +1,18 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.1
+apiversion: 2
+description: seanetix
+author: seanetix
+license: seanetix
+copyright: seanetix
+
+
+# these should not be edited
+name: ios_module_barcode_scanner
+moduleid: com.seanetix.BarcodeScanner
+guid: 298a352d-d54a-4a9b-9bfa-d5dee8f9436d
+platform: ios
+minsdk: 3.2.1.GA

@@ -1,0 +1,13 @@
+<Alloy>
+	<TableViewRow className="row" selectionStyle="Titanium.UI.iPhone.TableViewCellSelectionStyle" >
+	<View id="main" >
+		<View id="topView" onClick="goToUser" >
+			<View id="photo"></View>
+				<View id="topRight"   >
+					<Label id="name" ></Label>
+				</View>
+		</View>
+		<View height="1" backgroundColor="#eee" ></View>
+	</View>
+	</TableViewRow>
+</Alloy>

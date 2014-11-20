@@ -1,6 +1,5 @@
 <Alloy>
-	<View id="main" onClick="onClick" >
+	<TableViewRow id="main" onClick="onClick" >
 		<Label id="name" ></Label>
-		<View id="hr"></View>
-	</View>
+	</TableViewRow>
 </Alloy>

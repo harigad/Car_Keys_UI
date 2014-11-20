@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ti:app xmlns:ti="http://ti.appcelerator.org">
-    <id>carkeys</id>
-    <name>Car_Keys_UI</name>
+    <id>mobi.ridealong</id>
+    <name>Ride Along</name>
+    <property name="ti.ui.defaultunit">system</property>
+    <property name="ti.facebook.appid" >374335169286433</property>
     <version>1.0</version>
     <publisher>ivc1215adm</publisher>
-    <url>http://</url>
+    <url>http://ridealong.mobi</url>
     <description>not specified</description>
     <copyright>2014 by ivc1215adm</copyright>
     <icon>appicon.png</icon>
@@ -12,7 +14,7 @@
     <navbar-hidden>false</navbar-hidden>
     <analytics>true</analytics>
     <guid>9808afb9-2efd-4e14-882d-53148264f7fd</guid>
-    <property name="ti.ui.defaultunit" type="string">dp</property>
+    
     <ios>
         <plist>
             <dict>
@@ -46,20 +48,20 @@
             <inline-css-images>true</inline-css-images>
         </splash>
         <theme>default</theme>
-        <map>
-            <apikey>AIzaSyAqYsZa6MJ97_Q-8NlafqfvIAki3W8pRQU</apikey>
-        </map>
     </mobileweb>
-    <modules/>
+    <modules>
+        <module platform="iphone">ti.map</module>
+        <module platform="iphone">facebook</module>
+    </modules>
     <deployment-targets>
-        <target device="iphone">false</target>
+        <target device="iphone">true</target>
         <target device="ipad">false</target>
         <target device="android">false</target>
         <target device="blackberry">false</target>
-        <target device="mobileweb">true</target>
+        <target device="mobileweb">false</target>
         <target device="tizen">false</target>
     </deployment-targets>
-    <sdk-version>3.2.0.GA</sdk-version>
+    <sdk-version>3.3.0.GA</sdk-version>
     <plugins>
         <plugin version="1.0">ti.alloy</plugin>
     </plugins>

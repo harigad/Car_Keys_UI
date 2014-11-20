@@ -1,5 +1,5 @@
 "Window":{
-	backgroundColor:"#eee",navBarHidden:true,width:320,height:500
+	backgroundColor:"#eee",navBarHidden:true
 }
 
 "#scroll":{
@@ -16,11 +16,8 @@
 	width:Ti.UI.SIZE,height:Ti.UI.SIZE,layout:"vertical",top:10
 }
 
-"#logo":{
-	width:48,height:48,borderRadius:24
-}
-
 "#make_name":{
+	top:15,
 	color:"#fff",height:"Ti.UI.SIZE",
 	font:{
 		fontSize:36,fontWeight:"bold"

@@ -15,8 +15,8 @@ exports.init = function(moid,model_name){
 		draw(0,friends.length);
 	}else{
 		draw(0,len);
-		$.show_all.setVisible(true);
-		$.show_all.setHeight("Ti.UI.SIZE");
+		//$.show_all.setVisible(true);
+		//$.show_all.setHeight("Ti.UI.SIZE");
 		$.show_all_label.setText("see all " + friends.length + " friends driving " + model_name);
 	}
 	
@@ -24,8 +24,8 @@ exports.init = function(moid,model_name){
 
 function show_all(){
 	draw(len,friends.length);
-	$.show_all.setVisible(false);
-	$.show_all.setHeight(0);
+	//$.show_all.setVisible(false);
+	//$.show_all.setHeight(0);
 }
 
 function draw(start,end){

@@ -1,12 +1,21 @@
 		var login = require('Login');
 		var args = arguments[0] || {};
 		var _callBack = args._callBack;
-
-
-$.ridealong.open();
+		var _people = [];
+		$.ridealong.open();
 
 function onWindowFocus(){
-	$.plate.focus();	
+	$.search.focus();
+}
+
+var _friends;
+
+login.getFriends(function(friends){
+	_friends = friends;
+});
+
+function onSearch(){
+	$.friends.setData(friends);
 }
 
 function onEdit(){
@@ -27,7 +36,7 @@ function onFocus(e){
 	eval("$." + e.source.id + "_label").setOpacity(.6);
 	
 	if(e.source.getValue() === ""){
-		eval("$." + e.source.id + "_label").setText(e.source.getHintText());
+		eval("$." + e.source.id + "_label").setText(e.source.hint);
 	}else{
 		eval("$." + e.source.id + "_label").setText(""); 
 	}
@@ -39,7 +48,7 @@ function onBlur(e){
 
 function onChange(e){
 	if(e.source.getValue() === ""){
-		eval("$." + e.source.id + "_label").setText(e.source.getHintText());
+		eval("$." + e.source.id + "_label").setText(e.source.hint);
 	}else{
 		eval("$." + e.source.id + "_label").setText(""); 
 	}

@@ -11,10 +11,9 @@ exports.open = function(refresh){
 	$.header.openWindow($.mycars,"common/plus.png",addNew);	
 };
 
-init();
+//init();
 function init(){
 	var cars = login.getCars(); 
-
 	if(cars.length > 0 ){
 		build(cars);	
 	}else{
@@ -22,7 +21,7 @@ function init(){
 		var car =  Alloy.createController("car/newcar",{_editable:true,_data:_new,_callBack:function(){
 			_refresh();
 		}});
-		$.main.add(car.getView());
+		$.main.appendRow(car.getView());
 	}
 
 }
@@ -34,12 +33,14 @@ function addNew(){
 }
 
 function build(cars){
+	var rows = [];
 	for(var i=0;i<cars.length;i++){
 		var car =  Alloy.createController("car/car",{_editable:true,_data:cars[i],_callBack:function(){
 			_refresh();
 		}});
-		$.main.add(car.getView());
+		rows.push(car.getView());
 	}
+	$.main.setData(rows);
 }
 
 exports.refresh = function(){
@@ -55,8 +56,5 @@ function _refresh(){
 }
 
 function clear(){
-	var len = $.main.children.length;
-	for(var i=0;i<len;i++){
-			$.main.remove($.main.children[0]);
-	}
+	$.main.removeAllChildren();
 }

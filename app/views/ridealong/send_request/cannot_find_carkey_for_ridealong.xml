@@ -1,5 +1,5 @@
 <Alloy>
-	<Window backgroundColor="#ffa633" width="320" height="480" >
+	<Window backgroundColor="#ffa633" >
 		<View id="main" height="Ti.UI.SIZE" left="20" right="20" layout="vertical" >
 			<Label color="#fff" >searching..please wait..</Label>
 		</View>

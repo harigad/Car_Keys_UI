@@ -1,0 +1,7 @@
+<Alloy>
+	<View id="cell" width="100" height="100" borderRadius="4" borderWidth="1" borderColor="#f49033" onClick="onClick" >
+		
+		<View id="logo" width="40" height="40" id="logo" ></View>
+		
+	</View>
+</Alloy>

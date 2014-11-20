@@ -1,7 +1,7 @@
 "#show_all":{
 	height:0,
 	top:0,
-	visible:false,
+	visible:true,
 	
 }
 
@@ -10,4 +10,14 @@
 	color:"#ffa633",font:{
 		fontSize:12
 	}
+}
+
+"#header":{
+	font:{
+		fontSize:12
+	},
+	left:10,
+	top:5,bottom:10,
+	color:"#ccc",
+	height:"Ti.UI.SIZE"
 }
