@@ -1,0 +1,16 @@
+<Alloy>
+	<View id="container">
+	<View id="main">
+		<View height="Ti.UI.SIZE" width="Ti.UI.SIZE" left="0" onClick="goBack" >
+			<View id="left_btn" />
+		</View>
+		<Label id="title"/>
+		<View height="Ti.UI.SIZE" width="Ti.UI.SIZE" right="0" onClick="goHome" >
+			<View id="right_btn" ></View>
+			<View id="right_label" height="30" right="20" width="Ti.UI.SIZE" backgroundColor="#fff" borderRadius="4" >
+				<Label id="right_label_text"></Label>
+			</View>
+		</View>
+	</View>
+	</View>
+</Alloy>
