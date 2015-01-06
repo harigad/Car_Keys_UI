@@ -1,109 +1,102 @@
-function Controller() {
-    function load(data) {
-        showPleaseWait();
-        var url = "http://flair.me/carkey/search.php";
-        var _data = {
-            type: "make",
-            mid: data.mid,
-            accessToken: login.getAccessToken()
-        };
-        var client = Ti.Network.createHTTPClient({
-            onload: function() {
-                var response = JSON.parse(this.responseText);
-                build(response);
-            },
-            onerror: function(e) {
-                Ti.API.error("User.load error " + e);
-            }
-        });
-        client.open("POST", url);
-        client.send(_data);
+function __processArg(obj, key) {
+    var arg = null;
+    if (obj) {
+        arg = obj[key] || null;
+        delete obj[key];
     }
-    function showPleaseWait() {}
-    function build(data) {
-        for (var i = 0; data.length > i; i++) {
-            var model_item = Alloy.createController("make/model_item", {
-                _data: data[i]
-            });
-            $.main.add(model_item.getView());
-            data.length - 1 > i && $.main.add(Ti.UI.createView({
-                height: 1,
-                backgroundColor: "#eee"
-            }));
-        }
+    return arg;
+}
+
+function Controller() {
+    function load() {
+        showPleaseWait();
+        fb.filter("mid", _data.mid, function(friends) {
+            $.main.setData(friends);
+        }, function() {}, _data.make);
+    }
+    function showPleaseWait() {
+        $.main.setData([]);
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "make/make";
-    arguments[0] ? arguments[0]["__parentSymbol"] : null;
-    arguments[0] ? arguments[0]["$model"] : null;
-    arguments[0] ? arguments[0]["__itemTemplate"] : null;
+    if (arguments[0]) {
+        __processArg(arguments[0], "__parentSymbol");
+        __processArg(arguments[0], "$model");
+        __processArg(arguments[0], "__itemTemplate");
+    }
     var $ = this;
     var exports = {};
     $.__views.make = Ti.UI.createWindow({
-        backgroundColor: "#eee",
+        backgroundColor: "#f1f1f1",
         navBarHidden: true,
-        width: 320,
-        height: 500,
         id: "make"
     });
     $.__views.make && $.addTopLevelView($.__views.make);
     $.__views.scroll = Ti.UI.createScrollView({
-        height: Ti.UI.FILL,
-        width: Ti.UI.FILL,
         id: "scroll",
         top: "50"
     });
     $.__views.make.add($.__views.scroll);
-    $.__views.profile_container = Ti.UI.createView({
-        top: 0,
-        left: 0,
-        width: Ti.UI.FILL,
-        height: 150,
-        backgroundColor: "#ffa633",
-        id: "profile_container"
-    });
-    $.__views.scroll.add($.__views.profile_container);
-    $.__views.photo = Ti.UI.createView({
-        width: Ti.UI.SIZE,
+    $.__views.__alloyId86 = Ti.UI.createView({
         height: Ti.UI.SIZE,
         layout: "vertical",
-        top: 10,
+        id: "__alloyId86"
+    });
+    $.__views.scroll.add($.__views.__alloyId86);
+    $.__views.__alloyId87 = Ti.UI.createView({
+        height: "110",
+        top: "40",
+        bottom: "40",
+        id: "__alloyId87"
+    });
+    $.__views.__alloyId86.add($.__views.__alloyId87);
+    $.__views.__alloyId88 = Ti.UI.createView({
+        backgroundColor: "#333",
+        width: "80",
+        height: "80",
+        top: "0",
+        borderRadius: "40",
+        id: "__alloyId88"
+    });
+    $.__views.__alloyId87.add($.__views.__alloyId88);
+    $.__views.photo = Ti.UI.createView({
+        width: "50",
+        height: "50",
         id: "photo"
     });
-    $.__views.profile_container.add($.__views.photo);
-    $.__views.logo = Ti.UI.createView({
-        width: 48,
-        height: 48,
-        borderRadius: 24,
-        id: "logo"
-    });
-    $.__views.photo.add($.__views.logo);
-    $.__views.make_name = Ti.UI.createLabel({
-        color: "#fff",
-        height: "Ti.UI.SIZE",
+    $.__views.__alloyId88.add($.__views.photo);
+    $.__views.name = Ti.UI.createLabel({
+        width: Ti.UI.SIZE,
+        height: Ti.UI.SIZE,
+        top: 90,
         font: {
-            fontSize: 36,
-            fontWeight: "bold"
+            fontSize: 24
         },
-        id: "make_name"
+        color: "#ccc",
+        shadowColor: "#fff",
+        shadowOffset: {
+            x: 1,
+            y: 1
+        },
+        shadowRadius: 3,
+        id: "name"
     });
-    $.__views.photo.add($.__views.make_name);
-    $.__views.main_container = Ti.UI.createView({
-        height: Ti.UI.SIZE,
-        top: 120,
-        id: "main_container"
+    $.__views.__alloyId87.add($.__views.name);
+    $.__views.__alloyId89 = Ti.UI.createView({
+        height: "5",
+        backgroundColor: "#fff",
+        id: "__alloyId89"
     });
-    $.__views.scroll.add($.__views.main_container);
-    $.__views.main = Ti.UI.createView({
-        borderRadius: 4,
-        backgroundColor: "#f49033",
-        layout: "vertical",
-        height: Ti.UI.SIZE,
-        left: 10,
-        right: 10,
-        id: "main"
+    $.__views.__alloyId86.add($.__views.__alloyId89);
+    $.__views.main = Ti.UI.createTableView({
+        top: "0",
+        separatorStyle: Alloy.Globals._params.TableViewSeparatorStyle.NONE,
+        id: "main",
+        backgroundColor: "#fff",
+        scrollable: "false",
+        height: Ti.UI.SIZE
     });
-    $.__views.main_container.add($.__views.main);
+    $.__views.__alloyId86.add($.__views.main);
     $.__views.header = Alloy.createController("header/header", {
         id: "header",
         __parentSymbol: $.__views.make
@@ -111,13 +104,21 @@ function Controller() {
     $.__views.header.setParent($.__views.make);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    var login = require("Login");
+    require("Login");
+    var fb = require("Friends");
     var args = arguments[0] || {};
     var _data = args._data || {};
-    $.make_name.setText(_data.make);
+    $.name.setText(_data.make);
+    $.photo.setBackgroundImage("logos/48/" + _data.logo);
     $.header.openWindow($.make);
-    $.logo.setBackgroundImage("logos/48/" + _data.logo);
-    load(_data);
+    load();
+    exports.open = function() {
+        loaded || load();
+        $.header.openWindow($.friends);
+    };
+    exports.refresh = function() {
+        load();
+    };
     _.extend($, exports);
 }
 

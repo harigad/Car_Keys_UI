@@ -1,52 +1,22 @@
-"#main":{
-	className: 'row',
-	selectionStyle:"Titanium.UI.iPhone.TableViewCellSelectionStyle"
+"#title":{
+	left:0,
+	font:{
+		fontSize:24
+	},
+	color:"#cecece"
 }
 
-"#bar" : {
-	backgroundColor:"#ffa633",height:1,left:45
+"#subtext":{
+	left:5,font:{
+		fontSize:14
+	},
+	color:"#cecece"
 }
 
-"#container":{
-	layout:"horizontal",height:Ti.UI.SIZE
-}
-
-"#photo" : {
-	left:40,width:50,height:50,backgroundColor:"#ccc",
-	borderRadius:25,borderColor:"#ccc",borderWidth:3
-}
-
-"#txtContainer" : {
-	left:10,width:Ti.UI.SIZE,height:Ti.UI.SIZE,layout:"vertical"
-}
-
-"#topLine": {
-	bottom:5,left:0,
-	width:Ti.UI.SIZE,height:Ti.UI.SIZE,layout:"horizontal"
-}
-
-"#name":{
-	width:Ti.UI.SIZE,height:Ti.UI.SIZE,color:"#999",
+"#model":{
+	left:0,
 	font:{
 		fontSize:14
-	}
+	},
+	color:"#7f7f7f"
 }
-
-"#bottomLine": {
-	top:5,left:0,width:Ti.UI.SIZE,height:Ti.UI.SIZE,layout:"horizontal"
-}
-
-"#plate":{
-	width:Ti.UI.SIZE,height:Ti.UI.SIZE,color:"#333",
-	font:{
-		fontSize:14,fontWeight:"bold"
-	}
-}
-
-"#ridealong":{
-	left:5,width:Ti.UI.SIZE,height:Ti.UI.SIZE,color:"#ffa633",bubbleParent:false,
-	font:{
-		fontSize:14,
-	}
-}
-

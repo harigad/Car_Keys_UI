@@ -1,4 +1,4 @@
-		var args = arguments[0] || {};
+	    var args = arguments[0] || {};
 		var _callBack = args._callBack || {};
 		var _loading = false;
 $.login_screen.open();
@@ -10,7 +10,8 @@ _searchTime = setTimeout(function(){
 },1000);
 
 
-function onClick(){
+function authorize(){
+	debugger;
 	_callBack();
 }
 

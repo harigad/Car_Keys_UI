@@ -23,17 +23,17 @@ function Controller() {
         id: "radio_send_to_server"
     });
     $.__views.radio_send_to_server && $.addTopLevelView($.__views.radio_send_to_server);
-    $.__views.__alloyId24 = Ti.UI.createView({
+    $.__views.__alloyId26 = Ti.UI.createView({
         height: Ti.UI.SIZE,
-        id: "__alloyId24"
+        id: "__alloyId26"
     });
-    $.__views.radio_send_to_server.add($.__views.__alloyId24);
-    $.__views.__alloyId25 = Ti.UI.createLabel({
+    $.__views.radio_send_to_server.add($.__views.__alloyId26);
+    $.__views.__alloyId27 = Ti.UI.createLabel({
         text: "Updating..",
         height: Ti.UI.SIZE,
-        id: "__alloyId25"
+        id: "__alloyId27"
     });
-    $.__views.__alloyId24.add($.__views.__alloyId25);
+    $.__views.__alloyId26.add($.__views.__alloyId27);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");
@@ -43,7 +43,7 @@ function Controller() {
     var _rid = args._rid;
     var _callBack = args._callBack;
     $.radio_send_to_server.open();
-    var url = "http://services.ridealong.mobi/search.php";
+    var url = Alloy.Globals._search;
     var _postData = {
         type: "editradio",
         cid: _cid,

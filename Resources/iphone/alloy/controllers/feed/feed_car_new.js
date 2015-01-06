@@ -133,12 +133,12 @@ function Controller() {
         id: "logo"
     });
     $.__views.logo_container.add($.__views.logo);
-    $.__views.__alloyId49 = Ti.UI.createView({
+    $.__views.__alloyId53 = Ti.UI.createView({
         height: "1",
         backgroundColor: "#cecece",
-        id: "__alloyId49"
+        id: "__alloyId53"
     });
-    $.__views.main.add($.__views.__alloyId49);
+    $.__views.main.add($.__views.__alloyId53);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");

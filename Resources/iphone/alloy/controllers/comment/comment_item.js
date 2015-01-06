@@ -10,7 +10,7 @@ function __processArg(obj, key) {
 function Controller() {
     function goToUser() {}
     function save() {
-        var url = "http://services.ridealong.mobi/search.php";
+        var url = Alloy.Globals._search;
         var data = {
             type: "comments",
             fid: _pollid,
@@ -30,7 +30,7 @@ function Controller() {
     function onDelete() {
         $.main.setHeight(0);
         $.main.setVisible(false);
-        var url = "http://services.ridealong.mobi/search.php";
+        var url = Alloy.Globals._search;
         var data = {
             type: "comments",
             fid: _pollid,
@@ -64,13 +64,13 @@ function Controller() {
     });
     $.__views.main && $.addTopLevelView($.__views.main);
     goToUser ? $.__views.main.addEventListener("click", goToUser) : __defers["$.__views.main!click!goToUser"] = true;
-    $.__views.__alloyId42 = Ti.UI.createView({
+    $.__views.__alloyId44 = Ti.UI.createView({
         height: Ti.UI.SIZE,
         layout: "horizontal",
         top: "5",
-        id: "__alloyId42"
+        id: "__alloyId44"
     });
-    $.__views.main.add($.__views.__alloyId42);
+    $.__views.main.add($.__views.__alloyId44);
     $.__views.photo = Ti.UI.createView({
         id: "photo",
         width: "25",
@@ -78,20 +78,20 @@ function Controller() {
         borderRadius: "2",
         top: "0"
     });
-    $.__views.__alloyId42.add($.__views.photo);
-    $.__views.__alloyId43 = Ti.UI.createView({
+    $.__views.__alloyId44.add($.__views.photo);
+    $.__views.__alloyId45 = Ti.UI.createView({
         height: Ti.UI.SIZE,
         left: "5",
         layout: "vertical",
-        id: "__alloyId43"
+        id: "__alloyId45"
     });
-    $.__views.__alloyId42.add($.__views.__alloyId43);
-    $.__views.__alloyId44 = Ti.UI.createView({
+    $.__views.__alloyId44.add($.__views.__alloyId45);
+    $.__views.__alloyId46 = Ti.UI.createView({
         layout: "horizontal",
         height: Ti.UI.SIZE,
-        id: "__alloyId44"
+        id: "__alloyId46"
     });
-    $.__views.__alloyId43.add($.__views.__alloyId44);
+    $.__views.__alloyId45.add($.__views.__alloyId46);
     $.__views.name = Ti.UI.createLabel({
         color: "#ffa633",
         width: Ti.UI.SIZE,
@@ -101,7 +101,7 @@ function Controller() {
         id: "name",
         left: "0"
     });
-    $.__views.__alloyId44.add($.__views.name);
+    $.__views.__alloyId46.add($.__views.name);
     $.__views.delete_btn = Ti.UI.createLabel({
         color: "#990000",
         width: Ti.UI.SIZE,
@@ -114,7 +114,7 @@ function Controller() {
         left: "5",
         visible: "false"
     });
-    $.__views.__alloyId44.add($.__views.delete_btn);
+    $.__views.__alloyId46.add($.__views.delete_btn);
     onDelete ? $.__views.delete_btn.addEventListener("click", onDelete) : __defers["$.__views.delete_btn!click!onDelete"] = true;
     $.__views.text = Ti.UI.createLabel({
         color: "#666",
@@ -126,7 +126,7 @@ function Controller() {
         right: "0",
         height: Ti.UI.SIZE
     });
-    $.__views.__alloyId43.add($.__views.text);
+    $.__views.__alloyId45.add($.__views.text);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");

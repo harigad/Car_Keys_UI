@@ -13,7 +13,7 @@ function Controller() {
         load(_created);
     }
     function load(created) {
-        var url = "http://services.ridealong.mobi/search.php";
+        var url = Alloy.Globals._search;
         var _data = {
             type: "feed",
             accessToken: login.getAccessToken()
@@ -117,17 +117,17 @@ function Controller() {
     $.__views.container.add($.__views.header);
     $.__views.main = Ti.UI.createTableView({
         height: Ti.UI.SIZE,
-        separatorStyle: Titanium.UI.iPhone.TableViewSeparatorStyle.NONE,
+        separatorStyle: Alloy.Globals._params.TableViewSeparatorStyle.NONE,
         scrollable: false,
         id: "main"
     });
     $.__views.container.add($.__views.main);
-    $.__views.__alloyId47 = Ti.UI.createView({
+    $.__views.__alloyId51 = Ti.UI.createView({
         height: Ti.UI.SIZE,
-        id: "__alloyId47"
+        id: "__alloyId51"
     });
-    $.__views.container.add($.__views.__alloyId47);
-    more ? $.__views.__alloyId47.addEventListener("click", more) : __defers["$.__views.__alloyId47!click!more"] = true;
+    $.__views.container.add($.__views.__alloyId51);
+    more ? $.__views.__alloyId51.addEventListener("click", more) : __defers["$.__views.__alloyId51!click!more"] = true;
     $.__views.more = Ti.UI.createLabel({
         text: "please wait..",
         id: "more",
@@ -136,7 +136,7 @@ function Controller() {
         color: "#ffa633",
         height: Ti.UI.SIZE
     });
-    $.__views.__alloyId47.add($.__views.more);
+    $.__views.__alloyId51.add($.__views.more);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");
@@ -146,11 +146,11 @@ function Controller() {
     var _dontBuild = args._dontBuild || false;
     var _created;
     _created = null;
-    _feed ? build(_feed) : load();
+    !_feed;
     exports.refresh = function() {
         load();
     };
-    __defers["$.__views.__alloyId47!click!more"] && $.__views.__alloyId47.addEventListener("click", more);
+    __defers["$.__views.__alloyId51!click!more"] && $.__views.__alloyId51.addEventListener("click", more);
     _.extend($, exports);
 }
 

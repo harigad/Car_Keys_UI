@@ -1,13 +1,24 @@
 var login = require('Login');
-//var _url = login.url();
 var nav;
 
-login.init(function(){
-  	var home = Alloy.createController('home/home_squares');
-  	
+function openHome(){
+	var home = Alloy.createController('home/home_squares');
   	$.home.add(home.getView());
   	$.nav.open();
-  	
+}
+
+function launchSignup(_callBack){
+	var signup =  Alloy.createController("signup/signup_or_skip",{_callBack:_callBack});
+}
+
+login.init(function(){
+	if(login.getCars().length > 0){
+      			openHome();
+      	}else{
+      	 		launchSignup(function(){
+      	 			openHome();
+      	 		});
+    }
 },
 
 function(win){

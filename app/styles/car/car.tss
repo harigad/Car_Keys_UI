@@ -2,7 +2,11 @@
 	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
 	font:{
 		fontSize:26
-	}
+	},
+	color:"#ccc",
+	shadowColor: '#fff',
+    shadowOffset: {x:1, y:1},
+    shadowRadius: 3
 }
 
 "#year_name":{
@@ -18,7 +22,7 @@
 }
 
 "#hp":{
-	color:"#fff",
+	color:"#7f7f7f",
 	font:{
 		fontSize:16
 	}
@@ -32,19 +36,20 @@
 
 "#owner_name":{
 	font:{
-		fontSize:16
-	},bottom:2
+		fontSize:20
+	},bottom:2,
+	color:"#ccc"
 }
 
 "#recalls":{
-	color:"#fff",
+	color:"#7f7f7f",
 	font:{
 		fontSize:16
 	}
 }
 
 "#schedules":{
-	color:"#fff",
+	color:"#7f7f7f",
 	font:{
 		fontSize:16
 	}

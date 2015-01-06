@@ -18,23 +18,22 @@ function Controller() {
     var $ = this;
     var exports = {};
     $.__views.send_to_server = Ti.UI.createWindow({
-        backgroundColor: "#ffa633",
+        backgroundColor: "#f1f1f1",
         navBarHidden: true,
         id: "send_to_server"
     });
     $.__views.send_to_server && $.addTopLevelView($.__views.send_to_server);
-    $.__views.__alloyId132 = Ti.UI.createView({
+    $.__views.__alloyId147 = Ti.UI.createView({
         height: Ti.UI.SIZE,
-        id: "__alloyId132"
+        id: "__alloyId147"
     });
-    $.__views.send_to_server.add($.__views.__alloyId132);
-    $.__views.__alloyId133 = Ti.UI.createLabel({
+    $.__views.send_to_server.add($.__views.__alloyId147);
+    $.__views.__alloyId148 = Ti.UI.createLabel({
         text: "Saving..",
         height: Ti.UI.SIZE,
-        color: "#fff",
-        id: "__alloyId133"
+        id: "__alloyId148"
     });
-    $.__views.__alloyId132.add($.__views.__alloyId133);
+    $.__views.__alloyId147.add($.__views.__alloyId148);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");
@@ -43,7 +42,7 @@ function Controller() {
     var _answerObj = args._answerObj || {};
     var _callBack = args._callBack;
     $.send_to_server.open();
-    var url = "http://services.ridealong.mobi/search.php";
+    var url = Alloy.Globals._search;
     var _postData = {
         type: "addcar",
         cid: _data.cid,

@@ -1,0 +1,13 @@
+<Alloy>
+	<Window>
+		<ScrollView id="scroll" top="50" backgroundColor="#fff" >
+				<View height="Ti.UI.SIZE" layout="vertical"  >
+					<View height="200" backgroundColor="#f1f1f1" >
+							<Label id="name"  ></Label>
+					</View>
+					<TableView id="main" scrollable="false" height="Ti.UI.SIZE"   ></TableView>
+				</View>
+		</ScrollView>
+		<Require type="view" src="header/header" id="header"/>
+	</Window>
+</Alloy>

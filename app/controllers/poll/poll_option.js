@@ -39,7 +39,7 @@ exports.unSelect = function(){
 
 
 function save(){
-	var url = "http://services.ridealong.mobi/search.php";	
+	var url = Alloy.Globals._search;	
 	var data = {type:"poll",pollid:_pollid,answer:_data,action:"save",accessToken:login.getAccessToken()};
 	
 	

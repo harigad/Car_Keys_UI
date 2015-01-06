@@ -1,3 +1,12 @@
+function __processArg(obj, key) {
+    var arg = null;
+    if (obj) {
+        arg = obj[key] || null;
+        delete obj[key];
+    }
+    return arg;
+}
+
 function Controller() {
     function goToUser() {
         Alloy.createController("profile/profile", {
@@ -23,18 +32,26 @@ function Controller() {
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "feed/feed_ridealong";
-    arguments[0] ? arguments[0]["__parentSymbol"] : null;
-    arguments[0] ? arguments[0]["$model"] : null;
-    arguments[0] ? arguments[0]["__itemTemplate"] : null;
+    if (arguments[0]) {
+        __processArg(arguments[0], "__parentSymbol");
+        __processArg(arguments[0], "$model");
+        __processArg(arguments[0], "__itemTemplate");
+    }
     var $ = this;
     var exports = {};
     var __defers = {};
+    $.__views.feed_ridealong = Ti.UI.createTableViewRow({
+        className: "row",
+        selectionStyle: Titanium.UI.iPhone.TableViewCellSelectionStyle,
+        id: "feed_ridealong"
+    });
+    $.__views.feed_ridealong && $.addTopLevelView($.__views.feed_ridealong);
     $.__views.main = Ti.UI.createView({
         height: Ti.UI.SIZE,
         layout: "vertical",
         id: "main"
     });
-    $.__views.main && $.addTopLevelView($.__views.main);
+    $.__views.feed_ridealong.add($.__views.main);
     $.__views.topView = Ti.UI.createView({
         layout: "horizontal",
         height: Ti.UI.SIZE,
@@ -74,15 +91,15 @@ function Controller() {
         id: "name"
     });
     $.__views.topRight.add($.__views.name);
-    $.__views.__alloyId51 = Ti.UI.createView({
+    $.__views.__alloyId59 = Ti.UI.createView({
         left: "0",
         height: Ti.UI.SIZE,
         layout: "horizontal",
         width: Ti.UI.SIZE,
-        id: "__alloyId51"
+        id: "__alloyId59"
     });
-    $.__views.topRight.add($.__views.__alloyId51);
-    $.__views.__alloyId52 = Ti.UI.createLabel({
+    $.__views.topRight.add($.__views.__alloyId59);
+    $.__views.__alloyId60 = Ti.UI.createLabel({
         right: 3,
         height: Ti.UI.SIZE,
         color: "#aaa",
@@ -90,9 +107,9 @@ function Controller() {
             fontSize: 12
         },
         text: "was",
-        id: "__alloyId52"
+        id: "__alloyId60"
     });
-    $.__views.__alloyId51.add($.__views.__alloyId52);
+    $.__views.__alloyId59.add($.__views.__alloyId60);
     $.__views.date_0 = Ti.UI.createLabel({
         right: 3,
         height: Ti.UI.SIZE,
@@ -102,7 +119,7 @@ function Controller() {
         },
         id: "date_0"
     });
-    $.__views.__alloyId51.add($.__views.date_0);
+    $.__views.__alloyId59.add($.__views.date_0);
     $.__views.date_1 = Ti.UI.createLabel({
         right: 3,
         height: Ti.UI.SIZE,
@@ -112,7 +129,7 @@ function Controller() {
         },
         id: "date_1"
     });
-    $.__views.__alloyId51.add($.__views.date_1);
+    $.__views.__alloyId59.add($.__views.date_1);
     $.__views.date_2 = Ti.UI.createLabel({
         right: 3,
         height: Ti.UI.SIZE,
@@ -122,7 +139,7 @@ function Controller() {
         },
         id: "date_2"
     });
-    $.__views.__alloyId51.add($.__views.date_2);
+    $.__views.__alloyId59.add($.__views.date_2);
     $.__views.date_3 = Ti.UI.createLabel({
         right: 3,
         height: Ti.UI.SIZE,
@@ -132,7 +149,7 @@ function Controller() {
         },
         id: "date_3"
     });
-    $.__views.__alloyId51.add($.__views.date_3);
+    $.__views.__alloyId59.add($.__views.date_3);
     $.__views.bottomView = Ti.UI.createView({
         left: 55,
         layout: "horizontal",
@@ -166,12 +183,12 @@ function Controller() {
         left: "5"
     });
     $.__views.bottomView.add($.__views.desc);
-    $.__views.__alloyId53 = Ti.UI.createView({
+    $.__views.__alloyId61 = Ti.UI.createView({
         height: "1",
         backgroundColor: "#cecece",
-        id: "__alloyId53"
+        id: "__alloyId61"
     });
-    $.__views.main.add($.__views.__alloyId53);
+    $.__views.main.add($.__views.__alloyId61);
     exports.destroy = function() {};
     _.extend($, $.__views);
     require("Login");
@@ -191,8 +208,6 @@ function Controller() {
         $.date_2.setText(_data.model);
         $.date_3.setText("with");
     }
-    $.photo.setBackgroundImage(_data.ophoto);
-    $.logo.setBackgroundImage(_data.photo);
     $.name.setText(_data.oname);
     $.desc.setText(_data.name);
     __defers["$.__views.topView!click!goToUser"] && $.__views.topView.addEventListener("click", goToUser);

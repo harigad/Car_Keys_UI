@@ -1,19 +1,14 @@
 <Alloy>
-	<TableViewRow id="main" onClick="goToProfile">
-	<View height="Ti.UI.SIZE" top="5" bottom="5" >
-		<View id="bar"></View>
-		<View id="container">
-			<View id="photo" ></View>
-			<View id="txtContainer">
-				<View id="topLine">
-					<Label id="name"></Label>
-				</View>	
-				<View id="bottomLine">
-					<Label id="plate"></Label>
-					<Label id="ridealong">(check-in)</Label>
+	<TableViewRow id="home_square" height="Ti.UI.SIZE" onClick="onClick"  >
+		<View height="Ti.UI.SIZE" id="main" left="20" right="10" top="15" bottom="15" >
+				<ImageView id="icon" width="50" height="50" left="0"  borderRadius="25" backgroundColor="#eee" ></ImageView>
+				<View height="Ti.UI.SIZE" left="60" layout="vertical" >
+					<View height="Ti.UI.SIZE"  layout="horizontal" >
+					  <Label  height="Ti.UI.SIZE" width="Ti.UI.SIZE" id="title" left="0" ></Label>
+					  <Label  height="Ti.UI.SIZE" width="Ti.UI.SIZE" id="subtext"  >(200 pts)</Label>
+					</View>
+					<Label  height="Ti.UI.SIZE" width="Ti.UI.SIZE" id="model"  >G35</Label>
 				</View>
-			</View>	
 		</View>
-	</View>
 	</TableViewRow>
 </Alloy>

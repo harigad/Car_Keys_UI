@@ -1,3 +1,12 @@
+function __processArg(obj, key) {
+    var arg = null;
+    if (obj) {
+        arg = obj[key] || null;
+        delete obj[key];
+    }
+    return arg;
+}
+
 function Controller() {
     function goToUser() {
         Alloy.createController("profile/profile", {
@@ -22,18 +31,26 @@ function Controller() {
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "feed/feed_plate";
-    arguments[0] ? arguments[0]["__parentSymbol"] : null;
-    arguments[0] ? arguments[0]["$model"] : null;
-    arguments[0] ? arguments[0]["__itemTemplate"] : null;
+    if (arguments[0]) {
+        __processArg(arguments[0], "__parentSymbol");
+        __processArg(arguments[0], "$model");
+        __processArg(arguments[0], "__itemTemplate");
+    }
     var $ = this;
     var exports = {};
     var __defers = {};
+    $.__views.feed_plate = Ti.UI.createTableViewRow({
+        className: "row",
+        selectionStyle: Titanium.UI.iPhone.TableViewCellSelectionStyle,
+        id: "feed_plate"
+    });
+    $.__views.feed_plate && $.addTopLevelView($.__views.feed_plate);
     $.__views.main = Ti.UI.createView({
         height: Ti.UI.SIZE,
         layout: "vertical",
         id: "main"
     });
-    $.__views.main && $.addTopLevelView($.__views.main);
+    $.__views.feed_plate.add($.__views.main);
     $.__views.topView = Ti.UI.createView({
         layout: "horizontal",
         height: Ti.UI.SIZE,
@@ -62,11 +79,11 @@ function Controller() {
         id: "topRight"
     });
     $.__views.topView.add($.__views.topRight);
-    $.__views.__alloyId47 = Ti.UI.createView({
+    $.__views.__alloyId55 = Ti.UI.createView({
         height: Ti.UI.SIZE,
-        id: "__alloyId47"
+        id: "__alloyId55"
     });
-    $.__views.topRight.add($.__views.__alloyId47);
+    $.__views.topRight.add($.__views.__alloyId55);
     $.__views.name = Ti.UI.createLabel({
         left: "0",
         height: Ti.UI.SIZE,
@@ -76,7 +93,7 @@ function Controller() {
         },
         id: "name"
     });
-    $.__views.__alloyId47.add($.__views.name);
+    $.__views.__alloyId55.add($.__views.name);
     $.__views.date = Ti.UI.createLabel({
         right: 10,
         height: Ti.UI.SIZE,
@@ -86,7 +103,7 @@ function Controller() {
         },
         id: "date"
     });
-    $.__views.__alloyId47.add($.__views.date);
+    $.__views.__alloyId55.add($.__views.date);
     $.__views.title = Ti.UI.createLabel({
         left: 0,
         height: Ti.UI.SIZE,
@@ -116,12 +133,12 @@ function Controller() {
         right: "10"
     });
     $.__views.bottomView.add($.__views.desc);
-    $.__views.__alloyId48 = Ti.UI.createView({
+    $.__views.__alloyId56 = Ti.UI.createView({
         height: "1",
         backgroundColor: "#cecece",
-        id: "__alloyId48"
+        id: "__alloyId56"
     });
-    $.__views.main.add($.__views.__alloyId48);
+    $.__views.main.add($.__views.__alloyId56);
     exports.destroy = function() {};
     _.extend($, $.__views);
     require("Login");
@@ -131,7 +148,6 @@ function Controller() {
     gender = "1" === _data.gender ? "her" : "his";
     new Date(_data.created);
     $.title.setText("changed " + gender + " bumper sticker to");
-    $.photo.setBackgroundImage(_data.photo);
     $.name.setText(_data.name);
     $.desc.setText('"' + _data.data + '"');
     __defers["$.__views.topView!click!goToUser"] && $.__views.topView.addEventListener("click", goToUser);

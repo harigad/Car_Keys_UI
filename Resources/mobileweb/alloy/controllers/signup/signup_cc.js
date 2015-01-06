@@ -1,16 +1,25 @@
+function __processArg(obj, key) {
+    var arg = null;
+    if (obj) {
+        arg = obj[key] || null;
+        delete obj[key];
+    }
+    return arg;
+}
+
 function Controller() {
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "signup/signup_cc";
-    arguments[0] ? arguments[0]["__parentSymbol"] : null;
-    arguments[0] ? arguments[0]["$model"] : null;
-    arguments[0] ? arguments[0]["__itemTemplate"] : null;
+    if (arguments[0]) {
+        __processArg(arguments[0], "__parentSymbol");
+        __processArg(arguments[0], "$model");
+        __processArg(arguments[0], "__itemTemplate");
+    }
     var $ = this;
     var exports = {};
     $.__views.signup_cc = Ti.UI.createWindow({
         backgroundColor: "#ffa633",
         navBarHidden: true,
-        width: 320,
-        height: 500,
         id: "signup_cc"
     });
     $.__views.signup_cc && $.addTopLevelView($.__views.signup_cc);
@@ -66,14 +75,14 @@ function Controller() {
         hintText: "$0.00"
     });
     $.__views.main.add($.__views.amount);
-    $.__views.__alloyId136 = Ti.UI.createView({
+    $.__views.__alloyId154 = Ti.UI.createView({
         height: 1,
         left: 20,
         right: 20,
         backgroundColor: "#fff",
-        id: "__alloyId136"
+        id: "__alloyId154"
     });
-    $.__views.main.add($.__views.__alloyId136);
+    $.__views.main.add($.__views.__alloyId154);
     $.__views.credit = Ti.UI.createTextField({
         backgroundColor: "#fff",
         color: "#ffa633",
@@ -88,14 +97,14 @@ function Controller() {
         hintText: "credit/debit card number"
     });
     $.__views.main.add($.__views.credit);
-    $.__views.__alloyId137 = Ti.UI.createView({
+    $.__views.__alloyId155 = Ti.UI.createView({
         height: 1,
         left: 20,
         right: 20,
         backgroundColor: "#fff",
-        id: "__alloyId137"
+        id: "__alloyId155"
     });
-    $.__views.main.add($.__views.__alloyId137);
+    $.__views.main.add($.__views.__alloyId155);
     $.__views.mmyy = Ti.UI.createTextField({
         backgroundColor: "#fff",
         color: "#ffa633",

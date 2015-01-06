@@ -1,8 +1,20 @@
+function __processArg(obj, key) {
+    var arg = null;
+    if (obj) {
+        arg = obj[key] || null;
+        delete obj[key];
+    }
+    return arg;
+}
+
 function Controller() {
     function onSuccess(friends) {
         clear();
         _friends = friends;
-        for (var i = 0; friends.length > i; i++) {
+        var len = friends.length;
+        friends.length > 20;
+        var friendsRows = [];
+        for (var i = 0; len > i; i++) {
             var friend = Alloy.createController("car/share/share_friend", {
                 _cid: _cid,
                 _data: friends[i],
@@ -11,8 +23,10 @@ function Controller() {
                     $.share_add_edit.close();
                 }
             });
-            $.friends.add(friend.getView());
+            var x = friend.getView();
+            friendsRows.push(x);
         }
+        $.friends.setData(friendsRows);
     }
     function onSearch() {
         _searchTime && clearTimeout(_searchTime);
@@ -45,32 +59,37 @@ function Controller() {
     }
     function onError() {}
     function clear() {
-        var len = $.friends.children.length;
-        for (var i = 0; len > i; i++) $.friends.remove($.friends.children[0]);
+        $.friends.removeAllChildren();
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "car/share/share_add_edit";
-    arguments[0] ? arguments[0]["__parentSymbol"] : null;
-    arguments[0] ? arguments[0]["$model"] : null;
-    arguments[0] ? arguments[0]["__itemTemplate"] : null;
+    if (arguments[0]) {
+        __processArg(arguments[0], "__parentSymbol");
+        __processArg(arguments[0], "$model");
+        __processArg(arguments[0], "__itemTemplate");
+    }
     var $ = this;
     var exports = {};
     var __defers = {};
     $.__views.share_add_edit = Ti.UI.createWindow({
         backgroundColor: "#fff",
         navBarHidden: true,
-        width: 320,
-        height: 500,
         id: "share_add_edit"
     });
     $.__views.share_add_edit && $.addTopLevelView($.__views.share_add_edit);
     $.__views.search_bar = Ti.UI.createView({
         top: 0,
-        height: 50,
+        height: 60,
         backgroundColor: "#ffa633",
         id: "search_bar"
     });
     $.__views.share_add_edit.add($.__views.search_bar);
+    $.__views.__alloyId29 = Ti.UI.createView({
+        top: "10",
+        height: Ti.UI.SIZE,
+        id: "__alloyId29"
+    });
+    $.__views.search_bar.add($.__views.__alloyId29);
     $.__views.search = Ti.UI.createTextField({
         left: 10,
         width: 210,
@@ -80,7 +99,7 @@ function Controller() {
         id: "search",
         hintText: "search friends"
     });
-    $.__views.search_bar.add($.__views.search);
+    $.__views.__alloyId29.add($.__views.search);
     onSearch ? $.__views.search.addEventListener("change", onSearch) : __defers["$.__views.search!change!onSearch"] = true;
     $.__views.cancel_btn = Ti.UI.createView({
         right: 10,
@@ -90,40 +109,24 @@ function Controller() {
         borderRadius: 2,
         id: "cancel_btn"
     });
-    $.__views.search_bar.add($.__views.cancel_btn);
+    $.__views.__alloyId29.add($.__views.cancel_btn);
     onCancel ? $.__views.cancel_btn.addEventListener("click", onCancel) : __defers["$.__views.cancel_btn!click!onCancel"] = true;
-    $.__views.__alloyId23 = Ti.UI.createLabel({
+    $.__views.__alloyId30 = Ti.UI.createLabel({
         text: "cancel",
         color: "#999",
-        id: "__alloyId23"
+        id: "__alloyId30"
     });
-    $.__views.cancel_btn.add($.__views.__alloyId23);
-    $.__views.__alloyId24 = Ti.UI.createScrollView({
+    $.__views.cancel_btn.add($.__views.__alloyId30);
+    $.__views.__alloyId31 = Ti.UI.createScrollView({
         height: Ti.UI.FILL,
         top: "50",
-        id: "__alloyId24"
+        id: "__alloyId31"
     });
-    $.__views.share_add_edit.add($.__views.__alloyId24);
-    $.__views.friends = Ti.UI.createView({
-        layout: "vertical",
-        id: "friends",
-        height: Ti.UI.SIZE
+    $.__views.share_add_edit.add($.__views.__alloyId31);
+    $.__views.friends = Ti.UI.createTableView({
+        id: "friends"
     });
-    $.__views.__alloyId24.add($.__views.friends);
-    $.__views.__alloyId25 = Ti.UI.createView({
-        top: "20",
-        left: "10",
-        height: Ti.UI.SIZE,
-        id: "__alloyId25"
-    });
-    $.__views.friends.add($.__views.__alloyId25);
-    $.__views.__alloyId26 = Ti.UI.createLabel({
-        text: "loading...",
-        height: Ti.UI.SIZE,
-        color: "#999",
-        id: "__alloyId26"
-    });
-    $.__views.__alloyId25.add($.__views.__alloyId26);
+    $.__views.__alloyId31.add($.__views.friends);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");

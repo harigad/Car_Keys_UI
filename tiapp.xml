@@ -3,7 +3,7 @@
     <id>mobi.ridealong</id>
     <name>Ride Along</name>
     <property name="ti.ui.defaultunit">system</property>
-    <property name="ti.facebook.appid" >374335169286433</property>
+    <property name="ti.facebook.appid">374335169286433</property>
     <version>1.0</version>
     <publisher>ivc1215adm</publisher>
     <url>http://ridealong.mobi</url>
@@ -14,7 +14,6 @@
     <navbar-hidden>false</navbar-hidden>
     <analytics>true</analytics>
     <guid>9808afb9-2efd-4e14-882d-53148264f7fd</guid>
-    
     <ios>
         <plist>
             <dict>
@@ -52,6 +51,7 @@
     <modules>
         <module platform="iphone">ti.map</module>
         <module platform="iphone">facebook</module>
+        <module platform="iphone">com.mirasense.scanditsdk</module>
     </modules>
     <deployment-targets>
         <target device="iphone">true</target>

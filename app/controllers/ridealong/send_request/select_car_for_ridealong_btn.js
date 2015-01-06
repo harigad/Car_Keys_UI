@@ -12,7 +12,7 @@ function onSelect(){
 }
 
 function send_to_server(){
-	var url = "http://services.ridealong.mobi/search.php";	
+	var url = Alloy.Globals._search;	
 	var _postData = {type:"checkin",action:"process",oid:_data.oid,accessToken:login.getAccessToken()};
  	var client = Ti.Network.createHTTPClient({ 		
  	 onload : function(e) {

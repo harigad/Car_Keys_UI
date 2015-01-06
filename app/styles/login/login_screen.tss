@@ -1,5 +1,5 @@
 "Window":{
-	backgroundColor:"#f49033",navBarHidden:true
+	backgroundColor:"#40a3ff",navBarHidden:true
 }
 
 "#login":{

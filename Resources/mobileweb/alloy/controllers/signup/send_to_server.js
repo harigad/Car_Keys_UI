@@ -1,40 +1,49 @@
+function __processArg(obj, key) {
+    var arg = null;
+    if (obj) {
+        arg = obj[key] || null;
+        delete obj[key];
+    }
+    return arg;
+}
+
 function Controller() {
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "signup/send_to_server";
-    arguments[0] ? arguments[0]["__parentSymbol"] : null;
-    arguments[0] ? arguments[0]["$model"] : null;
-    arguments[0] ? arguments[0]["__itemTemplate"] : null;
+    if (arguments[0]) {
+        __processArg(arguments[0], "__parentSymbol");
+        __processArg(arguments[0], "$model");
+        __processArg(arguments[0], "__itemTemplate");
+    }
     var $ = this;
     var exports = {};
     $.__views.send_to_server = Ti.UI.createWindow({
         backgroundColor: "#ffa633",
         navBarHidden: true,
-        width: 320,
-        height: 500,
         id: "send_to_server"
     });
     $.__views.send_to_server && $.addTopLevelView($.__views.send_to_server);
-    $.__views.__alloyId128 = Ti.UI.createView({
+    $.__views.__alloyId145 = Ti.UI.createView({
         height: Ti.UI.SIZE,
-        id: "__alloyId128"
+        id: "__alloyId145"
     });
-    $.__views.send_to_server.add($.__views.__alloyId128);
-    $.__views.__alloyId129 = Ti.UI.createLabel({
+    $.__views.send_to_server.add($.__views.__alloyId145);
+    $.__views.__alloyId146 = Ti.UI.createLabel({
         text: "Saving..",
         height: Ti.UI.SIZE,
         color: "#fff",
-        id: "__alloyId129"
+        id: "__alloyId146"
     });
-    $.__views.__alloyId128.add($.__views.__alloyId129);
+    $.__views.__alloyId145.add($.__views.__alloyId146);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");
     var args = arguments[0] || {};
     var _data = args._data || {};
-    var _answerObj = args._answerObj;
+    var _answerObj = args._answerObj || {};
     var _callBack = args._callBack;
     $.send_to_server.open();
-    var url = "http://flair.me/carkey/search.php";
+    var url = Alloy.Globals._search;
     var _postData = {
         type: "addcar",
         cid: _data.cid,

@@ -78,7 +78,7 @@ function Controller() {
     });
     $.__views.mycars.add($.__views.scroll);
     $.__views.main = Ti.UI.createTableView({
-        separatorStyle: Titanium.UI.iPhone.TableViewSeparatorStyle.NONE,
+        separatorStyle: Alloy.Globals._params.TableViewSeparatorStyle.NONE,
         left: 10,
         right: 10,
         top: "20",

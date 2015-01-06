@@ -1,25 +1,40 @@
 function loggedIn() {
-    return fb.loggedIn ? user ? true : false : false;
+    return user ? true : false;
 }
 
-function loadUser(_callBack) {
+function _getAccessToken() {
+    user.accessToken;
+    return user.accessToken ? user.accessToken + "||" + Titanium.Platform.id : "";
+}
+
+function loadUser(_callBack, username, password) {
     Ti.API.debug("login.loadUser");
-    var url = "http://flair.me/carkey/search.php";
-    var _data = {
+    var url = Alloy.Globals._search;
+    var _data;
+    _data = user ? {
         type: "user",
         id: "me",
-        accessToken: fb.getAccessToken()
+        accessToken: _getAccessToken()
+    } : {
+        type: "user",
+        id: "me",
+        username: username,
+        password: password
     };
-    Ti.API.debug("User.load sending data " + _data);
+    Ti.API.debug("User.load sending data : " + JSON.stringify(_data));
     var client = Ti.Network.createHTTPClient({
         onload: function() {
+            debugger;
             Ti.API.debug("User.load recieved data " + this.responseText);
             var response = JSON.parse(this.responseText);
             user = response;
-            _callBack();
-            if (login_screen) {
-                login_screen.getView().close();
-                login_screen = null;
+            if (user) {
+                Ti.App.Properties.setObject("user", user);
+                _callBack();
+                if (login_screen) {
+                    login_screen.getView().close();
+                    login_screen = null;
+                }
             }
         },
         onerror: function(e) {
@@ -44,25 +59,9 @@ function _getCars() {
     return user.cars || [];
 }
 
-function onLogin(_callBack) {
-    if (fb.getAccessToken()) {
-        login_screen && login_screen.loading();
-        loadUser(_callBack);
-    } else {
-        login_screen.lock();
-        fb.logout();
-    }
-}
-
 function show(callBack) {
-    login_screen = Alloy.createController("login/login_screen", {
-        _callBack: function() {
-            fb.authorize();
-        }
-    });
-    fb.addEventListener("login", function() {
-        onLogin(callBack);
-    });
+    loadUser(callBack, "username", "password");
+    return;
 }
 
 function launchSignup(_callBack) {
@@ -71,23 +70,37 @@ function launchSignup(_callBack) {
     });
 }
 
+function logout() {
+    Ti.App.Properties.removeProperty("user");
+}
+
 var user;
-
-var main;
-
-var fb = Ti.Facebook;
 
 var login_screen;
 
-var friendsCars;
+var _openWin;
+
+var _closeWin;
 
 var pleaseWait = Alloy.createController("components/pleasewait");
 
-fb.appid = "374335169286433";
+logout();
 
-fb.permissions = [ "email" ];
+var user = Ti.App.Properties.getObject("user") || null;
 
-exports.init = function(_callBack) {
+exports.openWindow = function(win) {
+    _openWin(win);
+};
+
+exports.closeWindow = function(win) {
+    _closeWin(win);
+};
+
+exports.init = function(_callBack, openWin, closeWin) {
+    if (openWin) {
+        _openWin = openWin;
+        _closeWin = closeWin;
+    }
     if (loggedIn()) {
         _callBack();
         if (login_screen) {
@@ -97,52 +110,8 @@ exports.init = function(_callBack) {
     } else show(_callBack);
 };
 
-exports.go = function(_type, _data) {
-    var url = "";
-    var _dataStr = "";
-    try {
-        _dataStr = JSON.stringify(_data);
-    } catch (e) {
-        _dataStr = "";
-    }
-    url = "page=" + _type + "&data=" + _dataStr;
-    window.location.hash = url;
-};
-
-exports.updateUrl = function(_type, _data) {
-    var url = "";
-    var _dataStr = "";
-    try {
-        _dataStr = JSON.stringify(_data);
-    } catch (e) {
-        _dataStr = "";
-    }
-    url = "page=" + _type + "&data=" + _dataStr;
-    Ti.App.currentHash = url;
-};
-
-exports.url = function() {
-    var hash = window.location.hash;
-    hash = hash.replace("#", "");
-    var vars = hash.split("&");
-    var output = {};
-    for (var i = 0; vars.length > i; i++) {
-        var splits = vars[i].split("=");
-        splits.length > 1 && (output[splits[0]] = splits[1]);
-    }
-    return output;
-};
-
 exports.isUser = function(obj) {
     return user.uid === obj.uid ? true : false;
-};
-
-exports.isAdmin = function(pid) {
-    if (loggedIn() && user) {
-        var places = user.places;
-        for (var i = 0; places.length > i; i++) if (pid == places[i].pid) return true;
-    }
-    return false;
 };
 
 exports.isLoggedIn = function() {
@@ -150,7 +119,7 @@ exports.isLoggedIn = function() {
 };
 
 exports.getAccessToken = function() {
-    return fb.getAccessToken();
+    return _getAccessToken();
 };
 
 exports.ownsModel = function(moid) {
@@ -169,72 +138,9 @@ exports.getUser = function() {
     return user;
 };
 
-exports.setFeed = function(_flairs) {
-    Ti.API.info("login.setFeed");
-    user.setFeed(_flairs);
-};
-
 exports.setCars = function(cars) {
     user.cars = cars || [];
     Ti.App.fireEvent("cars_updated", cars);
-};
-
-exports.getPlate = function() {
-    return user.plate;
-};
-
-exports.setPlate = function(plate) {
-    user.plate = plate;
-};
-
-exports.getPlate = function() {
-    return user.plate;
-};
-
-exports.getFriends = function(callBack, errBack) {
-    fb.requestWithGraphPath("me/friends", {}, "GET", function(e) {
-        if (e.success) {
-            var friends = JSON.parse(e.result);
-            callBack(friends.data);
-        } else e.error ? errBack(e.error) : errBack("Unknown response");
-    });
-};
-
-exports.getRequests = function() {
-    return user.requests || [];
-};
-
-exports.setRequests = function(requests) {
-    user.requests = requests;
-};
-
-exports.getNotices = function() {
-    return user.notices || [];
-};
-
-exports.setNotices = function(notices) {
-    user.notices = notices;
-};
-
-exports.setFriendsCars = function(cars) {
-    friendsCars = cars || [];
-    Ti.App.fireEvent("friends_cars_updated", friendsCars);
-};
-
-exports.getFriendsCars = function() {
-    return friendsCars || [];
-};
-
-exports.getFriendsWithModel = function(moid) {
-    var counts = [];
-    for (var i = 0; friendsCars.length > i; i++) moid == friendsCars[i].moid && counts.push(friendsCars[i]);
-    return counts;
-};
-
-exports.canSeeModel = function(moid) {
-    if (_ownsModel(moid)) return true;
-    for (var i = 0; friendsCars.length > i; i++) if (moid == friendsCars[i].moid) return true;
-    return false;
 };
 
 exports.openPleaseWait = function() {

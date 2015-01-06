@@ -1,0 +1,11 @@
+<Alloy>
+	<TableViewRow>
+		<View id="main">
+			<Label class="txt">you currently don't have any friends</Label>
+			<Label class="txt" id="desc"></Label>
+			<View id="btn" onClick="invite" >
+				<Label id="btn_label">invite friends</Label>
+			</View>
+		</View>
+	</TableViewRow>
+</Alloy>

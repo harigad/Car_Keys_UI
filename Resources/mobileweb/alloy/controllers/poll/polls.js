@@ -1,10 +1,19 @@
+function __processArg(obj, key) {
+    var arg = null;
+    if (obj) {
+        arg = obj[key] || null;
+        delete obj[key];
+    }
+    return arg;
+}
+
 function Controller() {
     function more() {
         $.more.setText("please wait...");
         load(_created);
     }
     function load(created) {
-        var url = "http://flair.me/carkey/search.php";
+        var url = Alloy.Globals._search;
         var data = {
             type: "poll",
             moid: _data.moid,
@@ -36,9 +45,11 @@ function Controller() {
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "poll/polls";
-    arguments[0] ? arguments[0]["__parentSymbol"] : null;
-    arguments[0] ? arguments[0]["$model"] : null;
-    arguments[0] ? arguments[0]["__itemTemplate"] : null;
+    if (arguments[0]) {
+        __processArg(arguments[0], "__parentSymbol");
+        __processArg(arguments[0], "$model");
+        __processArg(arguments[0], "__itemTemplate");
+    }
     var $ = this;
     var exports = {};
     var __defers = {};
@@ -48,43 +59,6 @@ function Controller() {
         id: "polls"
     });
     $.__views.polls && $.addTopLevelView($.__views.polls);
-    $.__views.__alloyId74 = Ti.UI.createView({
-        layout: "horizontal",
-        height: Ti.UI.SIZE,
-        top: "10",
-        bottom: "0",
-        left: "0",
-        right: "10",
-        id: "__alloyId74"
-    });
-    $.__views.polls.add($.__views.__alloyId74);
-    $.__views.__alloyId75 = Ti.UI.createLabel({
-        color: "#cecece",
-        font: {
-            fontWeight: "bold",
-            fontSize: 18
-        },
-        shadowColor: "#fff",
-        shadowOffset: {
-            x: 2,
-            y: 2
-        },
-        shadowRadius: 2,
-        text: "Surveys/Polls",
-        id: "__alloyId75"
-    });
-    $.__views.__alloyId74.add($.__views.__alloyId75);
-    $.__views.__alloyId76 = Ti.UI.createLabel({
-        color: "#ffa633",
-        font: {
-            fontSize: 14
-        },
-        text: "( create new )",
-        left: "5",
-        visible: "false",
-        id: "__alloyId76"
-    });
-    $.__views.__alloyId74.add($.__views.__alloyId76);
     $.__views.container = Ti.UI.createView({
         top: 5,
         bottom: 5,
@@ -95,6 +69,19 @@ function Controller() {
         id: "container"
     });
     $.__views.polls.add($.__views.container);
+    $.__views.header = Ti.UI.createLabel({
+        font: {
+            fontSize: 12
+        },
+        left: 10,
+        top: 5,
+        bottom: 10,
+        color: "#ccc",
+        height: "Ti.UI.SIZE",
+        text: "Feed Activity",
+        id: "header"
+    });
+    $.__views.container.add($.__views.header);
     $.__views.main = Ti.UI.createView({
         id: "main",
         layout: "vertical",
@@ -103,12 +90,12 @@ function Controller() {
         bottom: "10"
     });
     $.__views.container.add($.__views.main);
-    $.__views.__alloyId77 = Ti.UI.createView({
+    $.__views.__alloyId96 = Ti.UI.createView({
         height: Ti.UI.SIZE,
-        id: "__alloyId77"
+        id: "__alloyId96"
     });
-    $.__views.container.add($.__views.__alloyId77);
-    more ? $.__views.__alloyId77.addEventListener("click", more) : __defers["$.__views.__alloyId77!click!more"] = true;
+    $.__views.container.add($.__views.__alloyId96);
+    more ? $.__views.__alloyId96.addEventListener("click", more) : __defers["$.__views.__alloyId96!click!more"] = true;
     $.__views.more = Ti.UI.createLabel({
         text: "please wait..",
         id: "more",
@@ -132,7 +119,7 @@ function Controller() {
     exports.refresh = function() {
         load();
     };
-    __defers["$.__views.__alloyId77!click!more"] && $.__views.__alloyId77.addEventListener("click", more);
+    __defers["$.__views.__alloyId96!click!more"] && $.__views.__alloyId96.addEventListener("click", more);
     _.extend($, exports);
 }
 

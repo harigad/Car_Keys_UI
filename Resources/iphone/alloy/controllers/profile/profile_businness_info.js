@@ -36,16 +36,16 @@ function Controller() {
         borderRadius: "4"
     });
     $.__views.main && $.addTopLevelView($.__views.main);
-    $.__views.__alloyId87 = Ti.UI.createView({
+    $.__views.__alloyId97 = Ti.UI.createView({
         layout: "vertical",
         height: Ti.UI.SIZE,
         width: "200",
         left: "10",
         top: "10",
-        id: "__alloyId87"
+        id: "__alloyId97"
     });
-    $.__views.main.add($.__views.__alloyId87);
-    openMap ? $.__views.__alloyId87.addEventListener("click", openMap) : __defers["$.__views.__alloyId87!click!openMap"] = true;
+    $.__views.main.add($.__views.__alloyId97);
+    openMap ? $.__views.__alloyId97.addEventListener("click", openMap) : __defers["$.__views.__alloyId97!click!openMap"] = true;
     $.__views.address_line = Ti.UI.createLabel({
         left: 0,
         color: "#ffa633",
@@ -54,7 +54,7 @@ function Controller() {
         },
         id: "address_line"
     });
-    $.__views.__alloyId87.add($.__views.address_line);
+    $.__views.__alloyId97.add($.__views.address_line);
     $.__views.city_state = Ti.UI.createLabel({
         left: 0,
         color: "#ffa633",
@@ -63,17 +63,17 @@ function Controller() {
         },
         id: "city_state"
     });
-    $.__views.__alloyId87.add($.__views.city_state);
-    $.__views.__alloyId88 = Ti.UI.createView({
+    $.__views.__alloyId97.add($.__views.city_state);
+    $.__views.__alloyId98 = Ti.UI.createView({
         layout: "horizontal",
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         right: "10",
         top: "10",
         bottom: "10",
-        id: "__alloyId88"
+        id: "__alloyId98"
     });
-    $.__views.main.add($.__views.__alloyId88);
+    $.__views.main.add($.__views.__alloyId98);
     $.__views.map = Ti.UI.createView({
         backgroundImage: "common/map_pin_50.png",
         left: "0",
@@ -83,7 +83,7 @@ function Controller() {
         backgroundColor: "#ffa633",
         borderRadius: "2"
     });
-    $.__views.__alloyId88.add($.__views.map);
+    $.__views.__alloyId98.add($.__views.map);
     openMap ? $.__views.map.addEventListener("click", openMap) : __defers["$.__views.map!click!openMap"] = true;
     $.__views.map = Ti.UI.createView({
         backgroundImage: "common/phone_50.png",
@@ -94,7 +94,7 @@ function Controller() {
         backgroundColor: "#43b51f",
         borderRadius: "2"
     });
-    $.__views.__alloyId88.add($.__views.map);
+    $.__views.__alloyId98.add($.__views.map);
     call ? $.__views.map.addEventListener("click", call) : __defers["$.__views.map!click!call"] = true;
     exports.destroy = function() {};
     _.extend($, $.__views);
@@ -113,7 +113,7 @@ function Controller() {
             $.main.setBottom(0);
         }
     };
-    __defers["$.__views.__alloyId87!click!openMap"] && $.__views.__alloyId87.addEventListener("click", openMap);
+    __defers["$.__views.__alloyId97!click!openMap"] && $.__views.__alloyId97.addEventListener("click", openMap);
     __defers["$.__views.map!click!openMap"] && $.__views.map.addEventListener("click", openMap);
     __defers["$.__views.map!click!call"] && $.__views.map.addEventListener("click", call);
     _.extend($, exports);

@@ -1,0 +1,17 @@
+"#title":{
+	left:0,
+	font:{
+		fontFamily:'Helvetica Neu',
+		fontSize:30
+	},
+	color:"#7f7f7f"
+}
+
+"#subtext":{
+	left:10,
+	font:{
+		fontFamily:'Helvetica Neu',
+		fontSize:14
+	},
+	color:"#cecece"
+}

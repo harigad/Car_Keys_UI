@@ -8,8 +8,8 @@ function __processArg(obj, key) {
 }
 
 function Controller() {
-    function goToProfile() {
-        Alloy.createController("profile/profile", {
+    function onClick() {
+        Alloy.createController("car/car", {
             _data: _data
         });
     }
@@ -23,112 +23,86 @@ function Controller() {
     var $ = this;
     var exports = {};
     var __defers = {};
-    $.__views.main = Ti.UI.createTableViewRow({
-        className: "row",
-        selectionStyle: "Titanium.UI.iPhone.TableViewCellSelectionStyle",
-        id: "main"
+    $.__views.home_square = Ti.UI.createTableViewRow({
+        id: "home_square",
+        height: Ti.UI.SIZE
     });
-    $.__views.main && $.addTopLevelView($.__views.main);
-    goToProfile ? $.__views.main.addEventListener("click", goToProfile) : __defers["$.__views.main!click!goToProfile"] = true;
-    $.__views.__alloyId59 = Ti.UI.createView({
+    $.__views.home_square && $.addTopLevelView($.__views.home_square);
+    onClick ? $.__views.home_square.addEventListener("click", onClick) : __defers["$.__views.home_square!click!onClick"] = true;
+    $.__views.main = Ti.UI.createView({
         height: Ti.UI.SIZE,
-        top: "5",
-        bottom: "5",
-        id: "__alloyId59"
+        id: "main",
+        left: "20",
+        right: "10",
+        top: "15",
+        bottom: "15"
     });
-    $.__views.main.add($.__views.__alloyId59);
-    $.__views.bar = Ti.UI.createView({
-        backgroundColor: "#ffa633",
-        height: 1,
-        left: 45,
-        id: "bar"
+    $.__views.home_square.add($.__views.main);
+    $.__views.icon = Ti.UI.createImageView({
+        id: "icon",
+        width: "50",
+        height: "50",
+        left: "0",
+        borderRadius: "25",
+        backgroundColor: "#eee"
     });
-    $.__views.__alloyId59.add($.__views.bar);
-    $.__views.container = Ti.UI.createView({
-        layout: "horizontal",
+    $.__views.main.add($.__views.icon);
+    $.__views.__alloyId63 = Ti.UI.createView({
         height: Ti.UI.SIZE,
-        id: "container"
-    });
-    $.__views.__alloyId59.add($.__views.container);
-    $.__views.photo = Ti.UI.createView({
-        left: 40,
-        width: 50,
-        height: 50,
-        backgroundColor: "#ccc",
-        borderRadius: 25,
-        borderColor: "#ccc",
-        borderWidth: 3,
-        id: "photo"
-    });
-    $.__views.container.add($.__views.photo);
-    $.__views.txtContainer = Ti.UI.createView({
-        left: 10,
-        width: Ti.UI.SIZE,
-        height: Ti.UI.SIZE,
+        left: "60",
         layout: "vertical",
-        id: "txtContainer"
+        id: "__alloyId63"
     });
-    $.__views.container.add($.__views.txtContainer);
-    $.__views.topLine = Ti.UI.createView({
-        bottom: 5,
-        left: 0,
-        width: Ti.UI.SIZE,
+    $.__views.main.add($.__views.__alloyId63);
+    $.__views.__alloyId64 = Ti.UI.createView({
         height: Ti.UI.SIZE,
         layout: "horizontal",
-        id: "topLine"
+        id: "__alloyId64"
     });
-    $.__views.txtContainer.add($.__views.topLine);
-    $.__views.name = Ti.UI.createLabel({
-        width: Ti.UI.SIZE,
-        height: Ti.UI.SIZE,
-        color: "#999",
+    $.__views.__alloyId63.add($.__views.__alloyId64);
+    $.__views.title = Ti.UI.createLabel({
+        left: "0",
         font: {
-            fontSize: 14
+            fontSize: 24
         },
-        id: "name"
-    });
-    $.__views.topLine.add($.__views.name);
-    $.__views.bottomLine = Ti.UI.createView({
-        top: 5,
-        left: 0,
-        width: Ti.UI.SIZE,
+        color: "#cecece",
         height: Ti.UI.SIZE,
-        layout: "horizontal",
-        id: "bottomLine"
-    });
-    $.__views.txtContainer.add($.__views.bottomLine);
-    $.__views.plate = Ti.UI.createLabel({
         width: Ti.UI.SIZE,
-        height: Ti.UI.SIZE,
-        color: "#333",
-        font: {
-            fontSize: 14,
-            fontWeight: "bold"
-        },
-        id: "plate"
+        id: "title"
     });
-    $.__views.bottomLine.add($.__views.plate);
-    $.__views.ridealong = Ti.UI.createLabel({
+    $.__views.__alloyId64.add($.__views.title);
+    $.__views.subtext = Ti.UI.createLabel({
         left: 5,
-        width: Ti.UI.SIZE,
-        height: Ti.UI.SIZE,
-        color: "#ffa633",
-        bubbleParent: false,
         font: {
             fontSize: 14
         },
-        text: "(check-in)",
-        id: "ridealong"
+        color: "#cecece",
+        text: "(200 pts)",
+        height: Ti.UI.SIZE,
+        width: Ti.UI.SIZE,
+        id: "subtext"
     });
-    $.__views.bottomLine.add($.__views.ridealong);
+    $.__views.__alloyId64.add($.__views.subtext);
+    $.__views.model = Ti.UI.createLabel({
+        left: 0,
+        font: {
+            fontSize: 14
+        },
+        color: "#7f7f7f",
+        text: "G35",
+        height: Ti.UI.SIZE,
+        width: Ti.UI.SIZE,
+        id: "model"
+    });
+    $.__views.__alloyId63.add($.__views.model);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var args = arguments[0] || {};
     var _data = args._data || {};
-    $.photo.setBackgroundImage(_data.photo);
-    $.name.setText(_data.name);
-    $.plate.setText(_data.model);
-    __defers["$.__views.main!click!goToProfile"] && $.__views.main.addEventListener("click", goToProfile);
+    $.icon.setImage(_data.photo);
+    $.title.setText(_data.name.split(" ")[0]);
+    $.model.setText(_data.model + " by " + _data.make);
+    __defers["$.__views.home_square!click!onClick"] && $.__views.home_square.addEventListener("click", onClick);
     _.extend($, exports);
 }
 

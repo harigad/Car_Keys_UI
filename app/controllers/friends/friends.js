@@ -1,14 +1,12 @@
 var login = require('Login');
-var loaded = false;
-
-load();
-
-$.header.setTitle("my friends");
-
+var fb = require('Friends');
+var _loaded = false;
+$.header.setTitle("friends");
 exports.open = function(){
-	if(!loaded){
+	if(!_loaded){
 		load();	
 	}
+	
 	$.header.openWindow($.friends);	
 };
 
@@ -18,36 +16,17 @@ exports.refresh = function(){
 
 function load(){
 	showPleaseWait();	
-	
-	var url = "http://services.ridealong.mobi/search.php";	
-	var _data = {type:"friends",accessToken:login.getAccessToken()};
+	fb.getFriends(function(friends){
+		build(friends);
+	},function(){
 		
- 	var client = Ti.Network.createHTTPClient({ 		
- 	 onload : function(e) {
- 	 	Ti.API.debug("User.load recieved data " + this.responseText);
- 	 	 var response = JSON.parse(this.responseText);
- 	 	 if(response.length>0){
- 	 	 	login.setFriendsCars(response);
- 	 	 }
-      	 build(response);
- 	 },
- 	 onerror: function(e){
- 		 	Ti.API.error("User.load error " + e);
- 	 }
- 	});
- 	
- 	// Prepare the connection.
- 		client.open("POST", url);
- 	// Send the request.
- 		client.send(_data);
+	});
 }
 
-
 function build(data){
-	loaded = true;
+	_loaded = true;
 	var currentMake;
 	var currentItem;
-	
 		
 	var rows = [];	
 	for(var i=0;i<data.length;i++){
@@ -59,9 +38,25 @@ function build(data){
 			var feed_item_left =  Alloy.createController("friends/friend",{_data:data[i]});
 			rows.push(feed_item_left.getView());
 	}
+	
+var header_row = Ti.UI.createTableViewRow();
+var header_label = Ti.UI.createLabel({
+	height:Ti.UI.SIZE,
+	left:20,
+	text: "+ invite a friend",
+	color:"#40a3ff",
+    font:{
+    	fontSize:40
+    }
+});
+header_row.add(header_label);
+rows.unshift(header_row);
+
+	
+	
+	
 	$.main.setData(rows);	
 }
-
 
 function showPleaseWait(){
 	$.main.setData([]);

@@ -1,11 +1,7 @@
 <Alloy>
     <View layout="vertical">
-	  	<View id="search_container" height="60" backgroundColor="#fff" layout="horizontal">
-	  		<ImageView image="common/search.png" width="20" height="20" left="20" top="20 "></ImageView>
-	  		<Label left="10" color="#999" height="20" left="10" top="20 ">friends and cars</Label>
-	  	</View>
-	  	<View backgroundColor="#fff" layout="horizontal" id="main" >
+	  	<TableView backgroundColor="#fff" id="main" separatorStyle="NONE" top="20" >
 		  
-	  	</View>
+	  	</TableView>
 	  </View>
 </Alloy>

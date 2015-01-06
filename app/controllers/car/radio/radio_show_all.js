@@ -19,7 +19,7 @@ function more(){
 }
 
 function load(created){
-	var url = "http://services.ridealong.mobi/search.php";	
+	var url = Alloy.Globals._search;	
 	var data = {type:"checkin",action:"showall",cid:_data.cid,accessToken:login.getAccessToken()};
 	
 	if(created){

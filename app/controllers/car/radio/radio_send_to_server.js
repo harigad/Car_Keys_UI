@@ -10,7 +10,7 @@ var login = require('Login');
 
 	$.radio_send_to_server.open();
 
-	var url = "http://services.ridealong.mobi/search.php";	
+	var url = Alloy.Globals._search;	
 	var _postData = {type:"editradio",cid:_cid,radio_name:_radio_name,accessToken:login.getAccessToken()};
 	
 	if(_rid){

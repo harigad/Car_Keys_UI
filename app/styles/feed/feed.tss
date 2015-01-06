@@ -1,6 +1,6 @@
 "#main":{
 	height:Ti.UI.SIZE,
-	separatorStyle: Titanium.UI.iPhone.TableViewSeparatorStyle.NONE,
+	separatorStyle: Alloy.Globals._params.TableViewSeparatorStyle.NONE,
 	scrollable:false
 }
 

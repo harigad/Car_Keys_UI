@@ -10,3 +10,10 @@
 //
 // Alloy.Globals.someGlobalFunction = function(){};
 //Alloy.Globals.Map = require('ti.map');
+
+//Alloy.Globals._search = "http://localhost/ridealong_services/search.php";
+Alloy.Globals._search = "http://services.ridealong.mobi/search.php";
+
+Alloy.Globals._params = {
+	TableViewSeparatorStyle: Titanium.UI.iPhone.TableViewSeparatorStyle
+};

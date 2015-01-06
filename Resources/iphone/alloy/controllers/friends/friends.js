@@ -10,27 +10,12 @@ function __processArg(obj, key) {
 function Controller() {
     function load() {
         showPleaseWait();
-        var url = "http://services.ridealong.mobi/search.php";
-        var _data = {
-            type: "friends",
-            accessToken: login.getAccessToken()
-        };
-        var client = Ti.Network.createHTTPClient({
-            onload: function() {
-                Ti.API.debug("User.load recieved data " + this.responseText);
-                var response = JSON.parse(this.responseText);
-                response.length > 0 && login.setFriendsCars(response);
-                build(response);
-            },
-            onerror: function(e) {
-                Ti.API.error("User.load error " + e);
-            }
-        });
-        client.open("POST", url);
-        client.send(_data);
+        fb.getFriends(function(friends) {
+            build(friends);
+        }, function() {});
     }
     function build(data) {
-        loaded = true;
+        _loaded = true;
         var currentMake;
         var rows = [];
         for (var i = 0; data.length > i; i++) {
@@ -46,6 +31,18 @@ function Controller() {
             });
             rows.push(feed_item_left.getView());
         }
+        var header_row = Ti.UI.createTableViewRow();
+        var header_label = Ti.UI.createLabel({
+            height: Ti.UI.SIZE,
+            left: 20,
+            text: "+ invite a friend",
+            color: "#40a3ff",
+            font: {
+                fontSize: 40
+            }
+        });
+        header_row.add(header_label);
+        rows.unshift(header_row);
         $.main.setData(rows);
     }
     function showPleaseWait() {
@@ -61,66 +58,23 @@ function Controller() {
     var $ = this;
     var exports = {};
     $.__views.friends = Ti.UI.createWindow({
-        backgroundColor: "#ffa633",
+        backgroundColor: "#fff",
         navBarHidden: true,
         id: "friends"
     });
     $.__views.friends && $.addTopLevelView($.__views.friends);
-    $.__views.search_container = Ti.UI.createView({
-        id: "search_container",
-        height: "60",
-        backgroundColor: "#fff",
-        layout: "horizontal"
-    });
-    $.__views.friends.add($.__views.search_container);
-    $.__views.__alloyId61 = Ti.UI.createImageView({
-        image: "common/search.png",
-        width: "20",
-        height: "20",
-        left: "20",
-        top: "20 ",
-        id: "__alloyId61"
-    });
-    $.__views.search_container.add($.__views.__alloyId61);
-    $.__views.__alloyId62 = Ti.UI.createLabel({
-        text: "friends and cars",
-        left: "10",
-        color: "#999",
-        height: "20",
-        top: "20 ",
-        id: "__alloyId62"
-    });
-    $.__views.search_container.add($.__views.__alloyId62);
     $.__views.scroll = Ti.UI.createScrollView({
         id: "scroll",
         top: "50"
     });
     $.__views.friends.add($.__views.scroll);
-    $.__views.container = Ti.UI.createView({
-        height: Ti.UI.SIZE,
-        top: 10,
-        left: 10,
-        right: 10,
-        backgroundColor: "#fff",
-        borderRadius: 4,
-        id: "container"
-    });
-    $.__views.scroll.add($.__views.container);
-    $.__views.bar = Ti.UI.createView({
-        top: 0,
-        backgroundColor: "#fff",
-        height: 30,
-        borderRadius: 4,
-        opacity: .5,
-        id: "bar"
-    });
-    $.__views.container.add($.__views.bar);
     $.__views.main = Ti.UI.createTableView({
         top: 10,
-        separatorStyle: Titanium.UI.iPhone.TableViewSeparatorStyle.NONE,
+        separatorStyle: Alloy.Globals._params.TableViewSeparatorStyle.NONE,
+        backgroundColor: "#fff",
         id: "main"
     });
-    $.__views.container.add($.__views.main);
+    $.__views.scroll.add($.__views.main);
     $.__views.header = Alloy.createController("header/header", {
         id: "header",
         __parentSymbol: $.__views.friends
@@ -128,12 +82,12 @@ function Controller() {
     $.__views.header.setParent($.__views.friends);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    var login = require("Login");
-    var loaded = false;
-    load();
-    $.header.setTitle("my friends");
+    require("Login");
+    var fb = require("Friends");
+    var _loaded = false;
+    $.header.setTitle("friends");
     exports.open = function() {
-        loaded || load();
+        _loaded || load();
         $.header.openWindow($.friends);
     };
     exports.refresh = function() {

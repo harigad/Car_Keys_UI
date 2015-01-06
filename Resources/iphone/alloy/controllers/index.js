@@ -8,6 +8,16 @@ function __processArg(obj, key) {
 }
 
 function Controller() {
+    function openHome() {
+        var home = Alloy.createController("home/home_squares");
+        $.home.add(home.getView());
+        $.nav.open();
+    }
+    function launchSignup(_callBack) {
+        Alloy.createController("signup/signup_or_skip", {
+            _callBack: _callBack
+        });
+    }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "index";
     if (arguments[0]) {
@@ -31,9 +41,9 @@ function Controller() {
     _.extend($, $.__views);
     var login = require("Login");
     login.init(function() {
-        var home = Alloy.createController("home/home_squares");
-        $.home.add(home.getView());
-        $.nav.open();
+        login.getCars().length > 0 ? openHome() : launchSignup(function() {
+            openHome();
+        });
     }, function(win) {
         $.nav.openWindow(win);
     }, function(win) {

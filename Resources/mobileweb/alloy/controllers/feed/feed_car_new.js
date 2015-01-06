@@ -1,3 +1,12 @@
+function __processArg(obj, key) {
+    var arg = null;
+    if (obj) {
+        arg = obj[key] || null;
+        delete obj[key];
+    }
+    return arg;
+}
+
 function Controller() {
     function goToUser() {
         Alloy.createController("profile/profile", {
@@ -18,18 +27,26 @@ function Controller() {
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "feed/feed_car_new";
-    arguments[0] ? arguments[0]["__parentSymbol"] : null;
-    arguments[0] ? arguments[0]["$model"] : null;
-    arguments[0] ? arguments[0]["__itemTemplate"] : null;
+    if (arguments[0]) {
+        __processArg(arguments[0], "__parentSymbol");
+        __processArg(arguments[0], "$model");
+        __processArg(arguments[0], "__itemTemplate");
+    }
     var $ = this;
     var exports = {};
     var __defers = {};
+    $.__views.feed_car_new = Ti.UI.createTableViewRow({
+        className: "row",
+        selectionStyle: Titanium.UI.iPhone.TableViewCellSelectionStyle,
+        id: "feed_car_new"
+    });
+    $.__views.feed_car_new && $.addTopLevelView($.__views.feed_car_new);
     $.__views.main = Ti.UI.createView({
         height: Ti.UI.SIZE,
         layout: "vertical",
         id: "main"
     });
-    $.__views.main && $.addTopLevelView($.__views.main);
+    $.__views.feed_car_new.add($.__views.main);
     $.__views.topView = Ti.UI.createView({
         layout: "horizontal",
         height: Ti.UI.SIZE,
@@ -116,12 +133,12 @@ function Controller() {
         id: "logo"
     });
     $.__views.logo_container.add($.__views.logo);
-    $.__views.__alloyId46 = Ti.UI.createView({
+    $.__views.__alloyId54 = Ti.UI.createView({
         height: "1",
         backgroundColor: "#cecece",
-        id: "__alloyId46"
+        id: "__alloyId54"
     });
-    $.__views.main.add($.__views.__alloyId46);
+    $.__views.main.add($.__views.__alloyId54);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");
@@ -131,8 +148,6 @@ function Controller() {
     gender = "1" === _data.gender ? "her" : "his";
     new Date(_data.created);
     $.date.setText("bought a new car");
-    $.photo.setBackgroundImage(_data.photo);
-    $.logo.setBackgroundImage("logos/48/" + _data.logo);
     $.name.setText(_data.name);
     $.desc.setText(_data.year + " " + _data.model);
     __defers["$.__views.topView!click!goToUser"] && $.__views.topView.addEventListener("click", goToUser);

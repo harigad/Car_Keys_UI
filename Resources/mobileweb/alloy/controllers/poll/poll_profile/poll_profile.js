@@ -1,6 +1,15 @@
+function __processArg(obj, key) {
+    var arg = null;
+    if (obj) {
+        arg = obj[key] || null;
+        delete obj[key];
+    }
+    return arg;
+}
+
 function Controller() {
     function load(created) {
-        var url = "http://flair.me/carkey/search.php";
+        var url = Alloy.Globals._search;
         var data = {
             type: "poll",
             pollid: _data.ouid,
@@ -32,6 +41,38 @@ function Controller() {
             });
             $.main.add(feed_item.getView());
         }
+        drawPie();
+    }
+    function drawPie() {
+        var data = [ {
+            value: 300,
+            color: "#F7464A",
+            highlight: "#FF5A5E",
+            label: "Red"
+        }, {
+            value: 50,
+            color: "#46BFBD",
+            highlight: "#5AD3D1",
+            label: "Green"
+        }, {
+            value: 100,
+            color: "#FDB45C",
+            highlight: "#FFC870",
+            label: "Yellow"
+        }, {
+            value: 40,
+            color: "#949FB1",
+            highlight: "#A8B3C5",
+            label: "Grey"
+        }, {
+            value: 120,
+            color: "#4D5360",
+            highlight: "#616774",
+            label: "Dark Grey"
+        } ];
+        Ti.App.fireEvent("drawPie", {
+            data: data
+        });
     }
     function getCountObjForOption(option, countObjArr) {
         for (var i = 0; countObjArr.length > i; i++) if (countObjArr[i].answer == option) return countObjArr[i];
@@ -39,31 +80,31 @@ function Controller() {
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "poll/poll_profile/poll_profile";
-    arguments[0] ? arguments[0]["__parentSymbol"] : null;
-    arguments[0] ? arguments[0]["$model"] : null;
-    arguments[0] ? arguments[0]["__itemTemplate"] : null;
+    if (arguments[0]) {
+        __processArg(arguments[0], "__parentSymbol");
+        __processArg(arguments[0], "$model");
+        __processArg(arguments[0], "__itemTemplate");
+    }
     var $ = this;
     var exports = {};
     $.__views.poll_profile = Ti.UI.createWindow({
         backgroundColor: "#eee",
         navBarHidden: true,
-        width: 320,
-        height: 500,
         id: "poll_profile"
     });
     $.__views.poll_profile && $.addTopLevelView($.__views.poll_profile);
     $.__views.scroll = Ti.UI.createScrollView({
         id: "scroll",
-        top: "50"
+        top: "60"
     });
     $.__views.poll_profile.add($.__views.scroll);
-    $.__views.__alloyId78 = Ti.UI.createView({
+    $.__views.__alloyId97 = Ti.UI.createView({
         layout: "vertical",
         height: Ti.UI.SIZE,
         top: "10",
-        id: "__alloyId78"
+        id: "__alloyId97"
     });
-    $.__views.scroll.add($.__views.__alloyId78);
+    $.__views.scroll.add($.__views.__alloyId97);
     $.__views.question = Ti.UI.createLabel({
         height: Ti.UI.SIZE,
         id: "question",
@@ -71,7 +112,16 @@ function Controller() {
         right: "10",
         bottom: "5"
     });
-    $.__views.__alloyId78.add($.__views.question);
+    $.__views.__alloyId97.add($.__views.question);
+    $.__views.chart = Ti.UI.createWebView({
+        id: "chart",
+        url: "chartjs/pie.html",
+        height: "300",
+        width: "300",
+        top: "5",
+        bottom: "5"
+    });
+    $.__views.__alloyId97.add($.__views.chart);
     $.__views.main = Ti.UI.createView({
         id: "main",
         borderRadius: "4",
@@ -80,9 +130,19 @@ function Controller() {
         backgroundColor: "#fff",
         left: "10",
         right: "10",
+        top: "5",
+        bottom: "5"
+    });
+    $.__views.__alloyId97.add($.__views.main);
+    $.__views.comments = Ti.UI.createView({
+        id: "comments",
+        layout: "vertical",
+        height: Ti.UI.SIZE,
+        left: "10",
+        right: "10",
         top: "5"
     });
-    $.__views.__alloyId78.add($.__views.main);
+    $.__views.__alloyId97.add($.__views.comments);
     $.__views.header = Alloy.createController("header/header", {
         id: "header",
         __parentSymbol: $.__views.poll_profile

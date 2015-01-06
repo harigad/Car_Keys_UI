@@ -1,3 +1,12 @@
+function __processArg(obj, key) {
+    var arg = null;
+    if (obj) {
+        arg = obj[key] || null;
+        delete obj[key];
+    }
+    return arg;
+}
+
 function Controller() {
     function editPlate() {
         Alloy.createController("home/edit_plate/notes", {
@@ -19,17 +28,16 @@ function Controller() {
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "home/home";
-    arguments[0] ? arguments[0]["__parentSymbol"] : null;
-    arguments[0] ? arguments[0]["$model"] : null;
-    arguments[0] ? arguments[0]["__itemTemplate"] : null;
+    if (arguments[0]) {
+        __processArg(arguments[0], "__parentSymbol");
+        __processArg(arguments[0], "$model");
+        __processArg(arguments[0], "__itemTemplate");
+    }
     var $ = this;
     var exports = {};
     var __defers = {};
-    $.__views.home = Ti.UI.createWindow({
-        backgroundColor: "#eee",
-        navBarHidden: true,
-        width: 320,
-        height: 500,
+    $.__views.home = Ti.UI.createView({
+        height: Ti.UI.FILL,
         id: "home"
     });
     $.__views.home && $.addTopLevelView($.__views.home);
@@ -37,16 +45,17 @@ function Controller() {
         height: Ti.UI.FILL,
         width: Ti.UI.FILL,
         id: "scroll",
-        top: "-120"
+        top: "-40"
     });
     $.__views.home.add($.__views.scroll);
     $.__views.profile_container = Ti.UI.createView({
-        top: "120",
+        top: "0",
         left: 0,
         width: Ti.UI.FILL,
-        height: 200,
+        height: "0",
         backgroundColor: "#ffa633",
-        id: "profile_container"
+        id: "profile_container",
+        visible: "false"
     });
     $.__views.scroll.add($.__views.profile_container);
     $.__views.plate_container = Ti.UI.createView({
@@ -80,7 +89,7 @@ function Controller() {
     $.__views.main = Ti.UI.createView({
         layout: "vertical",
         height: Ti.UI.SIZE,
-        top: 260,
+        top: 95,
         id: "main"
     });
     $.__views.scroll.add($.__views.main);
@@ -89,13 +98,9 @@ function Controller() {
         __parentSymbol: $.__views.main
     });
     $.__views.requests.setParent($.__views.main);
-    $.__views.home_menu = Alloy.createController("ridealong/home_menu", {
-        id: "home_menu",
-        __parentSymbol: $.__views.main
-    });
-    $.__views.home_menu.setParent($.__views.main);
     $.__views.feed = Alloy.createController("feed/feed", {
         id: "feed",
+        top: "100",
         __parentSymbol: $.__views.main
     });
     $.__views.feed.setParent($.__views.main);
@@ -104,13 +109,26 @@ function Controller() {
         __parentSymbol: $.__views.scroll
     });
     $.__views.pull_to_refresh.setParent($.__views.scroll);
+    $.__views.__alloyId68 = Ti.UI.createView({
+        height: "20",
+        backgroundColor: "#ffa633",
+        top: "0",
+        id: "__alloyId68"
+    });
+    $.__views.home.add($.__views.__alloyId68);
+    $.__views.home_menu = Alloy.createController("ridealong/home_menu", {
+        id: "home_menu",
+        top: "0",
+        __parentSymbol: $.__views.home
+    });
+    $.__views.home_menu.setParent($.__views.home);
     $.__views.ride_along = Ti.UI.createView({
         id: "ride_along",
         width: "111",
         height: "66",
         borderRadius: "4",
         backgroundImage: "common/ridealong_blue_text.png",
-        top: "0"
+        top: "20"
     });
     $.__views.home.add($.__views.ride_along);
     onRideAlong ? $.__views.ride_along.addEventListener("click", onRideAlong) : __defers["$.__views.ride_along!click!onRideAlong"] = true;
@@ -118,9 +136,7 @@ function Controller() {
     _.extend($, $.__views);
     var login = require("Login");
     onPlateChanged();
-    $.pull_to_refresh.init($.scroll, function() {
-        $.feed.refresh();
-    }, $.ride_along);
+    $.pull_to_refresh.init($.scroll, function() {}, $.ride_along);
     __defers["$.__views.plate_container!click!editPlate"] && $.__views.plate_container.addEventListener("click", editPlate);
     __defers["$.__views.ride_along!click!onRideAlong"] && $.__views.ride_along.addEventListener("click", onRideAlong);
     _.extend($, exports);

@@ -8,7 +8,7 @@ var login = require('Login');
 
 	$.share_send_to_server.open();
 
-	var url = "http://services.ridealong.mobi/search.php";	
+	var url = Alloy.Globals._search;	
 	var _postData = {type:"editshare",cid:_cid,accessToken:login.getAccessToken()};
 	
 	if(_delete){

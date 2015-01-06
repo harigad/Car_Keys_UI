@@ -1,31 +1,40 @@
+function __processArg(obj, key) {
+    var arg = null;
+    if (obj) {
+        arg = obj[key] || null;
+        delete obj[key];
+    }
+    return arg;
+}
+
 function Controller() {
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "car/share/share_send_to_server";
-    arguments[0] ? arguments[0]["__parentSymbol"] : null;
-    arguments[0] ? arguments[0]["$model"] : null;
-    arguments[0] ? arguments[0]["__itemTemplate"] : null;
+    if (arguments[0]) {
+        __processArg(arguments[0], "__parentSymbol");
+        __processArg(arguments[0], "$model");
+        __processArg(arguments[0], "__itemTemplate");
+    }
     var $ = this;
     var exports = {};
     $.__views.share_send_to_server = Ti.UI.createWindow({
         backgroundColor: "#ffa633",
         navBarHidden: true,
-        width: 320,
-        height: 500,
         id: "share_send_to_server"
     });
     $.__views.share_send_to_server && $.addTopLevelView($.__views.share_send_to_server);
-    $.__views.__alloyId32 = Ti.UI.createView({
+    $.__views.__alloyId37 = Ti.UI.createView({
         height: Ti.UI.SIZE,
-        id: "__alloyId32"
+        id: "__alloyId37"
     });
-    $.__views.share_send_to_server.add($.__views.__alloyId32);
-    $.__views.__alloyId33 = Ti.UI.createLabel({
+    $.__views.share_send_to_server.add($.__views.__alloyId37);
+    $.__views.__alloyId38 = Ti.UI.createLabel({
         text: "Updating..",
         height: Ti.UI.SIZE,
         color: "#fff",
-        id: "__alloyId33"
+        id: "__alloyId38"
     });
-    $.__views.__alloyId32.add($.__views.__alloyId33);
+    $.__views.__alloyId37.add($.__views.__alloyId38);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");
@@ -35,7 +44,7 @@ function Controller() {
     var _delete = args._delete;
     var _callBack = args._callBack;
     $.share_send_to_server.open();
-    var url = "http://flair.me/carkey/search.php";
+    var url = Alloy.Globals._search;
     var _postData = {
         type: "editshare",
         cid: _cid,

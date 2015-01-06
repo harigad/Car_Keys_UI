@@ -23,18 +23,18 @@ function Controller() {
         id: "share_send_to_server"
     });
     $.__views.share_send_to_server && $.addTopLevelView($.__views.share_send_to_server);
-    $.__views.__alloyId35 = Ti.UI.createView({
+    $.__views.__alloyId37 = Ti.UI.createView({
         height: Ti.UI.SIZE,
-        id: "__alloyId35"
+        id: "__alloyId37"
     });
-    $.__views.share_send_to_server.add($.__views.__alloyId35);
-    $.__views.__alloyId36 = Ti.UI.createLabel({
+    $.__views.share_send_to_server.add($.__views.__alloyId37);
+    $.__views.__alloyId38 = Ti.UI.createLabel({
         text: "Updating..",
         height: Ti.UI.SIZE,
         color: "#fff",
-        id: "__alloyId36"
+        id: "__alloyId38"
     });
-    $.__views.__alloyId35.add($.__views.__alloyId36);
+    $.__views.__alloyId37.add($.__views.__alloyId38);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");
@@ -44,7 +44,7 @@ function Controller() {
     var _delete = args._delete;
     var _callBack = args._callBack;
     $.share_send_to_server.open();
-    var url = "http://services.ridealong.mobi/search.php";
+    var url = Alloy.Globals._search;
     var _postData = {
         type: "editshare",
         cid: _cid,

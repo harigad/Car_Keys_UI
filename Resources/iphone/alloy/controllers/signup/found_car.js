@@ -9,7 +9,7 @@ function __processArg(obj, key) {
 
 function Controller() {
     function onVerify() {
-        step_invite();
+        showing_invite ? send_to_server() : step_invite();
     }
     function step_invite() {
         var animation = Titanium.UI.createAnimation();
@@ -18,13 +18,15 @@ function Controller() {
         var animationHandler = function() {
             showing_invite = true;
             animation.removeEventListener("complete", animationHandler);
+            $.model.setText("Congratulations!");
+            $.invite_text.setText("This " + _data.model + " has been added to your profile");
             $.invite_text.setHeight(100);
             $.invite_text.setTop(10);
             $.invite_text.setVisible(true);
-            $.btn_container_label.setText("INVITE NOW");
-            $.cancel_btn_label.setText("I WILL INVITE LATER!");
+            $.btn_container_label.setLeft(40);
+            $.btn_container_label.setRight(40);
+            $.btn_container_label.setText("OK");
             $.btn_container.setVisible(true);
-            $.cancel_container.setVisible(true);
         };
         animation.addEventListener("complete", animationHandler);
         $.btn_container.setVisible(false);
@@ -149,10 +151,8 @@ function Controller() {
         });
     }
     function onCancel() {
-        if (showing_invite) send_to_server(); else {
-            _callBack();
-            $.found_car.close();
-        }
+        _callBack();
+        $.found_car.close();
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "signup/found_car";
@@ -165,7 +165,7 @@ function Controller() {
     var exports = {};
     var __defers = {};
     $.__views.found_car = Ti.UI.createWindow({
-        backgroundColor: "#ffa633",
+        backgroundColor: "#f1f1f1",
         navBarHidden: true,
         id: "found_car"
     });
@@ -204,21 +204,31 @@ function Controller() {
         font: {
             fontSize: 36
         },
-        color: "#fff",
+        color: "#ccc",
+        shadowColor: "#fff",
+        shadowOffset: {
+            x: 1,
+            y: 1
+        },
+        shadowRadius: 3,
         id: "model"
     });
     $.__views.main.add($.__views.model);
     $.__views.invite_text = Ti.UI.createLabel({
-        height: 0,
-        visible: false,
-        left: 10,
-        right: 10,
-        top: 0,
+        height: Ti.UI.SIZE,
+        left: 20,
+        right: 20,
         font: {
-            fontSize: 12
+            fontSize: 18
         },
-        color: "#fff",
-        text: "One last step..You still have to verify your ownership of this Camaro.To do this you will need atleast atleast 3 friends to send you check-in requests to your Camaro.",
+        color: "#ccc",
+        shadowColor: "#fff",
+        shadowOffset: {
+            x: 1,
+            y: 1
+        },
+        shadowRadius: 3,
+        text: "",
         id: "invite_text"
     });
     $.__views.main.add($.__views.invite_text);
@@ -226,7 +236,7 @@ function Controller() {
         top: 20,
         height: Ti.UI.SIZE,
         width: Ti.UI.SIZE,
-        backgroundColor: "#fff",
+        backgroundColor: "#666",
         borderRadius: 4,
         borderWidth: .5,
         borderColor: "#fff",
@@ -244,7 +254,7 @@ function Controller() {
         font: {
             fontSize: 16
         },
-        color: "#ffa633",
+        color: "#fff",
         text: "Yes! This is my car!",
         id: "btn_container_label"
     });
@@ -253,7 +263,7 @@ function Controller() {
         top: 20,
         height: Ti.UI.SIZE,
         width: Ti.UI.SIZE,
-        backgroundColor: "#aaa",
+        backgroundColor: "#666",
         borderRadius: 4,
         borderWidth: .5,
         borderColor: "#fff",
@@ -271,7 +281,7 @@ function Controller() {
         font: {
             fontSize: 11
         },
-        color: "#fff",
+        color: "#ccc",
         text: "This is not my car!",
         id: "cancel_btn_label"
     });

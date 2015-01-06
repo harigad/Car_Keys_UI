@@ -32,11 +32,11 @@ function Controller() {
         id: "notes"
     });
     $.__views.notes && $.addTopLevelView($.__views.notes);
-    $.__views.__alloyId73 = Ti.UI.createView({
+    $.__views.__alloyId77 = Ti.UI.createView({
         layout: "vertical",
-        id: "__alloyId73"
+        id: "__alloyId77"
     });
-    $.__views.notes.add($.__views.__alloyId73);
+    $.__views.notes.add($.__views.__alloyId77);
     $.__views.title = Ti.UI.createLabel({
         top: 20,
         height: Ti.UI.SIZE,
@@ -57,17 +57,17 @@ function Controller() {
         text: "Few things about your Bumper Sticker",
         id: "title"
     });
-    $.__views.__alloyId73.add($.__views.title);
-    $.__views.__alloyId74 = Ti.UI.createView({
+    $.__views.__alloyId77.add($.__views.title);
+    $.__views.__alloyId78 = Ti.UI.createView({
         left: "10",
         right: "10",
         bottom: "10",
         height: Ti.UI.SIZE,
         layout: "vertical",
-        id: "__alloyId74"
+        id: "__alloyId78"
     });
-    $.__views.__alloyId73.add($.__views.__alloyId74);
-    $.__views.__alloyId75 = Ti.UI.createLabel({
+    $.__views.__alloyId77.add($.__views.__alloyId78);
+    $.__views.__alloyId79 = Ti.UI.createLabel({
         left: 10,
         right: 10,
         height: Ti.UI.SIZE,
@@ -78,10 +78,10 @@ function Controller() {
             fontSize: 14
         },
         text: "* Your Bumper Sticker is unique..ie no one else can have the same plate while you still have it",
-        id: "__alloyId75"
+        id: "__alloyId79"
     });
-    $.__views.__alloyId74.add($.__views.__alloyId75);
-    $.__views.__alloyId76 = Ti.UI.createLabel({
+    $.__views.__alloyId78.add($.__views.__alloyId79);
+    $.__views.__alloyId80 = Ti.UI.createLabel({
         left: 10,
         right: 10,
         height: Ti.UI.SIZE,
@@ -92,10 +92,10 @@ function Controller() {
             fontSize: 14
         },
         text: "* You can change your Bumper Sticker at any time",
-        id: "__alloyId76"
+        id: "__alloyId80"
     });
-    $.__views.__alloyId74.add($.__views.__alloyId76);
-    $.__views.__alloyId77 = Ti.UI.createLabel({
+    $.__views.__alloyId78.add($.__views.__alloyId80);
+    $.__views.__alloyId81 = Ti.UI.createLabel({
         left: 10,
         right: 10,
         height: Ti.UI.SIZE,
@@ -106,10 +106,10 @@ function Controller() {
             fontSize: 14
         },
         text: "* Stickers can be upto 10 digits long..not including the spaces",
-        id: "__alloyId77"
+        id: "__alloyId81"
     });
-    $.__views.__alloyId74.add($.__views.__alloyId77);
-    $.__views.__alloyId78 = Ti.UI.createLabel({
+    $.__views.__alloyId78.add($.__views.__alloyId81);
+    $.__views.__alloyId82 = Ti.UI.createLabel({
         left: 10,
         right: 10,
         height: Ti.UI.SIZE,
@@ -120,9 +120,9 @@ function Controller() {
             fontSize: 14
         },
         text: "* You must have at least one vehichle before you can create your Bumper Sticker",
-        id: "__alloyId78"
+        id: "__alloyId82"
     });
-    $.__views.__alloyId74.add($.__views.__alloyId78);
+    $.__views.__alloyId78.add($.__views.__alloyId82);
     $.__views.continue_btn = Ti.UI.createView({
         backgroundColor: "#f49033",
         borderRadius: 4,
@@ -133,7 +133,7 @@ function Controller() {
         height: Ti.UI.SIZE,
         id: "continue_btn"
     });
-    $.__views.__alloyId73.add($.__views.continue_btn);
+    $.__views.__alloyId77.add($.__views.continue_btn);
     onOk ? $.__views.continue_btn.addEventListener("click", onOk) : __defers["$.__views.continue_btn!click!onOk"] = true;
     $.__views.continue_btn_label = Ti.UI.createLabel({
         top: 20,

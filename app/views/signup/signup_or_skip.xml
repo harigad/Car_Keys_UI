@@ -1,0 +1,12 @@
+<Alloy>
+	<Window>
+	  <View id="container">
+	  	<View class="btn" onClick="add" >
+	  		<Label class="btn_label">ADD MY CAR</Label>
+	  	</View>
+	  	<View class="btn" id="skip_btn" onClick="skip" >
+	  		<Label class="btn_label" id="skip_btn_label">skip</Label>
+	  	</View>
+	  </View>
+	</Window>
+</Alloy>

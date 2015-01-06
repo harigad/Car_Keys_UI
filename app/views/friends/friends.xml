@@ -1,14 +1,7 @@
 <Alloy>
 	<Window>
-		<View id="search_container" height="60" backgroundColor="#fff" layout="horizontal">
-	  		<ImageView image="common/search.png" width="20" height="20" left="20" top="20 "></ImageView>
-	  		<Label left="10" color="#999" height="20" left="10" top="20 ">friends and cars</Label>
-	  	</View>
 		<ScrollView id="scroll" top="50" >
-			<View id="container" >
-				<View id="bar"></View>
 				<TableView id="main"></TableView>
-			</View>
 		</ScrollView>
 		<Require type="view" src="header/header" id="header"/>
 	</Window>

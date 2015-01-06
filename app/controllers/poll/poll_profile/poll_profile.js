@@ -10,7 +10,7 @@ load();
 $.header.openWindow($.poll_profile);
 
 function load(created){
-	var url = "http://services.ridealong.mobi/search.php";	
+	var url = Alloy.Globals._search;	
 	var data = {type:"poll",pollid:_data.ouid,action:"summary",accessToken:login.getAccessToken()};
 	
 	if(created){

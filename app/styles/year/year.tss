@@ -1,0 +1,20 @@
+"Window":{
+	backgroundColor:"#f1f1f1",navBarHidden:true
+}
+
+
+"#main":{
+	top:0,separatorStyle: Alloy.Globals._params.TableViewSeparatorStyle.NONE
+}
+
+"#name":{
+	width:Ti.UI.SIZE,
+	height:Ti.UI.SIZE,
+	font:{
+		fontSize:80
+	},
+	color:"#cecece",
+	shadowColor: '#fff',
+    shadowOffset: {x:1, y:1},
+    shadowRadius: 3,
+}

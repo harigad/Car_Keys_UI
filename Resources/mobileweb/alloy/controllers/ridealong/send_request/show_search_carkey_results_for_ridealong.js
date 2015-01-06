@@ -1,3 +1,12 @@
+function __processArg(obj, key) {
+    var arg = null;
+    if (obj) {
+        arg = obj[key] || null;
+        delete obj[key];
+    }
+    return arg;
+}
+
 function Controller() {
     function onCancel() {
         _callBack(false);
@@ -5,38 +14,44 @@ function Controller() {
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "ridealong/send_request/show_search_carkey_results_for_ridealong";
-    arguments[0] ? arguments[0]["__parentSymbol"] : null;
-    arguments[0] ? arguments[0]["$model"] : null;
-    arguments[0] ? arguments[0]["__itemTemplate"] : null;
+    if (arguments[0]) {
+        __processArg(arguments[0], "__parentSymbol");
+        __processArg(arguments[0], "$model");
+        __processArg(arguments[0], "__itemTemplate");
+    }
     var $ = this;
     var exports = {};
     var __defers = {};
     $.__views.show_search_carkey_results_for_ridealong = Ti.UI.createWindow({
         backgroundColor: "#ffa633",
-        width: "320",
-        height: "500",
         id: "show_search_carkey_results_for_ridealong"
     });
     $.__views.show_search_carkey_results_for_ridealong && $.addTopLevelView($.__views.show_search_carkey_results_for_ridealong);
-    $.__views.__alloyId115 = Ti.UI.createView({
-        height: "50",
-        backgroundColor: "#f49033",
+    $.__views.__alloyId132 = Ti.UI.createView({
         top: "0",
-        id: "__alloyId115"
+        height: "60",
+        backgroundColor: "#f49033",
+        id: "__alloyId132"
     });
-    $.__views.show_search_carkey_results_for_ridealong.add($.__views.__alloyId115);
-    $.__views.__alloyId116 = Ti.UI.createView({
+    $.__views.show_search_carkey_results_for_ridealong.add($.__views.__alloyId132);
+    $.__views.__alloyId133 = Ti.UI.createView({
+        top: "10",
+        height: "50",
+        id: "__alloyId133"
+    });
+    $.__views.__alloyId132.add($.__views.__alloyId133);
+    $.__views.__alloyId134 = Ti.UI.createView({
         top: 10,
         height: 30,
         width: 50,
         backgroundColor: "#ffa633",
         borderRadius: 4,
         left: "10",
-        id: "__alloyId116"
+        id: "__alloyId134"
     });
-    $.__views.__alloyId115.add($.__views.__alloyId116);
-    onCancel ? $.__views.__alloyId116.addEventListener("click", onCancel) : __defers["$.__views.__alloyId116!click!onCancel"] = true;
-    $.__views.__alloyId117 = Ti.UI.createLabel({
+    $.__views.__alloyId133.add($.__views.__alloyId134);
+    onCancel ? $.__views.__alloyId134.addEventListener("click", onCancel) : __defers["$.__views.__alloyId134!click!onCancel"] = true;
+    $.__views.__alloyId135 = Ti.UI.createLabel({
         height: Ti.UI.SIZE,
         width: Ti.UI.SIZE,
         font: {
@@ -44,9 +59,9 @@ function Controller() {
         },
         color: "#fff",
         text: "cancel",
-        id: "__alloyId117"
+        id: "__alloyId135"
     });
-    $.__views.__alloyId116.add($.__views.__alloyId117);
+    $.__views.__alloyId134.add($.__views.__alloyId135);
     $.__views.question = Ti.UI.createLabel({
         height: Ti.UI.SIZE,
         font: {
@@ -57,7 +72,7 @@ function Controller() {
         text: "RideAlong",
         id: "question"
     });
-    $.__views.__alloyId115.add($.__views.question);
+    $.__views.__alloyId133.add($.__views.question);
     $.__views.main = Ti.UI.createView({
         id: "main",
         height: Ti.UI.SIZE,
@@ -95,7 +110,7 @@ function Controller() {
         id = _data[i].id;
     }
     $.show_search_carkey_results_for_ridealong.open();
-    __defers["$.__views.__alloyId116!click!onCancel"] && $.__views.__alloyId116.addEventListener("click", onCancel);
+    __defers["$.__views.__alloyId134!click!onCancel"] && $.__views.__alloyId134.addEventListener("click", onCancel);
     _.extend($, exports);
 }
 

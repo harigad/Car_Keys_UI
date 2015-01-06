@@ -1,0 +1,46 @@
+"Window": {
+	backgroundColor:"#f1f1f1",navBarHidden:true
+}
+
+"#main":{
+	layout:"vertical",
+	height:Ti.UI.SIZE,top:20,
+	left:20,right:20
+}
+
+".title": {
+	left:10,
+	top:15,
+  	color:"#666",
+	font:{
+    	fontSize:16
+    }
+}
+
+"#header":{
+	color:"#ccc",
+	shadowColor: '#fff',
+    shadowOffset: {x:1, y:1},
+    shadowRadius: 3,
+    font:{
+    	fontSize:36
+    }
+}
+
+
+".btn":{
+	left:20,
+	right:20,
+	height:Ti.UI.SIZE,
+	top:30,
+	borderRadius:4,
+	backgroundColor:"#40a3ff"
+}
+
+".btn_label":{
+	color:"#fff",
+	top:20,
+	bottom:20,
+	width:Ti.UI.SIZE,
+	height:Ti.UI.SIZE
+}

@@ -22,7 +22,7 @@ function goToUser(){
 }
 
 function save(){
-	var url = "http://services.ridealong.mobi/search.php";	
+	var url = Alloy.Globals._search;	
 	var data = {type:"comments",fid:_pollid,data:_data.data,action:"add",accessToken:login.getAccessToken()};
 
  	var client = Ti.Network.createHTTPClient({ 		
@@ -46,7 +46,7 @@ function onDelete(){
 	$.main.setHeight(0);
 	$.main.setVisible(false);
 	
-	var url = "http://services.ridealong.mobi/search.php";	
+	var url = Alloy.Globals._search;	
 	var data = {type:"comments",fid:_pollid,coid:_data.coid,action:"delete",accessToken:login.getAccessToken()};
 
  	var client = Ti.Network.createHTTPClient({ 		

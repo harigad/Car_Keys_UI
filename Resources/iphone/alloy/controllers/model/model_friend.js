@@ -42,19 +42,19 @@ function Controller() {
         id: "photo"
     });
     $.__views.model_friend.add($.__views.photo);
-    $.__views.__alloyId80 = Ti.UI.createView({
+    $.__views.__alloyId88 = Ti.UI.createView({
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
-        id: "__alloyId80"
+        id: "__alloyId88"
     });
-    $.__views.model_friend.add($.__views.__alloyId80);
+    $.__views.model_friend.add($.__views.__alloyId88);
     $.__views.name = Ti.UI.createLabel({
         left: 10,
         color: "#ffa633",
         text: "NAME",
         id: "name"
     });
-    $.__views.__alloyId80.add($.__views.name);
+    $.__views.__alloyId88.add($.__views.name);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var args = arguments[0] || {};

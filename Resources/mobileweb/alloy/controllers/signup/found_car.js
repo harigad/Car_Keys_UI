@@ -1,6 +1,37 @@
+function __processArg(obj, key) {
+    var arg = null;
+    if (obj) {
+        arg = obj[key] || null;
+        delete obj[key];
+    }
+    return arg;
+}
+
 function Controller() {
     function onVerify() {
-        step_4({});
+        showing_invite ? send_to_server() : step_invite();
+    }
+    function step_invite() {
+        var animation = Titanium.UI.createAnimation();
+        animation.height = "400";
+        animation.duration = 1e3;
+        var animationHandler = function() {
+            showing_invite = true;
+            animation.removeEventListener("complete", animationHandler);
+            $.model.setText("Congratulations!");
+            $.invite_text.setText("This " + _data.model + " has been added to your profile");
+            $.invite_text.setHeight(100);
+            $.invite_text.setTop(10);
+            $.invite_text.setVisible(true);
+            $.btn_container_label.setLeft(40);
+            $.btn_container_label.setRight(40);
+            $.btn_container_label.setText("OK");
+            $.btn_container.setVisible(true);
+        };
+        animation.addEventListener("complete", animationHandler);
+        $.btn_container.setVisible(false);
+        $.cancel_container.setVisible(false);
+        $.main.animate(animation);
     }
     function step_1() {
         var _answer = parseInt(_data.year);
@@ -125,17 +156,17 @@ function Controller() {
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "signup/found_car";
-    var __parentSymbol = arguments[0] ? arguments[0]["__parentSymbol"] : null;
-    var $model = arguments[0] ? arguments[0]["$model"] : null;
-    var __itemTemplate = arguments[0] ? arguments[0]["__itemTemplate"] : null;
+    if (arguments[0]) {
+        var __parentSymbol = __processArg(arguments[0], "__parentSymbol");
+        var $model = __processArg(arguments[0], "$model");
+        var __itemTemplate = __processArg(arguments[0], "__itemTemplate");
+    }
     var $ = this;
     var exports = {};
     var __defers = {};
     $.__views.found_car = Ti.UI.createWindow({
-        backgroundColor: "#ffa633",
+        backgroundColor: "#f1f1f1",
         navBarHidden: true,
-        width: 320,
-        height: 500,
         id: "found_car"
     });
     $.__views.found_car && $.addTopLevelView($.__views.found_car);
@@ -173,16 +204,39 @@ function Controller() {
         font: {
             fontSize: 36
         },
-        color: "#fff",
-        text: "Murano",
+        color: "#ccc",
+        shadowColor: "#fff",
+        shadowOffset: {
+            x: 1,
+            y: 1
+        },
+        shadowRadius: 3,
         id: "model"
     });
     $.__views.main.add($.__views.model);
+    $.__views.invite_text = Ti.UI.createLabel({
+        height: Ti.UI.SIZE,
+        left: 20,
+        right: 20,
+        font: {
+            fontSize: 18
+        },
+        color: "#ccc",
+        shadowColor: "#fff",
+        shadowOffset: {
+            x: 1,
+            y: 1
+        },
+        shadowRadius: 3,
+        text: "",
+        id: "invite_text"
+    });
+    $.__views.main.add($.__views.invite_text);
     $.__views.btn_container = Ti.UI.createView({
         top: 20,
         height: Ti.UI.SIZE,
         width: Ti.UI.SIZE,
-        backgroundColor: "#fff",
+        backgroundColor: "#666",
         borderRadius: 4,
         borderWidth: .5,
         borderColor: "#fff",
@@ -190,7 +244,7 @@ function Controller() {
     });
     $.__views.main.add($.__views.btn_container);
     onVerify ? $.__views.btn_container.addEventListener("click", onVerify) : __defers["$.__views.btn_container!click!onVerify"] = true;
-    $.__views.__alloyId124 = Ti.UI.createLabel({
+    $.__views.btn_container_label = Ti.UI.createLabel({
         left: 20,
         right: 20,
         top: 10,
@@ -200,16 +254,16 @@ function Controller() {
         font: {
             fontSize: 16
         },
-        color: "#ffa633",
-        text: "Verify My Ownership",
-        id: "__alloyId124"
+        color: "#fff",
+        text: "Yes! This is my car!",
+        id: "btn_container_label"
     });
-    $.__views.btn_container.add($.__views.__alloyId124);
+    $.__views.btn_container.add($.__views.btn_container_label);
     $.__views.cancel_container = Ti.UI.createView({
         top: 20,
         height: Ti.UI.SIZE,
         width: Ti.UI.SIZE,
-        backgroundColor: "#aaa",
+        backgroundColor: "#666",
         borderRadius: 4,
         borderWidth: .5,
         borderColor: "#fff",
@@ -217,7 +271,7 @@ function Controller() {
     });
     $.__views.main.add($.__views.cancel_container);
     onCancel ? $.__views.cancel_container.addEventListener("click", onCancel) : __defers["$.__views.cancel_container!click!onCancel"] = true;
-    $.__views.cancel_btn = Ti.UI.createLabel({
+    $.__views.cancel_btn_label = Ti.UI.createLabel({
         left: 20,
         right: 20,
         top: 10,
@@ -227,11 +281,11 @@ function Controller() {
         font: {
             fontSize: 11
         },
-        color: "#fff",
+        color: "#ccc",
         text: "This is not my car!",
-        id: "cancel_btn"
+        id: "cancel_btn_label"
     });
-    $.__views.cancel_container.add($.__views.cancel_btn);
+    $.__views.cancel_container.add($.__views.cancel_btn_label);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");
@@ -242,6 +296,7 @@ function Controller() {
     $.found_car.open();
     $.logo.setBackgroundImage("logos/48/" + _data.logo);
     $.model.setText(_data.model);
+    var showing_invite = false;
     __defers["$.__views.btn_container!click!onVerify"] && $.__views.btn_container.addEventListener("click", onVerify);
     __defers["$.__views.cancel_container!click!onCancel"] && $.__views.cancel_container.addEventListener("click", onCancel);
     _.extend($, exports);

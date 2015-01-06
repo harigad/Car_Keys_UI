@@ -91,15 +91,15 @@ function Controller() {
         id: "name"
     });
     $.__views.topRight.add($.__views.name);
-    $.__views.__alloyId54 = Ti.UI.createView({
+    $.__views.__alloyId58 = Ti.UI.createView({
         left: "0",
         height: Ti.UI.SIZE,
         layout: "horizontal",
         width: Ti.UI.SIZE,
-        id: "__alloyId54"
+        id: "__alloyId58"
     });
-    $.__views.topRight.add($.__views.__alloyId54);
-    $.__views.__alloyId55 = Ti.UI.createLabel({
+    $.__views.topRight.add($.__views.__alloyId58);
+    $.__views.__alloyId59 = Ti.UI.createLabel({
         right: 3,
         height: Ti.UI.SIZE,
         color: "#aaa",
@@ -107,9 +107,9 @@ function Controller() {
             fontSize: 12
         },
         text: "was",
-        id: "__alloyId55"
+        id: "__alloyId59"
     });
-    $.__views.__alloyId54.add($.__views.__alloyId55);
+    $.__views.__alloyId58.add($.__views.__alloyId59);
     $.__views.date_0 = Ti.UI.createLabel({
         right: 3,
         height: Ti.UI.SIZE,
@@ -119,7 +119,7 @@ function Controller() {
         },
         id: "date_0"
     });
-    $.__views.__alloyId54.add($.__views.date_0);
+    $.__views.__alloyId58.add($.__views.date_0);
     $.__views.date_1 = Ti.UI.createLabel({
         right: 3,
         height: Ti.UI.SIZE,
@@ -129,7 +129,7 @@ function Controller() {
         },
         id: "date_1"
     });
-    $.__views.__alloyId54.add($.__views.date_1);
+    $.__views.__alloyId58.add($.__views.date_1);
     $.__views.date_2 = Ti.UI.createLabel({
         right: 3,
         height: Ti.UI.SIZE,
@@ -139,7 +139,7 @@ function Controller() {
         },
         id: "date_2"
     });
-    $.__views.__alloyId54.add($.__views.date_2);
+    $.__views.__alloyId58.add($.__views.date_2);
     $.__views.date_3 = Ti.UI.createLabel({
         right: 3,
         height: Ti.UI.SIZE,
@@ -149,7 +149,7 @@ function Controller() {
         },
         id: "date_3"
     });
-    $.__views.__alloyId54.add($.__views.date_3);
+    $.__views.__alloyId58.add($.__views.date_3);
     $.__views.bottomView = Ti.UI.createView({
         left: 55,
         layout: "horizontal",
@@ -183,12 +183,12 @@ function Controller() {
         left: "5"
     });
     $.__views.bottomView.add($.__views.desc);
-    $.__views.__alloyId56 = Ti.UI.createView({
+    $.__views.__alloyId60 = Ti.UI.createView({
         height: "1",
         backgroundColor: "#cecece",
-        id: "__alloyId56"
+        id: "__alloyId60"
     });
-    $.__views.main.add($.__views.__alloyId56);
+    $.__views.main.add($.__views.__alloyId60);
     exports.destroy = function() {};
     _.extend($, $.__views);
     require("Login");

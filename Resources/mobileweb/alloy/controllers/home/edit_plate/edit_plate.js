@@ -1,3 +1,12 @@
+function __processArg(obj, key) {
+    var arg = null;
+    if (obj) {
+        arg = obj[key] || null;
+        delete obj[key];
+    }
+    return arg;
+}
+
 function Controller() {
     function onFocus() {
         $.plate.focus();
@@ -18,7 +27,7 @@ function Controller() {
         _callBack();
     }
     function send_to_server() {
-        var url = "http://flair.me/carkey/search.php";
+        var url = Alloy.Globals._search;
         var _postData = {
             type: "editplate",
             plate: $.plate.getValue().toUpperCase(),
@@ -38,45 +47,51 @@ function Controller() {
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "home/edit_plate/edit_plate";
-    arguments[0] ? arguments[0]["__parentSymbol"] : null;
-    arguments[0] ? arguments[0]["$model"] : null;
-    arguments[0] ? arguments[0]["__itemTemplate"] : null;
+    if (arguments[0]) {
+        __processArg(arguments[0], "__parentSymbol");
+        __processArg(arguments[0], "$model");
+        __processArg(arguments[0], "__itemTemplate");
+    }
     var $ = this;
     var exports = {};
     var __defers = {};
     $.__views.edit_plate = Ti.UI.createWindow({
         backgroundColor: "#ffa633",
         navBarHidden: true,
-        width: 320,
-        height: 500,
         id: "edit_plate"
     });
     $.__views.edit_plate && $.addTopLevelView($.__views.edit_plate);
     onFocus ? $.__views.edit_plate.addEventListener("focus", onFocus) : __defers["$.__views.edit_plate!focus!onFocus"] = true;
-    $.__views.__alloyId55 = Ti.UI.createView({
+    $.__views.__alloyId70 = Ti.UI.createView({
         layout: "vertical",
-        id: "__alloyId55"
+        id: "__alloyId70"
     });
-    $.__views.edit_plate.add($.__views.__alloyId55);
-    $.__views.__alloyId56 = Ti.UI.createView({
-        height: "50",
+    $.__views.edit_plate.add($.__views.__alloyId70);
+    $.__views.__alloyId71 = Ti.UI.createView({
+        height: Ti.UI.SIZE,
         backgroundColor: "#f49033",
-        top: "0",
-        id: "__alloyId56"
+        layout: "vertical",
+        id: "__alloyId71"
     });
-    $.__views.__alloyId55.add($.__views.__alloyId56);
-    $.__views.__alloyId57 = Ti.UI.createView({
+    $.__views.__alloyId70.add($.__views.__alloyId71);
+    $.__views.__alloyId72 = Ti.UI.createView({
+        height: "50",
+        top: "10",
+        id: "__alloyId72"
+    });
+    $.__views.__alloyId71.add($.__views.__alloyId72);
+    $.__views.__alloyId73 = Ti.UI.createView({
         top: 10,
         height: 30,
         width: 50,
         backgroundColor: "#ffa633",
         borderRadius: 4,
         left: "10",
-        id: "__alloyId57"
+        id: "__alloyId73"
     });
-    $.__views.__alloyId56.add($.__views.__alloyId57);
-    onCancel ? $.__views.__alloyId57.addEventListener("click", onCancel) : __defers["$.__views.__alloyId57!click!onCancel"] = true;
-    $.__views.__alloyId58 = Ti.UI.createLabel({
+    $.__views.__alloyId72.add($.__views.__alloyId73);
+    onCancel ? $.__views.__alloyId73.addEventListener("click", onCancel) : __defers["$.__views.__alloyId73!click!onCancel"] = true;
+    $.__views.__alloyId74 = Ti.UI.createLabel({
         height: Ti.UI.SIZE,
         width: Ti.UI.SIZE,
         font: {
@@ -84,9 +99,9 @@ function Controller() {
         },
         color: "#fff",
         text: "cancel",
-        id: "__alloyId58"
+        id: "__alloyId74"
     });
-    $.__views.__alloyId57.add($.__views.__alloyId58);
+    $.__views.__alloyId73.add($.__views.__alloyId74);
     $.__views.question = Ti.UI.createLabel({
         height: Ti.UI.SIZE,
         font: {
@@ -97,29 +112,29 @@ function Controller() {
         text: "Create Bumper Sticker",
         id: "question"
     });
-    $.__views.__alloyId56.add($.__views.question);
-    $.__views.__alloyId59 = Ti.UI.createView({
+    $.__views.__alloyId72.add($.__views.question);
+    $.__views.__alloyId75 = Ti.UI.createView({
         top: 10,
         height: 30,
         width: 50,
         backgroundColor: "#ffa633",
         borderRadius: 4,
         right: "10",
-        id: "__alloyId59"
+        id: "__alloyId75"
     });
-    $.__views.__alloyId56.add($.__views.__alloyId59);
-    onEdit ? $.__views.__alloyId59.addEventListener("click", onEdit) : __defers["$.__views.__alloyId59!click!onEdit"] = true;
-    $.__views.__alloyId60 = Ti.UI.createLabel({
+    $.__views.__alloyId72.add($.__views.__alloyId75);
+    onEdit ? $.__views.__alloyId75.addEventListener("click", onEdit) : __defers["$.__views.__alloyId75!click!onEdit"] = true;
+    $.__views.__alloyId76 = Ti.UI.createLabel({
         height: Ti.UI.SIZE,
         width: Ti.UI.SIZE,
         font: {
             fontSize: 11
         },
         color: "#fff",
-        text: "send",
-        id: "__alloyId60"
+        text: "save",
+        id: "__alloyId76"
     });
-    $.__views.__alloyId59.add($.__views.__alloyId60);
+    $.__views.__alloyId75.add($.__views.__alloyId76);
     $.__views.plate = Ti.UI.createTextField({
         height: 100,
         left: 10,
@@ -134,7 +149,7 @@ function Controller() {
         id: "plate",
         hintText: ""
     });
-    $.__views.__alloyId55.add($.__views.plate);
+    $.__views.__alloyId70.add($.__views.plate);
     onEdit ? $.__views.plate.addEventListener("return", onEdit) : __defers["$.__views.plate!return!onEdit"] = true;
     exports.destroy = function() {};
     _.extend($, $.__views);
@@ -145,8 +160,8 @@ function Controller() {
     plateText && $.plate.setValue(plateText.toUpperCase());
     $.edit_plate.open();
     __defers["$.__views.edit_plate!focus!onFocus"] && $.__views.edit_plate.addEventListener("focus", onFocus);
-    __defers["$.__views.__alloyId57!click!onCancel"] && $.__views.__alloyId57.addEventListener("click", onCancel);
-    __defers["$.__views.__alloyId59!click!onEdit"] && $.__views.__alloyId59.addEventListener("click", onEdit);
+    __defers["$.__views.__alloyId73!click!onCancel"] && $.__views.__alloyId73.addEventListener("click", onCancel);
+    __defers["$.__views.__alloyId75!click!onEdit"] && $.__views.__alloyId75.addEventListener("click", onEdit);
     __defers["$.__views.plate!return!onEdit"] && $.__views.plate.addEventListener("return", onEdit);
     _.extend($, exports);
 }

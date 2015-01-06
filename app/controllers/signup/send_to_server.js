@@ -7,7 +7,7 @@ var login = require('Login');
 
 	$.send_to_server.open();
 
-	var url = "http://services.ridealong.mobi/search.php";	
+	var url = Alloy.Globals._search;	
 	var _postData = {type:"addcar",cid:_data.cid,address:_answerObj.address,accessToken:login.getAccessToken()};
 		
 	Ti.API.debug("car.add sending data " + _data);

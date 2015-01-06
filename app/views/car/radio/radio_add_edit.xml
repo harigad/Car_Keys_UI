@@ -4,7 +4,7 @@
 			<TextField id="plate" onReturn="onEdit" width="280" height="60" ></TextField>
 			
 			<View height="Ti.UI.SIZE" layout="vertical" left="20" right="20" top="30" >
-				<View borderRadius="4" backgroundColor="#2179ca" height="Ti.UI.SIZE" bottom="5" onClick="onEdit" >
+				<View borderRadius="4" backgroundColor="#40a3ff" height="Ti.UI.SIZE" bottom="5" onClick="onEdit" >
 					<Label color="#fff" height="Ti.UI.SIZE" top="20" bottom="20"  >ADD RADIO</Label>
 				</View>
 				<View borderRadius="4" backgroundColor="#999" height="Ti.UI.SIZE" top="5" onClick="onCancel" >

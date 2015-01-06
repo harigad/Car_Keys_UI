@@ -18,7 +18,7 @@ function Controller() {
         _selected ? $.circle.setBackgroundColor("#ffa633") : $.circle.setBackgroundColor("#dedede");
     }
     function save() {
-        var url = "http://services.ridealong.mobi/search.php";
+        var url = Alloy.Globals._search;
         var data = {
             type: "poll",
             pollid: _pollid,

@@ -1,52 +1,81 @@
-function Controller() {
-    function onClick() {
-        _callBack();
+function __processArg(obj, key) {
+    var arg = null;
+    if (obj) {
+        arg = obj[key] || null;
+        delete obj[key];
     }
-    function _lock() {
-        _loading = false;
-        $.login.setBackgroundImage("common/login/bg1.png");
+    return arg;
+}
+
+function Controller() {
+    function getAccessCode() {
+        _callBack();
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "login/login_screen";
-    arguments[0] ? arguments[0]["__parentSymbol"] : null;
-    arguments[0] ? arguments[0]["$model"] : null;
-    arguments[0] ? arguments[0]["__itemTemplate"] : null;
+    if (arguments[0]) {
+        __processArg(arguments[0], "__parentSymbol");
+        __processArg(arguments[0], "$model");
+        __processArg(arguments[0], "__itemTemplate");
+    }
     var $ = this;
     var exports = {};
     var __defers = {};
     $.__views.login_screen = Ti.UI.createWindow({
-        backgroundColor: "#f49033",
+        backgroundColor: "#f1f1f1",
         navBarHidden: true,
-        width: 320,
-        height: 500,
         id: "login_screen"
     });
     $.__views.login_screen && $.addTopLevelView($.__views.login_screen);
-    $.__views.login = Ti.UI.createView({
-        width: 280,
-        height: 280,
-        backgroundImage: "common/login/bg.png",
-        id: "login"
+    $.__views.__alloyId83 = Ti.UI.createView({
+        width: 220,
+        top: 100,
+        height: Ti.UI.SIZE,
+        borderRadius: 4,
+        backgroundColor: "#fff",
+        layout: "vertical",
+        id: "__alloyId83"
     });
-    $.__views.login_screen.add($.__views.login);
-    onClick ? $.__views.login.addEventListener("click", onClick) : __defers["$.__views.login!click!onClick"] = true;
+    $.__views.login_screen.add($.__views.__alloyId83);
+    $.__views.mobile = Ti.UI.createTextField({
+        backgroundColor: "#fff",
+        left: 10,
+        right: 10,
+        color: "#999",
+        height: 50,
+        font: {
+            fontSize: 20
+        },
+        hintText: "mobile #",
+        id: "mobile"
+    });
+    $.__views.__alloyId83.add($.__views.mobile);
+    $.__views.__alloyId84 = Ti.UI.createView({
+        backgroundColor: "#2179ca",
+        height: 50,
+        width: Ti.UI.FILL,
+        id: "__alloyId84"
+    });
+    $.__views.__alloyId83.add($.__views.__alloyId84);
+    getAccessCode ? $.__views.__alloyId84.addEventListener("click", getAccessCode) : __defers["$.__views.__alloyId84!click!getAccessCode"] = true;
+    $.__views.__alloyId85 = Ti.UI.createLabel({
+        color: "#fff",
+        width: Ti.UI.SIZE,
+        height: Ti.UI.SIZE,
+        font: {
+            fontSize: 14
+        },
+        text: "get activation code",
+        id: "__alloyId85"
+    });
+    $.__views.__alloyId84.add($.__views.__alloyId85);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var args = arguments[0] || {};
     var _callBack = args._callBack || {};
-    var _loading = false;
     $.login_screen.open();
-    _searchTime = setTimeout(function() {
-        _loading || _lock();
-    }, 1e3);
-    exports.loading = function() {
-        _loading = true;
-        $.login.setBackgroundImage("common/login/bg1_loading.png");
-    };
-    exports.lock = function() {
-        _lock();
-    };
-    __defers["$.__views.login!click!onClick"] && $.__views.login.addEventListener("click", onClick);
+    $.mobile.focus();
+    __defers["$.__views.__alloyId84!click!getAccessCode"] && $.__views.__alloyId84.addEventListener("click", getAccessCode);
     _.extend($, exports);
 }
 

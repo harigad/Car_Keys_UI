@@ -1,61 +1,90 @@
+function __processArg(obj, key) {
+    var arg = null;
+    if (obj) {
+        arg = obj[key] || null;
+        delete obj[key];
+    }
+    return arg;
+}
+
 function Controller() {
     function goBack() {
-        Ti.App.fireEvent("closeWindow", parentWindow);
+        login.closeWindow(parentWindow);
     }
     function goHome() {
         _callBack ? _callBack() : Ti.App.fireEvent("goHome");
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "header/header";
-    arguments[0] ? arguments[0]["__parentSymbol"] : null;
-    arguments[0] ? arguments[0]["$model"] : null;
-    arguments[0] ? arguments[0]["__itemTemplate"] : null;
+    if (arguments[0]) {
+        __processArg(arguments[0], "__parentSymbol");
+        __processArg(arguments[0], "$model");
+        __processArg(arguments[0], "__itemTemplate");
+    }
     var $ = this;
     var exports = {};
     var __defers = {};
+    $.__views.container = Ti.UI.createView({
+        height: Ti.UI.SIZE,
+        top: 0,
+        id: "container"
+    });
+    $.__views.container && $.addTopLevelView($.__views.container);
     $.__views.main = Ti.UI.createView({
         height: 50,
-        top: 0,
-        backgroundColor: "#ffa633",
+        top: 10,
         id: "main"
     });
-    $.__views.main && $.addTopLevelView($.__views.main);
+    $.__views.container.add($.__views.main);
+    $.__views.__alloyId66 = Ti.UI.createView({
+        height: Ti.UI.SIZE,
+        width: Ti.UI.SIZE,
+        left: "0",
+        id: "__alloyId66"
+    });
+    $.__views.main.add($.__views.__alloyId66);
+    goBack ? $.__views.__alloyId66.addEventListener("click", goBack) : __defers["$.__views.__alloyId66!click!goBack"] = true;
     $.__views.left_btn = Ti.UI.createView({
-        left: 10,
+        left: 20,
         height: 30,
         width: 22,
         backgroundImage: "common/left_btn.png",
-        borderRadius: 2,
         id: "left_btn"
     });
-    $.__views.main.add($.__views.left_btn);
-    goBack ? $.__views.left_btn.addEventListener("click", goBack) : __defers["$.__views.left_btn!click!goBack"] = true;
+    $.__views.__alloyId66.add($.__views.left_btn);
     $.__views.title = Ti.UI.createLabel({
         width: Ti.UI.SIZE,
-        color: "#fff",
+        color: "#cecece",
         font: {
-            fontSize: 14,
-            fontWeight: "bold",
-            opacity: .6
+            fontSize: 14
         },
         id: "title"
     });
     $.__views.main.add($.__views.title);
+    $.__views.__alloyId67 = Ti.UI.createView({
+        height: Ti.UI.SIZE,
+        width: Ti.UI.SIZE,
+        right: "0",
+        id: "__alloyId67"
+    });
+    $.__views.main.add($.__views.__alloyId67);
+    goHome ? $.__views.__alloyId67.addEventListener("click", goHome) : __defers["$.__views.__alloyId67!click!goHome"] = true;
     $.__views.right_btn = Ti.UI.createView({
-        right: 10,
+        right: 20,
         height: 30,
         width: 36,
         backgroundImage: "common/home_icon.png",
-        borderRadius: 2,
         id: "right_btn"
     });
-    $.__views.main.add($.__views.right_btn);
-    goHome ? $.__views.right_btn.addEventListener("click", goHome) : __defers["$.__views.right_btn!click!goHome"] = true;
+    $.__views.__alloyId67.add($.__views.right_btn);
     exports.destroy = function() {};
     _.extend($, $.__views);
+    var login = require("Login");
     var parentWindow;
+    var _callBack = null;
+    var isHome = false;
     Ti.App.addEventListener("goHome", function() {
-        isHome || parentWindow.close();
+        !isHome && parentWindow && parentWindow.close();
     });
     exports.setTitle = function(name) {
         $.title.setText(name);
@@ -64,13 +93,13 @@ function Controller() {
         parentWindow = win;
         rightImage && $.right_btn.setBackgroundImage(rightImage);
         callBack && (_callBack = callBack);
-        Ti.App.fireEvent("openWindow", win);
+        login.openWindow(parentWindow);
     };
     exports.back = function() {
         goBack();
     };
-    __defers["$.__views.left_btn!click!goBack"] && $.__views.left_btn.addEventListener("click", goBack);
-    __defers["$.__views.right_btn!click!goHome"] && $.__views.right_btn.addEventListener("click", goHome);
+    __defers["$.__views.__alloyId66!click!goBack"] && $.__views.__alloyId66.addEventListener("click", goBack);
+    __defers["$.__views.__alloyId67!click!goHome"] && $.__views.__alloyId67.addEventListener("click", goHome);
     _.extend($, exports);
 }
 

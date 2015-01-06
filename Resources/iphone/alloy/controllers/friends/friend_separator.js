@@ -28,23 +28,23 @@ function Controller() {
         id: "main"
     });
     $.__views.main && $.addTopLevelView($.__views.main);
-    $.__views.__alloyId60 = Ti.UI.createView({
+    goToMake ? $.__views.main.addEventListener("click", goToMake) : __defers["$.__views.main!click!goToMake"] = true;
+    $.__views.__alloyId65 = Ti.UI.createView({
         height: Ti.UI.SIZE,
-        top: "5",
-        bottom: "5",
-        id: "__alloyId60"
+        top: "8",
+        bottom: "8",
+        id: "__alloyId65"
     });
-    $.__views.main.add($.__views.__alloyId60);
+    $.__views.main.add($.__views.__alloyId65);
     $.__views.bar = Ti.UI.createView({
-        height: 5,
+        height: 1,
         backgroundColor: "#cecece",
-        top: 23,
         opacity: .5,
+        left: 0,
         id: "bar"
     });
-    $.__views.__alloyId60.add($.__views.bar);
+    $.__views.__alloyId65.add($.__views.bar);
     $.__views.logo_container = Ti.UI.createView({
-        left: 40,
         top: 0,
         backgroundColor: "#333",
         borderRadius: 25,
@@ -54,8 +54,7 @@ function Controller() {
         borderColor: "#ccc",
         id: "logo_container"
     });
-    $.__views.__alloyId60.add($.__views.logo_container);
-    goToMake ? $.__views.logo_container.addEventListener("click", goToMake) : __defers["$.__views.logo_container!click!goToMake"] = true;
+    $.__views.__alloyId65.add($.__views.logo_container);
     $.__views.logo = Ti.UI.createImageView({
         width: 30,
         height: 30,
@@ -63,12 +62,31 @@ function Controller() {
         id: "logo"
     });
     $.__views.logo_container.add($.__views.logo);
+    $.__views.name_container = Ti.UI.createView({
+        left: 70,
+        visible: false,
+        backgroundColor: "#fff",
+        width: Ti.UI.SIZE,
+        height: Ti.UI.SIZE,
+        id: "name_container"
+    });
+    $.__views.__alloyId65.add($.__views.name_container);
+    $.__views.name = Ti.UI.createLabel({
+        color: "#cecece",
+        width: Ti.UI.SIZE,
+        height: Ti.UI.SIZE,
+        left: 10,
+        right: 10,
+        id: "name"
+    });
+    $.__views.name_container.add($.__views.name);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var args = arguments[0] || {};
     var _data = args._data || {};
     $.logo.setImage("logos/48/" + _data.logo);
-    __defers["$.__views.logo_container!click!goToMake"] && $.__views.logo_container.addEventListener("click", goToMake);
+    $.name.setText(_data.make);
+    __defers["$.__views.main!click!goToMake"] && $.__views.main.addEventListener("click", goToMake);
     _.extend($, exports);
 }
 

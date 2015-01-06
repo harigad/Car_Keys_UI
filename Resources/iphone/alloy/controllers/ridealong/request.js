@@ -55,15 +55,15 @@ function Controller() {
         borderColor: "#fff"
     });
     $.__views.main.add($.__views.photo);
-    $.__views.__alloyId102 = Ti.UI.createView({
+    $.__views.__alloyId112 = Ti.UI.createView({
         left: "10",
         right: "10",
         width: Ti.UI.SIZE,
         layout: "vertical",
         height: Ti.UI.SIZE,
-        id: "__alloyId102"
+        id: "__alloyId112"
     });
-    $.__views.main.add($.__views.__alloyId102);
+    $.__views.main.add($.__views.__alloyId112);
     $.__views.name = Ti.UI.createLabel({
         left: "0",
         height: "Ti.UI.SIZE",
@@ -74,7 +74,7 @@ function Controller() {
         id: "name",
         width: Ti.UI.SIZE
     });
-    $.__views.__alloyId102.add($.__views.name);
+    $.__views.__alloyId112.add($.__views.name);
     $.__views.desc = Ti.UI.createLabel({
         height: "Ti.UI.SIZE",
         color: "#fff",
@@ -87,7 +87,7 @@ function Controller() {
         id: "desc",
         width: Ti.UI.SIZE
     });
-    $.__views.__alloyId102.add($.__views.desc);
+    $.__views.__alloyId112.add($.__views.desc);
     exports.destroy = function() {};
     _.extend($, $.__views);
     require("Login");

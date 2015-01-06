@@ -34,7 +34,7 @@ function onClose(){
 
 
 function send_to_server(){
-	var url = "http://services.ridealong.mobi/search.php";	
+	var url = Alloy.Globals._search;	
 	var _postData = {type:"checkin",action:"seen",checkin_id:_data.checkin_id,accessToken:login.getAccessToken()};
 	
  	var client = Ti.Network.createHTTPClient({ 		

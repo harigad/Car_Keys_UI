@@ -1,3 +1,12 @@
+function __processArg(obj, key) {
+    var arg = null;
+    if (obj) {
+        arg = obj[key] || null;
+        delete obj[key];
+    }
+    return arg;
+}
+
 function Controller() {
     function goToUser() {
         Alloy.createController("profile/profile", {
@@ -23,18 +32,26 @@ function Controller() {
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "feed/feed_share";
-    arguments[0] ? arguments[0]["__parentSymbol"] : null;
-    arguments[0] ? arguments[0]["$model"] : null;
-    arguments[0] ? arguments[0]["__itemTemplate"] : null;
+    if (arguments[0]) {
+        __processArg(arguments[0], "__parentSymbol");
+        __processArg(arguments[0], "$model");
+        __processArg(arguments[0], "__itemTemplate");
+    }
     var $ = this;
     var exports = {};
     var __defers = {};
+    $.__views.feed_share = Ti.UI.createTableViewRow({
+        className: "row",
+        selectionStyle: Titanium.UI.iPhone.TableViewCellSelectionStyle,
+        id: "feed_share"
+    });
+    $.__views.feed_share && $.addTopLevelView($.__views.feed_share);
     $.__views.main = Ti.UI.createView({
         height: Ti.UI.SIZE,
         layout: "vertical",
         id: "main"
     });
-    $.__views.main && $.addTopLevelView($.__views.main);
+    $.__views.feed_share.add($.__views.main);
     $.__views.topView = Ti.UI.createView({
         layout: "horizontal",
         height: Ti.UI.SIZE,
@@ -121,12 +138,12 @@ function Controller() {
         right: "10"
     });
     $.__views.bottomView.add($.__views.desc);
-    $.__views.__alloyId54 = Ti.UI.createView({
+    $.__views.__alloyId63 = Ti.UI.createView({
         height: "1",
         backgroundColor: "#cecece",
-        id: "__alloyId54"
+        id: "__alloyId63"
     });
-    $.__views.main.add($.__views.__alloyId54);
+    $.__views.main.add($.__views.__alloyId63);
     exports.destroy = function() {};
     _.extend($, $.__views);
     require("Login");
@@ -136,8 +153,6 @@ function Controller() {
     gender = "1" === _data.gender ? "her" : "his";
     new Date(_data.created);
     $.date.setText("is sharing " + gender + " " + _data.model + " with");
-    $.photo.setBackgroundImage(_data.photo);
-    $.logo.setBackgroundImage(_data.ophoto);
     $.name.setText(_data.name);
     $.desc.setText(_data.oname);
     __defers["$.__views.topView!click!goToUser"] && $.__views.topView.addEventListener("click", goToUser);

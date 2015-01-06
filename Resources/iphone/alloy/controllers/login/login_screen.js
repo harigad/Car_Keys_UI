@@ -8,7 +8,8 @@ function __processArg(obj, key) {
 }
 
 function Controller() {
-    function onClick() {
+    function authorize() {
+        debugger;
         _callBack();
     }
     function _lock() {
@@ -26,7 +27,7 @@ function Controller() {
     var exports = {};
     var __defers = {};
     $.__views.login_screen = Ti.UI.createWindow({
-        backgroundColor: "#f49033",
+        backgroundColor: "#40a3ff",
         navBarHidden: true,
         id: "login_screen"
     });
@@ -38,7 +39,7 @@ function Controller() {
         id: "login"
     });
     $.__views.login_screen.add($.__views.login);
-    onClick ? $.__views.login.addEventListener("click", onClick) : __defers["$.__views.login!click!onClick"] = true;
+    authorize ? $.__views.login.addEventListener("click", authorize) : __defers["$.__views.login!click!authorize"] = true;
     exports.destroy = function() {};
     _.extend($, $.__views);
     var args = arguments[0] || {};
@@ -55,7 +56,7 @@ function Controller() {
     exports.lock = function() {
         _lock();
     };
-    __defers["$.__views.login!click!onClick"] && $.__views.login.addEventListener("click", onClick);
+    __defers["$.__views.login!click!authorize"] && $.__views.login.addEventListener("click", authorize);
     _.extend($, exports);
 }
 

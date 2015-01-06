@@ -10,7 +10,7 @@ $.plate.focus();
 function onFocus(e){
 	eval("$." + e.source.id + "_label").setOpacity(.6);
 	
-	if(e.source.getValue() === ""){
+	if(e.value.length===0){
 		eval("$." + e.source.id + "_label").setText(e.source.hint);
 	}else{
 		eval("$." + e.source.id + "_label").setText(""); 
@@ -22,7 +22,7 @@ function onBlur(e){
 }
 
 function onChange(e){
-	if(e.source.getValue() === ""){
+	if(e.value.length===0){
 		eval("$." + e.source.id + "_label").setText(e.source.hint);
 	}else{
 		eval("$." + e.source.id + "_label").setText(""); 
@@ -59,7 +59,6 @@ function process(){
      },
      // function called when an error occurs, including a timeout
      onerror : function(e) {
-       login.closePleaseWait();
        showError("Please check your network connection!");
      },
      timeout : 5000  // in milliseconds
@@ -71,9 +70,17 @@ function process(){
  		client.send(_data); 
 }
 
+function launchHelp(){
+	var help =  Alloy.createController("signup/help",{_callBack: function(){
+			$.plate.focus();
+	}});
+}
+
 function showError(e){
-		var not_found_car =  Alloy.createController("signup/not_found_car",{_e:e});
-		$.signup.close();
+		var not_found_car =  Alloy.createController("signup/not_found_car",{_e:e, _callBack: function(){
+			login.closePleaseWait();
+			$.plate.focus();
+		}});
 }
 
 function onCancel(){

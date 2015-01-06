@@ -44,32 +44,32 @@ function Controller() {
         id: "home_menu"
     });
     $.__views.home_menu && $.addTopLevelView($.__views.home_menu);
-    $.__views.__alloyId94 = Ti.UI.createView({
+    $.__views.__alloyId104 = Ti.UI.createView({
         width: "150",
         height: "60",
         left: "0",
         "å": "å",
-        id: "__alloyId94"
+        id: "__alloyId104"
     });
-    $.__views.home_menu.add($.__views.__alloyId94);
-    goToMyCars ? $.__views.__alloyId94.addEventListener("click", goToMyCars) : __defers["$.__views.__alloyId94!click!goToMyCars"] = true;
-    $.__views.__alloyId95 = Ti.UI.createView({
+    $.__views.home_menu.add($.__views.__alloyId104);
+    goToMyCars ? $.__views.__alloyId104.addEventListener("click", goToMyCars) : __defers["$.__views.__alloyId104!click!goToMyCars"] = true;
+    $.__views.__alloyId105 = Ti.UI.createView({
         layout: "horizontal",
         height: "Ti.UI.SIZE",
         width: "Ti.UI.SIZE",
         top: 20,
         bottom: 20,
-        id: "__alloyId95"
+        id: "__alloyId105"
     });
-    $.__views.__alloyId94.add($.__views.__alloyId95);
-    $.__views.__alloyId96 = Ti.UI.createView({
+    $.__views.__alloyId104.add($.__views.__alloyId105);
+    $.__views.__alloyId106 = Ti.UI.createView({
         height: 20,
         opacity: .8,
         backgroundImage: "common/car.png",
         width: "23",
-        id: "__alloyId96"
+        id: "__alloyId106"
     });
-    $.__views.__alloyId95.add($.__views.__alloyId96);
+    $.__views.__alloyId105.add($.__views.__alloyId106);
     $.__views.cars = Ti.UI.createLabel({
         left: 5,
         top: 0,
@@ -82,33 +82,33 @@ function Controller() {
         },
         id: "cars"
     });
-    $.__views.__alloyId95.add($.__views.cars);
-    $.__views.__alloyId97 = Ti.UI.createView({
+    $.__views.__alloyId105.add($.__views.cars);
+    $.__views.__alloyId107 = Ti.UI.createView({
         width: "150",
         height: "60",
         right: "0",
         layout: "vertical",
-        id: "__alloyId97"
+        id: "__alloyId107"
     });
-    $.__views.home_menu.add($.__views.__alloyId97);
-    goToFriends ? $.__views.__alloyId97.addEventListener("click", goToFriends) : __defers["$.__views.__alloyId97!click!goToFriends"] = true;
-    $.__views.__alloyId98 = Ti.UI.createView({
+    $.__views.home_menu.add($.__views.__alloyId107);
+    goToFriends ? $.__views.__alloyId107.addEventListener("click", goToFriends) : __defers["$.__views.__alloyId107!click!goToFriends"] = true;
+    $.__views.__alloyId108 = Ti.UI.createView({
         layout: "horizontal",
         height: "Ti.UI.SIZE",
         width: "Ti.UI.SIZE",
         top: 20,
         bottom: 20,
-        id: "__alloyId98"
+        id: "__alloyId108"
     });
-    $.__views.__alloyId97.add($.__views.__alloyId98);
-    $.__views.__alloyId99 = Ti.UI.createView({
+    $.__views.__alloyId107.add($.__views.__alloyId108);
+    $.__views.__alloyId109 = Ti.UI.createView({
         height: 20,
         opacity: .8,
         backgroundImage: "common/friends.png",
         width: "29",
-        id: "__alloyId99"
+        id: "__alloyId109"
     });
-    $.__views.__alloyId98.add($.__views.__alloyId99);
+    $.__views.__alloyId108.add($.__views.__alloyId109);
     $.__views.friends = Ti.UI.createLabel({
         left: 5,
         top: 0,
@@ -121,15 +121,15 @@ function Controller() {
         },
         id: "friends"
     });
-    $.__views.__alloyId98.add($.__views.friends);
-    $.__views.__alloyId100 = Ti.UI.createView({
+    $.__views.__alloyId108.add($.__views.friends);
+    $.__views.__alloyId110 = Ti.UI.createView({
         width: "2",
         backgroundColor: "#fff",
         height: "60",
         opacity: "0.1",
-        id: "__alloyId100"
+        id: "__alloyId110"
     });
-    $.__views.home_menu.add($.__views.__alloyId100);
+    $.__views.home_menu.add($.__views.__alloyId110);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");
@@ -146,8 +146,8 @@ function Controller() {
     Ti.App.addEventListener("friends_cars_updated", function(friendsCars) {
         $.friends.setText("(" + friendsCars.length + ")");
     });
-    __defers["$.__views.__alloyId94!click!goToMyCars"] && $.__views.__alloyId94.addEventListener("click", goToMyCars);
-    __defers["$.__views.__alloyId97!click!goToFriends"] && $.__views.__alloyId97.addEventListener("click", goToFriends);
+    __defers["$.__views.__alloyId104!click!goToMyCars"] && $.__views.__alloyId104.addEventListener("click", goToMyCars);
+    __defers["$.__views.__alloyId107!click!goToFriends"] && $.__views.__alloyId107.addEventListener("click", goToFriends);
     _.extend($, exports);
 }
 

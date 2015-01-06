@@ -1,13 +1,13 @@
 <Alloy>
 	<Window>
 		<ImageView id="bgImage"></ImageView>
-		<View top="0" height="60" backgroundColor="#f49033" >
+		<View top="0" height="60" backgroundColor="#f1f1f1" >
 			<View top="10" height="50" >
 				<View class="btn_container" onClick="onCancel" left="10" >
 					<Label class="btn" >cancel</Label>
 				</View>
 				<Label id="question">
-					Add my Vehichle
+					VIN NUMBER
 				</Label>
 				<View class="btn_container" onClick="process" right="10" >
 					<Label class="btn">next</Label>
@@ -16,9 +16,10 @@
 		</View>
 		<View id="main"  >
 			<View class="TextFieldContainer">
+				<TextArea id="plate" hint="VIN number" onFocus="onFocus" onChange="onChange" onBlur="onBlur" ></TextArea>
 				<Label class="TextFieldLabel" id="plate_label" ></Label>
-				<TextField id="plate" hint="VIN number" onFocus="onFocus" onChange="onChange" onBlur="onBlur" ></TextField>
 			</View>
+			<Label id="help_label" onClick="launchHelp" >help me find my VIN number!</Label>
 		</View>
 	</Window>	
 </Alloy>

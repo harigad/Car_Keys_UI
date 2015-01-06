@@ -10,6 +10,7 @@ function __processArg(obj, key) {
 function Controller() {
     function onOk() {
         $.not_found_car.close();
+        _callBack();
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "signup/not_found_car";
@@ -22,54 +23,64 @@ function Controller() {
     var exports = {};
     var __defers = {};
     $.__views.not_found_car = Ti.UI.createWindow({
-        backgroundColor: "#ffa633",
+        backgroundColor: "#f1f1f1",
         navBarHidden: true,
         id: "not_found_car"
     });
     $.__views.not_found_car && $.addTopLevelView($.__views.not_found_car);
-    $.__views.__alloyId129 = Ti.UI.createView({
+    $.__views.__alloyId144 = Ti.UI.createView({
         height: Ti.UI.SIZE,
         layout: "vertical",
-        id: "__alloyId129"
+        id: "__alloyId144"
     });
-    $.__views.not_found_car.add($.__views.__alloyId129);
+    $.__views.not_found_car.add($.__views.__alloyId144);
     $.__views.error_label = Ti.UI.createLabel({
+        color: "#ccc",
+        shadowColor: "#fff",
+        shadowOffset: {
+            x: 1,
+            y: 1
+        },
+        shadowRadius: 3,
+        font: {
+            fontSize: 26
+        },
         text: "Sorry!We are unable to locate your ride at this time.",
         id: "error_label",
         left: "20",
         right: "20",
-        height: Ti.UI.SIZE,
-        color: "#fff"
+        height: Ti.UI.SIZE
     });
-    $.__views.__alloyId129.add($.__views.error_label);
-    $.__views.__alloyId130 = Ti.UI.createView({
+    $.__views.__alloyId144.add($.__views.error_label);
+    $.__views.__alloyId145 = Ti.UI.createView({
         left: "20",
         right: "20",
         height: Ti.UI.SIZE,
         top: "20",
         borderRadius: "4",
-        backgroundColor: "#fff",
-        id: "__alloyId130"
+        backgroundColor: "#666",
+        id: "__alloyId145"
     });
-    $.__views.__alloyId129.add($.__views.__alloyId130);
-    onOk ? $.__views.__alloyId130.addEventListener("click", onOk) : __defers["$.__views.__alloyId130!click!onOk"] = true;
-    $.__views.__alloyId131 = Ti.UI.createLabel({
+    $.__views.__alloyId144.add($.__views.__alloyId145);
+    onOk ? $.__views.__alloyId145.addEventListener("click", onOk) : __defers["$.__views.__alloyId145!click!onOk"] = true;
+    $.__views.__alloyId146 = Ti.UI.createLabel({
         text: "OK!",
-        color: "#ffa633",
+        color: "#fff",
         top: "20",
         bottom: "20",
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
-        id: "__alloyId131"
+        id: "__alloyId146"
     });
-    $.__views.__alloyId130.add($.__views.__alloyId131);
+    $.__views.__alloyId145.add($.__views.__alloyId146);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var args = arguments[0] || {};
     var _e = args._e || "";
+    var _callBack = args._callBack;
     $.error_label.setText(_e);
     $.not_found_car.open();
-    __defers["$.__views.__alloyId130!click!onOk"] && $.__views.__alloyId130.addEventListener("click", onOk);
+    __defers["$.__views.__alloyId145!click!onOk"] && $.__views.__alloyId145.addEventListener("click", onOk);
     _.extend($, exports);
 }
 

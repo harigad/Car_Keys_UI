@@ -1,3 +1,14 @@
+
 "Window": {
 	backgroundColor:"#ffa633",navBarHidden:true
+}
+
+"#label": {
+  	color:"#ccc",
+	shadowColor: '#fff',
+    shadowOffset: {x:1, y:1},
+    shadowRadius: 3,
+    font:{
+    	fontSize:30
+    }
 }

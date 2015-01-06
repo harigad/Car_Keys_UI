@@ -1,3 +1,12 @@
+function __processArg(obj, key) {
+    var arg = null;
+    if (obj) {
+        arg = obj[key] || null;
+        delete obj[key];
+    }
+    return arg;
+}
+
 function Controller() {
     function onReturn() {
         var address = $.address.getValue();
@@ -10,17 +19,17 @@ function Controller() {
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "signup/signup_verify_address";
-    arguments[0] ? arguments[0]["__parentSymbol"] : null;
-    arguments[0] ? arguments[0]["$model"] : null;
-    arguments[0] ? arguments[0]["__itemTemplate"] : null;
+    if (arguments[0]) {
+        __processArg(arguments[0], "__parentSymbol");
+        __processArg(arguments[0], "$model");
+        __processArg(arguments[0], "__itemTemplate");
+    }
     var $ = this;
     var exports = {};
     var __defers = {};
     $.__views.signup_verify_address = Ti.UI.createWindow({
         backgroundColor: "#ffa633",
         navBarHidden: true,
-        width: 320,
-        height: 500,
         id: "signup_verify_address"
     });
     $.__views.signup_verify_address && $.addTopLevelView($.__views.signup_verify_address);
@@ -28,25 +37,31 @@ function Controller() {
         id: "bgImage"
     });
     $.__views.signup_verify_address.add($.__views.bgImage);
-    $.__views.__alloyId149 = Ti.UI.createView({
-        height: "50",
-        backgroundColor: "#f49033",
+    $.__views.__alloyId167 = Ti.UI.createView({
         top: "0",
-        id: "__alloyId149"
+        height: "60",
+        backgroundColor: "#f49033",
+        id: "__alloyId167"
     });
-    $.__views.signup_verify_address.add($.__views.__alloyId149);
-    $.__views.__alloyId150 = Ti.UI.createView({
+    $.__views.signup_verify_address.add($.__views.__alloyId167);
+    $.__views.__alloyId168 = Ti.UI.createView({
+        top: "10",
+        height: "50",
+        id: "__alloyId168"
+    });
+    $.__views.__alloyId167.add($.__views.__alloyId168);
+    $.__views.__alloyId169 = Ti.UI.createView({
         top: 10,
         height: 30,
         width: 50,
         backgroundColor: "#ffa633",
         borderRadius: 4,
         left: "10",
-        id: "__alloyId150"
+        id: "__alloyId169"
     });
-    $.__views.__alloyId149.add($.__views.__alloyId150);
-    onCancel ? $.__views.__alloyId150.addEventListener("click", onCancel) : __defers["$.__views.__alloyId150!click!onCancel"] = true;
-    $.__views.__alloyId151 = Ti.UI.createLabel({
+    $.__views.__alloyId168.add($.__views.__alloyId169);
+    onCancel ? $.__views.__alloyId169.addEventListener("click", onCancel) : __defers["$.__views.__alloyId169!click!onCancel"] = true;
+    $.__views.__alloyId170 = Ti.UI.createLabel({
         height: Ti.UI.SIZE,
         width: Ti.UI.SIZE,
         font: {
@@ -54,9 +69,9 @@ function Controller() {
         },
         color: "#fff",
         text: "cancel",
-        id: "__alloyId151"
+        id: "__alloyId170"
     });
-    $.__views.__alloyId150.add($.__views.__alloyId151);
+    $.__views.__alloyId169.add($.__views.__alloyId170);
     $.__views.question = Ti.UI.createLabel({
         height: Ti.UI.SIZE,
         font: {
@@ -67,19 +82,19 @@ function Controller() {
         text: "Verify your registration address!",
         id: "question"
     });
-    $.__views.__alloyId149.add($.__views.question);
-    $.__views.__alloyId152 = Ti.UI.createView({
+    $.__views.__alloyId168.add($.__views.question);
+    $.__views.__alloyId171 = Ti.UI.createView({
         top: 10,
         height: 30,
         width: 50,
         backgroundColor: "#ffa633",
         borderRadius: 4,
         right: "10",
-        id: "__alloyId152"
+        id: "__alloyId171"
     });
-    $.__views.__alloyId149.add($.__views.__alloyId152);
-    onReturn ? $.__views.__alloyId152.addEventListener("click", onReturn) : __defers["$.__views.__alloyId152!click!onReturn"] = true;
-    $.__views.__alloyId153 = Ti.UI.createLabel({
+    $.__views.__alloyId168.add($.__views.__alloyId171);
+    onReturn ? $.__views.__alloyId171.addEventListener("click", onReturn) : __defers["$.__views.__alloyId171!click!onReturn"] = true;
+    $.__views.__alloyId172 = Ti.UI.createLabel({
         height: Ti.UI.SIZE,
         width: Ti.UI.SIZE,
         font: {
@@ -87,9 +102,9 @@ function Controller() {
         },
         color: "#fff",
         text: "Verify",
-        id: "__alloyId153"
+        id: "__alloyId172"
     });
-    $.__views.__alloyId152.add($.__views.__alloyId153);
+    $.__views.__alloyId171.add($.__views.__alloyId172);
     $.__views.main = Ti.UI.createView({
         layout: "vertical",
         left: 10,
@@ -99,14 +114,14 @@ function Controller() {
         id: "main"
     });
     $.__views.signup_verify_address.add($.__views.main);
-    $.__views.__alloyId154 = Ti.UI.createView({
+    $.__views.__alloyId173 = Ti.UI.createView({
         height: Ti.UI.SIZE,
         left: 20,
         right: 20,
         top: 0,
-        id: "__alloyId154"
+        id: "__alloyId173"
     });
-    $.__views.main.add($.__views.__alloyId154);
+    $.__views.main.add($.__views.__alloyId173);
     $.__views.address = Ti.UI.createTextField({
         color: "#fff",
         left: 0,
@@ -119,34 +134,34 @@ function Controller() {
         id: "address",
         hintText: "Enter your address line#"
     });
-    $.__views.__alloyId154.add($.__views.address);
+    $.__views.__alloyId173.add($.__views.address);
     onReturn ? $.__views.address.addEventListener("return", onReturn) : __defers["$.__views.address!return!onReturn"] = true;
-    $.__views.__alloyId155 = Ti.UI.createView({
+    $.__views.__alloyId174 = Ti.UI.createView({
         height: 1,
         left: 20,
         right: 20,
         backgroundColor: "#fff",
         opacity: .3,
-        id: "__alloyId155"
+        id: "__alloyId174"
     });
-    $.__views.main.add($.__views.__alloyId155);
-    $.__views.__alloyId156 = Ti.UI.createView({
+    $.__views.main.add($.__views.__alloyId174);
+    $.__views.__alloyId175 = Ti.UI.createView({
         height: Ti.UI.SIZE,
         left: 20,
         right: 20,
         top: 0,
         layout: "horizontal",
-        id: "__alloyId156"
+        id: "__alloyId175"
     });
-    $.__views.main.add($.__views.__alloyId156);
-    $.__views.__alloyId157 = Ti.UI.createView({
+    $.__views.main.add($.__views.__alloyId175);
+    $.__views.__alloyId176 = Ti.UI.createView({
         borderRadius: 4,
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         right: 10,
-        id: "__alloyId157"
+        id: "__alloyId176"
     });
-    $.__views.__alloyId156.add($.__views.__alloyId157);
+    $.__views.__alloyId175.add($.__views.__alloyId176);
     $.__views.city = Ti.UI.createLabel({
         color: "#fff",
         width: Ti.UI.SIZE,
@@ -159,7 +174,7 @@ function Controller() {
         opacity: .6,
         id: "city"
     });
-    $.__views.__alloyId157.add($.__views.city);
+    $.__views.__alloyId176.add($.__views.city);
     exports.destroy = function() {};
     _.extend($, $.__views);
     require("Login");
@@ -170,8 +185,8 @@ function Controller() {
     _data.step || 3;
     $.city.setText(_data.city + ", " + _data.state + " - " + _zipcode);
     $.signup_verify_address.open();
-    __defers["$.__views.__alloyId150!click!onCancel"] && $.__views.__alloyId150.addEventListener("click", onCancel);
-    __defers["$.__views.__alloyId152!click!onReturn"] && $.__views.__alloyId152.addEventListener("click", onReturn);
+    __defers["$.__views.__alloyId169!click!onCancel"] && $.__views.__alloyId169.addEventListener("click", onCancel);
+    __defers["$.__views.__alloyId171!click!onReturn"] && $.__views.__alloyId171.addEventListener("click", onReturn);
     __defers["$.__views.address!return!onReturn"] && $.__views.address.addEventListener("return", onReturn);
     _.extend($, exports);
 }

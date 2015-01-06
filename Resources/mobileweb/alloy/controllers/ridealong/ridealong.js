@@ -1,6 +1,18 @@
+function __processArg(obj, key) {
+    var arg = null;
+    if (obj) {
+        arg = obj[key] || null;
+        delete obj[key];
+    }
+    return arg;
+}
+
 function Controller() {
     function onWindowFocus() {
-        $.plate.focus();
+        $.search.focus();
+    }
+    function onSearch() {
+        $.friends.setData(friends);
     }
     function onEdit() {
         var carkey = $.plate.getValue();
@@ -17,147 +29,95 @@ function Controller() {
     }
     function onFocus(e) {
         eval("$." + e.source.id + "_label").setOpacity(.6);
-        "" === e.source.getValue() ? eval("$." + e.source.id + "_label").setText(e.source.getHintText()) : eval("$." + e.source.id + "_label").setText("");
+        "" === e.source.getValue() ? eval("$." + e.source.id + "_label").setText(e.source.hint) : eval("$." + e.source.id + "_label").setText("");
     }
     function onBlur(e) {
         eval("$." + e.source.id + "_label").setOpacity(0);
     }
     function onChange(e) {
-        "" === e.source.getValue() ? eval("$." + e.source.id + "_label").setText(e.source.getHintText()) : eval("$." + e.source.id + "_label").setText("");
+        "" === e.source.getValue() ? eval("$." + e.source.id + "_label").setText(e.source.hint) : eval("$." + e.source.id + "_label").setText("");
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "ridealong/ridealong";
-    var __parentSymbol = arguments[0] ? arguments[0]["__parentSymbol"] : null;
-    var $model = arguments[0] ? arguments[0]["$model"] : null;
-    var __itemTemplate = arguments[0] ? arguments[0]["__itemTemplate"] : null;
+    if (arguments[0]) {
+        var __parentSymbol = __processArg(arguments[0], "__parentSymbol");
+        var $model = __processArg(arguments[0], "$model");
+        var __itemTemplate = __processArg(arguments[0], "__itemTemplate");
+    }
     var $ = this;
     var exports = {};
     var __defers = {};
     $.__views.ridealong = Ti.UI.createWindow({
         backgroundColor: "#ffa633",
         navBarHidden: true,
-        width: 320,
-        height: 500,
         id: "ridealong"
     });
     $.__views.ridealong && $.addTopLevelView($.__views.ridealong);
     onWindowFocus ? $.__views.ridealong.addEventListener("focus", onWindowFocus) : __defers["$.__views.ridealong!focus!onWindowFocus"] = true;
-    $.__views.__alloyId97 = Ti.UI.createView({
-        layout: "vertical",
-        id: "__alloyId97"
-    });
-    $.__views.ridealong.add($.__views.__alloyId97);
-    $.__views.__alloyId98 = Ti.UI.createView({
-        height: "50",
-        backgroundColor: "#f49033",
-        top: "0",
-        id: "__alloyId98"
-    });
-    $.__views.__alloyId97.add($.__views.__alloyId98);
-    $.__views.__alloyId99 = Ti.UI.createView({
-        top: 10,
-        height: 30,
-        width: 50,
-        backgroundColor: "#ffa633",
-        borderRadius: 4,
-        left: "10",
-        id: "__alloyId99"
-    });
-    $.__views.__alloyId98.add($.__views.__alloyId99);
-    onCancel ? $.__views.__alloyId99.addEventListener("click", onCancel) : __defers["$.__views.__alloyId99!click!onCancel"] = true;
-    $.__views.__alloyId100 = Ti.UI.createLabel({
-        height: Ti.UI.SIZE,
-        width: Ti.UI.SIZE,
-        font: {
-            fontSize: 11
-        },
-        color: "#fff",
-        text: "cancel",
-        id: "__alloyId100"
-    });
-    $.__views.__alloyId99.add($.__views.__alloyId100);
-    $.__views.question = Ti.UI.createLabel({
-        height: Ti.UI.SIZE,
-        font: {
-            fontSize: 12
-        },
-        color: "#fff",
-        opacity: .5,
-        text: "RideAlong",
-        id: "question"
-    });
-    $.__views.__alloyId98.add($.__views.question);
-    $.__views.__alloyId101 = Ti.UI.createView({
-        top: 10,
-        height: 30,
-        width: 50,
-        backgroundColor: "#ffa633",
-        borderRadius: 4,
-        right: "10",
-        id: "__alloyId101"
-    });
-    $.__views.__alloyId98.add($.__views.__alloyId101);
-    onEdit ? $.__views.__alloyId101.addEventListener("click", onEdit) : __defers["$.__views.__alloyId101!click!onEdit"] = true;
-    $.__views.__alloyId102 = Ti.UI.createLabel({
-        height: Ti.UI.SIZE,
-        width: Ti.UI.SIZE,
-        font: {
-            fontSize: 11
-        },
-        color: "#fff",
-        text: "search",
-        id: "__alloyId102"
-    });
-    $.__views.__alloyId101.add($.__views.__alloyId102);
-    $.__views.__alloyId103 = Ti.UI.createView({
-        left: 20,
-        right: 20,
+    $.__views.search_bar = Ti.UI.createView({
+        top: 0,
         height: 60,
+        backgroundColor: "#fff",
+        id: "search_bar"
+    });
+    $.__views.ridealong.add($.__views.search_bar);
+    $.__views.__alloyId116 = Ti.UI.createView({
         top: "10",
-        id: "__alloyId103"
+        height: Ti.UI.SIZE,
+        id: "__alloyId116"
     });
-    $.__views.__alloyId97.add($.__views.__alloyId103);
-    $.__views.plate_label = Ti.UI.createLabel({
-        left: 0,
-        right: 0,
+    $.__views.search_bar.add($.__views.__alloyId116);
+    $.__views.search = Ti.UI.createTextField({
+        left: 10,
+        width: 210,
+        height: 40,
         color: "#fff",
-        font: {
-            fontSize: 18
-        },
-        height: 100,
-        id: "plate_label"
-    });
-    $.__views.__alloyId103.add($.__views.plate_label);
-    $.__views.plate = Ti.UI.createTextField({
-        left: 0,
-        right: 0,
-        color: "#fff",
-        font: {
-            fontSize: 50
-        },
-        height: 100,
         borderStyle: Ti.UI.INPUT_BORDERSTYLE_NONE,
-        id: "plate",
-        hintText: "search by Bumper Sticker"
+        id: "search",
+        hintText: "search friends"
     });
-    $.__views.__alloyId103.add($.__views.plate);
-    onFocus ? $.__views.plate.addEventListener("focus", onFocus) : __defers["$.__views.plate!focus!onFocus"] = true;
-    onChange ? $.__views.plate.addEventListener("change", onChange) : __defers["$.__views.plate!change!onChange"] = true;
-    onBlur ? $.__views.plate.addEventListener("blur", onBlur) : __defers["$.__views.plate!blur!onBlur"] = true;
-    onEdit ? $.__views.plate.addEventListener("return", onEdit) : __defers["$.__views.plate!return!onEdit"] = true;
+    $.__views.__alloyId116.add($.__views.search);
+    onSearch ? $.__views.search.addEventListener("change", onSearch) : __defers["$.__views.search!change!onSearch"] = true;
+    $.__views.cancel_btn = Ti.UI.createView({
+        right: 10,
+        height: 40,
+        width: 80,
+        backgroundColor: "#fff",
+        borderRadius: 2,
+        id: "cancel_btn"
+    });
+    $.__views.__alloyId116.add($.__views.cancel_btn);
+    onCancel ? $.__views.cancel_btn.addEventListener("click", onCancel) : __defers["$.__views.cancel_btn!click!onCancel"] = true;
+    $.__views.__alloyId117 = Ti.UI.createLabel({
+        text: "cancel",
+        color: "#999",
+        id: "__alloyId117"
+    });
+    $.__views.cancel_btn.add($.__views.__alloyId117);
+    $.__views.__alloyId118 = Ti.UI.createScrollView({
+        height: Ti.UI.FILL,
+        top: "50",
+        id: "__alloyId118"
+    });
+    $.__views.ridealong.add($.__views.__alloyId118);
+    $.__views.friends = Ti.UI.createTableView({
+        id: "friends"
+    });
+    $.__views.__alloyId118.add($.__views.friends);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");
     var args = arguments[0] || {};
     var _callBack = args._callBack;
+    var _people = [];
     $.ridealong.open();
+    var _friends;
+    login.getFriends(function(friends) {
+        _friends = friends;
+    });
     __defers["$.__views.ridealong!focus!onWindowFocus"] && $.__views.ridealong.addEventListener("focus", onWindowFocus);
-    __defers["$.__views.__alloyId99!click!onCancel"] && $.__views.__alloyId99.addEventListener("click", onCancel);
-    __defers["$.__views.__alloyId101!click!onEdit"] && $.__views.__alloyId101.addEventListener("click", onEdit);
-    __defers["$.__views.plate!focus!onFocus"] && $.__views.plate.addEventListener("focus", onFocus);
-    __defers["$.__views.plate!change!onChange"] && $.__views.plate.addEventListener("change", onChange);
-    __defers["$.__views.plate!blur!onBlur"] && $.__views.plate.addEventListener("blur", onBlur);
-    __defers["$.__views.plate!return!onEdit"] && $.__views.plate.addEventListener("return", onEdit);
+    __defers["$.__views.search!change!onSearch"] && $.__views.search.addEventListener("change", onSearch);
+    __defers["$.__views.cancel_btn!click!onCancel"] && $.__views.cancel_btn.addEventListener("click", onCancel);
     _.extend($, exports);
 }
 

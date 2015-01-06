@@ -34,7 +34,7 @@ function process(){
 
 
 function send_to_server(){
-	var url = "http://services.ridealong.mobi/search.php";	
+	var url = Alloy.Globals._search;	
 	var _postData = {type:"editplate",plate:$.plate.getValue().toUpperCase(),accessToken:login.getAccessToken()};
 		
 	Ti.API.debug("editing plate " + $.plate.getValue());

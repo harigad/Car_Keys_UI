@@ -3,11 +3,11 @@
 }
 
 "#bar":{
-	height:5,backgroundColor:"#cecece",top:23,opacity:0.5
+	height:1,backgroundColor:"#cecece",opacity:0.5,left:0
 }
 
 "#logo_container":{
-	left:40,top:0,backgroundColor:"#333",
+	top:0,backgroundColor:"#333",
 	borderRadius:25,width:50,height:50,
 	borderWidth:3,borderColor:"#ccc"
 }
@@ -17,3 +17,16 @@
 	image:""
 }
 
+"#name_container":{
+	left:70,visible:false,
+	backgroundColor:"#fff",
+	width:Ti.UI.SIZE,
+	height:Ti.UI.SIZE
+}
+
+"#name":{
+   color:"#cecece",
+   width:Ti.UI.SIZE,
+   height:Ti.UI.SIZE,
+   left:10,right:10
+}

@@ -1,3 +1,12 @@
+function __processArg(obj, key) {
+    var arg = null;
+    if (obj) {
+        arg = obj[key] || null;
+        delete obj[key];
+    }
+    return arg;
+}
+
 function Controller() {
     function onClose() {
         send_to_server();
@@ -18,7 +27,7 @@ function Controller() {
         $.main.animate(animation);
     }
     function send_to_server() {
-        var url = "http://flair.me/carkey/search.php";
+        var url = Alloy.Globals._search;
         var _postData = {
             type: "checkin",
             action: "seen",
@@ -34,9 +43,11 @@ function Controller() {
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "ridealong/notice";
-    arguments[0] ? arguments[0]["__parentSymbol"] : null;
-    arguments[0] ? arguments[0]["$model"] : null;
-    arguments[0] ? arguments[0]["__itemTemplate"] : null;
+    if (arguments[0]) {
+        __processArg(arguments[0], "__parentSymbol");
+        __processArg(arguments[0], "$model");
+        __processArg(arguments[0], "__itemTemplate");
+    }
     var $ = this;
     var exports = {};
     var __defers = {};
@@ -61,15 +72,15 @@ function Controller() {
         borderColor: "#aaa"
     });
     $.__views.main.add($.__views.photo);
-    $.__views.__alloyId95 = Ti.UI.createView({
+    $.__views.__alloyId114 = Ti.UI.createView({
         left: "10",
         width: Ti.UI.SIZE,
         right: "10",
         layout: "vertical",
         height: Ti.UI.SIZE,
-        id: "__alloyId95"
+        id: "__alloyId114"
     });
-    $.__views.main.add($.__views.__alloyId95);
+    $.__views.main.add($.__views.__alloyId114);
     $.__views.name = Ti.UI.createLabel({
         left: "0",
         height: "Ti.UI.SIZE",
@@ -80,7 +91,7 @@ function Controller() {
         id: "name",
         width: Ti.UI.SIZE
     });
-    $.__views.__alloyId95.add($.__views.name);
+    $.__views.__alloyId114.add($.__views.name);
     $.__views.desc = Ti.UI.createLabel({
         height: "Ti.UI.SIZE",
         color: "#fff",
@@ -93,7 +104,7 @@ function Controller() {
         id: "desc",
         width: Ti.UI.SIZE
     });
-    $.__views.__alloyId95.add($.__views.desc);
+    $.__views.__alloyId114.add($.__views.desc);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");

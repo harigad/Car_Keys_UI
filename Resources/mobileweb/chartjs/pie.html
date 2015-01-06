@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Pie Chart</title>
+		<script src="Chart.js"></script>
+	</head>
+	<body>
+		<div id="canvas-holder">
+			<canvas backgroundColor="#990000" id="chart-area" width="200" height="200" onClick="onPie" ></canvas>
+		</div>
+	<script>
+			function _drawPie(data){
+				var ctx = document.getElementById("chart-area").getContext("2d");
+				window.myPie = new Chart(ctx).Pie(data,{showTooltips:false});
+			}
+
+			Ti.App.addEventListener("drawPie",function(e){
+				_drawPie(e.data);
+			});
+	</script>
+	</body>
+</html>

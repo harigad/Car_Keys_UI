@@ -1,1 +1,1 @@
-module.exports = [{"isApi":true,"priority":1000.0002,"key":"Window","style":{backgroundColor:"#ccc",navBarHidden:true,}},{"isId":true,"priority":100000.0003,"key":"iphone_bg","style":{backgroundImage:"iphone_bg.png",width:375,height:600,}}];
+module.exports = [{"isApi":true,"priority":1000.0002,"key":"Window","style":{backgroundColor:"#fff",navBarHidden:true,}}];

@@ -1,0 +1,8 @@
+<Alloy>
+	<Window>
+		<ScrollView id="scroll" top="50" >
+				<TableView id="main"></TableView>
+		</ScrollView>
+		<Require type="view" src="header/header" id="header"/>
+	</Window>
+</Alloy>

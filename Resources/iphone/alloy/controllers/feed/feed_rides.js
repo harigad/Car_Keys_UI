@@ -80,12 +80,12 @@ function Controller() {
         id: "name"
     });
     $.__views.topRight.add($.__views.name);
-    $.__views.__alloyId57 = Ti.UI.createView({
+    $.__views.__alloyId61 = Ti.UI.createView({
         height: "1",
         backgroundColor: "#eee",
-        id: "__alloyId57"
+        id: "__alloyId61"
     });
-    $.__views.main.add($.__views.__alloyId57);
+    $.__views.main.add($.__views.__alloyId61);
     exports.destroy = function() {};
     _.extend($, $.__views);
     require("Login");

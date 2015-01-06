@@ -8,9 +8,9 @@ var _created;
 _created = null;
 
 if(!_feed){
-	load();
+	//load();
 }else{
-	build(_feed);
+	//build(_feed);
 }
 
 exports.refresh = function(){
@@ -23,7 +23,7 @@ function more(){
 }
 
 function load(created){
-	var url = "http://services.ridealong.mobi/search.php";	
+	var url = Alloy.Globals._search;	
 	var _data = {type:"feed",accessToken:login.getAccessToken()};
 	
 	if(_id){

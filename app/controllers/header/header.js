@@ -1,8 +1,10 @@
 var login = require('Login');
 var parentWindow;
+var _callBack = null;
+var isHome = false;
 
 Ti.App.addEventListener("goHome",function(e){
-	if(!isHome){
+	if(!isHome && parentWindow){
 		parentWindow.close();
 	}
 });
@@ -11,10 +13,15 @@ exports.setTitle = function(name){
 	$.title.setText(name);
 };
 
-exports.openWindow = function(win,rightImage,callBack){
+exports.openWindow = function(win,rightText,callBack){
 	parentWindow = win;
-	if(rightImage){
-		$.right_btn.setBackgroundImage(rightImage);
+	if(rightText){
+		$.right_label_text.setText(rightText);
+		$.right_btn.hide();
+		$.right_label.show();
+		
+	}else{
+		$.right_label.hide();
 	}
 	if(callBack){
 		_callBack = callBack;

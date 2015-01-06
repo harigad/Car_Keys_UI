@@ -1,3 +1,13 @@
 "Window": {
-	backgroundColor:"#ffa633",navBarHidden:true
+	backgroundColor:"#f1f1f1",navBarHidden:true
+}
+
+"#error_label": {
+  	color:"#ccc",
+	shadowColor: '#fff',
+    shadowOffset: {x:1, y:1},
+    shadowRadius: 3,
+    font:{
+    	fontSize:26
+    }
 }

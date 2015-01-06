@@ -1,10 +1,19 @@
+function __processArg(obj, key) {
+    var arg = null;
+    if (obj) {
+        arg = obj[key] || null;
+        delete obj[key];
+    }
+    return arg;
+}
+
 function Controller() {
     function onSelect() {
         send_to_server();
         _callBack(true);
     }
     function send_to_server() {
-        var url = "http://flair.me/carkey/search.php";
+        var url = Alloy.Globals._search;
         var _postData = {
             type: "checkin",
             action: "process",
@@ -20,9 +29,11 @@ function Controller() {
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "ridealong/send_request/select_car_for_ridealong_btn";
-    arguments[0] ? arguments[0]["__parentSymbol"] : null;
-    arguments[0] ? arguments[0]["$model"] : null;
-    arguments[0] ? arguments[0]["__itemTemplate"] : null;
+    if (arguments[0]) {
+        __processArg(arguments[0], "__parentSymbol");
+        __processArg(arguments[0], "$model");
+        __processArg(arguments[0], "__itemTemplate");
+    }
     var $ = this;
     var exports = {};
     var __defers = {};
@@ -35,15 +46,15 @@ function Controller() {
     });
     $.__views.select_car_for_ridealong_btn && $.addTopLevelView($.__views.select_car_for_ridealong_btn);
     onSelect ? $.__views.select_car_for_ridealong_btn.addEventListener("click", onSelect) : __defers["$.__views.select_car_for_ridealong_btn!click!onSelect"] = true;
-    $.__views.__alloyId113 = Ti.UI.createView({
+    $.__views.__alloyId130 = Ti.UI.createView({
         height: Ti.UI.SIZE,
         left: "10",
         right: "10",
         layout: "horizontal",
-        id: "__alloyId113"
+        id: "__alloyId130"
     });
-    $.__views.select_car_for_ridealong_btn.add($.__views.__alloyId113);
-    $.__views.__alloyId114 = Ti.UI.createView({
+    $.__views.select_car_for_ridealong_btn.add($.__views.__alloyId130);
+    $.__views.__alloyId131 = Ti.UI.createView({
         borderWidth: "3",
         borderColor: "#fff",
         width: "50",
@@ -53,20 +64,20 @@ function Controller() {
         backgroundColor: "#333",
         top: "10",
         bottom: "10",
-        id: "__alloyId114"
+        id: "__alloyId131"
     });
-    $.__views.__alloyId113.add($.__views.__alloyId114);
+    $.__views.__alloyId130.add($.__views.__alloyId131);
     $.__views.logo = Ti.UI.createView({
         id: "logo",
         width: "30",
         height: "30"
     });
-    $.__views.__alloyId114.add($.__views.logo);
+    $.__views.__alloyId131.add($.__views.logo);
     $.__views.model = Ti.UI.createLabel({
         id: "model",
         color: "#fff"
     });
-    $.__views.__alloyId113.add($.__views.model);
+    $.__views.__alloyId130.add($.__views.model);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");

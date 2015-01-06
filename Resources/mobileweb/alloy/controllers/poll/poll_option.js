@@ -1,3 +1,12 @@
+function __processArg(obj, key) {
+    var arg = null;
+    if (obj) {
+        arg = obj[key] || null;
+        delete obj[key];
+    }
+    return arg;
+}
+
 function Controller() {
     function onChange() {
         _selected = _selected ? false : true;
@@ -9,7 +18,7 @@ function Controller() {
         _selected ? $.circle.setBackgroundColor("#ffa633") : $.circle.setBackgroundColor("#dedede");
     }
     function save() {
-        var url = "http://flair.me/carkey/search.php";
+        var url = Alloy.Globals._search;
         var data = {
             type: "poll",
             pollid: _pollid,
@@ -28,9 +37,11 @@ function Controller() {
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "poll/poll_option";
-    arguments[0] ? arguments[0]["__parentSymbol"] : null;
-    arguments[0] ? arguments[0]["$model"] : null;
-    arguments[0] ? arguments[0]["__itemTemplate"] : null;
+    if (arguments[0]) {
+        __processArg(arguments[0], "__parentSymbol");
+        __processArg(arguments[0], "$model");
+        __processArg(arguments[0], "__itemTemplate");
+    }
     var $ = this;
     var exports = {};
     var __defers = {};

@@ -1,31 +1,49 @@
+function __processArg(obj, key) {
+    var arg = null;
+    if (obj) {
+        arg = obj[key] || null;
+        delete obj[key];
+    }
+    return arg;
+}
+
 function Controller() {
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "components/pleasewait";
-    arguments[0] ? arguments[0]["__parentSymbol"] : null;
-    arguments[0] ? arguments[0]["$model"] : null;
-    arguments[0] ? arguments[0]["__itemTemplate"] : null;
+    if (arguments[0]) {
+        __processArg(arguments[0], "__parentSymbol");
+        __processArg(arguments[0], "$model");
+        __processArg(arguments[0], "__itemTemplate");
+    }
     var $ = this;
     var exports = {};
     $.__views.pleasewait = Ti.UI.createWindow({
-        backgroundColor: "#ffa633",
+        backgroundColor: "#f1f1f1",
         navBarHidden: true,
-        width: 320,
-        height: 500,
         id: "pleasewait"
     });
     $.__views.pleasewait && $.addTopLevelView($.__views.pleasewait);
-    $.__views.__alloyId42 = Ti.UI.createView({
+    $.__views.__alloyId48 = Ti.UI.createView({
         height: Ti.UI.SIZE,
-        id: "__alloyId42"
+        id: "__alloyId48"
     });
-    $.__views.pleasewait.add($.__views.__alloyId42);
-    $.__views.__alloyId43 = Ti.UI.createLabel({
+    $.__views.pleasewait.add($.__views.__alloyId48);
+    $.__views.label = Ti.UI.createLabel({
+        color: "#ccc",
+        shadowColor: "#fff",
+        shadowOffset: {
+            x: 1,
+            y: 1
+        },
+        shadowRadius: 3,
+        font: {
+            fontSize: 30
+        },
         text: "please wait..",
         height: Ti.UI.SIZE,
-        color: "#fff",
-        id: "__alloyId43"
+        id: "label"
     });
-    $.__views.__alloyId42.add($.__views.__alloyId43);
+    $.__views.__alloyId48.add($.__views.label);
     exports.destroy = function() {};
     _.extend($, $.__views);
     exports.open = function() {

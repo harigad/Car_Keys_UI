@@ -2,32 +2,16 @@
 		var args = arguments[0] || {};
 		var _data = args._data || {};
 
-$.pull_to_refresh.init($.scroll,function(){
-	$.cars_container_inner.removeAllChildren();
-	$.rides.removeAllChildren();
-	load(_data);
-},$.ride_along);
-
+$.photo.setImage(_data.photo);
 $.name.setText(_data.name);
 $.header.openWindow($.profile);
 
-//$.photoImg.setImage(_data.photo_big);
-//$.photo.setBackgroundImage(_data.photo_big);
-//$.plate.setText(_data.plate);
 load(_data);
-
-$.photoImg.addEventListener("load",function() {
-    if($.photoImg.size.width > $.photoImg.size.height){
-		$.photoImg.setHeight(100);
-	}else{
-		$.photoImg.setWidth(100);
-	}
-});
 
 function load(data){
 	showPleaseWait();	
 	
-	var url = "http://services.ridealong.mobi/search.php";	
+	var url = Alloy.Globals._search;	
 	var _data = {type:"user",id:data.uid,accessToken:login.getAccessToken()};
 		
  	var client = Ti.Network.createHTTPClient({ 		
@@ -36,7 +20,17 @@ function load(data){
  	 
  	 	 var response = JSON.parse(this.responseText);
  	 	 _data = response;
-      	 build(response);
+ 	 	 
+ 	 			    var animation = Titanium.UI.createAnimation();
+					animation.top = 0;
+					animation.duration = 200;
+					var animationHandler = function() {
+  						animation.removeEventListener('complete',animationHandler);
+  						build(response);	
+					};
+					animation.addEventListener('complete',animationHandler);
+					$.container.animate(animation);
+ 	 	 
  	 },
  	 onerror: function(e){
  		 	Ti.API.error("User.load error " + e);
@@ -50,34 +44,38 @@ function load(data){
 }
 
 function build(data){
-	$.profile_businness_info.init(data);
+	var rows = [];
 	var cars = data.cars || [];
-	var carRows = [];
-	for(var i=0;i<cars.length;i++){
-		var car =  Alloy.createController("car/car",{_data:cars[i]});
-		carRows.push(car.getView());
+	    for(var c=0;c<cars.length;c++){
+		var car_btn =  Alloy.createController("home/home_square",{_obj:cars[c],_data:{image:"logos/48/" + cars[c].logo,title:cars[c].model},_callBack:function(obj){
+			var carObj =  Alloy.createController("car/car",{
+				_owner_name:_data.name,
+				_data:obj,_callBack:function(){}
+			});
+		}});
+		rows.push(car_btn.getView());
 	}
-	
-	$.cars_container_inner.setData(carRows);
-	
-	var rides = data.rides || [];
-	for(var i=0;i<rides.length;i++){
-		var ride =  Alloy.createController("feed/feed_rides",{_data:rides[i]});
-		$.rides.add(ride.getView());
-	}
-	
-	if(rides.length === 0 ){
-		var lbl = Ti.UI.createLabel({top:25,bottom:25,height:Ti.UI.SIZE,width:Ti.UI.SIZE,color:"#cecece",font:{fontWeight:"bold"},text:"No Ride Alongs Yet!!!"});
-		$.rides.add(lbl);
-	}
-	
-	//var feed =  Alloy.createController("feed/feed",{_id:_data.uid,_feed:_data.feed});
-	//$.feed.add(feed.getView());
-}
+var ridesLen = data.rides.length || "";
 
-function goToPhoto(){
-	var photo =  Alloy.createController("photo/photo",{_data:_data.photo_big});
-}
+var rides_btn =  Alloy.createController("home/home_square",{_data:{image:"common/ride_along_36_36.png",subtext:ridesLen,title:"ride alongs"},_callBack:function(){
+	
+}});
+rows.push(rides_btn.getView());
+
+var testdrives_btn =  Alloy.createController("home/home_square",{_data:{image:"common/steering_36_36.png",subtext:11,title:"test drives"},_callBack:function(){
+	
+}});
+rows.push(testdrives_btn.getView());
+
+var media_btn =  Alloy.createController("home/home_square",{_data:{image:"common/camera_36_36.png",title:"photos"},_callBack:function(){
+	
+}});
+rows.push(media_btn.getView());
+
+$.main.setData(rows);
+
+}	
+	
 
 function showPleaseWait(){
 	

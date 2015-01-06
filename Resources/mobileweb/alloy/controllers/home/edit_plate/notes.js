@@ -1,3 +1,12 @@
+function __processArg(obj, key) {
+    var arg = null;
+    if (obj) {
+        arg = obj[key] || null;
+        delete obj[key];
+    }
+    return arg;
+}
+
 function Controller() {
     function onOk() {
         Alloy.createController("home/edit_plate/edit_plate", {
@@ -9,25 +18,25 @@ function Controller() {
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "home/edit_plate/notes";
-    arguments[0] ? arguments[0]["__parentSymbol"] : null;
-    arguments[0] ? arguments[0]["$model"] : null;
-    arguments[0] ? arguments[0]["__itemTemplate"] : null;
+    if (arguments[0]) {
+        __processArg(arguments[0], "__parentSymbol");
+        __processArg(arguments[0], "$model");
+        __processArg(arguments[0], "__itemTemplate");
+    }
     var $ = this;
     var exports = {};
     var __defers = {};
     $.__views.notes = Ti.UI.createWindow({
         backgroundColor: "#ffa633",
         navBarHidden: true,
-        width: 320,
-        height: 500,
         id: "notes"
     });
     $.__views.notes && $.addTopLevelView($.__views.notes);
-    $.__views.__alloyId61 = Ti.UI.createView({
+    $.__views.__alloyId77 = Ti.UI.createView({
         layout: "vertical",
-        id: "__alloyId61"
+        id: "__alloyId77"
     });
-    $.__views.notes.add($.__views.__alloyId61);
+    $.__views.notes.add($.__views.__alloyId77);
     $.__views.title = Ti.UI.createLabel({
         top: 20,
         height: Ti.UI.SIZE,
@@ -48,17 +57,17 @@ function Controller() {
         text: "Few things about your Bumper Sticker",
         id: "title"
     });
-    $.__views.__alloyId61.add($.__views.title);
-    $.__views.__alloyId62 = Ti.UI.createView({
+    $.__views.__alloyId77.add($.__views.title);
+    $.__views.__alloyId78 = Ti.UI.createView({
         left: "10",
         right: "10",
         bottom: "10",
         height: Ti.UI.SIZE,
         layout: "vertical",
-        id: "__alloyId62"
+        id: "__alloyId78"
     });
-    $.__views.__alloyId61.add($.__views.__alloyId62);
-    $.__views.__alloyId63 = Ti.UI.createLabel({
+    $.__views.__alloyId77.add($.__views.__alloyId78);
+    $.__views.__alloyId79 = Ti.UI.createLabel({
         left: 10,
         right: 10,
         height: Ti.UI.SIZE,
@@ -69,10 +78,10 @@ function Controller() {
             fontSize: 14
         },
         text: "* Your Bumper Sticker is unique..ie no one else can have the same plate while you still have it",
-        id: "__alloyId63"
+        id: "__alloyId79"
     });
-    $.__views.__alloyId62.add($.__views.__alloyId63);
-    $.__views.__alloyId64 = Ti.UI.createLabel({
+    $.__views.__alloyId78.add($.__views.__alloyId79);
+    $.__views.__alloyId80 = Ti.UI.createLabel({
         left: 10,
         right: 10,
         height: Ti.UI.SIZE,
@@ -83,10 +92,10 @@ function Controller() {
             fontSize: 14
         },
         text: "* You can change your Bumper Sticker at any time",
-        id: "__alloyId64"
+        id: "__alloyId80"
     });
-    $.__views.__alloyId62.add($.__views.__alloyId64);
-    $.__views.__alloyId65 = Ti.UI.createLabel({
+    $.__views.__alloyId78.add($.__views.__alloyId80);
+    $.__views.__alloyId81 = Ti.UI.createLabel({
         left: 10,
         right: 10,
         height: Ti.UI.SIZE,
@@ -97,10 +106,10 @@ function Controller() {
             fontSize: 14
         },
         text: "* Stickers can be upto 10 digits long..not including the spaces",
-        id: "__alloyId65"
+        id: "__alloyId81"
     });
-    $.__views.__alloyId62.add($.__views.__alloyId65);
-    $.__views.__alloyId66 = Ti.UI.createLabel({
+    $.__views.__alloyId78.add($.__views.__alloyId81);
+    $.__views.__alloyId82 = Ti.UI.createLabel({
         left: 10,
         right: 10,
         height: Ti.UI.SIZE,
@@ -111,9 +120,9 @@ function Controller() {
             fontSize: 14
         },
         text: "* You must have at least one vehichle before you can create your Bumper Sticker",
-        id: "__alloyId66"
+        id: "__alloyId82"
     });
-    $.__views.__alloyId62.add($.__views.__alloyId66);
+    $.__views.__alloyId78.add($.__views.__alloyId82);
     $.__views.continue_btn = Ti.UI.createView({
         backgroundColor: "#f49033",
         borderRadius: 4,
@@ -124,7 +133,7 @@ function Controller() {
         height: Ti.UI.SIZE,
         id: "continue_btn"
     });
-    $.__views.__alloyId61.add($.__views.continue_btn);
+    $.__views.__alloyId77.add($.__views.continue_btn);
     onOk ? $.__views.continue_btn.addEventListener("click", onOk) : __defers["$.__views.continue_btn!click!onOk"] = true;
     $.__views.continue_btn_label = Ti.UI.createLabel({
         top: 20,

@@ -1,3 +1,12 @@
+function __processArg(obj, key) {
+    var arg = null;
+    if (obj) {
+        arg = obj[key] || null;
+        delete obj[key];
+    }
+    return arg;
+}
+
 function Controller() {
     function onClick() {
         _callBack && Alloy.createController("ridealong/accept", {
@@ -17,9 +26,11 @@ function Controller() {
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "ridealong/request";
-    arguments[0] ? arguments[0]["__parentSymbol"] : null;
-    arguments[0] ? arguments[0]["$model"] : null;
-    arguments[0] ? arguments[0]["__itemTemplate"] : null;
+    if (arguments[0]) {
+        __processArg(arguments[0], "__parentSymbol");
+        __processArg(arguments[0], "$model");
+        __processArg(arguments[0], "__itemTemplate");
+    }
     var $ = this;
     var exports = {};
     var __defers = {};
@@ -44,15 +55,15 @@ function Controller() {
         borderColor: "#fff"
     });
     $.__views.main.add($.__views.photo);
-    $.__views.__alloyId96 = Ti.UI.createView({
+    $.__views.__alloyId115 = Ti.UI.createView({
         left: "10",
         right: "10",
         width: Ti.UI.SIZE,
         layout: "vertical",
         height: Ti.UI.SIZE,
-        id: "__alloyId96"
+        id: "__alloyId115"
     });
-    $.__views.main.add($.__views.__alloyId96);
+    $.__views.main.add($.__views.__alloyId115);
     $.__views.name = Ti.UI.createLabel({
         left: "0",
         height: "Ti.UI.SIZE",
@@ -63,7 +74,7 @@ function Controller() {
         id: "name",
         width: Ti.UI.SIZE
     });
-    $.__views.__alloyId96.add($.__views.name);
+    $.__views.__alloyId115.add($.__views.name);
     $.__views.desc = Ti.UI.createLabel({
         height: "Ti.UI.SIZE",
         color: "#fff",
@@ -76,7 +87,7 @@ function Controller() {
         id: "desc",
         width: Ti.UI.SIZE
     });
-    $.__views.__alloyId96.add($.__views.desc);
+    $.__views.__alloyId115.add($.__views.desc);
     exports.destroy = function() {};
     _.extend($, $.__views);
     require("Login");

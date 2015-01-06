@@ -1,10 +1,19 @@
+function __processArg(obj, key) {
+    var arg = null;
+    if (obj) {
+        arg = obj[key] || null;
+        delete obj[key];
+    }
+    return arg;
+}
+
 function Controller() {
     function more() {
         $.more.setText("please wait...");
         load(_created);
     }
     function load(created) {
-        var url = "http://flair.me/carkey/search.php";
+        var url = Alloy.Globals._search;
         var _data = {
             type: "feed",
             accessToken: login.getAccessToken()
@@ -13,8 +22,9 @@ function Controller() {
         created && (_data.created = created);
         var client = Ti.Network.createHTTPClient({
             onload: function() {
+                Ti.API.debug(this.responseText);
                 var response = JSON.parse(this.responseText);
-                build(response, created);
+                _dontBuild || build(response, created);
             },
             onerror: function(e) {
                 Ti.API.error("User.load error " + e);
@@ -24,6 +34,7 @@ function Controller() {
         client.send(_data);
     }
     function build(data) {
+        var rows = [];
         for (var i = 0; data.length > i; i++) {
             var feed_item;
             switch (data[i].typeid) {
@@ -63,17 +74,20 @@ function Controller() {
                 });
             }
             if (feed_item) {
-                $.main.add(feed_item.getView());
+                rows.push(feed_item.getView());
                 _created = data[i].created;
             }
         }
+        $.main.appendRow(rows);
         $.more.setText("load more");
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "feed/feed";
-    arguments[0] ? arguments[0]["__parentSymbol"] : null;
-    arguments[0] ? arguments[0]["$model"] : null;
-    arguments[0] ? arguments[0]["__itemTemplate"] : null;
+    if (arguments[0]) {
+        __processArg(arguments[0], "__parentSymbol");
+        __processArg(arguments[0], "$model");
+        __processArg(arguments[0], "__itemTemplate");
+    }
     var $ = this;
     var exports = {};
     var __defers = {};
@@ -89,19 +103,31 @@ function Controller() {
         id: "container"
     });
     $.__views.container && $.addTopLevelView($.__views.container);
-    $.__views.main = Ti.UI.createView({
-        id: "main",
-        layout: "vertical",
+    $.__views.header = Ti.UI.createLabel({
+        font: {
+            fontSize: 12
+        },
+        left: 10,
+        top: 5,
+        color: "#ccc",
         height: Ti.UI.SIZE,
-        top: "0"
+        text: "Feed Activity",
+        id: "header"
+    });
+    $.__views.container.add($.__views.header);
+    $.__views.main = Ti.UI.createTableView({
+        height: Ti.UI.SIZE,
+        separatorStyle: Alloy.Globals._params.TableViewSeparatorStyle.NONE,
+        scrollable: false,
+        id: "main"
     });
     $.__views.container.add($.__views.main);
-    $.__views.__alloyId44 = Ti.UI.createView({
+    $.__views.__alloyId52 = Ti.UI.createView({
         height: Ti.UI.SIZE,
-        id: "__alloyId44"
+        id: "__alloyId52"
     });
-    $.__views.container.add($.__views.__alloyId44);
-    more ? $.__views.__alloyId44.addEventListener("click", more) : __defers["$.__views.__alloyId44!click!more"] = true;
+    $.__views.container.add($.__views.__alloyId52);
+    more ? $.__views.__alloyId52.addEventListener("click", more) : __defers["$.__views.__alloyId52!click!more"] = true;
     $.__views.more = Ti.UI.createLabel({
         text: "please wait..",
         id: "more",
@@ -110,19 +136,21 @@ function Controller() {
         color: "#ffa633",
         height: Ti.UI.SIZE
     });
-    $.__views.__alloyId44.add($.__views.more);
+    $.__views.__alloyId52.add($.__views.more);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");
     var args = arguments[0] || {};
     var _id = args._id || null;
+    var _feed = args._feed || null;
+    var _dontBuild = args._dontBuild || false;
     var _created;
     _created = null;
-    load();
+    !_feed;
     exports.refresh = function() {
         load();
     };
-    __defers["$.__views.__alloyId44!click!more"] && $.__views.__alloyId44.addEventListener("click", more);
+    __defers["$.__views.__alloyId52!click!more"] && $.__views.__alloyId52.addEventListener("click", more);
     _.extend($, exports);
 }
 

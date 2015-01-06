@@ -1,0 +1,38 @@
+
+"Window":{
+	backgroundColor:"#f1f1f1"
+}
+
+"#container":{
+	layout:"vertical",
+	height:Ti.UI.SIZE
+}
+
+".btn":{
+	backgroundColor:"#40a3ff",
+	bottom:10,
+	borderRadius:4,
+	width:Ti.UI.SIZE,
+	height:Ti.UI.SIZE
+}
+
+".btn_label":{
+	color:"#fff",
+	width:Ti.UI.SIZE,
+	height:Ti.UI.SIZE,
+	left:20,right:20,top:20,bottom:20,
+	font:{
+		fontSize:26
+	}
+}
+
+"#skip_btn":{
+	backgroundColor:"#f1f1f1"
+}
+
+"#skip_btn_label":{
+	color:"#40a3ff",
+	font:{
+		fontSize:14
+	}
+}

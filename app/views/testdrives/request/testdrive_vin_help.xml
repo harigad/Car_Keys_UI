@@ -1,0 +1,16 @@
+<Alloy>
+	<Window>
+		<View id="main">
+			<Label id="header">Where to find the VIN Number</Label>
+			<Label class="title">Ask the salesperson at the auto dealership</Label>
+			<Label class="title">On the driver's side door. Where the open end of the door meets the car.</Label>
+			<Label class="title">On the driver's side dashboard. Stand outside the vehicle and look at the corner where the dashboard meets the windshield.</Label>
+		
+		  <View class="btn" onClick="close" >
+				<Label class="btn_label">
+					Of course I know that!
+				</Label>
+			</View>
+		</View>
+	</Window>
+</Alloy>

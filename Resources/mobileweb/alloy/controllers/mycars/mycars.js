@@ -1,3 +1,12 @@
+function __processArg(obj, key) {
+    var arg = null;
+    if (obj) {
+        arg = obj[key] || null;
+        delete obj[key];
+    }
+    return arg;
+}
+
 function Controller() {
     function init() {
         var cars = login.getCars();
@@ -5,7 +14,7 @@ function Controller() {
             var _new = {
                 logo: "logo.png",
                 model: "ADD NEW CAR",
-                "new": true
+                _new: true
             };
             var car = Alloy.createController("car/newcar", {
                 _editable: true,
@@ -14,7 +23,7 @@ function Controller() {
                     _refresh();
                 }
             });
-            $.main.add(car.getView());
+            $.main.appendRow(car.getView());
         }
     }
     function addNew() {
@@ -25,6 +34,7 @@ function Controller() {
         });
     }
     function build(cars) {
+        var rows = [];
         for (var i = 0; cars.length > i; i++) {
             var car = Alloy.createController("car/car", {
                 _editable: true,
@@ -33,8 +43,9 @@ function Controller() {
                     _refresh();
                 }
             });
-            $.main.add(car.getView());
+            rows.push(car.getView());
         }
+        $.main.setData(rows);
     }
     function _refresh() {
         try {
@@ -43,34 +54,37 @@ function Controller() {
         init();
     }
     function clear() {
-        var len = $.main.children.length;
-        for (var i = 0; len > i; i++) $.main.remove($.main.children[0]);
+        $.main.removeAllChildren();
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "mycars/mycars";
-    arguments[0] ? arguments[0]["__parentSymbol"] : null;
-    arguments[0] ? arguments[0]["$model"] : null;
-    arguments[0] ? arguments[0]["__itemTemplate"] : null;
+    if (arguments[0]) {
+        __processArg(arguments[0], "__parentSymbol");
+        __processArg(arguments[0], "$model");
+        __processArg(arguments[0], "__itemTemplate");
+    }
     var $ = this;
     var exports = {};
     $.__views.mycars = Ti.UI.createWindow({
-        backgroundColor: "#ffa633",
+        backgroundColor: "#fff",
         navBarHidden: true,
-        width: 320,
-        height: 500,
         id: "mycars"
     });
     $.__views.mycars && $.addTopLevelView($.__views.mycars);
     $.__views.scroll = Ti.UI.createScrollView({
         id: "scroll",
-        top: "50"
+        top: "50",
+        backgroundColor: "#eee"
     });
     $.__views.mycars.add($.__views.scroll);
-    $.__views.main = Ti.UI.createView({
-        height: Ti.UI.SIZE,
-        layout: "vertical",
+    $.__views.main = Ti.UI.createTableView({
+        separatorStyle: Alloy.Globals._params.TableViewSeparatorStyle.NONE,
         left: 10,
         right: 10,
+        top: "20",
+        borderRadius: 4,
+        scrollable: false,
+        height: Ti.UI.SIZE,
         id: "main"
     });
     $.__views.scroll.add($.__views.main);
@@ -89,7 +103,6 @@ function Controller() {
         refresh && _refresh();
         $.header.openWindow($.mycars, "common/plus.png", addNew);
     };
-    init();
     exports.refresh = function() {
         _refresh();
     };

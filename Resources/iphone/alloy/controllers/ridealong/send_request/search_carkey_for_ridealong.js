@@ -21,7 +21,7 @@ function Controller() {
         return false;
     }
     function send_to_server() {
-        var url = "http://services.ridealong.mobi/search.php";
+        var url = Alloy.Globals._search;
         var _postData = {
             type: "checkin",
             action: "find",
@@ -92,31 +92,31 @@ function Controller() {
         height: Ti.UI.SIZE
     });
     $.__views.main.add($.__views.pleasewait);
-    $.__views.__alloyId107 = Ti.UI.createView({
+    $.__views.__alloyId117 = Ti.UI.createView({
         top: "0",
         height: "60",
         backgroundColor: "#f49033",
-        id: "__alloyId107"
+        id: "__alloyId117"
     });
-    $.__views.search_carkey_for_ridealong.add($.__views.__alloyId107);
-    $.__views.__alloyId108 = Ti.UI.createView({
+    $.__views.search_carkey_for_ridealong.add($.__views.__alloyId117);
+    $.__views.__alloyId118 = Ti.UI.createView({
         top: "10",
         height: "50",
-        id: "__alloyId108"
+        id: "__alloyId118"
     });
-    $.__views.__alloyId107.add($.__views.__alloyId108);
-    $.__views.__alloyId109 = Ti.UI.createView({
+    $.__views.__alloyId117.add($.__views.__alloyId118);
+    $.__views.__alloyId119 = Ti.UI.createView({
         top: 10,
         height: 30,
         width: 50,
         backgroundColor: "#ffa633",
         borderRadius: 4,
         left: "10",
-        id: "__alloyId109"
+        id: "__alloyId119"
     });
-    $.__views.__alloyId108.add($.__views.__alloyId109);
-    onCancel ? $.__views.__alloyId109.addEventListener("click", onCancel) : __defers["$.__views.__alloyId109!click!onCancel"] = true;
-    $.__views.__alloyId110 = Ti.UI.createLabel({
+    $.__views.__alloyId118.add($.__views.__alloyId119);
+    onCancel ? $.__views.__alloyId119.addEventListener("click", onCancel) : __defers["$.__views.__alloyId119!click!onCancel"] = true;
+    $.__views.__alloyId120 = Ti.UI.createLabel({
         height: Ti.UI.SIZE,
         width: Ti.UI.SIZE,
         font: {
@@ -124,9 +124,9 @@ function Controller() {
         },
         color: "#fff",
         text: "cancel",
-        id: "__alloyId110"
+        id: "__alloyId120"
     });
-    $.__views.__alloyId109.add($.__views.__alloyId110);
+    $.__views.__alloyId119.add($.__views.__alloyId120);
     $.__views.question = Ti.UI.createLabel({
         height: Ti.UI.SIZE,
         font: {
@@ -137,7 +137,7 @@ function Controller() {
         text: "RideAlong",
         id: "question"
     });
-    $.__views.__alloyId108.add($.__views.question);
+    $.__views.__alloyId118.add($.__views.question);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");
@@ -146,7 +146,7 @@ function Controller() {
     var _callBack = args._callBack;
     send_to_server();
     $.search_carkey_for_ridealong.open();
-    __defers["$.__views.__alloyId109!click!onCancel"] && $.__views.__alloyId109.addEventListener("click", onCancel);
+    __defers["$.__views.__alloyId119!click!onCancel"] && $.__views.__alloyId119.addEventListener("click", onCancel);
     _.extend($, exports);
 }
 

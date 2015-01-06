@@ -1,37 +1,21 @@
 "Window":{
-	backgroundColor:"#eee",navBarHidden:true
+	backgroundColor:"#f1f1f1",navBarHidden:true
 }
 
-"#scroll":{
-	height:Ti.UI.FILL,width:Ti.UI.FILL
-}
-
-"#profile_container":{
-	top:0,left:0,
-	width:Ti.UI.FILL,
-	height:150,backgroundColor:"#ffa633"
-}
-
-"#photo":{
-	width:Ti.UI.SIZE,height:Ti.UI.SIZE,layout:"vertical",top:10
-}
-
-"#make_name":{
-	top:15,
-	color:"#fff",height:"Ti.UI.SIZE",
-	font:{
-		fontSize:36,fontWeight:"bold"
-	}
-}
-
-"#main_container":{
-	height:Ti.UI.SIZE,
-	top:120
-}
 
 "#main":{
-	borderRadius:4,backgroundColor:"#f49033",
-	layout:"vertical",
+	top:0,separatorStyle: Alloy.Globals._params.TableViewSeparatorStyle.NONE
+}
+
+"#name":{
+	width:Ti.UI.SIZE,
 	height:Ti.UI.SIZE,
-	left:10,right:10
+	top:10,
+	font:{
+		fontSize:24
+	},
+	color:"#ccc",
+	shadowColor: '#fff',
+    shadowOffset: {x:1, y:1},
+    shadowRadius: 3,
 }

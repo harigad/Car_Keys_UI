@@ -9,8 +9,11 @@ $.logo.setBackgroundImage("logos/48/" + _data.logo);
 $.model.setText(_data.model);
 
 function onVerify(){
-	//step_1();
-	step_invite();	
+	if(showing_invite){
+		send_to_server();
+	}else{
+		step_invite();	
+	}
 }
 
 var showing_invite = false;
@@ -21,13 +24,17 @@ function step_invite(){
 	var animationHandler = function() {
 		showing_invite = true;
   		animation.removeEventListener('complete',animationHandler);
+  		$.model.setText("Congratulations!");
+  		$.invite_text.setText("This " + _data.model + " has been added to your profile");
   		$.invite_text.setHeight(100);
   		$.invite_text.setTop(10);
   		$.invite_text.setVisible(true);
-  		$.btn_container_label.setText("INVITE NOW");
-  		$.cancel_btn_label.setText("I WILL INVITE LATER!");
+  		$.btn_container_label.setLeft(40);
+  		$.btn_container_label.setRight(40);
+  		$.btn_container_label.setText("OK");
+  		//$.cancel_btn_label.setText("I WILL INVITE LATER!");
   		$.btn_container.setVisible(true);
-		$.cancel_container.setVisible(true);
+		//$.cancel_container.setVisible(false);
     };
 	animation.addEventListener('complete',animationHandler);
 	
@@ -198,10 +205,6 @@ function send_to_server(answerObj){
 }
 
 function onCancel(){
-	if(showing_invite){
-		send_to_server();
-	}else{
 		_callBack();
 		$.found_car.close();
-	}
 }

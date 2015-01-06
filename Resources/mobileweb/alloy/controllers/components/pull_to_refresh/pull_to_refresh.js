@@ -1,9 +1,20 @@
+function __processArg(obj, key) {
+    var arg = null;
+    if (obj) {
+        arg = obj[key] || null;
+        delete obj[key];
+    }
+    return arg;
+}
+
 function Controller() {
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "components/pull_to_refresh/pull_to_refresh";
-    arguments[0] ? arguments[0]["__parentSymbol"] : null;
-    arguments[0] ? arguments[0]["$model"] : null;
-    arguments[0] ? arguments[0]["__itemTemplate"] : null;
+    if (arguments[0]) {
+        __processArg(arguments[0], "__parentSymbol");
+        __processArg(arguments[0], "$model");
+        __processArg(arguments[0], "__itemTemplate");
+    }
     var $ = this;
     var exports = {};
     $.__views.main = Ti.UI.createView({
@@ -31,7 +42,6 @@ function Controller() {
         _scroll = scroll;
         _callBack = callBack;
         _scroll.addEventListener("scroll", function(e) {
-            Ti.API.debug(e.y);
             optionalOverlay && (-20 > e.y && e.dragging ? optionalOverlay.setOpacity(.1) : optionalOverlay.setOpacity(1));
             if (e.dragging) if (-80 >= e.y && false === _status) {
                 $.txt.setText("release to refresh");

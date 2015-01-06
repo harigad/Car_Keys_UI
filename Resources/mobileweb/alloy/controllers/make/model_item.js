@@ -1,3 +1,12 @@
+function __processArg(obj, key) {
+    var arg = null;
+    if (obj) {
+        arg = obj[key] || null;
+        delete obj[key];
+    }
+    return arg;
+}
+
 function Controller() {
     function goToModel() {
         login.canSeeModel(_data.moid) && Alloy.createController("model/model", {
@@ -6,9 +15,11 @@ function Controller() {
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "make/model_item";
-    arguments[0] ? arguments[0]["__parentSymbol"] : null;
-    arguments[0] ? arguments[0]["$model"] : null;
-    arguments[0] ? arguments[0]["__itemTemplate"] : null;
+    if (arguments[0]) {
+        __processArg(arguments[0], "__parentSymbol");
+        __processArg(arguments[0], "$model");
+        __processArg(arguments[0], "__itemTemplate");
+    }
     var $ = this;
     var exports = {};
     var __defers = {};
@@ -33,12 +44,12 @@ function Controller() {
         id: "name"
     });
     $.__views.main.add($.__views.name);
-    $.__views.__alloyId67 = Ti.UI.createView({
+    $.__views.__alloyId90 = Ti.UI.createView({
         height: Ti.UI.SIZE,
         layout: "horizontal",
-        id: "__alloyId67"
+        id: "__alloyId90"
     });
-    $.__views.main.add($.__views.__alloyId67);
+    $.__views.main.add($.__views.__alloyId90);
     $.__views.friends = Ti.UI.createLabel({
         color: "#fff",
         opacity: .5,
@@ -50,7 +61,7 @@ function Controller() {
         },
         id: "friends"
     });
-    $.__views.__alloyId67.add($.__views.friends);
+    $.__views.__alloyId90.add($.__views.friends);
     $.__views.count = Ti.UI.createLabel({
         color: "#fff",
         opacity: .5,
@@ -62,7 +73,7 @@ function Controller() {
         },
         id: "count"
     });
-    $.__views.__alloyId67.add($.__views.count);
+    $.__views.__alloyId90.add($.__views.count);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");

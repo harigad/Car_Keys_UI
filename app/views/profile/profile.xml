@@ -1,23 +1,15 @@
 <Alloy>
 	<Window>
-		<ScrollView id="scroll" top="-50" >
-		<View id="profile_container" top="120" >
-			<View id="photo" backgroundColor="#333" >
-				<ImageView  width="100" id="photoImg"  ></ImageView>
-			</View>
-			<View id="plate_container" >
-				<Label id="name" ></Label>
-			</View>
-		</View>
-		<View id="cars_container">
-			<Require src="profile/profile_businness_info" id="profile_businness_info" />
-			<TableView id="cars_container_inner"></TableView>
-			<View id="rides" >
-				<Label id="header">Ride Alongs</Label>
-			</View>
-			<View id="feed" height="Ti.UI.SIZE" ></View>
-		</View>
-		<Require src="components/pull_to_refresh/pull_to_refresh" id="pull_to_refresh"/>
+		<ScrollView id="scroll" top="50" >
+				<View height="Ti.UI.SIZE" layout="vertical" id="container" >
+					<View height="110" top="0" left="15" top="40" bottom="40"  >
+							<View backgroundColor="#ccc" width="80" height="80" top="0" borderRadius="40" >
+								<ImageView width="50" height="50" id="photo" borderRadius="25" ></ImageView>
+							</View>
+							<Label id="name" ></Label>
+					</View>
+					<TableView id="main" top="0" backgroundColor="#fff" scrollable="false" height="Ti.UI.SIZE"  ></TableView>
+				</View>
 		</ScrollView>
 		<Require type="view" src="header/header" id="header"/>
 	</Window>

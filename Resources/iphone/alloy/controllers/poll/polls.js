@@ -13,7 +13,7 @@ function Controller() {
         load(_created);
     }
     function load(created) {
-        var url = "http://services.ridealong.mobi/search.php";
+        var url = Alloy.Globals._search;
         var data = {
             type: "poll",
             moid: _data.moid,
@@ -90,12 +90,12 @@ function Controller() {
         bottom: "10"
     });
     $.__views.container.add($.__views.main);
-    $.__views.__alloyId85 = Ti.UI.createView({
+    $.__views.__alloyId93 = Ti.UI.createView({
         height: Ti.UI.SIZE,
-        id: "__alloyId85"
+        id: "__alloyId93"
     });
-    $.__views.container.add($.__views.__alloyId85);
-    more ? $.__views.__alloyId85.addEventListener("click", more) : __defers["$.__views.__alloyId85!click!more"] = true;
+    $.__views.container.add($.__views.__alloyId93);
+    more ? $.__views.__alloyId93.addEventListener("click", more) : __defers["$.__views.__alloyId93!click!more"] = true;
     $.__views.more = Ti.UI.createLabel({
         text: "please wait..",
         id: "more",
@@ -119,7 +119,7 @@ function Controller() {
     exports.refresh = function() {
         load();
     };
-    __defers["$.__views.__alloyId85!click!more"] && $.__views.__alloyId85.addEventListener("click", more);
+    __defers["$.__views.__alloyId93!click!more"] && $.__views.__alloyId93.addEventListener("click", more);
     _.extend($, exports);
 }
 

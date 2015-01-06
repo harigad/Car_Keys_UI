@@ -1,16 +1,18 @@
 <Alloy>
 	<Window>
-	<ScrollView id="scroll" top=50>
-		<View id="profile_container" >
-			<View id="photo" >
-				<Label id="make_name"></Label>
-			</View>
-		</View>
-		<View id="main_container">
-			<View id="main">
-		    </View>
-		</View>
-	</ScrollView>
-	<Require type="view" src="header/header" id="header"/>
+		<ScrollView id="scroll" top="50"  backgroundColor="#fff" >
+				<View height="Ti.UI.SIZE" layout="vertical" top="0" >
+					<View height="200"  backgroundColor="#f1f1f1"  >
+						<View height="Ti.UI.SIZE" layout="vertical" >
+							<View backgroundColor="#333" width="80" height="80" borderRadius="40" >
+								<View width="50" height="50" id="photo" ></View>
+							</View>
+							<Label id="name" ></Label>
+						</View>
+					</View>
+					<TableView id="main" scrollable="false"  height="Ti.UI.SIZE"  ></TableView>
+				</View>
+		</ScrollView>
+		<Require type="view" src="header/header" id="header"/>
 	</Window>
 </Alloy>

@@ -1,6 +1,15 @@
+function __processArg(obj, key) {
+    var arg = null;
+    if (obj) {
+        arg = obj[key] || null;
+        delete obj[key];
+    }
+    return arg;
+}
+
 function Controller() {
     function load(created) {
-        var url = "http://flair.me/carkey/search.php";
+        var url = Alloy.Globals._search;
         var data = {
             type: "checkin",
             action: "showall",
@@ -37,9 +46,11 @@ function Controller() {
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "car/radio/radio_show_all";
-    arguments[0] ? arguments[0]["__parentSymbol"] : null;
-    arguments[0] ? arguments[0]["$model"] : null;
-    arguments[0] ? arguments[0]["__itemTemplate"] : null;
+    if (arguments[0]) {
+        __processArg(arguments[0], "__parentSymbol");
+        __processArg(arguments[0], "$model");
+        __processArg(arguments[0], "__itemTemplate");
+    }
     var $ = this;
     var exports = {};
     $.__views.radio_show_all = Ti.UI.createWindow({
@@ -49,11 +60,11 @@ function Controller() {
         id: "radio_show_all"
     });
     $.__views.radio_show_all && $.addTopLevelView($.__views.radio_show_all);
-    $.__views.__alloyId22 = Ti.UI.createScrollView({
+    $.__views.__alloyId28 = Ti.UI.createScrollView({
         top: "-70",
-        id: "__alloyId22"
+        id: "__alloyId28"
     });
-    $.__views.radio_show_all.add($.__views.__alloyId22);
+    $.__views.radio_show_all.add($.__views.__alloyId28);
     $.__views.main = Ti.UI.createView({
         id: "main",
         left: "10",
@@ -63,7 +74,7 @@ function Controller() {
         height: Ti.UI.SIZE,
         top: "130"
     });
-    $.__views.__alloyId22.add($.__views.main);
+    $.__views.__alloyId28.add($.__views.main);
     $.__views.left = Ti.UI.createView({
         width: "50%",
         layout: "vertical",
