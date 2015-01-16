@@ -59,11 +59,11 @@ var _callBack;
 var _errBack;
 
 fb.addEventListener("login", function(e) {
-    debugger;
     if (e.success) {
         if (_callBack) {
             _callBack();
             _callBack = null;
+            $.login_screen.close();
         }
     } else if (e.error) {
         if (_errBack) {

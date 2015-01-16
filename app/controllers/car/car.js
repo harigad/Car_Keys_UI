@@ -6,17 +6,38 @@
 		var _callBack = args._callBack;
 		var _colors = ["ffce87","ff8d87","87a0ff","dda9ee","a6d690","e2b26b"];
 
-$.header.openWindow($.car);
-//$.header.setTitle("Hari's" + _data.model);
 draw();
 
 function draw(){
- $.user_photo.setImage(_data.photo);
+	if(args._color){
+		$.model.setBackgroundColor("#80ccff");
+		$.year.setBackgroundColor("#80ccff");
+		$.logo.setBackgroundColor("#80ccff");
+		$.mileage_container.setBackgroundColor("#80ccff");
+		$.cylinder_container.setBackgroundColor("#80ccff");
+		$.hp_container.setBackgroundColor("#80ccff");
+		$.model.setBackgroundColor("#80ccff");
+		$.recalls_container.setBackgroundColor("#80ccff");
+		$.schedules_container.setBackgroundColor("#80ccff");
+	}
+	
+ //$.user_photo.setImage(_data.photo);
  $.logo_image.setImage("logos/48/" + _data.logo);
  $.year_name.setText(_data.year);
- $.owner_name.setText(_data.name.split(" ")[0] + "'s");
+ //$.owner_name.setText(_data.name.split(" ")[0] + "'s");
  $.model_name.setText(_data.model);
  $.cylinder.setText(_data.cylinder + " cylinder");
+
+ if(_data.city > 0 && _data.highway >0){
+ 	$.mileage.setText(_data.city + "/" + _data.highway + " mpg");
+ }else if(_data.city>0){
+ 	$.mileage.setText(_data.city + " mpg (city)");
+ }else if(_data.highway>0){
+ 	$.mileage.setText(_data.city + " mpg (higway)");
+ }else{
+ 	$.mileage.setText("mpg not available");
+ 	$.mileage.setOpacity(0.5);
+ }
 
  $.hp.setText(_data.hp + " Horses");
  if(_data.images){

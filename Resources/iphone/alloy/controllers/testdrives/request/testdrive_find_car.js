@@ -86,31 +86,31 @@ function Controller() {
         id: "bgImage"
     });
     $.__views.testdrive_find_car.add($.__views.bgImage);
-    $.__views.__alloyId181 = Ti.UI.createView({
+    $.__views.__alloyId232 = Ti.UI.createView({
         top: "0",
         height: "60",
         backgroundColor: "#f1f1f1",
-        id: "__alloyId181"
+        id: "__alloyId232"
     });
-    $.__views.testdrive_find_car.add($.__views.__alloyId181);
-    $.__views.__alloyId182 = Ti.UI.createView({
+    $.__views.testdrive_find_car.add($.__views.__alloyId232);
+    $.__views.__alloyId233 = Ti.UI.createView({
         top: "10",
         height: "50",
-        id: "__alloyId182"
+        id: "__alloyId233"
     });
-    $.__views.__alloyId181.add($.__views.__alloyId182);
-    $.__views.__alloyId183 = Ti.UI.createView({
+    $.__views.__alloyId232.add($.__views.__alloyId233);
+    $.__views.__alloyId234 = Ti.UI.createView({
         top: 10,
         height: 30,
         width: 50,
         backgroundColor: "#40a3ff",
         borderRadius: 4,
         left: "10",
-        id: "__alloyId183"
+        id: "__alloyId234"
     });
-    $.__views.__alloyId182.add($.__views.__alloyId183);
-    onCancel ? $.__views.__alloyId183.addEventListener("click", onCancel) : __defers["$.__views.__alloyId183!click!onCancel"] = true;
-    $.__views.__alloyId184 = Ti.UI.createLabel({
+    $.__views.__alloyId233.add($.__views.__alloyId234);
+    onCancel ? $.__views.__alloyId234.addEventListener("click", onCancel) : __defers["$.__views.__alloyId234!click!onCancel"] = true;
+    $.__views.__alloyId235 = Ti.UI.createLabel({
         height: Ti.UI.SIZE,
         width: Ti.UI.SIZE,
         font: {
@@ -118,9 +118,9 @@ function Controller() {
         },
         color: "#fff",
         text: "cancel",
-        id: "__alloyId184"
+        id: "__alloyId235"
     });
-    $.__views.__alloyId183.add($.__views.__alloyId184);
+    $.__views.__alloyId234.add($.__views.__alloyId235);
     $.__views.question = Ti.UI.createLabel({
         height: Ti.UI.SIZE,
         font: {
@@ -136,19 +136,19 @@ function Controller() {
         text: "VIN NUMBER",
         id: "question"
     });
-    $.__views.__alloyId182.add($.__views.question);
-    $.__views.__alloyId185 = Ti.UI.createView({
+    $.__views.__alloyId233.add($.__views.question);
+    $.__views.__alloyId236 = Ti.UI.createView({
         top: 10,
         height: 30,
         width: 50,
         backgroundColor: "#40a3ff",
         borderRadius: 4,
         right: "10",
-        id: "__alloyId185"
+        id: "__alloyId236"
     });
-    $.__views.__alloyId182.add($.__views.__alloyId185);
-    process ? $.__views.__alloyId185.addEventListener("click", process) : __defers["$.__views.__alloyId185!click!process"] = true;
-    $.__views.__alloyId186 = Ti.UI.createLabel({
+    $.__views.__alloyId233.add($.__views.__alloyId236);
+    process ? $.__views.__alloyId236.addEventListener("click", process) : __defers["$.__views.__alloyId236!click!process"] = true;
+    $.__views.__alloyId237 = Ti.UI.createLabel({
         height: Ti.UI.SIZE,
         width: Ti.UI.SIZE,
         font: {
@@ -156,9 +156,9 @@ function Controller() {
         },
         color: "#fff",
         text: "next",
-        id: "__alloyId186"
+        id: "__alloyId237"
     });
-    $.__views.__alloyId185.add($.__views.__alloyId186);
+    $.__views.__alloyId236.add($.__views.__alloyId237);
     $.__views.main = Ti.UI.createView({
         top: 60,
         layout: "vertical",
@@ -168,13 +168,13 @@ function Controller() {
         id: "main"
     });
     $.__views.testdrive_find_car.add($.__views.main);
-    $.__views.__alloyId187 = Ti.UI.createView({
+    $.__views.__alloyId238 = Ti.UI.createView({
         left: 10,
         right: 10,
         height: Ti.UI.SIZE,
-        id: "__alloyId187"
+        id: "__alloyId238"
     });
-    $.__views.main.add($.__views.__alloyId187);
+    $.__views.main.add($.__views.__alloyId238);
     $.__views.plate = Ti.UI.createTextArea({
         left: 0,
         right: 0,
@@ -189,7 +189,7 @@ function Controller() {
         id: "plate",
         hint: "VIN number"
     });
-    $.__views.__alloyId187.add($.__views.plate);
+    $.__views.__alloyId238.add($.__views.plate);
     onFocus ? $.__views.plate.addEventListener("focus", onFocus) : __defers["$.__views.plate!focus!onFocus"] = true;
     onChange ? $.__views.plate.addEventListener("change", onChange) : __defers["$.__views.plate!change!onChange"] = true;
     onBlur ? $.__views.plate.addEventListener("blur", onBlur) : __defers["$.__views.plate!blur!onBlur"] = true;
@@ -203,7 +203,7 @@ function Controller() {
         },
         id: "plate_label"
     });
-    $.__views.__alloyId187.add($.__views.plate_label);
+    $.__views.__alloyId238.add($.__views.plate_label);
     $.__views.help_label = Ti.UI.createLabel({
         top: 15,
         width: Ti.UI.SIZE,
@@ -224,10 +224,16 @@ function Controller() {
     var _data = args._data || {};
     var _callBack = args._callBack;
     var login = require("Login");
-    $.testdrive_find_car.open();
-    $.plate.focus();
-    __defers["$.__views.__alloyId183!click!onCancel"] && $.__views.__alloyId183.addEventListener("click", onCancel);
-    __defers["$.__views.__alloyId185!click!process"] && $.__views.__alloyId185.addEventListener("click", process);
+    $.testdrive_find_car.setLeft(280);
+    var animation = Titanium.UI.createAnimation();
+    animation.left = 0;
+    animation.duration = 200;
+    $.testdrive_find_car.addEventListener("open", function() {
+        $.plate.focus();
+    });
+    $.testdrive_find_car.open(animation);
+    __defers["$.__views.__alloyId234!click!onCancel"] && $.__views.__alloyId234.addEventListener("click", onCancel);
+    __defers["$.__views.__alloyId236!click!process"] && $.__views.__alloyId236.addEventListener("click", process);
     __defers["$.__views.plate!focus!onFocus"] && $.__views.plate.addEventListener("focus", onFocus);
     __defers["$.__views.plate!change!onChange"] && $.__views.plate.addEventListener("change", onChange);
     __defers["$.__views.plate!blur!onBlur"] && $.__views.plate.addEventListener("blur", onBlur);

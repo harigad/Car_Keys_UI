@@ -12,11 +12,3 @@
 	},
 	color:"#cecece"
 }
-
-"#model":{
-	left:0,
-	font:{
-		fontSize:14
-	},
-	color:"#7f7f7f"
-}

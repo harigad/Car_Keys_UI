@@ -49,6 +49,9 @@ function Controller() {
     _searchTime = setTimeout(function() {
         _loading || _lock();
     }, 1e3);
+    exports.close = function() {
+        $.login_screen.close();
+    };
     exports.loading = function() {
         _loading = true;
         $.login.setBackgroundImage("common/login/bg1_loading.png");

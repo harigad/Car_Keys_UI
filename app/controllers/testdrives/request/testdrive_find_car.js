@@ -4,8 +4,16 @@
 		var _callBack = args._callBack;
 
 var login = require('Login');
-$.testdrive_find_car.open();
-$.plate.focus();
+$.testdrive_find_car.setLeft(280);
+var animation = Titanium.UI.createAnimation();
+animation.left = 0;
+animation.duration = 200;
+$.testdrive_find_car.addEventListener("open",function(){
+	$.plate.focus();
+});
+$.testdrive_find_car.open(animation);
+
+
 
 function onFocus(e){
 	eval("$." + e.source.id + "_label").setOpacity(.6);

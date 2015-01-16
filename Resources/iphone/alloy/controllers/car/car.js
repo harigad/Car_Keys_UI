@@ -9,12 +9,25 @@ function __processArg(obj, key) {
 
 function Controller() {
     function draw() {
-        $.user_photo.setImage(_data.photo);
+        if (args._color) {
+            $.model.setBackgroundColor("#80ccff");
+            $.year.setBackgroundColor("#80ccff");
+            $.logo.setBackgroundColor("#80ccff");
+            $.mileage_container.setBackgroundColor("#80ccff");
+            $.cylinder_container.setBackgroundColor("#80ccff");
+            $.hp_container.setBackgroundColor("#80ccff");
+            $.model.setBackgroundColor("#80ccff");
+            $.recalls_container.setBackgroundColor("#80ccff");
+            $.schedules_container.setBackgroundColor("#80ccff");
+        }
         $.logo_image.setImage("logos/48/" + _data.logo);
         $.year_name.setText(_data.year);
-        $.owner_name.setText(_data.name.split(" ")[0] + "'s");
         $.model_name.setText(_data.model);
         $.cylinder.setText(_data.cylinder + " cylinder");
+        if (_data.city > 0 && _data.highway > 0) $.mileage.setText(_data.city + "/" + _data.highway + " mpg"); else if (_data.city > 0) $.mileage.setText(_data.city + " mpg (city)"); else if (_data.highway > 0) $.mileage.setText(_data.city + " mpg (higway)"); else {
+            $.mileage.setText("mpg not available");
+            $.mileage.setOpacity(.5);
+        }
         $.hp.setText(_data.hp + " Horses");
         _data.images ? $.photo_image.setImage(_data.images[0]) : login.ownsCar(_data) ? $.photo_image.setImage("common/upload_photo_300_150.png") : $.photo_image.setImage("common/no_photo_300_150.png");
     }
@@ -43,138 +56,100 @@ function Controller() {
     var $ = this;
     var exports = {};
     var __defers = {};
-    $.__views.car = Ti.UI.createWindow({
-        navBarHidden: "true",
-        backgroundColor: "#f1f1f1",
+    $.__views.car = Ti.UI.createTableViewRow({
+        layout: "vertical",
+        height: Ti.UI.SIZE,
+        selectedBackgroundColor: "transparent",
         id: "car"
     });
     $.__views.car && $.addTopLevelView($.__views.car);
-    $.__views.scroll = Ti.UI.createScrollView({
-        id: "scroll",
-        top: "0",
-        height: Ti.UI.FILL
-    });
-    $.__views.car.add($.__views.scroll);
-    $.__views.__alloyId0 = Ti.UI.createView({
-        layout: "vertical",
-        top: "60",
-        height: Ti.UI.SIZE,
-        id: "__alloyId0"
-    });
-    $.__views.scroll.add($.__views.__alloyId0);
     $.__views.main = Ti.UI.createView({
         layout: "horizontal",
         id: "main",
         height: Ti.UI.SIZE
     });
-    $.__views.__alloyId0.add($.__views.main);
+    $.__views.car.add($.__views.main);
     $.__views.model = Ti.UI.createView({
         id: "model",
-        backgroundColor: "#eee",
+        backgroundColor: "#40a3ff",
         width: "200",
         height: "200",
         borderWidth: "0.5",
         borderColor: "#fff"
     });
     $.__views.main.add($.__views.model);
-    $.__views.__alloyId1 = Ti.UI.createView({
+    $.__views.__alloyId0 = Ti.UI.createView({
         height: Ti.UI.SIZE,
         width: Ti.UI.SIZE,
         layout: "vertical",
-        id: "__alloyId1"
+        id: "__alloyId0"
     });
-    $.__views.model.add($.__views.__alloyId1);
-    $.__views.user_photo = Ti.UI.createImageView({
-        id: "user_photo",
-        width: "50",
-        height: "50",
-        borderWidth: "2.5",
-        borderColor: "#cecece",
-        bottom: "5",
-        borderRadius: "25",
-        backgroundColor: "#eee"
-    });
-    $.__views.__alloyId1.add($.__views.user_photo);
-    $.__views.owner_name = Ti.UI.createLabel({
-        font: {
-            fontSize: 20
-        },
-        bottom: 2,
-        color: "#ccc",
-        id: "owner_name"
-    });
-    $.__views.__alloyId1.add($.__views.owner_name);
+    $.__views.model.add($.__views.__alloyId0);
     $.__views.model_name = Ti.UI.createLabel({
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
         font: {
-            fontSize: 26
+            fontSize: 36
         },
-        color: "#ccc",
-        shadowColor: "#fff",
-        shadowOffset: {
-            x: 1,
-            y: 1
-        },
-        shadowRadius: 3,
+        color: "#fff",
         id: "model_name"
     });
-    $.__views.__alloyId1.add($.__views.model_name);
-    $.__views.__alloyId2 = Ti.UI.createView({
+    $.__views.__alloyId0.add($.__views.model_name);
+    $.__views.__alloyId1 = Ti.UI.createView({
         layout: "vertical",
         height: Ti.UI.SIZE,
         width: Ti.UI.SIZE,
-        id: "__alloyId2"
+        id: "__alloyId1"
     });
-    $.__views.main.add($.__views.__alloyId2);
+    $.__views.main.add($.__views.__alloyId1);
     $.__views.year = Ti.UI.createView({
         id: "year",
-        backgroundColor: "#e1e1e1",
+        backgroundColor: "#40a3ff",
         width: "120",
         height: "100",
         borderWidth: "0.5",
         borderColor: "#fff"
     });
-    $.__views.__alloyId2.add($.__views.year);
+    $.__views.__alloyId1.add($.__views.year);
     goToYear ? $.__views.year.addEventListener("click", goToYear) : __defers["$.__views.year!click!goToYear"] = true;
     $.__views.year_name = Ti.UI.createLabel({
         font: {
             fontSize: 26
         },
-        color: "#777",
+        color: "#fff",
         id: "year_name"
     });
     $.__views.year.add($.__views.year_name);
     $.__views.logo = Ti.UI.createView({
         id: "logo",
-        backgroundColor: "#f1f1f1",
+        backgroundColor: "#40a3ff",
         width: "120",
         height: "100",
         borderWidth: "0.5",
         borderColor: "#fff"
     });
-    $.__views.__alloyId2.add($.__views.logo);
+    $.__views.__alloyId1.add($.__views.logo);
     goToMake ? $.__views.logo.addEventListener("click", goToMake) : __defers["$.__views.logo!click!goToMake"] = true;
-    $.__views.__alloyId3 = Ti.UI.createView({
+    $.__views.__alloyId2 = Ti.UI.createView({
         width: "80",
         height: "80",
         borderRadius: "40",
         backgroundColor: "#222",
-        borderColor: "#666",
+        borderColor: "#fff",
         borderWidth: "5",
-        id: "__alloyId3"
+        id: "__alloyId2"
     });
-    $.__views.logo.add($.__views.__alloyId3);
+    $.__views.logo.add($.__views.__alloyId2);
     $.__views.logo_image = Ti.UI.createImageView({
         id: "logo_image",
         width: "48",
         height: "48",
         borderRadius: "4"
     });
-    $.__views.__alloyId3.add($.__views.logo_image);
+    $.__views.__alloyId2.add($.__views.logo_image);
     $.__views.photo = Ti.UI.createView({
         id: "photo",
-        backgroundColor: "#aaa",
-        width: "320",
+        backgroundColor: "#40a3ff",
+        width: Ti.UI.FILL,
         height: Ti.UI.SIZE
     });
     $.__views.main.add($.__views.photo);
@@ -185,117 +160,111 @@ function Controller() {
         left: "0"
     });
     $.__views.photo.add($.__views.photo_image);
-    $.__views.__alloyId4 = Ti.UI.createView({
+    $.__views.__alloyId3 = Ti.UI.createView({
         layout: "vertical",
         height: Ti.UI.SIZE,
         width: Ti.UI.SIZE,
-        id: "__alloyId4"
+        id: "__alloyId3"
     });
-    $.__views.main.add($.__views.__alloyId4);
-    $.__views.__alloyId5 = Ti.UI.createView({
-        backgroundColor: "#f1f1f1",
+    $.__views.main.add($.__views.__alloyId3);
+    $.__views.mileage_container = Ti.UI.createView({
+        id: "mileage_container",
+        backgroundColor: "#40a3ff",
         width: "160",
         height: "80",
         borderWidth: "0.5",
-        borderColor: "#fff",
-        id: "__alloyId5"
+        borderColor: "#fff"
     });
-    $.__views.__alloyId4.add($.__views.__alloyId5);
+    $.__views.__alloyId3.add($.__views.mileage_container);
     $.__views.mileage = Ti.UI.createLabel({
         font: {
             fontSize: 16
         },
-        text: "17 / 25 mpg",
-        color: "#777",
+        color: "#fff",
         id: "mileage"
     });
-    $.__views.__alloyId5.add($.__views.mileage);
-    $.__views.__alloyId6 = Ti.UI.createView({
-        backgroundColor: "#e1e1e1",
+    $.__views.mileage_container.add($.__views.mileage);
+    $.__views.cylinder_container = Ti.UI.createView({
+        id: "cylinder_container",
+        backgroundColor: "#40a3ff",
         width: "160",
         height: "80",
         borderWidth: "0.5",
-        borderColor: "#fff",
-        id: "__alloyId6"
+        borderColor: "#fff"
     });
-    $.__views.__alloyId4.add($.__views.__alloyId6);
-    goToCylinder ? $.__views.__alloyId6.addEventListener("click", goToCylinder) : __defers["$.__views.__alloyId6!click!goToCylinder"] = true;
+    $.__views.__alloyId3.add($.__views.cylinder_container);
+    goToCylinder ? $.__views.cylinder_container.addEventListener("click", goToCylinder) : __defers["$.__views.cylinder_container!click!goToCylinder"] = true;
     $.__views.cylinder = Ti.UI.createLabel({
         font: {
             fontSize: 16
         },
-        color: "#777",
+        color: "#fff",
         id: "cylinder"
     });
-    $.__views.__alloyId6.add($.__views.cylinder);
-    $.__views.__alloyId7 = Ti.UI.createView({
-        backgroundColor: "#eee",
+    $.__views.cylinder_container.add($.__views.cylinder);
+    $.__views.hp_container = Ti.UI.createView({
+        id: "hp_container",
+        backgroundColor: "#40a3ff",
         width: "160",
         height: "160",
         borderWidth: "0.5",
-        borderColor: "#fff",
-        id: "__alloyId7"
+        borderColor: "#fff"
     });
-    $.__views.main.add($.__views.__alloyId7);
-    $.__views.__alloyId8 = Ti.UI.createView({
+    $.__views.main.add($.__views.hp_container);
+    $.__views.__alloyId4 = Ti.UI.createView({
         width: "120",
         height: "120",
         borderRadius: "60",
-        backgroundColor: "#dedede",
+        backgroundColor: "#aaa",
         borderColor: "#fff",
         borderWidth: "5",
-        id: "__alloyId8"
+        id: "__alloyId4"
     });
-    $.__views.__alloyId7.add($.__views.__alloyId8);
+    $.__views.hp_container.add($.__views.__alloyId4);
     $.__views.hp = Ti.UI.createLabel({
-        color: "#777",
+        color: "#fff",
         font: {
             fontSize: 16
         },
         id: "hp"
     });
-    $.__views.__alloyId8.add($.__views.hp);
-    $.__views.__alloyId9 = Ti.UI.createView({
-        backgroundColor: "#eee",
+    $.__views.__alloyId4.add($.__views.hp);
+    $.__views.recalls_container = Ti.UI.createView({
+        id: "recalls_container",
+        backgroundColor: "#40a3ff",
         width: "160",
         height: "160",
         borderWidth: "0.5",
-        borderColor: "#fff",
-        id: "__alloyId9"
+        borderColor: "#fff"
     });
-    $.__views.main.add($.__views.__alloyId9);
+    $.__views.main.add($.__views.recalls_container);
     $.__views.recalls = Ti.UI.createLabel({
-        color: "#777",
+        color: "#fff",
         font: {
             fontSize: 16
         },
         text: "recalls",
         id: "recalls"
     });
-    $.__views.__alloyId9.add($.__views.recalls);
-    $.__views.__alloyId10 = Ti.UI.createView({
-        backgroundColor: "#f1f1f1",
+    $.__views.recalls_container.add($.__views.recalls);
+    $.__views.schedules_container = Ti.UI.createView({
+        id: "schedules_container",
+        backgroundColor: "#40a3ff",
         width: "160",
         height: "160",
         borderWidth: "0.5",
-        borderColor: "#fff",
-        id: "__alloyId10"
+        borderColor: "#fff"
     });
-    $.__views.main.add($.__views.__alloyId10);
+    $.__views.main.add($.__views.schedules_container);
     $.__views.schedules = Ti.UI.createLabel({
-        color: "#7f7f7f",
+        color: "#fff",
         font: {
             fontSize: 16
         },
         text: "schedules",
         id: "schedules"
     });
-    $.__views.__alloyId10.add($.__views.schedules);
-    $.__views.header = Alloy.createController("header/header", {
-        id: "header",
-        __parentSymbol: $.__views.car
-    });
-    $.__views.header.setParent($.__views.car);
+    $.__views.schedules_container.add($.__views.schedules);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");
@@ -303,11 +272,10 @@ function Controller() {
     var _data = args._data || {};
     args._editable;
     args._callBack;
-    $.header.openWindow($.car);
     draw();
     __defers["$.__views.year!click!goToYear"] && $.__views.year.addEventListener("click", goToYear);
     __defers["$.__views.logo!click!goToMake"] && $.__views.logo.addEventListener("click", goToMake);
-    __defers["$.__views.__alloyId6!click!goToCylinder"] && $.__views.__alloyId6.addEventListener("click", goToCylinder);
+    __defers["$.__views.cylinder_container!click!goToCylinder"] && $.__views.cylinder_container.addEventListener("click", goToCylinder);
     _.extend($, exports);
 }
 

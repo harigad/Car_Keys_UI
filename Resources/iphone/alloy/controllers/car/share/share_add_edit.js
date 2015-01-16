@@ -84,12 +84,12 @@ function Controller() {
         id: "search_bar"
     });
     $.__views.share_add_edit.add($.__views.search_bar);
-    $.__views.__alloyId29 = Ti.UI.createView({
+    $.__views.__alloyId23 = Ti.UI.createView({
         top: "10",
         height: Ti.UI.SIZE,
-        id: "__alloyId29"
+        id: "__alloyId23"
     });
-    $.__views.search_bar.add($.__views.__alloyId29);
+    $.__views.search_bar.add($.__views.__alloyId23);
     $.__views.search = Ti.UI.createTextField({
         left: 10,
         width: 210,
@@ -99,7 +99,7 @@ function Controller() {
         id: "search",
         hintText: "search friends"
     });
-    $.__views.__alloyId29.add($.__views.search);
+    $.__views.__alloyId23.add($.__views.search);
     onSearch ? $.__views.search.addEventListener("change", onSearch) : __defers["$.__views.search!change!onSearch"] = true;
     $.__views.cancel_btn = Ti.UI.createView({
         right: 10,
@@ -109,24 +109,24 @@ function Controller() {
         borderRadius: 2,
         id: "cancel_btn"
     });
-    $.__views.__alloyId29.add($.__views.cancel_btn);
+    $.__views.__alloyId23.add($.__views.cancel_btn);
     onCancel ? $.__views.cancel_btn.addEventListener("click", onCancel) : __defers["$.__views.cancel_btn!click!onCancel"] = true;
-    $.__views.__alloyId30 = Ti.UI.createLabel({
+    $.__views.__alloyId24 = Ti.UI.createLabel({
         text: "cancel",
         color: "#999",
-        id: "__alloyId30"
+        id: "__alloyId24"
     });
-    $.__views.cancel_btn.add($.__views.__alloyId30);
-    $.__views.__alloyId31 = Ti.UI.createScrollView({
+    $.__views.cancel_btn.add($.__views.__alloyId24);
+    $.__views.__alloyId25 = Ti.UI.createScrollView({
         height: Ti.UI.FILL,
         top: "50",
-        id: "__alloyId31"
+        id: "__alloyId25"
     });
-    $.__views.share_add_edit.add($.__views.__alloyId31);
+    $.__views.share_add_edit.add($.__views.__alloyId25);
     $.__views.friends = Ti.UI.createTableView({
         id: "friends"
     });
-    $.__views.__alloyId31.add($.__views.friends);
+    $.__views.__alloyId25.add($.__views.friends);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");

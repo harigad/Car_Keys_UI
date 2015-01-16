@@ -11,7 +11,7 @@ function Controller() {
     function load(data) {
         showPleaseWait();
         var url = Alloy.Globals._search;
-        var _data = {
+        var dat = {
             type: "user",
             id: data.uid,
             accessToken: login.getAccessToken()
@@ -36,55 +36,20 @@ function Controller() {
             }
         });
         client.open("POST", url);
-        client.send(_data);
+        client.send(dat);
     }
     function build(data) {
+        $.name.setText(data.name);
         var rows = [];
         var cars = data.cars || [];
         for (var c = 0; cars.length > c; c++) {
-            var car_btn = Alloy.createController("home/home_square", {
-                _obj: cars[c],
-                _data: {
-                    image: "logos/48/" + cars[c].logo,
-                    title: cars[c].model
-                },
-                _callBack: function(obj) {
-                    Alloy.createController("car/car", {
-                        _owner_name: _data.name,
-                        _data: obj,
-                        _callBack: function() {}
-                    });
-                }
+            var carObj = Alloy.createController("car/car", {
+                _color: c % 2,
+                _data: cars[c],
+                _callBack: function() {}
             });
-            rows.push(car_btn.getView());
+            rows.push(carObj.getView());
         }
-        var ridesLen = data.rides.length || "";
-        var rides_btn = Alloy.createController("home/home_square", {
-            _data: {
-                image: "common/ride_along_36_36.png",
-                subtext: ridesLen,
-                title: "ride alongs"
-            },
-            _callBack: function() {}
-        });
-        rows.push(rides_btn.getView());
-        var testdrives_btn = Alloy.createController("home/home_square", {
-            _data: {
-                image: "common/steering_36_36.png",
-                subtext: 11,
-                title: "test drives"
-            },
-            _callBack: function() {}
-        });
-        rows.push(testdrives_btn.getView());
-        var media_btn = Alloy.createController("home/home_square", {
-            _data: {
-                image: "common/camera_36_36.png",
-                title: "photos"
-            },
-            _callBack: function() {}
-        });
-        rows.push(media_btn.getView());
         $.main.setData(rows);
     }
     function showPleaseWait() {}
@@ -114,30 +79,30 @@ function Controller() {
         id: "container"
     });
     $.__views.scroll.add($.__views.container);
-    $.__views.__alloyId95 = Ti.UI.createView({
+    $.__views.__alloyId146 = Ti.UI.createView({
         height: "110",
         top: "40",
         left: "15",
         bottom: "40",
-        id: "__alloyId95"
+        id: "__alloyId146"
     });
-    $.__views.container.add($.__views.__alloyId95);
-    $.__views.__alloyId96 = Ti.UI.createView({
+    $.__views.container.add($.__views.__alloyId146);
+    $.__views.__alloyId147 = Ti.UI.createView({
         backgroundColor: "#ccc",
         width: "80",
         height: "80",
         top: "0",
         borderRadius: "40",
-        id: "__alloyId96"
+        id: "__alloyId147"
     });
-    $.__views.__alloyId95.add($.__views.__alloyId96);
+    $.__views.__alloyId146.add($.__views.__alloyId147);
     $.__views.photo = Ti.UI.createImageView({
         width: "50",
         height: "50",
         id: "photo",
         borderRadius: "25"
     });
-    $.__views.__alloyId96.add($.__views.photo);
+    $.__views.__alloyId147.add($.__views.photo);
     $.__views.name = Ti.UI.createLabel({
         top: 90,
         font: {
@@ -152,13 +117,12 @@ function Controller() {
         shadowRadius: 3,
         id: "name"
     });
-    $.__views.__alloyId95.add($.__views.name);
+    $.__views.__alloyId146.add($.__views.name);
     $.__views.main = Ti.UI.createTableView({
         top: "0",
         separatorStyle: Alloy.Globals._params.TableViewSeparatorStyle.NONE,
         id: "main",
         backgroundColor: "#fff",
-        scrollable: "false",
         height: Ti.UI.SIZE
     });
     $.__views.container.add($.__views.main);
@@ -173,9 +137,9 @@ function Controller() {
     var args = arguments[0] || {};
     var _data = args._data || {};
     $.photo.setImage(_data.photo);
-    $.name.setText(_data.name);
+    $.name.setText("loading..");
     $.header.openWindow($.profile);
-    load(_data);
+    _data.cars ? build(_data) : load(_data);
     _.extend($, exports);
 }
 

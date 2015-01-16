@@ -4,8 +4,14 @@
 		var _callBack = args._callBack;
 
 var login = require('Login');
-$.signup.open();
-$.plate.focus();
+$.signup.setLeft(280);
+var animation = Titanium.UI.createAnimation();
+animation.left = 0;
+animation.duration = 200;
+$.signup.addEventListener("open",function(){
+	$.plate.focus();
+});
+$.signup.open(animation);
 
 function onFocus(e){
 	eval("$." + e.source.id + "_label").setOpacity(.6);

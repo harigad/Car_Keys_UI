@@ -109,13 +109,13 @@ function Controller() {
         __parentSymbol: $.__views.scroll
     });
     $.__views.pull_to_refresh.setParent($.__views.scroll);
-    $.__views.__alloyId68 = Ti.UI.createView({
+    $.__views.__alloyId79 = Ti.UI.createView({
         height: "20",
         backgroundColor: "#ffa633",
         top: "0",
-        id: "__alloyId68"
+        id: "__alloyId79"
     });
-    $.__views.home.add($.__views.__alloyId68);
+    $.__views.home.add($.__views.__alloyId79);
     $.__views.home_menu = Alloy.createController("ridealong/home_menu", {
         id: "home_menu",
         top: "0",

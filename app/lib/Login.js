@@ -1,3 +1,6 @@
+/*I provide application support for "Avaya Answers" application for the On Avaya Team. The application is being sent to the QA team for complete testing of all functionality. Some testing of the functionality requires Dummy Supervisor Accounts with Dummy Team Member accounts reporting to the above supervisors.
+*/
+
 var fb = require('Friends');
 var user;
 var login_screen;

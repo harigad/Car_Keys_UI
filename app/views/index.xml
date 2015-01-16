@@ -1,5 +1,5 @@
 <Alloy>
-	 <NavigationWindow id="nav" platform="ios">
+	 <NavigationWindow id="nav" platform="ios"  >
 	 		<Window id="home" >
 	 			
 	 		</Window>

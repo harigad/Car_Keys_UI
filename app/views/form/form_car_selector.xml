@@ -1,0 +1,21 @@
+<Alloy>
+	<Window backgroundColor="#fff">
+	<View top="0" height="60" backgroundColor="#f1f1f1" >
+			<View top="10" height="50" >
+				<View class="btn_container" onClick="onCancel" left="10" >
+					<Label class="btn" >back</Label>
+				</View>
+				<Label id="question">
+					select the car
+				</Label>
+				
+			</View>	
+	</View>	
+	  <ScrollView>
+	     <View id="main" layout="vertical" height="Ti.UI.SIZE">
+	  	
+	  	
+	     </View>
+	  </ScrollView>
+	</Window>
+</Alloy>

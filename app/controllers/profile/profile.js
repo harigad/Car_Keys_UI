@@ -3,24 +3,27 @@
 		var _data = args._data || {};
 
 $.photo.setImage(_data.photo);
-$.name.setText(_data.name);
+$.name.setText("loading..");
 $.header.openWindow($.profile);
 
-load(_data);
+if(_data.cars){
+	build(_data);
+}else{
+	load(_data);
+}
+
 
 function load(data){
 	showPleaseWait();	
 	
 	var url = Alloy.Globals._search;	
-	var _data = {type:"user",id:data.uid,accessToken:login.getAccessToken()};
+	var dat = {type:"user",id:data.uid,accessToken:login.getAccessToken()};
 		
  	var client = Ti.Network.createHTTPClient({ 		
  	 onload : function(e) {
  	 	Ti.API.debug("User.load recieved data " + this.responseText);
- 	 
  	 	 var response = JSON.parse(this.responseText);
  	 	 _data = response;
- 	 	 
  	 			    var animation = Titanium.UI.createAnimation();
 					animation.top = 0;
 					animation.duration = 200;
@@ -40,21 +43,20 @@ function load(data){
  	// Prepare the connection.
  		client.open("POST", url);
  	// Send the request.
- 		client.send(_data);
+ 		client.send(dat);
 }
 
 function build(data){
+	 $.name.setText(data.name);
 	var rows = [];
 	var cars = data.cars || [];
 	    for(var c=0;c<cars.length;c++){
-		var car_btn =  Alloy.createController("home/home_square",{_obj:cars[c],_data:{image:"logos/48/" + cars[c].logo,title:cars[c].model},_callBack:function(obj){
 			var carObj =  Alloy.createController("car/car",{
-				_owner_name:_data.name,
-				_data:obj,_callBack:function(){}
+				_color:(c%2),_data:cars[c],_callBack:function(){}
 			});
-		}});
-		rows.push(car_btn.getView());
+		rows.push(carObj.getView());
 	}
+	/*
 var ridesLen = data.rides.length || "";
 
 var rides_btn =  Alloy.createController("home/home_square",{_data:{image:"common/ride_along_36_36.png",subtext:ridesLen,title:"ride alongs"},_callBack:function(){
@@ -71,7 +73,7 @@ var media_btn =  Alloy.createController("home/home_square",{_data:{image:"common
 	
 }});
 rows.push(media_btn.getView());
-
+*/
 $.main.setData(rows);
 
 }	

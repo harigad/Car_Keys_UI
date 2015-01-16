@@ -1,14 +1,16 @@
 <Alloy>
 	<Window>
 		<ScrollView id="scroll" top="50" >
-				<View height="Ti.UI.SIZE" layout="vertical" id="container" >
+				<View height="Ti.UI.SIZE" layout="vertical" id="container"  >
 					<View height="110" top="0" left="15" top="40" bottom="40"  >
 							<View backgroundColor="#ccc" width="80" height="80" top="0" borderRadius="40" >
 								<ImageView width="50" height="50" id="photo" borderRadius="25" ></ImageView>
 							</View>
 							<Label id="name" ></Label>
 					</View>
-					<TableView id="main" top="0" backgroundColor="#fff" scrollable="false" height="Ti.UI.SIZE"  ></TableView>
+					<TableView id="main" top="0" backgroundColor="#fff"  height="Ti.UI.SIZE"  >
+						
+					</TableView>
 				</View>
 		</ScrollView>
 		<Require type="view" src="header/header" id="header"/>

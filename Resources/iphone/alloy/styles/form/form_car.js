@@ -1,0 +1,1 @@
+module.exports = [{"isId":true,"priority":100000.0126,"key":"model","style":{width:Ti.UI.SIZE,height:Ti.UI.SIZE,color:"#40a3ff",font:{fontSize:45,},}}];

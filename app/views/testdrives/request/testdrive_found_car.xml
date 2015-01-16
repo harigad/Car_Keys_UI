@@ -10,10 +10,10 @@
 				
 			</Label>
 			<View class="btn_container" id="btn_container" onClick="onVerify">
-				<Label class="btn" id="btn_container_label">Yes! This is my car!</Label>
+				<Label class="btn" id="btn_container_label">Add to my Test Drives</Label>
 			</View>	
 			<View class="btn_container" id="cancel_container" onClick="onCancel" >
-				<Label class="btn" id="cancel_btn_label">This is not my car!</Label>
+				<Label class="btn" id="cancel_btn_label">cancel</Label>
 			</View>		
 		</View>
 	</Window>

@@ -45,13 +45,13 @@ function Controller() {
         backgroundColor: "#fff"
     });
     $.__views.main.add($.__views.icon);
-    $.__views.__alloyId69 = Ti.UI.createView({
+    $.__views.__alloyId80 = Ti.UI.createView({
         height: Ti.UI.SIZE,
         left: "56",
         layout: "horizontal",
-        id: "__alloyId69"
+        id: "__alloyId80"
     });
-    $.__views.main.add($.__views.__alloyId69);
+    $.__views.main.add($.__views.__alloyId80);
     $.__views.title = Ti.UI.createLabel({
         left: "0",
         font: {
@@ -63,7 +63,7 @@ function Controller() {
         width: Ti.UI.SIZE,
         id: "title"
     });
-    $.__views.__alloyId69.add($.__views.title);
+    $.__views.__alloyId80.add($.__views.title);
     $.__views.subtext = Ti.UI.createLabel({
         left: 10,
         font: {
@@ -75,7 +75,7 @@ function Controller() {
         width: Ti.UI.SIZE,
         id: "subtext"
     });
-    $.__views.__alloyId69.add($.__views.subtext);
+    $.__views.__alloyId80.add($.__views.subtext);
     exports.destroy = function() {};
     _.extend($, $.__views);
     require("Login");
@@ -89,7 +89,7 @@ function Controller() {
     null != matches ? $.title.setText(_data.title) : $.title.setText(_data.title.toLowerCase());
     _data.color && $.title.setColor(_data.color);
     $.main.remove($.title);
-    _data.subtext && $.subtext.setText("(" + _data.subtext + " points)");
+    _data.subtext && $.subtext.setText("( " + _data.subtext + " )");
     $.icon.setImage(_data.image);
     _data.width && $.icon.setWidth(_data.width);
     _data.height && $.icon.setWidth(_data.height);

@@ -9,11 +9,11 @@ $.logo.setBackgroundImage("logos/48/" + _data.logo);
 $.model.setText(_data.model);
 
 function onVerify(){
-	if(showing_invite){
+	//if(showing_invite){
 		send_to_server();
-	}else{
-		step_invite();	
-	}
+	//}else{
+		//step_invite();	
+	//}
 }
 
 var showing_invite = false;

@@ -87,14 +87,14 @@ function Controller() {
         id: "date"
     });
     $.__views.topRight.add($.__views.date);
-    $.__views.__alloyId89 = Ti.UI.createView({
+    $.__views.__alloyId140 = Ti.UI.createView({
         width: "25",
         height: "25",
         backgroundImage: "common/pie_icon.png",
         left: "10",
-        id: "__alloyId89"
+        id: "__alloyId140"
     });
-    $.__views.topView.add($.__views.__alloyId89);
+    $.__views.topView.add($.__views.__alloyId140);
     $.__views.bottomView = Ti.UI.createView({
         layout: "vertical",
         height: Ti.UI.SIZE,
@@ -113,31 +113,31 @@ function Controller() {
         id: "desc"
     });
     $.__views.bottomView.add($.__views.desc);
-    $.__views.__alloyId90 = Ti.UI.createView({
+    $.__views.__alloyId141 = Ti.UI.createView({
         left: "2",
         right: "2",
         borderRadius: "2",
         height: Ti.UI.SIZE,
         layout: "vertical",
-        id: "__alloyId90"
+        id: "__alloyId141"
     });
-    $.__views.bottomView.add($.__views.__alloyId90);
+    $.__views.bottomView.add($.__views.__alloyId141);
     $.__views.options = Ti.UI.createView({
         id: "options",
         layout: "vertical",
         height: Ti.UI.SIZE
     });
-    $.__views.__alloyId90.add($.__views.options);
-    $.__views.__alloyId91 = Ti.UI.createView({
+    $.__views.__alloyId141.add($.__views.options);
+    $.__views.__alloyId142 = Ti.UI.createView({
         height: Ti.UI.SIZE,
         layout: "vertical",
         backgroundColor: "#f1f1f1",
         borderRadius: "2",
         left: "35",
         right: "10",
-        id: "__alloyId91"
+        id: "__alloyId142"
     });
-    $.__views.__alloyId90.add($.__views.__alloyId91);
+    $.__views.__alloyId141.add($.__views.__alloyId142);
     $.__views.comments = Ti.UI.createView({
         id: "comments",
         height: Ti.UI.SIZE,
@@ -145,13 +145,13 @@ function Controller() {
         left: "10",
         right: "10"
     });
-    $.__views.__alloyId91.add($.__views.comments);
-    $.__views.__alloyId92 = Ti.UI.createView({
+    $.__views.__alloyId142.add($.__views.comments);
+    $.__views.__alloyId143 = Ti.UI.createView({
         height: Ti.UI.SIZE,
-        id: "__alloyId92"
+        id: "__alloyId143"
     });
-    $.__views.__alloyId91.add($.__views.__alloyId92);
-    addComment ? $.__views.__alloyId92.addEventListener("click", addComment) : __defers["$.__views.__alloyId92!click!addComment"] = true;
+    $.__views.__alloyId142.add($.__views.__alloyId143);
+    addComment ? $.__views.__alloyId143.addEventListener("click", addComment) : __defers["$.__views.__alloyId143!click!addComment"] = true;
     $.__views.add_comment = Ti.UI.createLabel({
         font: {
             fontSize: 11,
@@ -165,7 +165,7 @@ function Controller() {
         top: "5",
         bottom: "5"
     });
-    $.__views.__alloyId92.add($.__views.add_comment);
+    $.__views.__alloyId143.add($.__views.add_comment);
     exports.destroy = function() {};
     _.extend($, $.__views);
     require("Login");
@@ -178,7 +178,7 @@ function Controller() {
     $.date.setText(date.toDateString());
     JSON.parse(_data.options);
     __defers["$.__views.topView!click!goToUser"] && $.__views.topView.addEventListener("click", goToUser);
-    __defers["$.__views.__alloyId92!click!addComment"] && $.__views.__alloyId92.addEventListener("click", addComment);
+    __defers["$.__views.__alloyId143!click!addComment"] && $.__views.__alloyId143.addEventListener("click", addComment);
     _.extend($, exports);
 }
 

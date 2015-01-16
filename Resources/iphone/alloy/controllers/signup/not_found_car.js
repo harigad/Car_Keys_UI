@@ -28,12 +28,12 @@ function Controller() {
         id: "not_found_car"
     });
     $.__views.not_found_car && $.addTopLevelView($.__views.not_found_car);
-    $.__views.__alloyId144 = Ti.UI.createView({
+    $.__views.__alloyId195 = Ti.UI.createView({
         height: Ti.UI.SIZE,
         layout: "vertical",
-        id: "__alloyId144"
+        id: "__alloyId195"
     });
-    $.__views.not_found_car.add($.__views.__alloyId144);
+    $.__views.not_found_car.add($.__views.__alloyId195);
     $.__views.error_label = Ti.UI.createLabel({
         color: "#ccc",
         shadowColor: "#fff",
@@ -51,28 +51,28 @@ function Controller() {
         right: "20",
         height: Ti.UI.SIZE
     });
-    $.__views.__alloyId144.add($.__views.error_label);
-    $.__views.__alloyId145 = Ti.UI.createView({
+    $.__views.__alloyId195.add($.__views.error_label);
+    $.__views.__alloyId196 = Ti.UI.createView({
         left: "20",
         right: "20",
         height: Ti.UI.SIZE,
         top: "20",
         borderRadius: "4",
         backgroundColor: "#666",
-        id: "__alloyId145"
+        id: "__alloyId196"
     });
-    $.__views.__alloyId144.add($.__views.__alloyId145);
-    onOk ? $.__views.__alloyId145.addEventListener("click", onOk) : __defers["$.__views.__alloyId145!click!onOk"] = true;
-    $.__views.__alloyId146 = Ti.UI.createLabel({
+    $.__views.__alloyId195.add($.__views.__alloyId196);
+    onOk ? $.__views.__alloyId196.addEventListener("click", onOk) : __defers["$.__views.__alloyId196!click!onOk"] = true;
+    $.__views.__alloyId197 = Ti.UI.createLabel({
         text: "OK!",
         color: "#fff",
         top: "20",
         bottom: "20",
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
-        id: "__alloyId146"
+        id: "__alloyId197"
     });
-    $.__views.__alloyId145.add($.__views.__alloyId146);
+    $.__views.__alloyId196.add($.__views.__alloyId197);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var args = arguments[0] || {};
@@ -80,7 +80,7 @@ function Controller() {
     var _callBack = args._callBack;
     $.error_label.setText(_e);
     $.not_found_car.open();
-    __defers["$.__views.__alloyId145!click!onOk"] && $.__views.__alloyId145.addEventListener("click", onOk);
+    __defers["$.__views.__alloyId196!click!onOk"] && $.__views.__alloyId196.addEventListener("click", onOk);
     _.extend($, exports);
 }
 

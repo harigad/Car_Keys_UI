@@ -9,11 +9,11 @@ $.logo.setBackgroundImage("logos/48/" + _data.logo);
 $.model.setText(_data.model);
 
 function onVerify(){
-	if(showing_invite){
+	//if(showing_invite){
 		send_to_server();
-	}else{
-		step_invite();	
-	}
+	//}else{
+	//	step_invite();	
+	//}
 }
 
 var showing_invite = false;
@@ -24,16 +24,16 @@ function step_invite(){
 	var animationHandler = function() {
 		showing_invite = true;
   		animation.removeEventListener('complete',animationHandler);
-  		$.model.setText("Congratulations!");
-  		$.invite_text.setText("This " + _data.model + " has been added to your profile");
+  		//$.model.setText("Congratulations!");
+  		$.invite_text.setText("saving....");
   		$.invite_text.setHeight(100);
   		$.invite_text.setTop(10);
   		$.invite_text.setVisible(true);
-  		$.btn_container_label.setLeft(40);
-  		$.btn_container_label.setRight(40);
-  		$.btn_container_label.setText("OK");
+  		//$.btn_container_label.setLeft(40);
+  		//$.btn_container_label.setRight(40);
+  		//$.btn_container_label.setText("OK");
   		//$.cancel_btn_label.setText("I WILL INVITE LATER!");
-  		$.btn_container.setVisible(true);
+  		//$.btn_container.setVisible(false);
 		//$.cancel_container.setVisible(false);
     };
 	animation.addEventListener('complete',animationHandler);
@@ -197,11 +197,33 @@ function step_4(answerObj){
 }
 
 function send_to_server(answerObj){
-	var sendToServer =  Alloy.createController("signup/send_to_server",{_data:_data,_answerObj:answerObj,_callBack:function(){
-		$.testdrive_found_car.close();
-		_callBack();
-	}
-	});
+	var url = Alloy.Globals._search;	
+	var _postData = {type:"addcar",cid:_data.cid,address:_answerObj.address,accessToken:login.getAccessToken()};
+		
+	Ti.API.debug("car.add sending data " + _data);
+ 	var client = Ti.Network.createHTTPClient({ 		
+ 	 onload : function(e) {
+ 	 	Ti.API.debug("added car " + this.responseText);
+ 	 	 var response = JSON.parse(this.responseText);
+ 	 	 if(response.error){
+ 	 	 		$.testdrive_found_car.close();
+				_callBack();
+ 	 	 }else{
+      	 		$.testdrive_found_car.close();
+				_callBack(response.rides);
+      	 }
+ 	 },
+ 	 onerror: function(e){
+ 		 	Ti.API.error("User.load error " + e);
+ 		 	$.testdrive_found_car.close();
+			_callBack();
+ 	 }
+ 	});
+ 	
+ 	// Prepare the connection.
+ 		client.open("POST", url);
+ 	// Send the request.
+ 		client.send(_postData);
 }
 
 function onCancel(){

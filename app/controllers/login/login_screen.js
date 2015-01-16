@@ -10,6 +10,10 @@ _searchTime = setTimeout(function(){
 },1000);
 
 
+exports.close = function(){
+	$.login_screen.close();
+};
+
 function authorize(){
 	debugger;
 	_callBack();

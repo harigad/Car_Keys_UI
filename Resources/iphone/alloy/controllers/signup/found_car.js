@@ -9,7 +9,7 @@ function __processArg(obj, key) {
 
 function Controller() {
     function onVerify() {
-        showing_invite ? send_to_server() : step_invite();
+        send_to_server();
     }
     function step_invite() {
         var animation = Titanium.UI.createAnimation();

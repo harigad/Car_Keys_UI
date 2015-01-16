@@ -1,0 +1,8 @@
+<Alloy>
+	<Window opacity="0">
+	  	 <View id="layer" width="Ti.UI.FILL" height="Ti.UI.FILL" backgroundColor="#40a3ff" ></View>
+	  	 <Label  height="Ti.UI.SIZE" id="points">
+	  	 	calculating..
+	  	 </Label>
+	</Window>
+</Alloy>

@@ -2,24 +2,20 @@ var login = require('Login');
 var fb = require('Friends');
 var _colors = ["ffce87","ffba25","fda75a","f6c65f","ffce87","e2b26b"];
 var friends =  Alloy.createController("friends/friends");
+var i = 0;
 
 draw();
 function draw(){
-var i = 0;
+
 var cars = login.getCars();
 var rows = [];
 
-		for(var c=0;c<cars.length;c++){
-		var car_btn =  Alloy.createController("home/home_square",{_obj:cars[c],_data:{subtext:200,image:"logos/48/" + cars[c].logo,title:cars[c].model,bg:_colors[i]},_callBack:function(obj){
-			var carObj =  Alloy.createController("car/car",{
-				_owner_name:login.getUser().name,
-				_data:obj,_callBack:function(){}
-			});
-		}});
+		//for(var c=0;c<cars.length;c++){
+		var car_btn =  Alloy.createController("friends/friend",{_data:login.getUser()});
 		rows.push(car_btn.getView());
 		i++;
-}
 
+/*
 var rides_btn =  Alloy.createController("home/home_square",{_data:{subtext:login.getPoints("friends"),image:"common/fb.png",title:"friends",bg:_colors[i]},_event:"friends_cars_updated",
 _callBack:function(){
 	friends.open();
@@ -54,24 +50,18 @@ var no_car =  Alloy.createController("home/home_square",{_data:{image:"common/pl
 	}else{
 		rows.push(no_car.getView());
 	}
-
+*/
 //var invite_btn =  Alloy.createController("home/home_square",{_data:{title:"invite",bg:_colors[i]},_callBack:invite});
 //rows.push(invite_btn.getView());
 //i++;
 
-var header_row = Ti.UI.createTableViewRow();
-var header_label = Ti.UI.createLabel({
-	height:Ti.UI.SIZE,
-	left:20,
-	text: "650 points",
-	color:"#40a3ff",
-    font:{
-    	fontSize:55
-    }
-});
-header_row.add(header_label);
-rows.unshift(header_row);
 $.main.setData(rows);
+	load_friends();
+}
+
+var _menu_state = true;
+function toggle(){
+	Ti.App.fireEvent("openMenu");return;
 }
 
 function addCar(){
@@ -107,4 +97,32 @@ function invite(){
 
 function help(){
 	
+}
+//###############################################################################################
+function load_friends(){
+	//showPleaseWait();	
+	fb.getFriends(function(friends){
+		build_friends(friends);
+	},function(){
+		
+	});
+}
+var _friends_loaded = false;
+function build_friends(data){
+	_friends_loaded = true;
+	var currentMake;
+	var currentItem;
+		
+	var rows = [];	
+	for(var i=0;i<data.length;i++){
+		if(currentMake!==data[i].make){
+			var separator =  Alloy.createController("friends/friend_separator",{_data:data[i]});
+			rows.push(separator.getView());
+			currentMake = data[i].make;
+		}	
+			var feed_item_left =  Alloy.createController("friends/friend",{_data:data[i]});
+			rows.push(feed_item_left.getView());
+	}
+
+$.main.appendRow(rows);	
 }

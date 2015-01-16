@@ -34,15 +34,15 @@ function Controller() {
         id: "main"
     });
     $.__views.nofriends_invite.add($.__views.main);
-    $.__views.__alloyId47 = Ti.UI.createLabel({
+    $.__views.__alloyId41 = Ti.UI.createLabel({
         font: {
             fontSize: 18
         },
         color: "#ccc",
         text: "you currently don't have any friends",
-        id: "__alloyId47"
+        id: "__alloyId41"
     });
-    $.__views.main.add($.__views.__alloyId47);
+    $.__views.main.add($.__views.__alloyId41);
     $.__views.desc = Ti.UI.createLabel({
         font: {
             fontSize: 18

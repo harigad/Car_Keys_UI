@@ -6,7 +6,6 @@ exports.open = function(){
 	if(!_loaded){
 		load();	
 	}
-	
 	$.header.openWindow($.friends);	
 };
 
@@ -49,13 +48,9 @@ var header_label = Ti.UI.createLabel({
     	fontSize:40
     }
 });
-header_row.add(header_label);
-rows.unshift(header_row);
-
-	
-	
-	
-	$.main.setData(rows);	
+	header_row.add(header_label);
+	rows.unshift(header_row);
+    $.main.setData(rows);	
 }
 
 function showPleaseWait(){

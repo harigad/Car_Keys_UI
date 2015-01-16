@@ -98,13 +98,13 @@ function Controller() {
         top: "60"
     });
     $.__views.poll_profile.add($.__views.scroll);
-    $.__views.__alloyId94 = Ti.UI.createView({
+    $.__views.__alloyId145 = Ti.UI.createView({
         layout: "vertical",
         height: Ti.UI.SIZE,
         top: "10",
-        id: "__alloyId94"
+        id: "__alloyId145"
     });
-    $.__views.scroll.add($.__views.__alloyId94);
+    $.__views.scroll.add($.__views.__alloyId145);
     $.__views.question = Ti.UI.createLabel({
         height: Ti.UI.SIZE,
         id: "question",
@@ -112,7 +112,7 @@ function Controller() {
         right: "10",
         bottom: "5"
     });
-    $.__views.__alloyId94.add($.__views.question);
+    $.__views.__alloyId145.add($.__views.question);
     $.__views.chart = Ti.UI.createWebView({
         id: "chart",
         url: "chartjs/pie.html",
@@ -121,7 +121,7 @@ function Controller() {
         top: "5",
         bottom: "5"
     });
-    $.__views.__alloyId94.add($.__views.chart);
+    $.__views.__alloyId145.add($.__views.chart);
     $.__views.main = Ti.UI.createView({
         id: "main",
         borderRadius: "4",
@@ -133,7 +133,7 @@ function Controller() {
         top: "5",
         bottom: "5"
     });
-    $.__views.__alloyId94.add($.__views.main);
+    $.__views.__alloyId145.add($.__views.main);
     $.__views.comments = Ti.UI.createView({
         id: "comments",
         layout: "vertical",
@@ -142,7 +142,7 @@ function Controller() {
         right: "10",
         top: "5"
     });
-    $.__views.__alloyId94.add($.__views.comments);
+    $.__views.__alloyId145.add($.__views.comments);
     $.__views.header = Alloy.createController("header/header", {
         id: "header",
         __parentSymbol: $.__views.poll_profile

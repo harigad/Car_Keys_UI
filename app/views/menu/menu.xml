@@ -1,0 +1,27 @@
+<Alloy>
+	<Window backgroundColor="#40a3ff">
+		<ScrollView id="menu_container" layout="vertical" top="30">
+    		<View class="menu_item_container">
+    		<View class="menu_item_icon" ></View><Label class="menu_item">check-in</Label><Label class="menu_item_score">(30 points)</Label>
+    		</View><View class="menu_item_container" onClick="test_drive">
+    		<View class="menu_item_icon" ></View><Label class="menu_item">test drive</Label><Label class="menu_item_score">(150 points)</Label>
+    		</View><View class="menu_item_container"  onClick="form" ask="oil_change">
+    		<View class="menu_item_icon" ></View><Label class="menu_item">oil change</Label><Label class="menu_item_score">(75 points)</Label>
+    		</View><View class="menu_item_container" onClick="form" ask="air_filter">
+    		<View class="menu_item_icon" ></View><Label class="menu_item">new air filter</Label><Label class="menu_item_score">(30 points)</Label>
+    		</View><View class="menu_item_container" onClick="form" ask="tire_pressure">
+    		<View class="menu_item_icon" ></View><Label class="menu_item">tire pressure check</Label><Label class="menu_item_score">(20 points)</Label>
+    		</View><View class="menu_item_container" onClick="form" ask="wheel_balance">
+    		<View class="menu_item_icon" ></View><Label class="menu_item">wheel balancing</Label><Label class="menu_item_score">(60 points)</Label>
+    		</View><View class="menu_item_container" onClick="form" ask="wheel_alignment">
+    		<View class="menu_item_icon" ></View><Label class="menu_item">wheel alignment</Label><Label class="menu_item_score">(90 points)</Label>
+    		</View><View class="menu_item_container" onClick="form" ask="new_tire">
+    		<View class="menu_item_icon" ></View><Label class="menu_item">new tires</Label><Label class="menu_item_score">(120 points)</Label>
+    		</View><View class="menu_item_container" onClick="form" ask="brake_fluid">
+    		<View class="menu_item_icon" ></View><Label class="menu_item">new brake fluid</Label><Label class="menu_item_score">(120 points)</Label>
+    		</View><View class="menu_item_container" onClick="add_car" >
+    		<View class="menu_item_icon" ></View><Label class="menu_item">add new car</Label><Label class="menu_item_score">(250 points)</Label>
+    		</View>
+    	</ScrollView>
+	</Window>
+</Alloy>

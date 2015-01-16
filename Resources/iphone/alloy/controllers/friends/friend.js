@@ -9,7 +9,7 @@ function __processArg(obj, key) {
 
 function Controller() {
     function onClick() {
-        Alloy.createController("car/car", {
+        Alloy.createController("profile/profile", {
             _data: _data
         });
     }
@@ -47,19 +47,19 @@ function Controller() {
         backgroundColor: "#eee"
     });
     $.__views.main.add($.__views.icon);
-    $.__views.__alloyId63 = Ti.UI.createView({
+    $.__views.labels = Ti.UI.createView({
         height: Ti.UI.SIZE,
         left: "60",
         layout: "vertical",
-        id: "__alloyId63"
+        id: "labels"
     });
-    $.__views.main.add($.__views.__alloyId63);
-    $.__views.__alloyId64 = Ti.UI.createView({
+    $.__views.main.add($.__views.labels);
+    $.__views.__alloyId75 = Ti.UI.createView({
         height: Ti.UI.SIZE,
         layout: "horizontal",
-        id: "__alloyId64"
+        id: "__alloyId75"
     });
-    $.__views.__alloyId63.add($.__views.__alloyId64);
+    $.__views.labels.add($.__views.__alloyId75);
     $.__views.title = Ti.UI.createLabel({
         left: "0",
         font: {
@@ -70,7 +70,7 @@ function Controller() {
         width: Ti.UI.SIZE,
         id: "title"
     });
-    $.__views.__alloyId64.add($.__views.title);
+    $.__views.__alloyId75.add($.__views.title);
     $.__views.subtext = Ti.UI.createLabel({
         left: 5,
         font: {
@@ -82,26 +82,45 @@ function Controller() {
         width: Ti.UI.SIZE,
         id: "subtext"
     });
-    $.__views.__alloyId64.add($.__views.subtext);
-    $.__views.model = Ti.UI.createLabel({
-        left: 0,
-        font: {
-            fontSize: 14
-        },
-        color: "#7f7f7f",
-        text: "G35",
+    $.__views.__alloyId75.add($.__views.subtext);
+    $.__views.model = Ti.UI.createView({
+        left: "0",
         height: Ti.UI.SIZE,
         width: Ti.UI.SIZE,
-        id: "model"
+        id: "model",
+        layout: "vertical"
     });
-    $.__views.__alloyId63.add($.__views.model);
+    $.__views.labels.add($.__views.model);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var args = arguments[0] || {};
     var _data = args._data || {};
     $.icon.setImage(_data.photo);
     $.title.setText(_data.name.split(" ")[0]);
-    $.model.setText(_data.model + " by " + _data.make);
+    if (_data.cars) {
+        for (var i = 0; _data.cars.length > i; i++) {
+            var car = Ti.UI.createLabel({
+                text: _data.cars[i].model + " by " + _data.cars[i].make,
+                left: 0,
+                font: {
+                    fontSize: 14
+                },
+                color: "#7f7f7f"
+            });
+            $.model.add(car);
+        }
+        $.icon.setTop(0);
+    } else {
+        var car = Ti.UI.createLabel({
+            text: _data.model + " by " + _data.make,
+            left: 0,
+            font: {
+                fontSize: 14
+            },
+            color: "#7f7f7f"
+        });
+        $.model.add(car);
+    }
     __defers["$.__views.home_square!click!onClick"] && $.__views.home_square.addEventListener("click", onClick);
     _.extend($, exports);
 }

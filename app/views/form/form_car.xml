@@ -1,0 +1,10 @@
+<Alloy>
+	<View id="main" layout="vertical" height="Ti.UI.SIZE" onClick="onClick" bottom="20" >
+	 <View id="logo" width="120" height="100" borderWidth="0.5" borderColor="#fff" >
+						<View  width="80" height="80" borderRadius="40" backgroundColor="#222" borderColor="#fff" borderWidth="5" >
+							<ImageView id="logo_image" width="48" height="48" borderRadius="4" ></ImageView>
+						</View>
+	</View>	
+	<Label id="model"></Label>	
+	</View>
+</Alloy>

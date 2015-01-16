@@ -40,12 +40,12 @@ function Controller() {
         layout: "vertical"
     });
     $.__views.scroll.add($.__views.main);
-    $.__views.__alloyId121 = Ti.UI.createView({
+    $.__views.__alloyId172 = Ti.UI.createView({
         height: Ti.UI.SIZE,
         bottom: "10",
-        id: "__alloyId121"
+        id: "__alloyId172"
     });
-    $.__views.main.add($.__views.__alloyId121);
+    $.__views.main.add($.__views.__alloyId172);
     $.__views.photo = Ti.UI.createView({
         backgroundColor: "#fff",
         left: 10,
@@ -56,14 +56,14 @@ function Controller() {
         borderColor: "#cecece",
         id: "photo"
     });
-    $.__views.__alloyId121.add($.__views.photo);
+    $.__views.__alloyId172.add($.__views.photo);
     $.__views.plate_container = Ti.UI.createView({
         left: 110,
         height: Ti.UI.SIZE,
         layout: "vertical",
         id: "plate_container"
     });
-    $.__views.__alloyId121.add($.__views.plate_container);
+    $.__views.__alloyId172.add($.__views.plate_container);
     $.__views.name = Ti.UI.createLabel({
         color: "#eee",
         left: 10,
@@ -73,15 +73,15 @@ function Controller() {
         id: "name"
     });
     $.__views.plate_container.add($.__views.name);
-    $.__views.__alloyId122 = Ti.UI.createView({
+    $.__views.__alloyId173 = Ti.UI.createView({
         height: "1",
         backgroundColor: "#fff",
         right: "30",
         top: "5",
         bottom: "5",
-        id: "__alloyId122"
+        id: "__alloyId173"
     });
-    $.__views.plate_container.add($.__views.__alloyId122);
+    $.__views.plate_container.add($.__views.__alloyId173);
     $.__views.plate = Ti.UI.createLabel({
         color: "#fff",
         left: 10,
@@ -101,31 +101,31 @@ function Controller() {
         borderRadius: "4"
     });
     $.__views.main.add($.__views.cars);
-    $.__views.__alloyId123 = Ti.UI.createView({
+    $.__views.__alloyId174 = Ti.UI.createView({
         top: "0",
         height: "60",
         backgroundColor: "#f49033",
-        id: "__alloyId123"
+        id: "__alloyId174"
     });
-    $.__views.select_car_for_ridealong.add($.__views.__alloyId123);
-    $.__views.__alloyId124 = Ti.UI.createView({
+    $.__views.select_car_for_ridealong.add($.__views.__alloyId174);
+    $.__views.__alloyId175 = Ti.UI.createView({
         top: "10",
         height: "50",
-        id: "__alloyId124"
+        id: "__alloyId175"
     });
-    $.__views.__alloyId123.add($.__views.__alloyId124);
-    $.__views.__alloyId125 = Ti.UI.createView({
+    $.__views.__alloyId174.add($.__views.__alloyId175);
+    $.__views.__alloyId176 = Ti.UI.createView({
         top: 10,
         height: 30,
         width: 50,
         backgroundColor: "#ffa633",
         borderRadius: 4,
         left: "10",
-        id: "__alloyId125"
+        id: "__alloyId176"
     });
-    $.__views.__alloyId124.add($.__views.__alloyId125);
-    onCancel ? $.__views.__alloyId125.addEventListener("click", onCancel) : __defers["$.__views.__alloyId125!click!onCancel"] = true;
-    $.__views.__alloyId126 = Ti.UI.createLabel({
+    $.__views.__alloyId175.add($.__views.__alloyId176);
+    onCancel ? $.__views.__alloyId176.addEventListener("click", onCancel) : __defers["$.__views.__alloyId176!click!onCancel"] = true;
+    $.__views.__alloyId177 = Ti.UI.createLabel({
         height: Ti.UI.SIZE,
         width: Ti.UI.SIZE,
         font: {
@@ -133,9 +133,9 @@ function Controller() {
         },
         color: "#fff",
         text: "cancel",
-        id: "__alloyId126"
+        id: "__alloyId177"
     });
-    $.__views.__alloyId125.add($.__views.__alloyId126);
+    $.__views.__alloyId176.add($.__views.__alloyId177);
     $.__views.question = Ti.UI.createLabel({
         height: Ti.UI.SIZE,
         font: {
@@ -146,7 +146,7 @@ function Controller() {
         text: "RideAlong",
         id: "question"
     });
-    $.__views.__alloyId124.add($.__views.question);
+    $.__views.__alloyId175.add($.__views.question);
     exports.destroy = function() {};
     _.extend($, $.__views);
     require("Login");
@@ -167,7 +167,7 @@ function Controller() {
         $.cars.add(car.getView());
     }
     $.select_car_for_ridealong.open();
-    __defers["$.__views.__alloyId125!click!onCancel"] && $.__views.__alloyId125.addEventListener("click", onCancel);
+    __defers["$.__views.__alloyId176!click!onCancel"] && $.__views.__alloyId176.addEventListener("click", onCancel);
     _.extend($, exports);
 }
 

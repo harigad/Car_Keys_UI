@@ -1,12 +1,9 @@
 "#model_name":{
 	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
 	font:{
-		fontSize:26
+		fontSize:36
 	},
-	color:"#ccc",
-	shadowColor: '#fff',
-    shadowOffset: {x:1, y:1},
-    shadowRadius: 3
+	color:"#fff"
 }
 
 "#year_name":{
@@ -22,7 +19,7 @@
 }
 
 "#hp":{
-	color:"#7f7f7f",
+	color:"#fff",
 	font:{
 		fontSize:16
 	}
@@ -34,22 +31,17 @@
 	}
 }
 
-"#owner_name":{
-	font:{
-		fontSize:20
-	},bottom:2,
-	color:"#ccc"
-}
+
 
 "#recalls":{
-	color:"#7f7f7f",
+	color:"#fff",
 	font:{
 		fontSize:16
 	}
 }
 
 "#schedules":{
-	color:"#7f7f7f",
+	color:"#fff",
 	font:{
 		fontSize:16
 	}

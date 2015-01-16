@@ -42,17 +42,17 @@ function Controller() {
         id: "container"
     });
     $.__views.signup_or_skip.add($.__views.container);
-    $.__views.__alloyId169 = Ti.UI.createView({
+    $.__views.__alloyId220 = Ti.UI.createView({
         backgroundColor: "#40a3ff",
         bottom: 10,
         borderRadius: 4,
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
-        id: "__alloyId169"
+        id: "__alloyId220"
     });
-    $.__views.container.add($.__views.__alloyId169);
-    add ? $.__views.__alloyId169.addEventListener("click", add) : __defers["$.__views.__alloyId169!click!add"] = true;
-    $.__views.__alloyId170 = Ti.UI.createLabel({
+    $.__views.container.add($.__views.__alloyId220);
+    add ? $.__views.__alloyId220.addEventListener("click", add) : __defers["$.__views.__alloyId220!click!add"] = true;
+    $.__views.__alloyId221 = Ti.UI.createLabel({
         color: "#fff",
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
@@ -64,9 +64,9 @@ function Controller() {
             fontSize: 26
         },
         text: "ADD MY CAR",
-        id: "__alloyId170"
+        id: "__alloyId221"
     });
-    $.__views.__alloyId169.add($.__views.__alloyId170);
+    $.__views.__alloyId220.add($.__views.__alloyId221);
     $.__views.skip_btn = Ti.UI.createView({
         backgroundColor: "#f1f1f1",
         bottom: 10,
@@ -96,7 +96,7 @@ function Controller() {
     _.extend($, $.__views);
     var args = arguments[0] || {};
     $.signup_or_skip.open({});
-    __defers["$.__views.__alloyId169!click!add"] && $.__views.__alloyId169.addEventListener("click", add);
+    __defers["$.__views.__alloyId220!click!add"] && $.__views.__alloyId220.addEventListener("click", add);
     __defers["$.__views.skip_btn!click!skip"] && $.__views.skip_btn.addEventListener("click", skip);
     _.extend($, exports);
 }

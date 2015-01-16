@@ -122,12 +122,12 @@ function Controller() {
         id: "main"
     });
     $.__views.container.add($.__views.main);
-    $.__views.__alloyId51 = Ti.UI.createView({
+    $.__views.__alloyId45 = Ti.UI.createView({
         height: Ti.UI.SIZE,
-        id: "__alloyId51"
+        id: "__alloyId45"
     });
-    $.__views.container.add($.__views.__alloyId51);
-    more ? $.__views.__alloyId51.addEventListener("click", more) : __defers["$.__views.__alloyId51!click!more"] = true;
+    $.__views.container.add($.__views.__alloyId45);
+    more ? $.__views.__alloyId45.addEventListener("click", more) : __defers["$.__views.__alloyId45!click!more"] = true;
     $.__views.more = Ti.UI.createLabel({
         text: "please wait..",
         id: "more",
@@ -136,7 +136,7 @@ function Controller() {
         color: "#ffa633",
         height: Ti.UI.SIZE
     });
-    $.__views.__alloyId51.add($.__views.more);
+    $.__views.__alloyId45.add($.__views.more);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var login = require("Login");
@@ -150,7 +150,7 @@ function Controller() {
     exports.refresh = function() {
         load();
     };
-    __defers["$.__views.__alloyId51!click!more"] && $.__views.__alloyId51.addEventListener("click", more);
+    __defers["$.__views.__alloyId45!click!more"] && $.__views.__alloyId45.addEventListener("click", more);
     _.extend($, exports);
 }
 

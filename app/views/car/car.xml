@@ -1,58 +1,50 @@
 <Alloy>
-	<Window navBarHidden="true"  backgroundColor="#f1f1f1" >
-		<ScrollView id="scroll" top="0" height="Ti.UI.FILL" >
-			<View layout="vertical" top="60"  height="Ti.UI.SIZE" >
+		<TableViewRow layout="vertical" height="Ti.UI.SIZE" selectedBackgroundColor='transparent' >
 	  		<View layout="horizontal" id="main" height="Ti.UI.SIZE" >
 			
-			<View id="model" backgroundColor="#eee" width="200" height="200"  borderWidth="0.5" borderColor="#fff" >
+			<View id="model" backgroundColor="#40a3ff" width="200" height="200"  borderWidth="0.5" borderColor="#fff" >
 				<View height="Ti.UI.SIZE" width="Ti.UI.SIZE" layout="vertical" >
-					<ImageView id="user_photo" width="50" height="50" borderWidth="2.5" borderColor="#cecece" bottom="5" borderRadius="25" backgroundColor="#eee" ></ImageView>
-					<Label id="owner_name"  ></Label>
 					<Label id="model_name"  ></Label>
 				</View>
 			</View>
 		    <View layout="vertical" height="Ti.UI.SIZE" width="Ti.UI.SIZE" >
-		    	<View id="year" backgroundColor="#e1e1e1" width="120" height="100" borderWidth="0.5" borderColor="#fff" onClick="goToYear" >
-						<Label color="#777" id="year_name" ></Label>
+		    	<View id="year" backgroundColor="#40a3ff" width="120" height="100" borderWidth="0.5" borderColor="#fff" onClick="goToYear" >
+						<Label color="#fff" id="year_name" ></Label>
 				</View>
-		    	<View id="logo" backgroundColor="#f1f1f1" width="120" height="100" borderWidth="0.5" borderColor="#fff" onClick="goToMake" >
-						<View  width="80" height="80" borderRadius="40" backgroundColor="#222" borderColor="#666" borderWidth="5" >
+		    	<View id="logo" backgroundColor="#40a3ff" width="120" height="100" borderWidth="0.5" borderColor="#fff" onClick="goToMake" >
+						<View  width="80" height="80" borderRadius="40" backgroundColor="#222" borderColor="#fff" borderWidth="5" >
 							<ImageView id="logo_image" width="48" height="48" borderRadius="4" ></ImageView>
 						</View>
 				</View>
 		    </View>
 		
-		<View id="photo" backgroundColor="#aaa" width="320" height="Ti.UI.SIZE"   >
+		<View id="photo" backgroundColor="#40a3ff" width="Ti.UI.FILL" height="Ti.UI.SIZE"   >
 				<ImageView with="320" id="photo_image" top="0" left="0" ></ImageView>
 		</View>
 			
 		    <View layout="vertical" height="Ti.UI.SIZE" width="Ti.UI.SIZE" >
-		    	<View   backgroundColor="#f1f1f1" width="160" height="80" borderWidth="0.5" borderColor="#fff" >
-						<Label color="#777" id="mileage" >17 / 25 mpg</Label>
+		    	<View  id="mileage_container" backgroundColor="#40a3ff" width="160" height="80" borderWidth="0.5" borderColor="#fff" >
+						<Label color="#fff" id="mileage" ></Label>
 				</View>
-		    	<View  backgroundColor="#e1e1e1" width="160" height="80" borderWidth="0.5" borderColor="#fff" onClick="goToCylinder"  >
-						<Label  color="#777" id="cylinder" ></Label>
+		    	<View  id="cylinder_container" backgroundColor="#40a3ff" width="160" height="80" borderWidth="0.5" borderColor="#fff" onClick="goToCylinder"  >
+						<Label  color="#fff" id="cylinder" ></Label>
 				</View>
 		    </View>
 		
-		<View  backgroundColor="#eee" width="160" height="160"  borderWidth="0.5" borderColor="#fff" >
-				<View  width="120" height="120" borderRadius="60" backgroundColor="#dedede" borderColor="#fff" borderWidth="5" >
-						<Label id="hp" color="#777" ></Label>
+		<View  id="hp_container" backgroundColor="#40a3ff" width="160" height="160"  borderWidth="0.5" borderColor="#fff" >
+				<View  width="120" height="120" borderRadius="60" backgroundColor="#aaa" borderColor="#fff" borderWidth="5" >
+						<Label id="hp" color="#fff" ></Label>
 				</View>
 		</View>
 		
 		
-		<View backgroundColor="#eee" width="160" height="160"  borderWidth="0.5" borderColor="#fff" >
-				<Label id="recalls"  color="#777" >recalls</Label>
+		<View id="recalls_container" backgroundColor="#40a3ff" width="160" height="160"  borderWidth="0.5" borderColor="#fff" >
+				<Label id="recalls"  color="#fff" >recalls</Label>
 		</View>
 		
-		<View backgroundColor="#f1f1f1" width="160" height="160"  borderWidth="0.5" borderColor="#fff" >
+		<View id="schedules_container" backgroundColor="#40a3ff" width="160" height="160"  borderWidth="0.5" borderColor="#fff" >
 				<Label id="schedules">schedules</Label>
 		</View>
-		
 		</View>
-	  	</View>
-	  </ScrollView>
-		<Require type="view" src="header/header" id="header"/>
-	</Window>
+	  	</TableViewRow>
 </Alloy>

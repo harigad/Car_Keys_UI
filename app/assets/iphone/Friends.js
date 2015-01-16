@@ -120,7 +120,6 @@ exports.invite = function() {
         message: "Checkout my Infiniti G35 and Honda Civic"
     }, function(response) {
         var k = response;
-        Ti.API.info(k);
         debugger;
     });
 };

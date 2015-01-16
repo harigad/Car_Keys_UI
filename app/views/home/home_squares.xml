@@ -1,7 +1,8 @@
 <Alloy>
-    <View layout="vertical">
-	  	<TableView backgroundColor="#fff" id="main" separatorStyle="NONE" top="20" >
+	<View layout="vertical">
+    	<Label id="toggle_menu" onTouchstart="toggle" top="20">+ ride along</Label>
+      	<TableView backgroundColor="#fff" id="main" separatorStyle="NONE" top="20" >
 		  
 	  	</TableView>
-	  </View>
+	 </View>
 </Alloy>

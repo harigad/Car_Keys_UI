@@ -1,0 +1,31 @@
+".menu_item_container":{
+	left:10,bottom:10,
+	height:Ti.UI.SIZE,
+	width:Ti.UI.SIZE,
+	layout: "horizontal"
+}
+
+".menu_item_icon":{
+	width:30,height:30,backgroundColor:"#eee",borderRadius:15,
+	left:0
+}
+
+".menu_item":{
+	width:Ti.UI.SIZE,
+	height:Ti.UI.SIZE,
+	left:10,
+	color:"#fff",
+    font:{
+    	fontSize:18
+    }
+}
+
+".menu_item_score":{
+	width:Ti.UI.SIZE,
+	height:Ti.UI.SIZE,
+	left:5,height:30,opacity:0.5,
+	color:"#fff",
+    font:{
+    	fontSize:12
+    }
+}

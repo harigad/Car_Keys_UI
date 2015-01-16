@@ -1,0 +1,65 @@
+"Window": {
+	backgroundColor:"#fff",navBarHidden:true
+}
+
+"#main": {
+	top:60,
+	layout:"vertical",height:Ti.UI.SIZE,
+	left:10,right:10
+}
+
+"#question" :{
+	height:Ti.UI.SIZE,
+	font:{
+		fontSize: 18
+	},
+	color:"#ccc",
+	shadowColor: '#fff',
+    shadowOffset: {x:1, y:1},
+    shadowRadius: 3
+}
+
+".hr": {
+	height:1,left:0,right:0,
+	backgroundColor:"#333",opacity:0.3
+}
+
+".TextFieldContainer":{
+	left:10,
+	right:10,height:Ti.UI.SIZE
+}
+
+".TextFieldLabel":{
+	left:3,right:0,top:0,
+	color:"#aaa",
+	font:{fontSize:16},height:85
+}
+
+"TextField":{
+	left:0,right:0,top:0,
+	color:"#000",
+	font:{fontSize:85},maxLength:6,keyboardType:Titanium.UI.KEYBOARD_NUMBER_PAD,
+	borderStyle:Ti.UI.INPUT_BORDERSTYLE_NONE,
+	autocapitalization: Titanium.UI.TEXT_AUTOCAPITALIZATION_ALL
+}
+
+"#help_label":{
+	top:15,width:Ti.UI.SIZE,height:Ti.UI.SIZE,
+	color:"#40a3ff",
+	font:{fontSize:14}
+}
+
+".btn_container": {
+	top:10,
+	height:30,width:50,
+	backgroundColor:"#40a3ff",
+	borderRadius:4
+}
+
+".btn" : {
+	height:Ti.UI.SIZE,width:Ti.UI.SIZE,
+	font:{
+		fontSize: 11
+	},
+	color:"#fff"
+}

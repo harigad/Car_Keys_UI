@@ -38,19 +38,19 @@ function Controller() {
         backgroundColor: "#fff"
     });
     $.__views.year.add($.__views.scroll);
-    $.__views.__alloyId193 = Ti.UI.createView({
+    $.__views.__alloyId244 = Ti.UI.createView({
         height: Ti.UI.SIZE,
         layout: "vertical",
         top: "0",
-        id: "__alloyId193"
+        id: "__alloyId244"
     });
-    $.__views.scroll.add($.__views.__alloyId193);
-    $.__views.__alloyId194 = Ti.UI.createView({
+    $.__views.scroll.add($.__views.__alloyId244);
+    $.__views.__alloyId245 = Ti.UI.createView({
         height: "200",
         backgroundColor: "#f1f1f1",
-        id: "__alloyId194"
+        id: "__alloyId245"
     });
-    $.__views.__alloyId193.add($.__views.__alloyId194);
+    $.__views.__alloyId244.add($.__views.__alloyId245);
     $.__views.name = Ti.UI.createLabel({
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
@@ -66,7 +66,7 @@ function Controller() {
         shadowRadius: 3,
         id: "name"
     });
-    $.__views.__alloyId194.add($.__views.name);
+    $.__views.__alloyId245.add($.__views.name);
     $.__views.main = Ti.UI.createTableView({
         top: 0,
         separatorStyle: Alloy.Globals._params.TableViewSeparatorStyle.NONE,
@@ -74,7 +74,7 @@ function Controller() {
         scrollable: "false",
         height: Ti.UI.SIZE
     });
-    $.__views.__alloyId193.add($.__views.main);
+    $.__views.__alloyId244.add($.__views.main);
     $.__views.header = Alloy.createController("header/header", {
         id: "header",
         __parentSymbol: $.__views.year

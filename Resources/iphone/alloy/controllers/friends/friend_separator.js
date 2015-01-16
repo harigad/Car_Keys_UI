@@ -29,13 +29,13 @@ function Controller() {
     });
     $.__views.main && $.addTopLevelView($.__views.main);
     goToMake ? $.__views.main.addEventListener("click", goToMake) : __defers["$.__views.main!click!goToMake"] = true;
-    $.__views.__alloyId65 = Ti.UI.createView({
+    $.__views.__alloyId76 = Ti.UI.createView({
         height: Ti.UI.SIZE,
         top: "8",
         bottom: "8",
-        id: "__alloyId65"
+        id: "__alloyId76"
     });
-    $.__views.main.add($.__views.__alloyId65);
+    $.__views.main.add($.__views.__alloyId76);
     $.__views.bar = Ti.UI.createView({
         height: 1,
         backgroundColor: "#cecece",
@@ -43,7 +43,7 @@ function Controller() {
         left: 0,
         id: "bar"
     });
-    $.__views.__alloyId65.add($.__views.bar);
+    $.__views.__alloyId76.add($.__views.bar);
     $.__views.logo_container = Ti.UI.createView({
         top: 0,
         backgroundColor: "#333",
@@ -54,7 +54,7 @@ function Controller() {
         borderColor: "#ccc",
         id: "logo_container"
     });
-    $.__views.__alloyId65.add($.__views.logo_container);
+    $.__views.__alloyId76.add($.__views.logo_container);
     $.__views.logo = Ti.UI.createImageView({
         width: 30,
         height: 30,
@@ -70,7 +70,7 @@ function Controller() {
         height: Ti.UI.SIZE,
         id: "name_container"
     });
-    $.__views.__alloyId65.add($.__views.name_container);
+    $.__views.__alloyId76.add($.__views.name_container);
     $.__views.name = Ti.UI.createLabel({
         color: "#cecece",
         width: Ti.UI.SIZE,

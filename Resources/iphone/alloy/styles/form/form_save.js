@@ -1,0 +1,1 @@
+module.exports = [{"isId":true,"priority":100000.0152,"key":"layer","style":{width:Ti.UI.FILL,height:Ti.UI.FILL,backgroundImage:"common/blue_bg.png",}},{"isId":true,"priority":100000.0153,"key":"points","style":{width:300,height:Ti.UI.SIZE,color:"#fff",font:{fontSize:50,},textAlign:Ti.UI.TEXT_ALIGNMENT_CENTER,}}];

@@ -29,7 +29,7 @@ if(_data.color){
 //}
 
 if(_data.subtext){
-	$.subtext.setText("(" + _data.subtext + " points)");
+	$.subtext.setText("( " + _data.subtext + " )");
 }
 
 //if(_data.image){

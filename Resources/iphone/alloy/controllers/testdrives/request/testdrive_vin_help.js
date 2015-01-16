@@ -52,7 +52,7 @@ function Controller() {
         id: "header"
     });
     $.__views.main.add($.__views.header);
-    $.__views.__alloyId188 = Ti.UI.createLabel({
+    $.__views.__alloyId239 = Ti.UI.createLabel({
         left: 10,
         top: 15,
         color: "#666",
@@ -60,10 +60,10 @@ function Controller() {
             fontSize: 16
         },
         text: "Ask the salesperson at the auto dealership",
-        id: "__alloyId188"
+        id: "__alloyId239"
     });
-    $.__views.main.add($.__views.__alloyId188);
-    $.__views.__alloyId189 = Ti.UI.createLabel({
+    $.__views.main.add($.__views.__alloyId239);
+    $.__views.__alloyId240 = Ti.UI.createLabel({
         left: 10,
         top: 15,
         color: "#666",
@@ -71,10 +71,10 @@ function Controller() {
             fontSize: 16
         },
         text: "On the driver's side door. Where the open end of the door meets the car.",
-        id: "__alloyId189"
+        id: "__alloyId240"
     });
-    $.__views.main.add($.__views.__alloyId189);
-    $.__views.__alloyId190 = Ti.UI.createLabel({
+    $.__views.main.add($.__views.__alloyId240);
+    $.__views.__alloyId241 = Ti.UI.createLabel({
         left: 10,
         top: 15,
         color: "#666",
@@ -82,30 +82,30 @@ function Controller() {
             fontSize: 16
         },
         text: "On the driver's side dashboard. Stand outside the vehicle and look at the corner where the dashboard meets the windshield.",
-        id: "__alloyId190"
+        id: "__alloyId241"
     });
-    $.__views.main.add($.__views.__alloyId190);
-    $.__views.__alloyId191 = Ti.UI.createView({
+    $.__views.main.add($.__views.__alloyId241);
+    $.__views.__alloyId242 = Ti.UI.createView({
         left: 20,
         right: 20,
         height: Ti.UI.SIZE,
         top: 30,
         borderRadius: 4,
         backgroundColor: "#40a3ff",
-        id: "__alloyId191"
+        id: "__alloyId242"
     });
-    $.__views.main.add($.__views.__alloyId191);
-    close ? $.__views.__alloyId191.addEventListener("click", close) : __defers["$.__views.__alloyId191!click!close"] = true;
-    $.__views.__alloyId192 = Ti.UI.createLabel({
+    $.__views.main.add($.__views.__alloyId242);
+    close ? $.__views.__alloyId242.addEventListener("click", close) : __defers["$.__views.__alloyId242!click!close"] = true;
+    $.__views.__alloyId243 = Ti.UI.createLabel({
         color: "#fff",
         top: 20,
         bottom: 20,
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         text: "Of course I know that!",
-        id: "__alloyId192"
+        id: "__alloyId243"
     });
-    $.__views.__alloyId191.add($.__views.__alloyId192);
+    $.__views.__alloyId242.add($.__views.__alloyId243);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var args = arguments[0] || {};
@@ -113,7 +113,7 @@ function Controller() {
     $.testdrive_vin_help.open({
         transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT
     });
-    __defers["$.__views.__alloyId191!click!close"] && $.__views.__alloyId191.addEventListener("click", close);
+    __defers["$.__views.__alloyId242!click!close"] && $.__views.__alloyId242.addEventListener("click", close);
     _.extend($, exports);
 }
 

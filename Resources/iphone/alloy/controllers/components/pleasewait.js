@@ -23,11 +23,11 @@ function Controller() {
         id: "pleasewait"
     });
     $.__views.pleasewait && $.addTopLevelView($.__views.pleasewait);
-    $.__views.__alloyId48 = Ti.UI.createView({
+    $.__views.__alloyId42 = Ti.UI.createView({
         height: Ti.UI.SIZE,
-        id: "__alloyId48"
+        id: "__alloyId42"
     });
-    $.__views.pleasewait.add($.__views.__alloyId48);
+    $.__views.pleasewait.add($.__views.__alloyId42);
     $.__views.label = Ti.UI.createLabel({
         color: "#ccc",
         shadowColor: "#fff",
@@ -43,7 +43,7 @@ function Controller() {
         height: Ti.UI.SIZE,
         id: "label"
     });
-    $.__views.__alloyId48.add($.__views.label);
+    $.__views.__alloyId42.add($.__views.label);
     exports.destroy = function() {};
     _.extend($, $.__views);
     exports.open = function() {
